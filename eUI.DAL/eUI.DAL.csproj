@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessDAL.cs" />
     <Compile Include="DBUtility\DBHelper.cs" />
     <Compile Include="PaperDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

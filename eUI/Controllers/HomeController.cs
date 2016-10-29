@@ -46,10 +46,10 @@ namespace easyUITest.Controllers
             return View(WebFiles.UserLineReport);
         }
 
-        public ActionResult UserBoard()
-        {
-            return View(WebFiles.UserBoard);
-        }
+        //public ActionResult UserBoard()
+        //{
+        //    return View(WebFiles.UserBoard);
+        //}
 
         public ActionResult WxPage()
         {
