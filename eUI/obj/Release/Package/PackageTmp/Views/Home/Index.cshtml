@@ -1,0 +1,223 @@
+﻿@{
+    Layout = null;
+}
+
+@Styles.Render(Files.CssFiles.easyUI)
+@Styles.Render(Files.CssFiles.easyUIicon)
+@Scripts.Render(Files.JsFiles.jQuery)
+@Scripts.Render(Files.JsFiles.easyUI)
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>easyUI >> Test</title>
+
+    <script type="text/javascript">
+        $(function () {
+            //alert($.parser.parse());
+
+            //$.messager.alert('Title', 'load ok'); 
+
+            $('#dd2').draggable({
+                handle: '#dd2title',
+                deltaX: 1,
+                deltaY: 1,
+                revert: true,
+                edge: null,
+                axis: 'h',
+                delay: null
+            });
+
+            //$('#dd2').draggable({
+            //    proxy: function (source) {
+            //        var p = $('<div style="border:1px solid #ccc;width:80px"></div>');
+            //        p.html($(source).html()).appendTo('body');
+            //        return p;
+            //    }
+            //});
+
+            //放置区
+            $('#dd3').droppable({
+                accept: '#dd,#dd2',
+                onDragEnter: function () {
+                    alert('进来了');
+                }
+
+            });
+
+            $('#ppJs').pagination({
+                total: 2000,
+                pageSize: 10
+            });
+
+            $('#ppJs').pagination({
+                //total: 114,
+                buttons: [{
+                    iconCls: 'icon-add',
+                    handler: function () { alert('add') }
+                }, '-', {
+                    iconCls: 'icon-save',
+                    handler: function () { alert('save') }
+                }],
+                displayMsg: 'hello',
+                showPageList: true,
+                onSelectPage: function (pageNumber, pageSize) {
+                    alert("pageNuber:" + pageNumber + " |pageSize:" + pageSize);
+                }
+            });
+        });
+
+    </script>
+
+    <script>
+        //function closes() {
+        //    $("#Loading").fadeOut("normal", function () {
+        //        $(this).remove();
+        //    });
+        //}
+        //var pc;
+        //$.parser.onComplete = function () {
+        //    if (pc) clearTimeout(pc);
+        //    closes();
+        //    //pc = setTimeout(closes, 1000);
+        //}
+
+        function getoptions() {
+            //alert( $('#rr').resizable('options'));
+            $('#rr').resizable('disable');
+        }
+
+        function paginationSelect() {
+            $('#ppJs').pagination('select');
+        }
+
+    </script>
+</head>
+<body>
+
+
+    <script type="text/javascript">
+        function qq(value, name) {
+            alert(value + ":" + name)
+        }
+        $(function () {
+            $('#ss2').searchbox({
+                searcher: function (value, name) {
+                    alert(value + "," + name)
+                },
+                menu: '#mm2',
+                prompt: '请输入值',
+                height: 100,
+                width: 400
+            });
+
+            $("#btnProgressbar").click(function () {
+                var value = $('#ppp').progressbar('getValue');
+                if (value < 100) {
+                    value += Math.floor(Math.random() * 10);
+                    $('#ppp').progressbar('setValue', value);
+                }
+            });
+
+            $('#ppp2').progressbar({
+                value: 80,
+                text: '百分之{value}'
+            });
+
+            $('#ddtooltip').tooltip({
+                position: 'right',
+                content: '<span style="color:#fff">This is the tooltip message.</span>',
+                onShow: function () {
+                    $(this).tooltip('tip').css({
+                        backgroundColor: '#666',
+                        borderColor: '#666'
+                    });
+                },
+                trackMouse:true
+            });
+
+        });
+
+
+    </script>
+
+    @* 提示框 *@
+    <a title="This is the tooltip message." class="easyui-tooltip">Hover me</a>
+    <a id="ddtooltip" href="javascript:void(0)">Click here</a>
+
+    @*进度条*@
+    <div id="ppp" class="easyui-progressbar" data-options="value:2" style="width: 200px;"></div>
+    <div id="ppp2" style="width: 400px;"></div>
+
+    <input id="btnProgressbar" type="button" value="设置进度条" />
+
+    <input id="ss" class="easyui-searchbox" style="width: 300px"
+        data-options="searcher:qq,prompt:'Please Input Value',menu:'#mm'"></input>
+
+    <div id="mm" style="width: 120px">
+        <div data-options="name:'all',iconCls:'icon-ok'">All News</div>
+        <div data-options="name:'sports'">Sports News</div>
+    </div>
+
+    <input id="ss2" style="width: 200px;"></input>
+    <div id="mm2" style="width: 120px">
+        <div data-options="name:'all',iconCls:'icon-ok'">All News</div>
+        <div data-options="name:'sports'">Sports News</div>
+    </div>
+
+
+    <input type="button" value="刷新" onclick="paginationSelect()" />
+
+    <div id="pp" class="easyui-pagination" data-options="total:2000,pageSize:30" style="background: #efefef; border: 1px solid #ccc;"></div>
+    <div id="ppJs" style="background: #efefef; border: 1px solid #ccc;"></div>
+
+    <input type="button" value="禁止调整大小" onclick="getoptions()" />
+    <div>
+        @*  <div id='Loading' style="position: absolute; z-index: 1000; top: 0px; left: 0px; width: 100%; height: 100%; background: #DDDDDB url('style/images/bodybg.jpg'); text-align: center; padding-top: 20%;">
+            <h1>
+                <image src='style/images/loading.gif' />
+                <font color="#15428B">加载中···</font></h1>
+        </div>*@
+
+        <div id="p" class="easyui-panel" style="width: 500px; height: 200px; padding: 10px;"
+            title="My Panel" iconcls="icon-save" collapsible="true">
+            easyUI Test  
+        </div>
+
+        @*  <div class="easyui-dialog" style="width: 400px; height: 200px"
+            data-options="title:'My Dialog',collapsible:true,iconCls:'icon-ok',onOpen:function(){}">
+            dialog content.
+        </div>*@
+
+        <input class="easyui-combobox" name="language"
+            data-options="    
+            @*url:'easyUI/combobox_data1.json',    *@
+            url:'/Data/combobox1',
+            valueField:'Id',    
+            textField:'Text',    
+            panelHeight:'auto',    
+            onSelect:function(record){    
+                alert(record.Text)    
+            }" />
+
+        <div id="dd" class="easyui-draggable" data-options="handle:'#title2'" style="width: 100px; height: 100px;">
+            <div id="title" style="background: #ccc;">title</div>
+            <div id="title2">
+                testmike
+            </div>
+            1234mike
+        </div>
+
+        <div id="dd2" style="width: 100px; height: 100px;">
+            <div id="dd2title" style="background: #ccc;">title</div>
+        </div>
+
+        <div id="dd3" style="width: 100px; height: 100px;">123</div>
+
+        <div id="rr" class="easyui-resizable" data-options="maxWidth:800,maxHeight:600,edge:20,disabled:false" style="width: 100px; height: 100px; border: 1px solid #ccc;"></div>
+
+
+
+    </div>
+</body>
+</html>

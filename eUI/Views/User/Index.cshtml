@@ -1,0 +1,93 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section header{
+    @Scripts.Render(eUI.Common.JsFiles.UserInfo)
+    @Scripts.Render(eUI.Common.JsFiles.GridToExport)
+    @Scripts.Render(eUI.Common.JsFiles.JsCommon)
+    @Scripts.Render(eUI.Common.JsFiles.DatagridFilter)
+    @Scripts.Render(eUI.Common.JsFiles.UserPermissionSet)
+    @Scripts.Render(eUI.Common.JsFiles.UserUploadPic)
+    @Scripts.Render(eUI.Common.JsFiles.UserGridEditingInline)
+    @Scripts.Render(eUI.Common.JsFiles.UserAddEditDel)
+}
+
+<label>用户名:</label>
+<input id="txtSearchUserName" class="easyui-textbox" />
+<label>创建日期:</label>
+<input  id="txtstTime"  type="text" />
+到:
+<input  id="txtedTime"  type="text" />
+<a id="btnSearch" class="easyui-linkbutton" href="javascript:void(0)">确定</a>
+@*<a href="#" class="easyui-linkbutton" onclick="insert()">Insert Row</a>*@
+
+<div id="usergrid"></div>
+
+<div id="userdialog" closed="true" class="easyui-window">
+    <form id="userInfoForm" method="post">
+        <input id="txtHideID" name="id" style="display: none" />
+        <div>
+            <label for="name">用户名:</label>
+            <input id="txtName" class="easyui-textbox" data-options="required:true" name="name" missingmessage="不能为空" />
+        </div>
+        <div>
+            <label for="pwd">密码:</label>
+            <input id="txtPwd" class="easyui-passwordbox" data-options="required:true" name="pwd" missingmessage="不能为空" />
+        </div>
+        <div>
+            <label for="pwdagain">确认密码:</label>
+            <input id="txtPwdAgain" class="easyui-passwordbox" data-options="required:true" name="pwdagain" validtype="equals['#txtPwd']" missingmessage="不能为空" />
+        </div>
+        <div>
+            <label for="gender">性别:</label>
+            <input id="rdmale" type="radio" value="1" name="gender" /><label for="rdmale"> 男</label>
+            <input id="rdfemale" type="radio" value="0" name="gender" /><label for="rdfemale"> 女</label>
+        </div>
+        <div>
+            <label>联系电话:</label>
+            <input id="txtTel" class="easyui-textbox" name="tel" type="text" />
+        </div>
+        <div>
+            <label id="email">邮箱:</label>
+            <input id="txtEmail" class="easyui-textbox" data-options="validType:'email'" name="email" invalidmessage="邮箱格式不正确" />
+        </div>
+        <div>
+            <label id="address">地址:</label>
+            <input id="txtAddress" class="easyui-textbox" name="address" type="text" />
+        </div>
+    </form>
+</div>
+
+<div class="easyui-window" id="userUploadPic" title="文件上传" style="width:400px;height:160px;padding:2px;" closed="true">
+    <form id="importFileForm" method="post" enctype="multipart/form-data" style="display:none" >
+        <table style="margin:5px;height:70px;">
+            <tr>
+                <td>请选择文件:</td>
+                <td width="2px;"></td>
+                <td>
+                    <input  id="fileToUpload" name="fileToUpload"  style="width:240px"/> 
+                     @*<input type="file" name="filename" />*@
+                </td>
+                <td></td></tr>
+            <tr>
+                <td colspan="4"><label id="fileInfo" /></td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <label id="uploadInfo" />
+                </td>
+            </tr>
+        </table><div style="text-align:center;clear:both;margin:5px;">
+            <a id="uploadFile" class="easyui-linkbutton" data-options="iconCls:'icon-ok',onClick:importFileClick"  href="javascript:void(0)">上传</a>
+            <a class="easyui-linkbutton" data-options="iconCls:'icon-cancel'" data-bind="click:closeImportClick" href="javascript:void(0)">关闭</a>
+        </div>
+    </form>
+</div>
+
+<div id="userPermission" closed="true" class="easyui-window">
+    <ul id="permissionTree"></ul>
+</div>  
+
+
