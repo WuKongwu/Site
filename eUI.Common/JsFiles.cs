@@ -30,7 +30,7 @@ namespace eUI.Common
         public static string UserUploadPic = "/Js/User/uploadpic.js?ver=" + ver;
         public static string UserGridEditingInline = "/Js/User/GridEditingInline.js?ver=" + ver;
         public static string UserAddEditDel = "/Js/User/AddEditDel.js?ver=" + ver;
-        public static string UserBoard = "/Js/User/Board.js?ver=" + ver;
+        //public static string UserBoard = "/Js/User/Board.js?ver=" + ver;
         public static string UserBoardTest = "/Js/User/BoardTest.js?ver=" + ver;
         public static string WxPage = "/Js/Wx/WxPage.js?ver=" + ver;
         public static string eUIMaskMsg = "/Js/EasyUIPlug/eUIMaskMsg.js?ver=" + ver;

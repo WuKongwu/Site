@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using eUI.Common;
-
 namespace eUI.BLL
 {
     public class UserInfoBLL

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using eUI.BLL;
+using eUI.Model;
+using eUI.Model.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -14,9 +17,12 @@ namespace easyUITest.Controllers
         {
             return View();
         }
-        public ActionResult SearchUsers()
+        public ActionResult SearchUsers(UserRecord userRecord)
         {
-            return Json(new { });
+            UserRecordBLL bll = new UserRecordBLL();
+
+            UserRecordList userRecordList = bll.getUserList(userRecord);
+            return Json(userRecordList,JsonRequestBehavior.AllowGet);
         }
     }
 }

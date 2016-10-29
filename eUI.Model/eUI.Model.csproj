@@ -60,6 +60,7 @@
     <Compile Include="UserRecord.cs" />
     <Compile Include="ViewModel\PaperInit.cs" />
     <Compile Include="ViewModel\PaperList.cs" />
+    <Compile Include="ViewModel\UserRecordList.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
