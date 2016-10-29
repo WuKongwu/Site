@@ -12,17 +12,17 @@ namespace easyUITest.Controllers
 {
     public class PermissionSetController : ApiController
     {
-        UserInfoBLL userInfoBLL = new UserInfoBLL();
+        //UserInfoBLL userInfoBLL = new UserInfoBLL();
 
-        public PermissionSetStatus SetPermission(PermissionIDListModel permissionIDListModel)
-        {
-            return userInfoBLL.UpdatePermission(permissionIDListModel);
-        }
+        //public PermissionSetStatus SetPermission(PermissionIDListModel permissionIDListModel)
+        //{
+        //    return userInfoBLL.UpdatePermission(permissionIDListModel);
+        //}
 
-        [HttpPost]
-        public List<PermissionActionID> GetUserPermission(PermissionIDListModel permissionIDListModel)
-        {
-            return userInfoBLL.GetUserPermission(permissionIDListModel);
-        }
+        //[HttpPost]
+        //public List<PermissionActionID> GetUserPermission(PermissionIDListModel permissionIDListModel)
+        //{
+        //    return userInfoBLL.GetUserPermission(permissionIDListModel);
+        //}
     }
 }

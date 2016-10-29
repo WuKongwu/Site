@@ -10,21 +10,21 @@ namespace easyUITest.Controllers
 {
     public class ExportController : Controller
     {
-        UserInfoBLL userInfoBLL = new UserInfoBLL();
-        //
-        // GET: /Export/
+        //UserInfoBLL userInfoBLL = new UserInfoBLL();
+        ////
+        //// GET: /Export/
 
-        public ActionResult Index()
-        {
-            return View();
-        }
+        //public ActionResult Index()
+        //{
+        //    return View();
+        //}
 
-        public FileResult UserInfo(UserParams userInfo)
-        {
-            ExportExcelModel exportExcelModel = new ExportExcelModel();
-            exportExcelModel=userInfoBLL.ExportExcel(userInfo);
-            return File(Server.MapPath(exportExcelModel.filename), "application/ms-excel");
-            }
+        //public FileResult UserInfo(UserParams userInfo)
+        //{
+        //    ExportExcelModel exportExcelModel = new ExportExcelModel();
+        //    exportExcelModel=userInfoBLL.ExportExcel(userInfo);
+        //    return File(Server.MapPath(exportExcelModel.filename), "application/ms-excel");
+        //}
 
     }
 }
