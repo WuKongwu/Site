@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace eUI.Model
 {
-    public class UploadPicModel
+    public class PaperVideo:baseModel
     {
-        public bool IsSucceed { get; set; }
-        public string ErrorMsg { get; set; }
-
+        public virtual int PaperId { get; set; }
+        public virtual string Path { get; set; }
     }
 }

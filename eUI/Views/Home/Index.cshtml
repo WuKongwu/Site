@@ -31,41 +31,47 @@
             "menus": [{
                 "menuid": "1",
                 "icon": "icon-sys",
-                "menuname": "基本信息",
+                "menuname": "基础管理",
                 "menus": [{
                     "menuid": "2",
-                    "menuname": "用户管理",
+                    "menuname": "论文管理",
                     "icon": "icon-users",
                     "url": "/Home/UserInfo"
-                },
-                {
+                }, {
                     "menuid": "3",
-                    "menuname": "商品管理",
+                    "menuname": "交易记录",
                     "icon": "icon-users",
-                    "url": "/Home/ProductInfo"
-                }]
-            },
-            {
-                "menuid": "4",
-                "icon": "icon-sys",
-                "menuname": "报表管理",
-                "menus": [{
-                    "menuid": "21",
-                    "menuname": "用户报表(饼图)",
-                    "icon": "icon-pie",
-                    "url": "/Home/UserReport"
-                }, {
-                    "menuid": "22",
-                    "menuname": "用户报表(柱状)",
-                    "icon": "icon-column",
-                    "url": "/Home/UserColumnReport"
-                }, {
-                    "menuid": "23",
-                    "menuname": "用户报表(线形)",
-                    "icon": "icon-line",
-                    "url": "/Home/UserLineReport"
-                }]
+                    "url": "/Home/UserInfo"
+                },{
+                    "menuid": "4",
+                "menuname": "用户管理",
+                "icon": "icon-users",
+                "url": "/Home/UserInfo"
             }]
+            }
+            //,
+            //{
+            //    "menuid": "3",
+            //    "icon": "icon-sys",
+            //    "menuname": "用户管理",
+            //    "menus": [{
+            //        "menuid": "21",
+            //        "menuname": "用户报表(饼图)",
+            //        "icon": "icon-pie",
+            //        "url": "/Home/UserReport"
+            //    }, {
+            //        "menuid": "22",
+            //        "menuname": "用户报表(柱状)",
+            //        "icon": "icon-column",
+            //        "url": "/Home/UserColumnReport"
+            //    }, {
+            //        "menuid": "23",
+            //        "menuname": "用户报表(线形)",
+            //        "icon": "icon-line",
+            //        "url": "/Home/UserLineReport"
+            //    }]
+            //}
+            ]
         };
 
         //设置登录窗口
@@ -161,14 +167,16 @@
     <div region="north" split="true" border="false" style="overflow: hidden; height: 50px; background: url(/Img/banner.jpg) #7f99be repeat-x center 50%; line-height: 50px; color: #fff; font-family: Verdana, 微软雅黑,黑体">
         <span style="float: right; padding-right: 20px;" class="head">
             <a href="#" id="editpass">修改密码</a>
-            <a href="#" id="loginOut">安全退出</a></span>
+            <a href="#" id="loginOut">安全退出</a>
+        </span>
         <span style="padding-left: 10px; font-size: 16px; color: black;">
             <img src="/Img/blocks.gif" width="20" height="20" align="absmiddle" />
-            eUI</span>
+            eUI
+        </span>
     </div>
     @*   <div region="south" split="true" style="height: 30px; background: #D2E0F2;">
-        <div class="footer"></div>
-    </div>*@
+            <div class="footer"></div>
+        </div>*@
     <div region="west" split="true" title="导航菜单" style="width: 180px;" id="west">
         <div id="nav">
             <!--  导航内容 -->
@@ -178,48 +186,51 @@
     </div>
     <div id="mainPanle" region="center" style="background: #eee; overflow-y: hidden">
         <div id="tabs" class="easyui-tabs" fit="true" border="false">
-            <div id="userboard" title="面板" style="padding: 0px;  color: red;"> @*overflow: hidden;*@
-                <iframe scrolling="auto" frameborder="0"  src="/Home/UserBoard"  style="width:100%;height:100%;"></iframe>
-        </div>
-    </div>
-
-
-    <!--修改密码窗口-->
-    <div id="w" class="easyui-window" title="修改密码" collapsible="false" minimizable="false"
-        maximizable="false" icon="icon-save" style="width: 300px; height: 150px; padding: 5px; background: #fafafa;">
-        <div class="easyui-layout" fit="true">
-            <div region="center" border="false" style="padding: 10px; background: #fff; border: 1px solid #ccc;">
-                <table cellpadding="3">
-                    <tr>
-                        <td>新密码：</td>
-                        <td>
-                            <input id="txtNewPass" type="Password" class="txt01" /></td>
-                    </tr>
-                    <tr>
-                        <td>确认密码：</td>
-                        <td>
-                            <input id="txtRePass" type="Password" class="txt01" /></td>
-                    </tr>
-                </table>
-            </div>
-            <div region="south" border="false" style="text-align: right; height: 30px; line-height: 30px;">
-                <a id="btnEp" class="easyui-linkbutton" icon="icon-ok" href="javascript:void(0)">确定</a> <a id="btnCancel" class="easyui-linkbutton" icon="icon-cancel" href="javascript:void(0)">取消</a>
+            <div id="userboard" title="面板" style="padding: 0px;  color: red;">
+                @*overflow: hidden;*@
+                <iframe scrolling="auto" frameborder="0" src="/Home/UserBoard" style="width:100%;height:100%;"></iframe>
             </div>
         </div>
-    </div>
 
-    <div id="mm" class="easyui-menu" style="width: 150px;">
-        <div id="tabupdate">刷新</div>
-        <div class="menu-sep"></div>
-        <div id="close">关闭</div>
-        <div id="closeall">全部关闭</div>
-        <div id="closeother">除此之外全部关闭</div>
-        <div class="menu-sep"></div>
-        <div id="closeright">当前页右侧全部关闭</div>
-        <div id="closeleft">当前页左侧全部关闭</div>
-        <div class="menu-sep"></div>
-        <div id="exit">退出</div>
-    </div>
+
+        <!--修改密码窗口-->
+        <div id="w" class="easyui-window" title="修改密码" collapsible="false" minimizable="false"
+             maximizable="false" icon="icon-save" style="width: 300px; height: 150px; padding: 5px; background: #fafafa;">
+            <div class="easyui-layout" fit="true">
+                <div region="center" border="false" style="padding: 10px; background: #fff; border: 1px solid #ccc;">
+                    <table cellpadding="3">
+                        <tr>
+                            <td>新密码：</td>
+                            <td>
+                                <input id="txtNewPass" type="Password" class="txt01" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>确认密码：</td>
+                            <td>
+                                <input id="txtRePass" type="Password" class="txt01" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div region="south" border="false" style="text-align: right; height: 30px; line-height: 30px;">
+                    <a id="btnEp" class="easyui-linkbutton" icon="icon-ok" href="javascript:void(0)">确定</a> <a id="btnCancel" class="easyui-linkbutton" icon="icon-cancel" href="javascript:void(0)">取消</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="mm" class="easyui-menu" style="width: 150px;">
+            <div id="tabupdate">刷新</div>
+            <div class="menu-sep"></div>
+            <div id="close">关闭</div>
+            <div id="closeall">全部关闭</div>
+            <div id="closeother">除此之外全部关闭</div>
+            <div class="menu-sep"></div>
+            <div id="closeright">当前页右侧全部关闭</div>
+            <div id="closeleft">当前页左侧全部关闭</div>
+            <div class="menu-sep"></div>
+            <div id="exit">退出</div>
+        </div>
 
 
 </body>
