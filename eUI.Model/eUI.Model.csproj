@@ -59,6 +59,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserRecord.cs" />
     <Compile Include="ViewModel\BusinessList.cs" />
+    <Compile Include="ViewModel\ImgPath.cs" />
+    <Compile Include="ViewModel\PaperInfo.cs" />
     <Compile Include="ViewModel\PaperInit.cs" />
     <Compile Include="ViewModel\PaperList.cs" />
     <Compile Include="ViewModel\UserRecordList.cs" />
