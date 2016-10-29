@@ -140,6 +140,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\BusinessController.cs" />
     <Compile Include="Controllers\ExportController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PaperController.cs" />
@@ -614,6 +615,7 @@
     <Content Include="Img\TableDrawTable.png" />
     <Content Include="Img\tools-sprites-trans.gif" />
     <Content Include="Js\Admin\admin.js" />
+    <Content Include="Js\Business\business.js" />
     <Content Include="Js\common.js" />
     <Content Include="Js\EUIIndex.js" />
     <Content Include="easyUI\Extension\GridToExport.js" />
@@ -672,6 +674,7 @@
     <Content Include="Views\Paper\PaperDetail.cshtml" />
     <Content Include="Views\UserRecord\Index.cshtml" />
     <Content Include="Views\Admin\Input.cshtml" />
+    <Content Include="Views\Business\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
