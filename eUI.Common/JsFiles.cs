@@ -35,5 +35,6 @@ namespace eUI.Common
         public static string WxPage = "/Js/Wx/WxPage.js?ver=" + ver;
         public static string eUIMaskMsg = "/Js/EasyUIPlug/eUIMaskMsg.js?ver=" + ver;
         public static string UserRecord = "/Js/UserRecord/userRecord.js?ver=" + ver;
+        public static string AdminInput = "/Js/UserRecord/admin.js?ver=" + ver;
     }
 }
