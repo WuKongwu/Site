@@ -1,5 +1,0 @@
-G:\LocalProject\easyUITest\Files\bin\Release\Files.dll
-G:\LocalProject\easyUITest\Files\bin\Release\Files.pdb
-G:\LocalProject\easyUITest\Files\obj\Release\Files.csprojResolveAssemblyReference.cache
-G:\LocalProject\easyUITest\Files\obj\Release\Files.dll
-G:\LocalProject\easyUITest\Files\obj\Release\Files.pdb
