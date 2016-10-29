@@ -10,7 +10,7 @@ namespace eUI.Model
     {
         public virtual DateTime PayDate { get; set; }
         public virtual string OrderNumber { get; set; }
-        public virtual int UserId { get; set; }
+        public virtual string Name { get; set; }
         public virtual decimal Price { get; set; }
         public virtual int PaperId { get; set; }
     }

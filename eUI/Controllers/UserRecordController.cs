@@ -20,7 +20,6 @@ namespace easyUITest.Controllers
         public ActionResult SearchUsers(UserRecord userRecord)
         {
             UserRecordBLL bll = new UserRecordBLL();
-
             UserRecordList userRecordList = bll.getUserList(userRecord);
             return Json(userRecordList,JsonRequestBehavior.AllowGet);
         }

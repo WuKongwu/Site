@@ -15,8 +15,10 @@ namespace eUI.DAL
         {
             StringBuilder sbSI = new StringBuilder();
             sbSI.Append("select * from userrecord");
-
-
+            if (!string.IsNullOrEmpty(userRecord.Email))
+            {
+                sbSI.AppendFormat("  where Email like '%{0}%'",userRecord.Email);
+            }
             DataTable dtUserInfo = DBHelper.SearchSql(sbSI.ToString());
 
             return dtUserInfo;

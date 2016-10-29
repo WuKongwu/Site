@@ -41,15 +41,14 @@
     //    }*/
     //});
     ////查询
-    //$("#btnSearch").click(function () {
-    //    //刷新grid
-    //    $('#usergrid').datagrid('load',
-    //        {
-    //            name: $("#txtSearchUserName").textbox('getValue'),
-    //            stTime: $("#txtstTime").datebox('getValue'),
-    //            edTime: $("#txtedTime").datebox('getValue')
-    //        });
-    //});
+    $("#btnSearch").click(function () {
+        //刷新grid
+        $('#usergrid').datagrid('load',
+            {
+                Email: $("#txtSearchUserName").textbox('getValue')
+               
+            });
+    });
 
     ////form提交
     //$("#userInfoForm").form({
