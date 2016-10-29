@@ -11,5 +11,8 @@ namespace eUI.Model
         public virtual int Id { get; set; }
         public virtual DateTime CreateDate { get;set;}
         public virtual string CreateUserId { get; set; }
+        public int page { get; set; }
+        public int rows { get; set; }
+
     }
 }

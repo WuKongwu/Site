@@ -145,6 +145,7 @@
     <Compile Include="Controllers\PermissionSetController.cs" />
     <Compile Include="Controllers\UploadController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\UserRecordController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -621,6 +622,7 @@
     <Content Include="Img\banner.jpg" />
     <Content Include="Js\Report\UserLineReport.js" />
     <Content Include="Js\Report\UserReport.js" />
+    <Content Include="Js\UserRecord\userRecord.js" />
     <Content Include="Js\User\AddEditDel.js" />
     <Content Include="Js\User\Board.js" />
     <Content Include="Js\User\GridEditingInline.js" />
@@ -666,6 +668,7 @@
     <Content Include="Views\Paper\Home.cshtml" />
     <Content Include="Views\Paper\PaperList.cshtml" />
     <Content Include="Views\Paper\PaperDetail.cshtml" />
+    <Content Include="Views\UserRecord\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
