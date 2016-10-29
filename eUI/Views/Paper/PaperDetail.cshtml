@@ -1,0 +1,593 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="renderer" content="webkit">
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title>论文下载</title>
+    <link href="~/Content/themes/Paper/css/paper01.css" rel="stylesheet" />
+    <link href="~/Content/themes/Paper/css/paper.css" rel="stylesheet" />
+    <link href="~/Content/themes/Paper/css/paper-main.css" rel="stylesheet" />
+    <link href="~/Content/themes/Paper/css/flexslider.css" rel="stylesheet" />
+    <link href="~/Content/themes/Paper/css/qqfixd.css" rel="stylesheet" />
+
+
+    <script src="~/Content/themes/Paper/js/jquery.min.js"></script>
+    <script src="~/Content/themes/Paper/js/jquery.flexslider-min.js"></script>
+    <script src="~/Content/themes/Paper/js/jquery.flip.min.js"></script>
+    <style>
+        .modal-content {
+            padding: 10px 20px 20px 20px;
+            background-color: #f9f9f9;
+        }
+
+        .slides li {
+            height: auto;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        div.demo {
+            overflow: auto;
+        }
+
+        .box {
+            width: 300px;
+            min-height: 300px;
+            margin: 30px;
+            display: inline-block;
+            background: #fff;
+            border: 1px solid #ccc;
+            position: relative;
+        }
+
+            .box p {
+                margin: 30px;
+                color: #aaa;
+                outline: none;
+            }
+    </style>
+    <!--[if lt IE 9]>
+        <script type="text/javascript">
+            alert('系统检测到您使用的浏览器为IE浏览器，并且版本过低，本站已经不再支持IE8.0及以下版本的浏览器。请您使用其其它浏览器，本站建议您使用的浏览器有：360极速浏览器、谷歌浏览器、火狐浏览器等');
+        </script>
+    <![endif]-->
+</head>
+<body>
+    <div class="header">
+        <div class="nav clearfix">
+            <a class="logo" href="#" target="_blank">
+                <img src="~/Content/themes/Paper/css/images/logo.png" height="70" alt="论文下载" />
+            </a>
+            <div class="nav-list">
+                <ul>
+                    <li class="active"><a href="/" target="_self" title="首页">首页</a></li>
+                    <li><a href="#" target="_self" title="购买指南">购买指南</a></li>
+                    <li><a href="#" target="_self" title="信誉保证">信誉保证</a></li>
+                    <li><a href="#" target="_self" title="开发工具下载专区">开发工具下载</a></li>
+                    <li><a href="#" target="_self" title="毕设模板专区下载">毕设模板下载</a></li>
+                    <li><a href="#" target="_self" title="关于我们">关于我们</a></li>
+                </ul>
+            </div>
+            <div class="nav-list top-user">
+                <ul>
+                    <li>
+                        <a href="javascript:;" class="btn-open-login">登录</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="btn-open-register">注册</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="top-search">
+                <form class="sform" method="get" action="/Search/Result">
+                    <input id="search_ipt" type="text" name='k' placeholder="" />
+                    <button type="button"><i class="iconfont">&#xe627;</i></button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="bg">
+        <div class="container">
+            <div class="clearfix">
+                <div class="paper-img-list">
+                    <div class="flexslider">
+                        <ul class="slides" style="height: 350px">
+                            <li>
+                                <img class="thumbs" src="~/Content/themes/Paper/css/images/flex1.jpg"  width="500" height="350" />
+                            </li>
+                            <li>
+                                <img class="thumbs" src="~/Content/themes/Paper/css/images/s1.jpg"  width="500" height="350" />
+                            </li>
+                            <li>
+                                <img class="thumbs" src="~/Content/themes/Paper/css/images/sc1.jpg"  width="500" height="350" />
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="paper-info">
+                    <div class="tb-detail-hd">
+                        <h1>
+                            ASP《信号处理基础》课程教学网站设计（原创）
+                        </h1>
+                        <p class="date-info">日期：2015-01-01 21:33:17</p>
+                    </div>
+                    <div class="paper-note">智能手机八核16G内存5.0寸屏安卓5200毫安超长待机脉腾MYTEL L007:采用MTK八核处理器，2G运行内存，16G存储内存，支持移动4G（TD-LTE）和联通2G网络制式，5.0寸QHD高清屏，高强度防爆屏防碎大猩猩钢化屏，5200毫安大电池超长待机10天，500万前后摄像头，精钢机身</div>
+
+                    <div class="tm-fcs-panel">
+                        <dl class="tm-promo-panel tm-promo-cur" data-label="价格">
+                            <dt class="tb-metatit">价格</dt>
+                            <dd>
+                                <div class="tm-promo-price">
+                                    <em class="tm-yen">&#165;</em><span class="tm-price">309.00</span>
+                                    <em class="tm-promo-type "><s></s>火速购买</em>&nbsp;&nbsp;
+                                </div>
+                                <p></p>
+                            </dd>
+                        </dl>
+                        <dl class="tm-phoneprice">
+                            <dt class="tb-metatit">&nbsp;</dt>
+                            <dd>
+                                <div class="wraper">
+                                    <div class="read-div">阅读量&nbsp;<span>1121</span></div>
+                                    <div class="buy-div">购买量&nbsp;<span>121</span></div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </dd>
+                        </dl>
+                    </div>
+
+                    <div class="paper-pay">
+                        <div class="wx-pay"><a></a></div>
+                        <div class="tb-pay"><a></a></div>
+                        <div class="clearfix"></div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="bg menu-bg">
+        <div class="container">
+            <div class="clearfix">
+                <ul class="menu-bar-fixd">
+                    <li><a class="active">asp作品</a></li>
+                    <li><a>jsp/java作品</a></li>
+                    <li><a>asp.net/c#作品</a></li>
+                    <li><a>php作品</a></li>
+                    <li><a>vc++作品</a></li>
+                    <li><a>安卓作品</a></li>
+                    <li><a>ios作品</a></li>
+                    <li><a>游戏作品</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="bg bg-gray">
+        <div class="container">
+            <div class="clearfix">
+                <div class="paper-left-list box3">
+                    <div class="cont-title dtl-list-title">
+                        <h3>最新作品</h3>
+                    </div>
+                    <div class="job-task-list dtl-list">
+                        <ul>
+                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                        </ul>
+                    </div>
+                    <div class="dtl-dashed">&nbsp;</div>
+                    <div class="cont-title dtl-list-title">
+                        <h3>热点推荐</h3>
+                    </div>
+                    <div class="job-task-list dtl-list">
+                        <ul>
+                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+
+                        </ul>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="paper-detail box3">
+                    <div class="detail-text">
+                        <h1 class="dtl-h1">
+                            ASP《信号处理基础》课程教学网站设计（原创）
+                        </h1>
+                        <div class="video-div">
+                            <video src="c235b_01_hd_h264_1280_720.mp4" controls preload="auto" width="600"></video>
+                        </div>
+
+                        <pre>
+3.3  系统模块
+系统模块负责介绍学生的基本信息。当点中此按钮后，导航栏中会显示系统的子目录，同时在信息显示窗口中显示相关内容。它使得用户可以了解本在线试题库的研究内容，在线试题库的研究目标，在线试题库的基本特点及在线试题库的总体要求等的内容。见下图。
+图3-3
+3.4学习模块
+学习功能模块负责在线试题库在线试题库和考试大纲的任务。当点中此按钮后，导航栏中会显示学习的子目录。分别选中目录中的在线试题库大纲和考试大纲，会相应地显示学习的在线试题库大纲和考试大纲。见图3-4至图3-5。在这里用户可了解本在线试题库的在线试题库和考试的相关信息。 http://www.paper51.com
+图3-4
+图3-5
+3.5 查询模块（对应于导航栏中的查询目录）
+查询模块负责显示在线试题库在线试题库的时间进度安排。点中此按钮后，导航栏中将显示本在线试题库的查询的子目录。这个按键会在信息显示窗口中显示学分、在线试题库进度和在线试题库任务安排。图3-6。 http://www.paper51.com
+图3-6 内容来自论文无忧网 www.paper51.com
+3.6 在线考试模块（对应于导航栏中的考试目录）
+在线考试模块负责显示本在线试题库的授课教案。点中此按钮后，导航栏中将显示本在线试题库的考试的子目录。用户可在此按钮下看到本在线试题库的授课教案进行在线学习。 内容来自www.paper51.com
+图3-7 http://www.paper51.com
+3.7调查模块（对应于导航栏中的调查目录）
+调查模块负责在线试题库设计和相关资源信息的获取。点中此按钮后，导航栏中将显示本在线试题库的调查的信息的目录。用户可在导航栏中选择在线试题库设计大纲、在线试题库设计题目及相关的资源，并在信息显示窗口中显示出来。
+paper51.com
+图3-8
+3.8 提问模块（对应于导航栏中的提问目录）
+提问模块负责本在线试题库的习题和练习。点击此按钮后，导航栏中将显示本在线试题库的提问的目录。用户在导航栏中选中的习题会在信息显示窗口中显示出来。
+图3-9
+3.9 交流模块（对应于导航栏中的交流目录）
+交流模块负责在线交流。点击此按钮后，将进入聊天室页面。
+图3-10
+3.10 帮助模块（对应于导航栏中的帮助目录）
+帮助帮助模块,点击此按钮后，导航栏中将显示信息。如图。 paper51.com
+图3-11
+3.11管理员模块 内容来自论文无忧网 www.paper51.com
+图3-12至3-13。 内容来自www.paper51.com
+图3-12
+图3-13
+四、 运行环境 内容来自论文无忧网 www.paper51.com
+本网上在线试题库平台运行在WindowsXP/2000下，可在客户端的浏览器上自由使用。软件的测试生成是在ASP.Net及IIS5.0的平台下。
+本系统运行环境
+windows 98+PWS 内容来自论文无忧网 www.paper51.com
+windows 2000+IIS 内容来自www.paper51.com
+windowsXP+IIS
+最佳分辨率:1024*768 http://www.paper51.com
+要求IE流览器版本不低于5.0
+要系统未在NETSCAPE流览器下测试过，建议您使用IE流览器
+第5章  利用ASP设计动态WEB网页的技术实现具体系统
+<%function GetIp() 内容来自论文无忧网 www.paper51.com
+    getclientip =Request.ServerVariables("HTTP_X_FORWARDED_FOR") copyright paper51.com
+    If getclientip = "" Then
+       getclientip = Request.ServerVariables("REMOTE_ADDR")
+    end if
+    GetIp = getclientip paper51.com
+end function
+functionparamAdd(strParam,strAdd,value)
+    dim arrParam,intI,intJ
+    arrParam=split(strParam,"&")
+    strAdd=lcase(strAdd)
+    intJ=Ubound(arrParam) paper51.com
+    paramAdd=""
+    for intI=0 to intJ
+       if inStr(1,lcase(arrParam(intI)),strAdd&"=")<>1then paramAdd=paramAdd&arrParam(intI)&"&"
+    next
+    paramAdd=paramAdd&strAdd&"="&value copyright paper51.com
+end function
+function EncodeJs(byVal str) paper51.com
+    if isNull(str) then
+       EncodeJs=""
+       exit function
+    end if copyright paper51.com
+    str=replace(str,chr(10),"")
+    str=replace(str,chr(13),"\n")
+    str=replace(str,"\","\\")
+    str=replace(str,"""","\""")
+    str=replace(str,"'","\'") paper51.com
+    EncodeJs=str 
+end function
+On Error Resume Next
+StartTime=timer() paper51.com
+Db="Data/info.mdb"
+Set conn =Server.CreateObject("ADODB.Connection")
+Connstr="Provider=Microsoft.Jet.OLEDB.4.0;DataSource=" & Server.MapPath(db) 内容来自论文无忧网 www.paper51.com
+'Connstr="Driver={MicrosoftAccess Driver (*.mdb)};dbq=" & Server.MapPath(db)
+Conn.Open Connstr
+%></pre>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="bg">
+        <div class="container" style="padding-top: 20px;">
+            <div class="cont-title">
+                <h3>合作企业</h3>
+
+            </div>
+            <div class="link-box">
+                <a href="#" title="" target="_blank">
+                    <img class="thumbs" src="~/Content/themes/Paper/css/images/show2.jpg" width="180" height="90" alt="" />
+                </a>
+                <a href="#" title="" target="_blank">
+                    <img class="thumbs" src="~/Content/themes/Paper/css/images/show2.jpg" width="180" height="90" alt="" />
+                </a>
+                <a href="#" title="" target="_blank">
+                    <img class="thumbs" src="~/Content/themes/Paper/css/images/show2.jpg" width="180" height="90" alt="" />
+                </a>
+                <a href="#" title="" target="_blank">
+                    <img class="thumbs" src="~/Content/themes/Paper/css/images/show2.jpg" width="180" height="90" alt="" />
+                </a>
+                <a href="#" title="站酷" target="_blank">
+                    <img class="thumbs" src="~/Content/themes/Paper/css/images/show2.jpg" width="180" height="90" alt="" />
+                </a>
+                <a href="#" title="" target="_blank">
+                    <img class="thumbs" src="~/Content/themes/Paper/css/images/show2.jpg" width="180" height="90" alt="" />
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!--页脚开始-->
+    <div class="footer">
+        <div class="waper">
+            <div class="footerwaper clearfix">
+                <div class="footer-info">
+                    <p>Copyright&#169; 2008-2016 WWW.PAPER51.COM. 论文无忧网 版权所有</p>
+                    <p>
+                        本站提供的计算机毕业论文范文|计算机毕业论文设计|计算机毕业设计及其他专业毕业论文仅供学习参考使用
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--页脚结束-->
+    <!--注册popup开始-->
+    <div class="modal" style="z-index: 2005; background: rgba(0, 0, 0, 0.4); display: none">
+        <div class="modal-dialog" style="width: 400px; top: 30%; cursor: default; display: none">
+            <a class="btn-close"><i class="iconfont"></i></a><div class="inbox">
+                <div class="modal-title">
+                    <h1>
+                        <span class="login">用户登录</span>
+                        <span class="register">注册</span>
+                    </h1>
+                </div>
+                <div class="socialwrapper">
+                    <div id="login_content" class="modal-content">
+                        <div class="login-box ">
+                            <div class="form-box">
+                                <form name="login" style="" autocomplete="off" novalidate="novalidate">
+                                    <dl>
+                                        <dt>用户账号</dt>
+                                        <dd>
+                                            <input type="text" class="ipt" name="username" placeholder="邮箱/手机号码" value="">
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>用户密码</dt>
+                                        <dd>
+                                            <input type="password" class="ipt" name="password" placeholder="请输入登录密码">
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>&nbsp;</dt>
+                                        <dd>
+                                            <button type="submit" class="btn-blue">登录</button>
+                                            <a href="javascript:;" class="forget-pwd">忘记密码？点击找回</a>
+                                        </dd>
+                                    </dl>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="reg_content" class="modal-content">
+                        <div class="login-box ">
+                            <div class="form-box">
+                                <form name="register" autocomplete="off" novalidate="novalidate">
+                                    <dl>
+                                        <dt>注册邮箱</dt>
+                                        <dd>
+                                            <input name="password" type="password" placeholder="请输入邮箱">
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>用户密码</dt>
+                                        <dd>
+                                            <input name="password" type="password" placeholder="请输入登录密码">
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>确认密码</dt>
+                                        <dd>
+                                            <input name="repassword" type="password" placeholder="请再次输入登录密码">
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>用户昵称</dt>
+                                        <dd>
+                                            <input name="nickname" type="text" placeholder="请输入用户昵称">
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>&nbsp;</dt>
+                                        <dd>
+                                            <button>注册</button>
+                                        </dd>
+                                    </dl>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--注册popup结束-->
+
+    <div class="QQ_S1" style="display: block;">
+        <div class="Q_top1"> <span></span>&nbsp;</div>
+        <div class="Q_botm1">
+            <div class="Q_pic1">
+                <div class="Q_pic1_hide"><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=345608595&amp;site=qq&amp;menu=yes" rel="nofollow" target="_blank"><span class="hide_pic3"></span>QQ交谈</a></div>
+            </div>
+            <div class="Q_sign1">
+                <div class="Q_sign1_hide" onclick="backToTop();"><a href="javascript:void(0)">返回顶部</a></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        function backToTop() {
+            var speed = 500;//滑动的速度
+            $('body,html').animate({ scrollTop: 0 }, speed);
+            return false;
+        }
+        function scrollFixed() {
+            var obMenu = $(".menu-bg").offset().top;
+
+            var win = $(window); //得到窗口对象
+            var sc = $(document);//得到document文档对象。
+            win.scroll(function () {
+                if (sc.scrollTop() >= obMenu) {
+
+                    $(".menu-bg").addClass("menufixed");
+                } else {
+
+                    $(".menu-bg").removeClass("menufixed");
+                }
+            })
+
+        }
+
+
+        $(function () {
+
+            $(".flexslider").flexslider();
+            scrollFixed();
+            $("#search_ipt").focus(function () {
+                $("#search_ipt").attr("placeholder", "请输入搜索内容");
+                $("#search_ipt").css("width", "150px");
+                $("#search_ipt").css("color", "#000");
+            });
+            $("#search_ipt").blur(function () {
+                $("#search_ipt").attr("placeholder", "");
+                $("#search_ipt").css("width", "65px");
+                $("#search_ipt").css("color", "#fff");
+            });
+
+            $(".btn-open-login").off("click").on("click", function () {
+                $(".modal-content").css("display", "none");
+                $("#login_content.modal-content").css("display", "block");
+                $(".modal h1 span").removeClass("on");
+                $(".modal h1 span.login").addClass("on");
+                var wid = ($(window).width() - 400) / 2;
+                $(".modal").css("display", "block");
+                $(".modal-dialog").css({
+                    display: "block",
+                    right: wid,
+                    top: "0"
+                }).animate({
+                    top: "40%",
+
+                }, function () {
+                    $(".modal-dialog").animate({ top: "20%" });
+                });
+            });
+
+            $(".btn-open-register").off("click").on("click", function () {
+                $(".modal-content").css("display", "none");
+                $("#reg_content.modal-content").css("display", "block");
+                $(".modal h1 span").removeClass("on");
+                $(".modal h1 span.register").addClass("on");
+                var wid = ($(window).width() - 400) / 2;
+                $(".modal").css("display", "block");
+                $(".modal-dialog").css({
+                    display: "block",
+                    right: wid,
+                    top: "60%"
+                }).animate({
+                    top: "10%",
+                }, function () {
+                    $(".modal-dialog").animate({ top: "20%" });
+                });
+            });
+
+
+            $(".btn-close").off("click").on("click", function () {
+                $(".modal").fadeOut(500);
+
+            });
+
+            $(".socialwrapper").flip({
+                direction: 'lr',
+                speed: 300,
+                color: '#f9f9f9',
+                onEnd: function () {
+                    $(".inbox").find("#reg_content").toggle();
+                    $(".inbox").find("#login_content").toggle();
+                }
+            });
+
+
+            $(".modal-title .login").off("click").on("click", function () {
+
+                if ($("#login_content.modal-content").css("display") == "block") {
+                    return;
+                }
+                $(".modal h1 span").removeClass("on");
+                $(".modal h1 span.login").addClass("on");
+                $(".modal-content").css("display", "none");
+                $("#reg_content.modal-content").css("display", "block");
+
+                $(".socialwrapper").flip({
+                    direction: 'lr',
+                    speed: 300,
+                    color: '#f9f9f9',
+                    onEnd: function () {
+                        $(".inbox").find("#reg_content").toggle();
+                        $(".inbox").find("#login_content").toggle();
+                    }
+                });
+            });
+
+            $(".modal-title .register").off("click").on("click", function () {
+                if ($("#reg_content.modal-content").css("display") == "block") {
+                    return;
+                }
+                $(".modal h1 span").removeClass("on");
+                $(".modal h1 span.register").addClass("on");
+                $(".modal-content").css("display", "none");
+                $("#login_content.modal-content").css("display", "block");
+
+                $(".socialwrapper").flip({
+                    direction: 'rl',
+                    speed: 300,
+                    color: '#f9f9f9',
+                    onEnd: function () {
+                        $(".inbox").find("#reg_content").toggle();
+                        $(".inbox").find("#login_content").toggle();
+                    }
+                });
+            });
+        })
+    </script>
+</body>
+</html>

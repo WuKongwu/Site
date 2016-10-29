@@ -1,0 +1,235 @@
+﻿@charset "utf-8";
+
+* {
+}
+
+body, button, textarea, select, input, pre {
+    font-family: Arial,'Microsoft YaHei',Helvetica,sans-serif;
+}
+
+body {
+    background: #f7f7f7;
+    -webkit-text-size-adjust: none;
+}
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td {
+    padding: 0;
+    margin: 0;
+}
+
+fieldset, iframe, img {
+    border: none;
+}
+
+img {
+    font-size: 14px;
+    color: #999;
+}
+
+pre {
+    white-space: pre-wrap;
+        padding: 20px;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+    table th {
+        font-weight: normal;
+        font-style: normal;
+        text-align: left;
+    }
+
+a:hover {
+    color: #0da3e2;
+}
+
+a:link, a:visited {
+    color: #34495e;
+    text-decoration: none;
+}
+
+div, header, nav, dl, dt, dd, p, form {
+    display: block;
+}
+
+i, em, b, strong {
+    font-style: normal;
+}
+
+button {
+    -webkit-tap-highlight-color: rgba(255,255,255,0);
+}
+
+label {
+    cursor: default;
+}
+
+input {
+    -webkit-tap-highlight-color: rgba(255,255,255,0);
+    -webkit-user-modify: read-write-plaintext-only;
+}
+
+    input:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0 1000px white inset;
+    }
+
+textarea {
+    resize: none;
+    overflow: auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+
+li {
+    list-style: none;
+}
+
+*[hidefocus], input, textarea, a {
+    outline: none;
+}
+
+a, button {
+    cursor: pointer;
+}
+
+a {
+    color: #434649;
+    text-decoration: none;
+}
+
+:focus {
+    outline: none!important;
+}
+
+.bg-gray {
+    background: #ededed;
+}
+
+.bg-white {
+    background: #fff;
+}
+
+.bg-black {
+    background: #303332;
+}
+
+.mt20 {
+    margin-top: 20px;
+}
+
+.mt30 {
+    margin-top: 30px;
+}
+
+.w200 {
+    width: 200px;
+}
+
+.w220 {
+    width: 220px;
+}
+
+.w280 {
+    width: 280px;
+}
+
+.w280 {
+    width: 280px;
+}
+
+.w360 {
+    width: 370px;
+}
+
+.w400 {
+    width: 400px;
+}
+
+.w600 {
+    width: 600px;
+}
+
+.w800 {
+    width: 800px;
+}
+
+.w860 {
+    width: 860px;
+}
+
+.w880 {
+    width: 880px;
+}
+
+.w1180 {
+    width: 1180px;
+}
+
+.light {
+    color: #e13d30;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+    .clearfix::after {
+        content: "";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+    }
+
+.green {
+    background: #4abc92;
+}
+
+.yellow {
+    background: #ffb54c;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 30px 0;
+    width: 1180px;
+}
+
+@font-face {
+    font-family: 'iconfont';
+    src: url('//at.alicdn.com/t/font_1473329074_1206646.eot');
+    src: url('//at.alicdn.com/t/font_1473329074_1206646.eot?#iefix') format('embedded-opentype'),url('//at.alicdn.com/t/font_1473329074_1206646.woff') format('woff'),url('//at.alicdn.com/t/font_1473329074_1206646.ttf') format('truetype'),url('//at.alicdn.com/t/font_1473329074_1206646.svg#iconfont') format('svg');
+}
+
+.iconfont {
+    font-family: "iconfont"!important;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: .2px;
+    -moz-osx-font-smoothing: grayscale;
+}

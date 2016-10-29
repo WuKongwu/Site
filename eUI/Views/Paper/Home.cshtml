@@ -1,0 +1,760 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="renderer" content="webkit">
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title>论文下载</title>
+   
+    <link href="~/Content/themes/Paper/css/paper01.css" rel="stylesheet" />
+    <link href="~/Content/themes/Paper/css/paper.css" rel="stylesheet" />
+    <link href="~/Content/themes/Paper/css/paper-main.css" rel="stylesheet" />
+    <link href="~/Content/themes/Paper/css/flexslider.css" rel="stylesheet" />
+    <link href="~/Content/themes/Paper/css/qqfixd.css" rel="stylesheet" />
+
+
+    <script src="~/Content/themes/Paper/js/jquery.min.js"></script>
+    <script src="~/Content/themes/Paper/js/jquery.flexslider-min.js"></script>
+    <script src="~/Content/themes/Paper/js/jquery.flip.min.js"></script>
+    <style>
+        .modal-content {
+            padding: 10px 20px 20px 20px;
+            background-color: #f9f9f9;
+        }
+    </style>
+
+    <!--[if lt IE 9]>
+        <script type="text/javascript">
+            alert('系统检测到您使用的浏览器为IE浏览器，并且版本过低，本站已经不再支持IE8.0及以下版本的浏览器。请您使用其其它浏览器，本站建议您使用的浏览器有：360极速浏览器、谷歌浏览器、火狐浏览器等');
+        </script>
+    <![endif]-->
+</head>
+<body>
+    <div class="header">
+        <div class="nav clearfix">
+            <a class="logo" href="#" target="_blank">
+                <img src="~/Content/themes/Paper/css/images/logo.png" height="70" alt="论文下载" />
+            </a>
+            <div class="nav-list">
+                <ul>
+                    <li class="active"><a href="/" target="_self" title="首页">首页</a></li>
+                    <li><a href="#" target="_self" title="购买指南">购买指南</a></li>
+                    <li><a href="#" target="_self" title="信誉保证">信誉保证</a></li>
+                    <li><a href="#" target="_self" title="开发工具下载专区">开发工具下载</a></li>
+                    <li><a href="#" target="_self" title="毕设模板专区下载">毕设模板下载</a></li>
+                    <li><a href="#" target="_self" title="关于我们">关于我们</a></li>
+                </ul>
+            </div>
+            <div class="nav-list top-user">
+                <ul>
+                    <li>
+                        <a href="javascript:;" class="btn-open-login">登录</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="btn-open-register">注册</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="top-search">
+                <form class="sform" method="get" action="/Search/Result">
+                    <input id="search_ipt" type="text" name='k' placeholder="" />
+                    <button type="button"><i class="iconfont">&#xe627;</i></button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="bg">
+        <div class="container topad clearfix">
+            <!--轮播图代码开始-->
+            <div class="flexslider">
+                <ul class="slides">
+                    <li>
+                        <a href="#" target="_blank">
+                            <img class="thumbs" src="~/Content/themes/Paper/css/images/flex1.jpg" width="1180" height="400" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank">
+                            <img class="thumbs" src="~/Content/themes/Paper/css/images/s1.jpg" width="1180" height="400" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank">
+                            <img class="thumbs" src="~/Content/themes/Paper/css/images/sc1.jpg" width="1180" height="400" />
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--轮播图代码结束-->
+    <div class="bg  bg-gray">
+        <div class="container">
+            <div class="cont-box">
+                <ul class="clearfix">
+                    <li>
+                        <a href="http://cg.yzfjy.com/" target="_blank">
+                            <img class="thumbs" src="~/Content/themes/Paper/css/images/icon_02.png"  width="60" height="60" />
+                            <h2>asp作品</h2>
+                            <p>&nbsp;</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://vi.yzfjy.com/" target="_blank">
+                            <img class="thumbs" src="~/Content/themes/Paper/css/images/icon_02.png" width="60" height="60" />
+                            <h2>jsp/java作品</h2>
+                            <p>&nbsp;</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://in.yzfjy.com/" target="_blank">
+                            <img class="thumbs" src="~/Content/themes/Paper/css/images/icon_02.png"  width="60" height="60" />
+                            <h2>asp.net/c#作品</h2>
+                            <p>&nbsp;</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://ui.yzfjy.com/" target="_blank">
+                            <img class="thumbs" src="~/Content/themes/Paper/css/images/icon_02.png" width="60" height="60" />
+                            <h2>php作品</h2>
+                            <p>&nbsp;</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://en.yzfjy.com/" target="_blank">
+                            <img class="thumbs" src="~/Content/themes/Paper/css/images/icon_02.png" width="60" height="60" />
+                            <h2>vc++作品</h2>
+                            <p>&nbsp;</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://id.yzfjy.com/" target="_blank">
+                            <img class="thumbs" src="~/Content/themes/Paper/css/images/icon_02.png"  width="60" height="60" />
+                            <h2>安卓作品</h2>
+                            <p>&nbsp;</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://id.yzfjy.com/" target="_blank">
+                            <img class="thumbs" src="~/Content/themes/Paper/css/images/icon_02.png" width="60" height="60" />
+                            <h2>ios作品</h2>
+                            <p>&nbsp;</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://id.yzfjy.com/" target="_blank">
+                            <img class="thumbs" src="~/Content/themes/Paper/css/images/icon_02.png"  width="60" height="60" />
+                            <h2>游戏作品</h2>
+                            <p>&nbsp;</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="bg">
+        <div class="container">
+            <div class="active-box">
+                <ul class="clearfix">
+                    <li>
+                        <a href="http://in.yzfjy.com/CollegeCourse/Viewer/41" target="_blank">
+                            <img class="thumbs" src="~/Content/themes/Paper/css/images/show1.jpg"  width="280" height="180" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://vi.yzfjy.com/Community/List/43?cid=225" target="_blank">
+                            <img class="thumbs" src="~/Content/themes/Paper/css/images/show1.jpg"  width="280" height="180" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://cg.yzfjy.com/Community/Forum/95" target="_blank">
+                            <img class="thumbs" src="~/Content/themes/Paper/css/images/show1.jpg" width="280" height="180" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://cg.yzfjy.com/Community/Topic/8969" target="_blank">
+                            <img class="thumbs" src="~/Content/themes/Paper/css/images/show1.jpg"  width="280" height="180" />
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="bg bg-gray">
+        <div class="container">
+            <div class="clearfix">
+                <div class="main-box post-list fl">
+                    <div class="cont-title">
+                        <h3>作品分类</h3>
+                    </div>
+                    <ul class="clearfix">
+                        <li>
+                            <div class="cover">
+                                <a href="/Community/Topic/2683 " target="_blank">
+                                    <div class="extend">ASP计算机毕业论文</div>
+                                </a>
+                            </div>
+                            <div class="extend">
+                                <ul class="paper-type">
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                </ul>
+                            </div>
+                            <div class="data">
+                                <span><i class="iconfont">&#xe60d;</i>5492 作品</span>
+                                <a href="/Community/Topic/2683 " target="_blank">更多作品</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="cover">
+                                <a href="/Community/Topic/2683 " target="_blank">
+                                    <div class="extend">ASP计算机毕业论文</div>
+                                </a>
+                            </div>
+                            <div class="extend">
+                                <ul class="paper-type">
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                </ul>
+                            </div>
+                            <div class="data">
+                                <span><i class="iconfont">&#xe60d;</i>5492 作品</span>
+                                <a href="/Community/Topic/2683 " target="_blank">更多作品</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="cover">
+                                <a href="/Community/Topic/2683 " target="_blank">
+                                    <div class="extend">ASP计算机毕业论文</div>
+                                </a>
+                            </div>
+                            <div class="extend">
+                                <ul class="paper-type">
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                </ul>
+                            </div>
+                            <div class="data">
+                                <span><i class="iconfont">&#xe60d;</i>5492 作品</span>
+                                <a href="/Community/Topic/2683 " target="_blank">更多作品</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="cover">
+                                <a href="/Community/Topic/2683 " target="_blank">
+                                    <div class="extend">ASP计算机毕业论文</div>
+                                </a>
+                            </div>
+                            <div class="extend">
+                                <ul class="paper-type">
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                </ul>
+                            </div>
+                            <div class="data">
+                                <span><i class="iconfont">&#xe60d;</i>5492 作品</span>
+                                <a href="/Community/Topic/2683 " target="_blank">更多作品</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="cover">
+                                <a href="/Community/Topic/2683 " target="_blank">
+                                    <div class="extend">ASP计算机毕业论文</div>
+                                </a>
+                            </div>
+                            <div class="extend">
+                                <ul class="paper-type">
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                </ul>
+                            </div>
+                            <div class="data">
+                                <span><i class="iconfont">&#xe60d;</i>5492 作品</span>
+                                <a href="/Community/Topic/2683 " target="_blank">更多作品</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="cover">
+                                <a href="/Community/Topic/2683 " target="_blank">
+                                    <div class="extend">ASP计算机毕业论文</div>
+                                </a>
+                            </div>
+                            <div class="extend">
+                                <ul class="paper-type">
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                </ul>
+                            </div>
+                            <div class="data">
+                                <span><i class="iconfont">&#xe60d;</i>5492 作品</span>
+                                <a href="/Community/Topic/2683 " target="_blank">更多作品</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="cover">
+                                <a href="/Community/Topic/2683 " target="_blank">
+                                    <div class="extend">ASP计算机毕业论文</div>
+                                </a>
+                            </div>
+                            <div class="extend">
+                                <ul class="paper-type">
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                </ul>
+                            </div>
+                            <div class="data">
+                                <span><i class="iconfont">&#xe60d;</i>5492 作品</span>
+                                <a href="/Community/Topic/2683 " target="_blank">更多作品</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="cover">
+                                <a href="/Community/Topic/2683 " target="_blank">
+                                    <div class="extend">ASP计算机毕业论文</div>
+                                </a>
+                            </div>
+                            <div class="extend">
+                                <ul class="paper-type">
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                </ul>
+                            </div>
+                            <div class="data">
+                                <span><i class="iconfont">&#xe60d;</i>5492 作品</span>
+                                <a href="/Community/Topic/2683 " target="_blank">更多作品</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="job-task fr">
+                    <div class="cont-title">
+                        <h3>最新作品</h3>
+                    </div>
+                    <div class="job-task-list">
+                        <ul class="job-task-list-img">
+                            <li>
+                                <a href="#" target="_blank">
+                                    <img class="thumbs" src="http://cdn.yzfjy.com/Thumbs/280_155/Uploads/CommunityTopic/image/2016/10/23/6361285672002387358128763.jpg" width="280" height="155">
+                                </a>
+                                <p>
+                                    <a href="#" target="_blank">
+                                        Q版日漫 皮肤及五官上色
+                                    </a>
+                                </p>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                        </ul>
+                    </div>
+                    <div class="cont-title">
+                        <h3>随机作品</h3>
+                    </div>
+                    <div class="job-task-list">
+                        <ul class="job-task-list-img">
+                            <li>
+                                <a href="#" target="_blank">
+                                    <img class="thumbs" src="http://cdn.yzfjy.com/Thumbs/280_155/Uploads/CommunityTopic/image/2016/10/23/6361285672002387358128763.jpg" width="280" height="155">
+                                </a>
+                                <p>
+                                    <a href="#" target="_blank">
+                                        Q版日漫 皮肤及五官上色
+                                    </a>
+                                </p>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--社区热列表结束-->
+        </div>
+    </div>
+    <!--社区推荐结束-->
+    <div class="bg">
+        <div class="container" style="padding-top: 20px;">
+            <div class="cont-title">
+                <h3>合作企业</h3>
+
+            </div>
+            <div class="link-box">
+                <a href="#" title="" target="_blank">
+                    <img class="thumbs" src="~/Content/themes/Paper/css/images/show2.jpg"  width="180" height="90" alt="" />
+                </a>
+                <a href="#" title="" target="_blank">
+                    <img class="thumbs" src="~/Content/themes/Paper/css/images/show2.jpg"  width="180" height="90" alt="" />
+                </a>
+                <a href="#" title="" target="_blank">
+                    <img class="thumbs" src="~/Content/themes/Paper/css/images/show2.jpg"  width="180" height="90" alt="" />
+                </a>
+                <a href="#" title="" target="_blank">
+                    <img class="thumbs" src="~/Content/themes/Paper/css/images/show2.jpg" width="180" height="90" alt="" />
+                </a>
+                <a href="#" title="站酷" target="_blank">
+                    <img class="thumbs" src="~/Content/themes/Paper/css/images/show2.jpg"  width="180" height="90" alt="" />
+                </a>
+                <a href="#" title="" target="_blank">
+                    <img class="thumbs" src="~/Content/themes/Paper/css/images/show2.jpg" width="180" height="90" alt="" />
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!--页脚开始-->
+    <div class="footer">
+        <div class="waper">
+            <div class="footerwaper clearfix">
+                <div class="footer-info">
+                    <p>Copyright&#169; 2008-2016 WWW.PAPER51.COM. 论文无忧网 版权所有</p>
+                    <p>
+                        本站提供的计算机毕业论文范文|计算机毕业论文设计|计算机毕业设计及其他专业毕业论文仅供学习参考使用
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--页脚结束-->
+    <!--tip菜单开始-->
+    <div class="bg menu-bg" style="display:none">
+        <div class="container">
+            <div class="clearfix">
+                <ul class="menu-bar-fixd">
+                    <li><a class="active">asp作品</a></li>
+                    <li><a>jsp/java作品</a></li>
+                    <li><a>asp.net/c#作品</a></li>
+                    <li><a>php作品</a></li>
+                    <li><a>vc++作品</a></li>
+                    <li><a>安卓作品</a></li>
+                    <li><a>ios作品</a></li>
+                    <li><a>游戏作品</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--tip菜单结束-->
+    <!--注册popup开始-->
+    <div class="modal" style="z-index: 2005; background: rgba(0, 0, 0, 0.4); display: none">
+        <div class="modal-dialog" style="width: 400px; top: 30%; cursor: default; display: none">
+            <a class="btn-close"><i class="iconfont"></i></a><div class="inbox">
+                <div class="modal-title">
+                    <h1>
+                        <span class="login">用户登录</span>
+                        <span class="register">注册</span>
+                    </h1>
+                </div>
+                <div class="socialwrapper">
+                    <div id="login_content" class="modal-content">
+                        <div class="login-box ">
+                            <div class="form-box">
+                                <form name="login" style="" autocomplete="off" novalidate="novalidate">
+                                    <dl>
+                                        <dt>用户账号</dt>
+                                        <dd>
+                                            <input type="text" class="ipt" name="username" placeholder="邮箱/手机号码" value="">
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>用户密码</dt>
+                                        <dd>
+                                            <input type="password" class="ipt" name="password" placeholder="请输入登录密码">
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>&nbsp;</dt>
+                                        <dd>
+                                            <button type="submit" class="btn-blue">登录</button>
+                                            <a href="javascript:;" class="forget-pwd">忘记密码？点击找回</a>
+                                        </dd>
+                                    </dl>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="reg_content" class="modal-content">
+                        <div class="login-box ">
+                            <div class="form-box">
+                                <form name="register" autocomplete="off" novalidate="novalidate">
+                                    <dl>
+                                        <dt>注册邮箱</dt>
+                                        <dd>
+                                            <input name="password" type="password" placeholder="请输入邮箱">
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>用户密码</dt>
+                                        <dd>
+                                            <input name="password" type="password" placeholder="请输入登录密码">
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>确认密码</dt>
+                                        <dd>
+                                            <input name="repassword" type="password" placeholder="请再次输入登录密码">
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>用户昵称</dt>
+                                        <dd>
+                                            <input name="nickname" type="text" placeholder="请输入用户昵称">
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>&nbsp;</dt>
+                                        <dd>
+                                            <button>注册</button>
+                                        </dd>
+                                    </dl>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--注册popup结束-->
+
+    <div class="QQ_S1" style="display: block;">
+        <div class="Q_top1"> <span></span>&nbsp;</div>
+        <div class="Q_botm1">
+            <div class="Q_pic1">
+                <div class="Q_pic1_hide"><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=345608595&amp;site=qq&amp;menu=yes" rel="nofollow" target="_blank"><span class="hide_pic3"></span>QQ交谈</a></div>
+            </div>
+            <div class="Q_sign1">
+                <div class="Q_sign1_hide" onclick="backToTop();"><a href="javascript:void(0)">返回顶部</a></div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+
+        function backToTop() {
+            var speed = 500;//滑动的速度
+            $('body,html').animate({ scrollTop: 0 }, speed);
+            return false;
+        }
+
+        function scrollFixed() {
+            var obMenu = $(".cont-box").offset().top + 90;
+
+            var win = $(window); //得到窗口对象
+            var sc = $(document);//得到document文档对象。
+            win.scroll(function () {
+                if (sc.scrollTop() >= obMenu) {
+                    $(".menu-bg").css("display", "block");
+                    $(".menu-bg").addClass("menufixed");
+                } else {
+                    $(".menu-bg").removeClass("menufixed");
+                }
+            })
+
+        }
+
+
+        $(function () {
+            scrollFixed();
+            $(".flexslider").flexslider();
+            var nav = $(".menu-bar"); //得到导航对象
+            var win = $(window); //得到窗口对象
+            var sc = $(document);//得到document文档对象。
+            win.scroll(function () {
+                if (sc.scrollTop() >= 700) {
+
+                    $(".menu-bar").fadeIn();
+                } else {
+
+                    $(".menu-bar").fadeOut();
+                }
+            })
+            $("#search_ipt").focus(function () {
+                $("#search_ipt").attr("placeholder", "请输入搜索内容");
+                $("#search_ipt").css("width", "150px");
+                $("#search_ipt").css("color", "#000");
+            });
+            $("#search_ipt").blur(function () {
+                $("#search_ipt").attr("placeholder", "");
+                $("#search_ipt").css("width", "65px");
+                $("#search_ipt").css("color", "#fff");
+            });
+
+            $(".btn-open-login").off("click").on("click", function () {
+                $(".modal-content").css("display", "none");
+                $("#login_content.modal-content").css("display", "block");
+                $(".modal h1 span").removeClass("on");
+                $(".modal h1 span.login").addClass("on");
+                var wid = ($(window).width() - 400) / 2;
+                $(".modal").css("display", "block");
+                $(".modal-dialog").css({
+                    display: "block",
+                    right: wid,
+                    top: "0"
+                }).animate({
+                    top: "40%",
+
+                }, function () {
+                    $(".modal-dialog").animate({ top: "20%" });
+                });
+            });
+
+            $(".btn-open-register").off("click").on("click", function () {
+                $(".modal-content").css("display", "none");
+                $("#reg_content.modal-content").css("display", "block");
+                $(".modal h1 span").removeClass("on");
+                $(".modal h1 span.register").addClass("on");
+                var wid = ($(window).width() - 400) / 2;
+                $(".modal").css("display", "block");
+                $(".modal-dialog").css({
+                    display: "block",
+                    right: wid,
+                    top: "60%"
+                }).animate({
+                    top: "10%",
+                }, function () {
+                    $(".modal-dialog").animate({ top: "20%" });
+                });
+            });
+
+
+            $(".btn-close").off("click").on("click", function () {
+                $(".modal").fadeOut(500);
+
+            });
+
+            $(".socialwrapper").flip({
+                direction: 'lr',
+                speed: 300,
+                color: '#f9f9f9',
+                onEnd: function () {
+                    $(".inbox").find("#reg_content").toggle();
+                    $(".inbox").find("#login_content").toggle();
+                }
+            });
+
+
+            $(".modal-title .login").off("click").on("click", function () {
+
+                if ($("#login_content.modal-content").css("display") == "block") {
+                    return;
+                }
+                $(".modal h1 span").removeClass("on");
+                $(".modal h1 span.login").addClass("on");
+                $(".modal-content").css("display", "none");
+                $("#reg_content.modal-content").css("display", "block");
+
+                $(".socialwrapper").flip({
+                    direction: 'lr',
+                    speed: 300,
+                    color: '#f9f9f9',
+                    onEnd: function () {
+                        $(".inbox").find("#reg_content").toggle();
+                        $(".inbox").find("#login_content").toggle();
+                    }
+                });
+            });
+
+            $(".modal-title .register").off("click").on("click", function () {
+                if ($("#reg_content.modal-content").css("display") == "block") {
+                    return;
+                }
+                $(".modal h1 span").removeClass("on");
+                $(".modal h1 span.register").addClass("on");
+                $(".modal-content").css("display", "none");
+                $("#login_content.modal-content").css("display", "block");
+
+                $(".socialwrapper").flip({
+                    direction: 'rl',
+                    speed: 300,
+                    color: '#f9f9f9',
+                    onEnd: function () {
+                        $(".inbox").find("#reg_content").toggle();
+                        $(".inbox").find("#login_content").toggle();
+                    }
+                });
+            });
+        })
+    </script>
+
+</body>
+</html>
+
+
