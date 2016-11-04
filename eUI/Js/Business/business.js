@@ -12,25 +12,54 @@
         pageList: [5, 10, 15],//可以设置每页记录条数的列表 
         columns: [[
             { field: 'Name', title: '姓名', width: 200, align: 'left' },
-            { field: 'OrderNumber', title: '訂單號', width: 200, align: 'left' },
+            { field: 'OrderNumber', title: '订单号', width: 200, align: 'left' },
             {
-                field: 'PayDate', title: '支付時間', width: 200, align: 'left', formatter: function (value, row, index) {
+                field: 'PayDate', title: '支付时间', width: 200, align: 'left', formatter: function (value, row, index) {
                     return DateFormat(row.PayDate);
                 }
             },
-            { field: 'Price', title: '價格', width: 250, align: 'left' },
-              { field: 'Title', title: '論文標題', width: 250, align: 'left' }
+            { field: 'Price', title: '价格', width: 250, align: 'left' },
+              { field: 'Title', title: '论文标题', width: 250, align: 'left' }
         ]]
     });
     ////查询
     $("#btnSearch").click(function () {
         //刷新grid
+        if (checkDateTime() == false) {
+            return false;
+        }
         $('#usergrid').datagrid('load',
             {
-                Email: $("#txtSearchUserName").textbox('getValue')
-
+                Name: $("#txtSearchUserName").val(),
+                OrderNumber: $("#txtSearchOrderNumber").val(),
+                Title: $("#txtSearchTitle").val(),
+                PayDateStart: $("#txtSearchPayDateStart").val(),
+                PayDateEnd: $("#txtSearchPayDateEnd").val()
             });
     });
+
+   
+    function checkDateTime() {
+        var sDt = $("#txtSearchPayDateStart").val();
+        var eDt = $("#txtSearchPayDateEnd").val();
+        alert(eDt);
+        if ($("#txtSearchPayDateStart").val() != "" || $("#txtSearchPayDateEnd").val() != "") {
+            if ($("#txtSearchPayDateStart").val() == "") {
+                alert("起始时间不能为空！");
+                return false;
+            } else if ($("#txtSearchPayDateEnd").val() == "") {
+                alert("截止时间不能为空！");
+                return false;
+            } else if ($("#txtSearchPayDateEnd").val() < $("#txtSearchPayDateStart").val()) {
+                alert("截止时间不能小于起始时间！");
+                return false;
+            }
+        }
+        else {
+            return true;
+        }
+    }
+
 });
 
 

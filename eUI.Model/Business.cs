@@ -9,9 +9,11 @@ namespace eUI.Model
     public class Business : baseModel
     {
         public virtual DateTime PayDate { get; set; }
+        public virtual DateTime PayDateStart { get; set; }
+        public virtual DateTime PayDateEnd { get; set; }
         public virtual string OrderNumber { get; set; }
         public virtual string Name { get; set; }
         public virtual decimal Price { get; set; }
-        public virtual int PaperId { get; set; }
+        public virtual string Title { get; set; }
     }
 }
