@@ -18,7 +18,7 @@ namespace easyUITest.Controllers
 
         public ViewResult List()
         {
-            return View("PaperList");
+            return View("PaperListV");
         }
 
         public ViewResult Detail()

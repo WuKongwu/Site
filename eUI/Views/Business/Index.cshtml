@@ -4,23 +4,21 @@
 @Scripts.Render(eUI.Common.JsFiles.Business)
 
 
-@*<label>郵箱:</label>
-    <input id="txtSearchUserName" class="easyui-textbox" />
-    <a id="btnSearch" class="easyui-linkbutton" href="javascript:void(0)">确定</a>*@
 
 <div style="
     font-size: 12px;
     padding: 10px 0;
 ">
     <div>
-        查询条件：<div style="padding: 5px;line-height: 32px;border: 1px solid #dddddd;margin: 5px 0;">
-            姓名：<input class="textbox-value" id="txtSearchUserName" type="text" />
-            订单号：<input class="textbox-value" id="txtSearchOrderNumber" type="text" />
-            论文标题：<input class="textbox-value" id="txtSearchTitle" type="text" /><br />
-            交易起止时间：<input id="txtSearchPayDateStart" type="date" />——<input id="txtSearchPayDateEnd" type="date" />
+        查询条件：<div style="padding: 5px;border: 1px solid #95B8E7;margin: 5px 0;">
+            姓名：<input class="textbox-value easyui-textbox" id="txtSearchUserName" type="text" />
+            订单号：<input class="textbox-value easyui-textbox" id="txtSearchOrderNumber" type="text" />
+            论文标题：<input class="textbox-value easyui-textbox" id="txtSearchTitle" type="text" /><br /><br />
+            <div>
+            交易起止时间：<input id="txtSearchPayDateStart" type="date" class="easyui-textbox" />——<input id="txtSearchPayDateEnd" class="easyui-textbox" type="date" /></div>
         </div>
 
-        <button id="btnSearch">查询</button>
+        <button id="btnSearch" class="easyui-linkbutton" style="width:80px;">查询</button>
     </div>
 </div>
 <div id="usergrid"></div>

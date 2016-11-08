@@ -208,6 +208,16 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Content\themes\Paper\css\images\Android-log.png" />
+    <Content Include="Content\themes\Paper\css\images\asp-log.png" />
+    <Content Include="Content\themes\Paper\css\images\asp.net-log.png" />
+    <Content Include="Content\themes\Paper\css\images\game-log.png" />
+    <Content Include="Content\themes\Paper\css\images\ios-log.png" />
+    <Content Include="Content\themes\Paper\css\images\jsp-log.png" />
+    <Content Include="Content\themes\Paper\css\images\php-log.png" />
+    <Content Include="Content\themes\Paper\css\images\SiteLogo.JPG" />
+    <Content Include="Content\themes\Paper\css\images\SiteLogo.png" />
+    <Content Include="Content\themes\Paper\css\images\vc-log.png" />
     <Content Include="Content\themes\Paper\css\paper-main.css" />
     <Content Include="Content\themes\Paper\css\paper.css" />
     <Content Include="Content\themes\Paper\css\paper01.css" />
@@ -217,9 +227,7 @@
     <Content Include="Content\themes\Paper\css\images\cftzf1.png" />
     <Content Include="Content\themes\Paper\css\images\cftzf2.png" />
     <Content Include="Content\themes\Paper\css\images\flex1.jpg" />
-    <Content Include="Content\themes\Paper\css\images\icon_02.png" />
     <Content Include="Content\themes\Paper\css\images\lanrenzhijia.png" />
-    <Content Include="Content\themes\Paper\css\images\logo.png" />
     <Content Include="Content\themes\Paper\css\images\s1.jpg" />
     <Content Include="Content\themes\Paper\css\images\s2.jpg" />
     <Content Include="Content\themes\Paper\css\images\s3.jpg" />
@@ -674,6 +682,7 @@
     <Content Include="Views\UserRecord\Index.cshtml" />
     <Content Include="Views\Admin\Input.cshtml" />
     <Content Include="Views\Business\Index.cshtml" />
+    <Content Include="Views\Paper\PaperListV.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

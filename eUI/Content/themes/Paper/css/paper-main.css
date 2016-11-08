@@ -745,7 +745,7 @@
     width: 340px;
     float: left;
     margin-right: 20px;
-    height: 705px;
+    height: 978px;
 }
 
 .paper-detail {
@@ -960,8 +960,8 @@
 
 .dtl-dashed {
     border-bottom: 1px dotted #c9c9c9;
-    width: 220px;
-    margin: auto;
+    width: 255px;
+    margin: 25px auto;
 }
 
 .dtl-h1 {
@@ -1086,11 +1086,11 @@
     vertical-align: baseline;
     background-color: #AFEEEE;
     border-radius: 10px;
-    margin: 12px;
+    margin: 6px;
 }
 
 .badge-pat {
-    float: right;
+    float: left;
     font-size: 12px;
     color: #a9a9a9;
 }
@@ -1242,4 +1242,50 @@ background-color:#fff;
     top: 4px;
     left: -8px;
 
+}
+.opuslist {
+    overflow: hidden;
+    margin: 0 auto 20px;
+    padding-top: 20px;
+   width:755px;
+}
+.opuslist ul {
+    width: 755px;
+}
+
+.opuslist ul li {
+    width: 232px;
+    float: left;
+    position: relative;
+    margin-bottom: 15px;
+    margin-right: 10px;
+    background: #fff;
+    overflow: hidden;
+    height:270px;
+    padding: 5px;
+     border:1px solid #fff;
+}
+    .opuslist ul li:nth-child(3n) {
+     margin-right: 0;
+    }
+    .opuslist ul li:hover {
+    border:1px solid #eee;
+    box-shadow:1px 1px 1px 1px #999 ;
+    }
+.user-log-info {
+    position: absolute;
+    top: 23px;
+    right: 60px;
+    display:none;
+}
+.hpw_pl {
+color:red;
+font-weight:bolder;
+}
+.vtitle {
+  color:  #000;
+  font-weight: bolder;
+}
+.hpw_love {
+    color:#34495e;
 }

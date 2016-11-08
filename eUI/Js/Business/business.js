@@ -42,7 +42,7 @@
     function checkDateTime() {
         var sDt = $("#txtSearchPayDateStart").val();
         var eDt = $("#txtSearchPayDateEnd").val();
-        alert(eDt);
+     
         if ($("#txtSearchPayDateStart").val() != "" || $("#txtSearchPayDateEnd").val() != "") {
             if ($("#txtSearchPayDateStart").val() == "") {
                 alert("起始时间不能为空！");
