@@ -1,4 +1,4 @@
-@charset "utf-8";
+ï»¿@charset "utf-8";
 .header {
     width: 100%;
     min-width: 1180px;
@@ -435,7 +435,7 @@
         }
 
             .page-head > ul > li:after {
-                content: '¤k';
+                content: 'ï¿½k';
                 font-family: "iconfont";
                 font-size: 12px;
                 margin: 0 2px;
@@ -596,8 +596,6 @@
             }
 
             .form-box dl > dd label {
-                line-height: 32px;
-                height: 32px;
                 display: inline-block;
                 color: #666;
                 font-size: 14px;
