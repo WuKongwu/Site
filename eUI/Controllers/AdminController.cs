@@ -1,4 +1,5 @@
-﻿using eUI.Model.ViewModel;
+﻿using eUI.BLL;
+using eUI.Model.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +12,15 @@ namespace easyUITest.Controllers
 {
     public class AdminController : Controller
     {
-        public ViewResult Index() {
-
-            return View("Input");
+        public ActionResult Index()
+        {
+            return View();
+        }
+        public ActionResult SearchPaper(PaperList paperList)
+        {
+            AdminBLL adminBLL = new AdminBLL();
+            PaperInfoList paperInfoList = adminBLL.getPaperList(paperList);
+            return Json(paperInfoList, JsonRequestBehavior.AllowGet);
         }
 
 

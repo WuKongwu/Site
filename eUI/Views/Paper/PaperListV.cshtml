@@ -1,6 +1,5 @@
-@{
-    Layout = null;
-}
+@model eUI.Model.ViewModel.PaperListViewModel
+
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -67,15 +66,15 @@
         </script>
     <![endif]-->
 </head>
-<body>
+<body data-type="@ViewData["type"]" data-website="@Url.Content("~/")">
     <div class="header">
         <div class="nav clearfix">
-            <a class="logo" href="/paper" >
-                <img src="~/Content/themes/Paper/css/images/SiteLogo.JPG"  alt="启源科技" />
+            <a class="logo" href="/paper">
+                <img src="~/Content/themes/Paper/css/images/SiteLogo.JPG" alt="启源科技" />
             </a>
             <div class="nav-list">
                 <ul>
-                    <li class="active"><a href="/" target="_self" title="首页">首页</a></li>
+                    <li class="active"><a href="/paper" target="_self" title="首页">首页</a></li>
                     <li><a href="#" target="_self" title="购买指南">购买指南</a></li>
                     <li><a href="#" target="_self" title="信誉保证">信誉保证</a></li>
                     <li><a href="#" target="_self" title="开发工具下载专区">开发工具下载</a></li>
@@ -113,14 +112,14 @@
         <div class="container">
             <div class="clearfix">
                 <ul class="menu-bar-fixd">
-                    <li><a class="active">asp作品</a></li>
-                    <li><a>jsp/java作品</a></li>
-                    <li><a>asp.net/c#作品</a></li>
-                    <li><a>php作品</a></li>
-                    <li><a>vc++作品</a></li>
-                    <li><a>安卓作品</a></li>
-                    <li><a>ios作品</a></li>
-                    <li><a>游戏作品</a></li>
+                    <li><a href="/paper/List?type=1">asp作品</a></li>
+                    <li><a href="/paper/List?type=2">jsp/java作品</a></li>
+                    <li><a href="/paper/List?type=3">asp.net/c#作品</a></li>
+                    <li><a href="/paper/List?type=4">php作品</a></li>
+                    <li><a href="/paper/List?type=5">vc++作品</a></li>
+                    <li><a href="/paper/List?type=6">安卓作品</a></li>
+                    <li><a href="/paper/List?type=7">ios作品</a></li>
+                    <li><a href="/paper/List?type=8">游戏作品</a></li>
                 </ul>
             </div>
         </div>
@@ -135,16 +134,10 @@
                     </div>
                     <div class="job-task-list dtl-list">
                         <ul>
-                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                            @foreach (var item in Model.randomList)
+                            {
+                                <li><a href="/paper/Detail?id=@item.Id"><font class="date-font">@item.CreateDate.ToShortDateString()</font>@item.Title</a></li>
+                            }
                         </ul>
                     </div>
                     <div class="dtl-dashed">&nbsp;</div>
@@ -153,268 +146,48 @@
                     </div>
                     <div class="job-task-list dtl-list">
                         <ul>
-                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                            @foreach (var item in Model.HotList)
+                            {
+                                <li><a href="/paper/Detail?id=@item.Id"><font class="date-font">@item.CreateDate.ToShortDateString()</font>@item.Title</a></li>
+                            }
                         </ul>
                     </div>
                     <div class="clearfix"></div>
                 </div>
                 <div class="paper-detail box3">
                     <div class="opuslist bd">
-                    <ul class="clearfix">
-                        <li>
-                            <div class="imgbox">
-                                <a href="/Works/Viewer/9562" title="ASP.net 应用实践与学习第十一期理论" target="_blank">
-                                    <img class="thumbs" src="http://cdn.yzfjy.com/Thumbs/232_186/Uploads/CommunityTopic/image/2016/11/04/6361387669672877941494418.png" width="232" height="186" alt="没有不">
-                                </a>
-                            </div>
-                            <div class="infobox">
-                                <p class="vtitle">
-                                    <a href="/Works/Viewer/9562" title="没有不" target="_blank">
-                                       ASP.net 应用实践与学习第十一期理论
-                                    </a>
-                                </p>
-                                <div class="info clearfix">
-                                    <span class="hpw_love">价格：</span>
-                                    <span class="hpw_pl"> <em class="tm-yen">&#165;</em>100</span>
-                                </div>
-                                <div class="userinfo">
-                                    
-                                        <span class="badge-pat">购买数<span class="badge">14</span>阅读数<span class="badge">100</span></span>
-                                   
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="imgbox">
-                                <a href="/Works/Viewer/9558" title="原创Q版少女" target="_blank">
-                                    <img class="thumbs" src="http://cdn.yzfjy.com/Thumbs/232_186/Uploads/CommunityTopic/image/2016/11/04/6361384981444669432530422.jpg" width="232" height="186" alt="原创Q版少女">
-                                </a>
-                            </div>
-                              <div class="infobox">
-                                <p class="vtitle">
-                                    <a href="/Works/Viewer/9562" title="没有不" target="_blank">
-                                       ASP.net 应用实践与学习第十一期理论
-                                    </a>
-                                </p>
-                                <div class="info clearfix">
-                                    <span class="hpw_love">价格：</span>
-                                    <span class="hpw_pl"> <em class="tm-yen">&#165;</em>100</span>
-                                </div>
-                                <div class="userinfo">
-                                    
-                                        <span class="badge-pat">购买数<span class="badge">14</span>阅读数<span class="badge">100</span></span>
-                                   
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="imgbox">
-                                <a href="/Works/Viewer/9562" title="没有不" target="_blank">
-                                    <img class="thumbs" src="http://cdn.yzfjy.com/Thumbs/232_186/Uploads/CommunityTopic/image/2016/11/04/6361387669672877941494418.png" width="232" height="186" alt="没有不">
-                                </a>
-                            </div>
-                              <div class="infobox">
-                                <p class="vtitle">
-                                    <a href="/Works/Viewer/9562" title="没有不" target="_blank">
-                                       <span>标题:</span>ASP.net 应用实践与学习第十一期理论
-                                    </a>
-                                </p>
-                                <div class="info clearfix">
-                                    <span class="hpw_love">价格：</span>
-                                    <span class="hpw_pl"> <em class="tm-yen">&#165;</em>100</span>
-                                </div>
-                                <div class="userinfo">
-                                    
-                                        <span class="badge-pat">购买数<span class="badge">14</span>阅读数<span class="badge">100</span></span>
-                                   
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="imgbox">
-                                <a href="/Works/Viewer/9557" title="眼睛不会画" target="_blank">
-                                    <img class="thumbs" src="http://cdn.yzfjy.com/Thumbs/232_186/Uploads/TopicCover/image/2016/11/04/6361384753543757461667751.png" width="232" height="186" alt="眼睛不会画">
-                                </a>
-                            </div>
-                            <div class="infobox">
-                                <p class="vtitle">
-                                    <a href="/Works/Viewer/9557" title="眼睛不会画" target="_blank">
-                                        眼睛不会画
-                                    </a>
-                                </p>
-                                <div class="info clearfix">
-                                    <span class="hpw_love">0</span>
-                                    <span class="hpw_pl">2</span>
-                                    <span class="hpw_see">10</span>
-                                </div>
-                                <div class="userinfo">
-                                    <a href="/User/WorksList/4279" title="..." target="_blank">
-                                        <img class="thumbs headimg" src="http://q.qlogo.cn/qqapp/101274308/85B414AB05D51F18C5C5C6BCADFA62C8/100" width="20" height="20" alt="..." class-name="headimg">
-                                    </a>
-                                    <p>
-                                        <a class="name" href="/User/WorksList/4279" title="..." target="_blank">
-                                            ... <i class="icon-yunv" title="云中帆VIP">V</i>
+                        <ul class="clearfix detail-ul" data-count="@Model.paperInfoList.total">
+
+                            @foreach (var item in Model.paperInfoList.rows)
+                            {
+
+
+                                <li>
+                                    <div class="imgbox">
+                                        <a href="/paper/Detail?id=@item.Id" title="@item.Title">
+                                            <img class="thumbs" src="@item.imgPath" width="232" height="186" alt="@item.Title">
                                         </a>
-                                    </p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="imgbox">
-                                <a href="/Works/Viewer/9562" title="没有不" target="_blank">
-                                    <img class="thumbs" src="http://cdn.yzfjy.com/Thumbs/232_186/Uploads/CommunityTopic/image/2016/11/04/6361387669672877941494418.png" width="232" height="186" alt="没有不">
-                                </a>
-                            </div>
-                            <div class="infobox">
-                                <p class="vtitle">
-                                    <a href="/Works/Viewer/9562" title="没有不" target="_blank">
-                                        没有不
-                                    </a>
-                                </p>
-                                <div class="info clearfix">
-                                    <span class="hpw_love">0</span>
-                                    <span class="hpw_pl">0</span>
-                                    <span class="hpw_see">6</span>
-                                </div>
-                                <div class="userinfo">
-                                    <a href="/User/WorksList/6918" title="抽抽ss" target="_blank">
-                                        <img class="thumbs headimg" src="http://cdn.yzfjy.com/Thumbs/20_20/Uploads/MemberFace/image/2016/10/30/6361346270614288347306215.jpg" width="20" height="20" alt="抽抽ss" class-name="headimg">
-                                    </a>
-                                    <p>
-                                        <a class="name" href="/User/WorksList/6918" title="抽抽ss" target="_blank">
-                                            抽抽ss <i class="icon-yunv" title="云中帆VIP">V</i>
-                                        </a>
-                                    </p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="imgbox">
-                                <a href="/Works/Viewer/9556" title="手的练习" target="_blank">
-                                    <img class="thumbs" src="http://cdn.yzfjy.com/Thumbs/232_186/Uploads/CommunityTopic/image/2016/11/04/6361381834463861535920167.jpg" width="232" height="186" alt="手的练习">
-                                </a>
-                            </div>
-                            <div class="infobox">
-                                <p class="vtitle">
-                                    <a href="/Works/Viewer/9556" title="手的练习" target="_blank">
-                                        手的练习
-                                    </a>
-                                </p>
-                                <div class="info clearfix">
-                                    <span class="hpw_love">0</span>
-                                    <span class="hpw_pl">2</span>
-                                    <span class="hpw_see">23</span>
-                                </div>
-                                <div class="userinfo">
-                                    <a href="/User/WorksList/6434" title="青鸟飞鱼" target="_blank">
-                                        <img class="thumbs headimg" src="http://cdn.yzfjy.com/Thumbs/20_20/Uploads/MemberFace/image/2016/11/01/6361358963343549759594746.jpg" width="20" height="20" alt="青鸟飞鱼" class-name="headimg">
-                                    </a>
-                                    <p>
-                                        <a class="name" href="/User/WorksList/6434" title="青鸟飞鱼" target="_blank">
-                                            青鸟飞鱼 <i class="icon-yunv" title="云中帆VIP">V</i>
-                                        </a>
-                                    </p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="imgbox">
-                                <a href="/Works/Viewer/9555" title="人体速写练习集合" target="_blank">
-                                    <img class="thumbs" src="http://cdn.yzfjy.com/Thumbs/232_186/Uploads/CommunityTopic/image/2016/11/04/6361381811474150027019029.jpg" width="232" height="186" alt="人体速写练习集合">
-                                </a>
-                            </div>
-                            <div class="infobox">
-                                <p class="vtitle">
-                                    <a href="/Works/Viewer/9555" title="人体速写练习集合" target="_blank">
-                                        人体速写练习集合
-                                    </a>
-                                </p>
-                                <div class="info clearfix">
-                                    <span class="hpw_love">0</span>
-                                    <span class="hpw_pl">4</span>
-                                    <span class="hpw_see">27</span>
-                                </div>
-                                <div class="userinfo">
-                                    <a href="/User/WorksList/6434" title="青鸟飞鱼" target="_blank">
-                                        <img class="thumbs headimg" src="http://cdn.yzfjy.com/Thumbs/20_20/Uploads/MemberFace/image/2016/11/01/6361358963343549759594746.jpg" width="20" height="20" alt="青鸟飞鱼" class-name="headimg">
-                                    </a>
-                                    <p>
-                                        <a class="name" href="/User/WorksList/6434" title="青鸟飞鱼" target="_blank">
-                                            青鸟飞鱼 <i class="icon-yunv" title="云中帆VIP">V</i>
-                                        </a>
-                                    </p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="imgbox">
-                                <a href="/Works/Viewer/9554" title="沫语" target="_blank">
-                                    <img class="thumbs" src="http://cdn.yzfjy.com/Thumbs/232_186/Uploads/TopicCover/image/2016/11/03/6361381184004348963571541.jpg" width="232" height="186" alt="沫语">
-                                </a>
-                            </div>
-                            <div class="infobox">
-                                <p class="vtitle">
-                                    <a href="/Works/Viewer/9554" title="沫语" target="_blank">
-                                        沫语
-                                    </a>
-                                </p>
-                                <div class="info clearfix">
-                                    <span class="hpw_love">0</span>
-                                    <span class="hpw_pl">2</span>
-                                    <span class="hpw_see">19</span>
-                                </div>
-                                <div class="userinfo">
-                                    <a href="/User/WorksList/6458" title="沫语" target="_blank">
-                                        <img class="thumbs headimg" src="http://q.qlogo.cn/qqapp/101274308/91ABE614F0A96618590B15B9AA3C94E8/100" width="20" height="20" alt="沫语" class-name="headimg">
-                                    </a>
-                                    <p>
-                                        <a class="name" href="/User/WorksList/6458" title="沫语" target="_blank">
-                                            沫语 <i class="icon-yunv" title="云中帆VIP">V</i>
-                                        </a>
-                                    </p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="imgbox">
-                                <a href="/Works/Viewer/9562" title="没有不" target="_blank">
-                                    <img class="thumbs" src="http://cdn.yzfjy.com/Thumbs/232_186/Uploads/CommunityTopic/image/2016/11/04/6361387669672877941494418.png" width="232" height="186" alt="没有不">
-                                </a>
-                            </div>
-                            <div class="infobox">
-                                <p class="vtitle">
-                                    <a href="/Works/Viewer/9562" title="没有不" target="_blank">
-                                        没有不
-                                    </a>
-                                </p>
-                                <div class="info clearfix">
-                                    <span class="hpw_love">0</span>
-                                    <span class="hpw_pl">0</span>
-                                    <span class="hpw_see">6</span>
-                                </div>
-                                <div class="userinfo">
-                                    <a href="/User/WorksList/6918" title="抽抽ss" target="_blank">
-                                        <img class="thumbs headimg" src="http://cdn.yzfjy.com/Thumbs/20_20/Uploads/MemberFace/image/2016/10/30/6361346270614288347306215.jpg" width="20" height="20" alt="抽抽ss" class-name="headimg">
-                                    </a>
-                                    <p>
-                                        <a class="name" href="/User/WorksList/6918" title="抽抽ss" target="_blank">
-                                            抽抽ss <i class="icon-yunv" title="云中帆VIP">V</i>
-                                        </a>
-                                    </p>
-                                </div>
-                            </div>
-                        </li>
-                </ul>
-                        </div>
+                                    </div>
+                                    <div class="infobox">
+                                        <p class="vtitle">
+                                            <a href="/paper/Detail?id=@item.Id" title="@item.Title">
+                                                @item.Title
+                                            </a>
+                                        </p>
+                                        <div class="info clearfix">
+                                            <span class="hpw_love">价格：</span>
+                                            <span class="hpw_pl"> <em class="tm-yen">&#165;</em>@item.Price</span>
+                                        </div>
+                                        <div class="userinfo">
+
+                                            <span class="badge-pat">购买数<span class="badge">@item.BuyCount</span>阅读数<span class="badge">@item.ReadCount</span></span>
+
+                                        </div>
+                                    </div>
+                                </li>
+                            }
+                        </ul>
+                    </div>
                     <nav style="text-align: center;margin: 10px 0;">
                         <ul id="pagination-demo" class="pagination-sm"></ul>
                     </nav>
@@ -590,7 +363,49 @@
 
         }
 
+        function InitMenu() {
+            var type = $("body").data("type");
+            $(".menu-bar-fixd li a").removeClass("active");
+            $(".menu-bar-fixd li").each(function (index, element) {
+
+                if (type == (index + 1)) {
+                    $(element).find("a").addClass("active");
+                }
+
+            });
+
+        }
+        var flag = "true";
+        function Paging(pageNo) {
+            var type = $("body").data("type");
+            var url = $("body").data("website") + "paper/ListPaging";
+            if (flag == "true") {
+                flag = "false";
+
+                $.ajax({
+                    url: url,
+                    type: "POST",
+                    dataType: "html",
+                    cache: false,
+                    headers: { "CaChe-Control": "no-cache" },
+                    data: { pageNo: pageNo, type: type },
+                    success: function (data) {
+                        flag = "true";
+                        $(".paper-detail ul.detail-ul").html(data);
+                    },
+                    error: function (e) { flag = "true"; }
+
+                })
+
+            }
+
+        }
+
+
         $(function () {
+
+            InitMenu();
+
             scrollFixed();
             $(".flexslider").flexslider();
 
@@ -700,9 +515,9 @@
                 });
             });
 
-            var count = 40;
+            var count = $(".paper-detail ul.detail-ul").data("count");
             if (count > 0) {
-                var pageCount = Math.ceil(count / 7);
+                var pageCount = Math.ceil(count / 9);
                 $('#pagination-demo').twbsPagination({
                     totalPages: pageCount,
                     visiblePages: 5,
@@ -712,15 +527,12 @@
                     next: "下一页",
                     initiateStartPageClick: false,
                     onPageClick: function (event, page) {
-                        // to do
+                        Paging(page);
                     }
                 });
             }
-
-
         })
     </script>
 </body>
 </html>
-
 

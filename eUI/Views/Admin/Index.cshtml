@@ -1,0 +1,70 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Scripts.Render(eUI.Common.JsFiles.AdminInput)
+@Scripts.Render(eUI.Common.JsFiles.UserGridEditingInline)
+<div style="
+    font-size: 12px;
+    padding: 10px 0;
+">
+    <div>
+        查询条件：<div style="padding: 5px;border: 1px solid #95B8E7;margin: 5px 0;">
+            订单号：<input class="textbox-value easyui-textbox" id="txtSearchOrderNumber" type="text" />
+            论文标题：<input class="textbox-value easyui-textbox" id="txtSearchTitle" type="text" /><br /><br />
+            <div>
+                交易起止时间：<input id="txtSearchPayDateStart" type="date" class="easyui-textbox" />——<input id="txtSearchPayDateEnd" class="easyui-textbox" type="date" />
+            </div>
+        </div>
+
+        <button id="btnSearch" class="easyui-linkbutton" style="width:80px;">查询</button>
+    </div>
+</div>
+<div id="papergrid"></div>
+
+@*<h2 style="text-align:center">论文管理</h2>
+<div id="paper_input">
+    <form action="input">
+        <div>
+            <label>论文标题</label>
+            <input type="text" name="Title" class="easyui-textbox" />
+        </div>
+        <div>
+            <label class="info">论文简介</label>
+            <textarea name="Info"  ></textarea>
+        </div>
+
+        <div>
+            <label class="info">论文详情</label>
+            <textarea name="DetailInfo"  ></textarea>
+        </div>
+
+        <div>
+            <label>论文售价</label>
+            <input name="Price" type="number" class="easyui-textbox"  />
+        </div>
+
+        <div>
+            <label>论文类别</label>
+            <select name="Type" class="selected">
+                <option value="0">----</option>
+                <option value="1">asp作品</option>
+                <option value="2">jsp/java作品</option>
+                <option value="3">asp.net/c#作品</option>
+                <option value="4">php作品</option>
+                <option value="5">vc++作品</option>
+                <option value="6">安卓作品</option>
+                <option value="7">ios作品</option>
+                <option value="8">游戏作品</option>
+            </select>
+        </div>
+        <div><label>图片上传(1)</label><input type="file" name="img1" class="filebox" value="图片上传" accept="image/*" /></div>
+        <div>图片2<input type="file" name="img2" value="图片上传" /></div>
+        <div>图片3<input type="file" name="img3" value="图片上传" /></div>
+        <div>图片4<input type="file" name="img4" value="图片上传" /></div>
+        <div>图片5<input type="file" name="img5" value="图片上传" /></div>
+
+        <div>视频<input type="file" name="video" value="视频上传" /></div>
+
+        <button type="submit">提交</button>
+    </form>
+</div>*@

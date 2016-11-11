@@ -12,6 +12,17 @@ namespace eUI.DAL
     public class adminDAL
     {
 
+        public DataTable getPaperList(PaperList paperList)
+        {
+            StringBuilder sbSI = new StringBuilder();
+            sbSI.Append("select * from paper Where 1=1 ");
+           
+            DataTable dtBusiness = DBHelper.SearchSql(sbSI.ToString());
+
+            return dtBusiness;
+        }
+
+
         public int GetId()
         {
             string getId = "SELECT LAST_INSERT_ID()";

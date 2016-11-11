@@ -17,6 +17,9 @@ namespace eUI.Model.ViewModel
         public int Type { get; set; }
 
         public string videoPath { get; set; }
-        public List<ImgPath> imgPath { get; set; }
+        public string imgPath { get; set; }
+        public int ReadCount { get; set; }
+        public int BuyCount { get; set; }
+
     }
 }

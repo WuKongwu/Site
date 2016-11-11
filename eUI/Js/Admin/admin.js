@@ -2,32 +2,58 @@
     //css 
     $("#userInfoForm>div ").css("height", 35);
     //加载表格
-    $('#usergrid').datagrid({
-        url: '/UserRecord/SearchUsers',
+    $('#papergrid').datagrid({
+        url: '/Admin/SearchPaper',
         singleSelect: true,
         queryParams: { name: '' },
         pagination: true,
+        ContentType: "application/json",
         pageSize: 5,//每页显示的记录条数，默认为10 
         pageList: [5, 10, 15],//可以设置每页记录条数的列表 
-        columns: [ [
+        columns: [[
             {
-                field: 'Id', title: '用户编号', width: 200, align: 'left'
+                field: 'Title', title: '论文标题', width: 200, align: 'left', editor: { type: 'validatebox', options: { required: true } }
             },
-            { field: 'Name', title: '用户名', width: 200, align: 'left' },
-            { field: 'Email', title: '邮箱', width: 350, align: 'left' }
-        ]]
+            { field: 'Info', title: '论文简介', width: 200, align: 'left', editor: { type: 'validatebox', options: { required: true } } },
+            { field: 'Price', title: '价格', width: 50, align: 'left', editor: { type: 'numberbox', options: { required: true } } },
+              {
+                  field: 'CreateDate', title: '上传时间', width: 200, align: 'left', formatter: function (value, row, index) {
+                      return DateFormat(row.CreateDate);
+                  }, editor: { type: 'datetimebox', options: { required: true } }
+              },
+              { field: 'Type', title: '论文类别', width: 200, align: 'left' },
+               {
+                   field: 'action', title: '操作', width: 80, align: 'center',
+                   formatter: function (value, row, index) {
+                       alert(row.editing);
+                       if (row.editing) {
+                           var s = '<a href="#" onclick="saverow(this)">保存</a> ';
+                           var c = '<a href="#" onclick="cancelrow(this)">取消</a>';
+                           return s + c;
+                       } else {
+                           var e = '<a href="#" onclick="editrow(this)">修改</a> ';
+                           var d = '<a href="#" onclick="deleterow(this)">删除</a>';
+                           return e + d;
+                       }
+                   }
+               }
+        ]],
+        onBeforeEdit: function (index, row) {
+            row.editing = true;
+            $('#papergrid').datagrid('refreshRow', index);
+        },
+        onAfterEdit: function (index, row) {
+            row.editing = false;
+            $('#papergrid').datagrid('refreshRow', index);
+        },
+        onCancelEdit: function (index, row) {
+            row.editing = false;
+            $('#papergrid').datagrid('refreshRow', index);
+        }
     });
 
-    ////行渲染
-    //$('#usergrid').datagrid("options").view.onBeforeRender = function (target, rows) {
-    //    $.each(rows, function (index, row) {
-    //        row.gender = formatSex(row.gender);
-    //        row.headpic = showheadpic(row.picurl);
-    //        row.createTime = formatDate(row.createTime);
-    //    });
-    //};
     //设置分页控件 
-    var p = $('#usergrid').datagrid('getPager');
+    var p = $('#papergrid').datagrid('getPager');
 
     $(p).pagination({
         //pageSize: 5,//每页显示的记录条数，默认为10 
@@ -44,7 +70,7 @@
     //查询
     $("#btnSearch").click(function () {
         //刷新grid
-        $('#usergrid').datagrid('load',
+        $('#papergrid').datagrid('load',
             {
                 name: $("#txtSearchUserName").textbox('getValue'),
                 stTime: $("#txtstTime").datebox('getValue'),
@@ -80,11 +106,10 @@
 
     });
 
-    fileboxInit();
     $("#importFileForm").form({
         url: '/api/Upload/UploadUserPic',
         onSubmit: function (param) {
-            param.id = $('#usergrid').datagrid('getSelected').id;
+            param.id = $('#papergrid').datagrid('getSelected').id;
         },
         success: function (data) {
             var data = JSON.parse(data);
@@ -95,7 +120,7 @@
                 //关闭当前窗口
                 $("#userUploadPic").window('close');
                 //刷新页面
-                $('#usergrid').datagrid('reload');
+                $('#papergrid').datagrid('reload');
             }
             else {
                 alert(data.ErrorMsg);
@@ -103,10 +128,7 @@
         }
 
     });
-    //加载权限树
-    LoadTree();
-    //格式化日期输入框
-    InitDateBox();
+ 
 
     $("body").keyup(function (event) {
         //"Esc"键关闭弹出窗口
@@ -120,4 +142,11 @@
 
 function enableFilter() {
     $('#paper_input').datagrid('getRow');
+}
+function DateFormat(val) {
+    var date = new Date(parseInt(val.replace("/Date(", "").replace(")/", ""), 10));
+    //月份为0-11，所以+1，月份小于10时补个0
+    var month = date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1;
+    var currentDate = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
+    return date.getFullYear() + "-" + month + "-" + currentDate;
 }

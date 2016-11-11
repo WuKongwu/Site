@@ -1,6 +1,4 @@
-@{
-    Layout = null;
-}
+@model eUI.Model.ViewModel.PaperDetailViewModel
 
 <!DOCTYPE html>
 <html lang="zh">
@@ -67,15 +65,15 @@
         </script>
     <![endif]-->
 </head>
-<body>
+<body data-type="@Model.detail[0].Type">
     <div class="header">
         <div class="nav clearfix">
             <a class="logo" href="/paper">
-                 <img src="~/Content/themes/Paper/css/images/SiteLogo.JPG"  alt="启源科技" />
+                <img src="~/Content/themes/Paper/css/images/SiteLogo.JPG" alt="启源科技" />
             </a>
             <div class="nav-list">
                 <ul>
-                    <li class="active"><a href="/" target="_self" title="首页">首页</a></li>
+                    <li class="active"><a href="/paper" target="_self" title="首页">首页</a></li>
                     <li><a href="#" target="_self" title="购买指南">购买指南</a></li>
                     <li><a href="#" target="_self" title="信誉保证">信誉保证</a></li>
                     <li><a href="#" target="_self" title="开发工具下载专区">开发工具下载</a></li>
@@ -107,33 +105,39 @@
                 <div class="paper-img-list">
                     <div class="flexslider">
                         <ul class="slides" style="height: 350px">
-                            <li>
-                                <img class="thumbs" src="~/Content/themes/Paper/css/images/flex1.jpg"  width="500" height="350" />
-                            </li>
-                            <li>
-                                <img class="thumbs" src="~/Content/themes/Paper/css/images/s1.jpg"  width="500" height="350" />
-                            </li>
-                            <li>
-                                <img class="thumbs" src="~/Content/themes/Paper/css/images/sc1.jpg"  width="500" height="350" />
-                            </li>
+                            @if (Model.imgList.Count() <= 0)
+                            {
+                                <li>
+                                    <img class="thumbs" src="@Url.Content("~/default.png")" width="500" height="350" alt="默认图片"/>
+                                </li>
+                            }
+                            else
+                            {
+                                foreach (var item in Model.imgList)
+                                {
+                                    <li>
+                                        <img class="thumbs" src="@Url.Content("~/"+item.Path)" width="500" height="350" />
+                                    </li>
+                                }
+                            }
                         </ul>
                     </div>
                 </div>
                 <div class="paper-info">
                     <div class="tb-detail-hd">
                         <h1>
-                            ASP《信号处理基础》课程教学网站设计（原创）
+                            @Model.detail[0].Title
                         </h1>
-                        <p class="date-info">日期：2015-01-01 21:33:17</p>
+                        <p class="date-info">日期：@Model.detail[0].CreateDate.ToShortDateString()</p>
                     </div>
-                    <div class="paper-note">智能手机八核16G内存5.0寸屏安卓5200毫安超长待机脉腾MYTEL L007:采用MTK八核处理器，2G运行内存，16G存储内存，支持移动4G（TD-LTE）和联通2G网络制式，5.0寸QHD高清屏，高强度防爆屏防碎大猩猩钢化屏，5200毫安大电池超长待机10天，500万前后摄像头，精钢机身</div>
+                    <div class="paper-note">@Model.detail[0].Info</div>
 
                     <div class="tm-fcs-panel">
                         <dl class="tm-promo-panel tm-promo-cur" data-label="价格">
                             <dt class="tb-metatit">价格</dt>
                             <dd>
                                 <div class="tm-promo-price">
-                                    <em class="tm-yen">&#165;</em><span class="tm-price">309.00</span>
+                                    <em class="tm-yen">&#165;</em><span class="tm-price">@Model.detail[0].Price</span>
                                     <em class="tm-promo-type "><s></s>火速购买</em>&nbsp;&nbsp;
                                 </div>
                                 <p></p>
@@ -143,8 +147,8 @@
                             <dt class="tb-metatit">&nbsp;</dt>
                             <dd>
                                 <div class="wraper">
-                                    <div class="read-div">阅读量&nbsp;<span>1121</span></div>
-                                    <div class="buy-div">购买量&nbsp;<span>121</span></div>
+                                    <div class="read-div">阅读量&nbsp;<span>@Model.detail[0].ReadCount</span></div>
+                                    <div class="buy-div">购买量&nbsp;<span>@Model.detail[0].BuyCount</span></div>
                                 </div>
                                 <div class="clearfix"></div>
                             </dd>
@@ -167,14 +171,14 @@
         <div class="container">
             <div class="clearfix">
                 <ul class="menu-bar-fixd">
-                    <li><a class="active">asp作品</a></li>
-                    <li><a>jsp/java作品</a></li>
-                    <li><a>asp.net/c#作品</a></li>
-                    <li><a>php作品</a></li>
-                    <li><a>vc++作品</a></li>
-                    <li><a>安卓作品</a></li>
-                    <li><a>ios作品</a></li>
-                    <li><a>游戏作品</a></li>
+                    <li><a href="/paper/List?type=1">asp作品</a></li>
+                    <li><a href="/paper/List?type=2">jsp/java作品</a></li>
+                    <li><a href="/paper/List?type=3">asp.net/c#作品</a></li>
+                    <li><a href="/paper/List?type=4">php作品</a></li>
+                    <li><a href="/paper/List?type=5">vc++作品</a></li>
+                    <li><a href="/paper/List?type=6">安卓作品</a></li>
+                    <li><a href="/paper/List?type=7">ios作品</a></li>
+                    <li><a href="/paper/List?type=8">游戏作品</a></li>
                 </ul>
             </div>
         </div>
@@ -190,14 +194,19 @@
                     </div>
                     <div class="job-task-list dtl-list">
                         <ul>
+                            @foreach (var item in Model.NewList)
+                            {
+                                <li><a href="/paper/Detail?id=@item.Id"><font class="date-font">@item.CreateDate.ToShortDateString()</font>@item.Title</a></li>
+
+                            }
+                           
+                            @*<li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
                             <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
                             <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
                             <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
                             <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
                             <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>*@
                         </ul>
                     </div>
                     <div class="dtl-dashed">&nbsp;</div>
@@ -206,14 +215,19 @@
                     </div>
                     <div class="job-task-list dtl-list">
                         <ul>
+                            @foreach (var item in Model.HotList)
+                            {
+                                <li><a href="/paper/Detail?id=@item.Id"><font class="date-font">@item.CreateDate.ToShortDateString()</font>@item.Title</a></li>
+
+                            }
+                            @*<li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
                             <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
                             <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
                             <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
                             <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
                             <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
                             <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>*@
 
                         </ul>
                     </div>
@@ -222,91 +236,17 @@
                 <div class="paper-detail box3">
                     <div class="detail-text">
                         <h1 class="dtl-h1">
-                            ASP《信号处理基础》课程教学网站设计（原创）
+                            @Model.detail[0].Title
                         </h1>
-                        <div class="video-div">
-                            <video src="c235b_01_hd_h264_1280_720.mp4" controls preload="auto" width="600"></video>
-                        </div>
+                        @if (!string.IsNullOrEmpty(Model.detail[0].videoPath))
+                        {
+                            <div class="video-div">
+                                <video src="c235b_01_hd_h264_1280_720.mp4" controls preload="auto" width="600"></video>
+                            </div>
+                        }
 
                         <pre>
-3.3  系统模块
-系统模块负责介绍学生的基本信息。当点中此按钮后，导航栏中会显示系统的子目录，同时在信息显示窗口中显示相关内容。它使得用户可以了解本在线试题库的研究内容，在线试题库的研究目标，在线试题库的基本特点及在线试题库的总体要求等的内容。见下图。
-图3-3
-3.4学习模块
-学习功能模块负责在线试题库在线试题库和考试大纲的任务。当点中此按钮后，导航栏中会显示学习的子目录。分别选中目录中的在线试题库大纲和考试大纲，会相应地显示学习的在线试题库大纲和考试大纲。见图3-4至图3-5。在这里用户可了解本在线试题库的在线试题库和考试的相关信息。 http://www.paper51.com
-图3-4
-图3-5
-3.5 查询模块（对应于导航栏中的查询目录）
-查询模块负责显示在线试题库在线试题库的时间进度安排。点中此按钮后，导航栏中将显示本在线试题库的查询的子目录。这个按键会在信息显示窗口中显示学分、在线试题库进度和在线试题库任务安排。图3-6。 http://www.paper51.com
-图3-6 内容来自论文无忧网 www.paper51.com
-3.6 在线考试模块（对应于导航栏中的考试目录）
-在线考试模块负责显示本在线试题库的授课教案。点中此按钮后，导航栏中将显示本在线试题库的考试的子目录。用户可在此按钮下看到本在线试题库的授课教案进行在线学习。 内容来自www.paper51.com
-图3-7 http://www.paper51.com
-3.7调查模块（对应于导航栏中的调查目录）
-调查模块负责在线试题库设计和相关资源信息的获取。点中此按钮后，导航栏中将显示本在线试题库的调查的信息的目录。用户可在导航栏中选择在线试题库设计大纲、在线试题库设计题目及相关的资源，并在信息显示窗口中显示出来。
-paper51.com
-图3-8
-3.8 提问模块（对应于导航栏中的提问目录）
-提问模块负责本在线试题库的习题和练习。点击此按钮后，导航栏中将显示本在线试题库的提问的目录。用户在导航栏中选中的习题会在信息显示窗口中显示出来。
-图3-9
-3.9 交流模块（对应于导航栏中的交流目录）
-交流模块负责在线交流。点击此按钮后，将进入聊天室页面。
-图3-10
-3.10 帮助模块（对应于导航栏中的帮助目录）
-帮助帮助模块,点击此按钮后，导航栏中将显示信息。如图。 paper51.com
-图3-11
-3.11管理员模块 内容来自论文无忧网 www.paper51.com
-图3-12至3-13。 内容来自www.paper51.com
-图3-12
-图3-13
-四、 运行环境 内容来自论文无忧网 www.paper51.com
-本网上在线试题库平台运行在WindowsXP/2000下，可在客户端的浏览器上自由使用。软件的测试生成是在ASP.Net及IIS5.0的平台下。
-本系统运行环境
-windows 98+PWS 内容来自论文无忧网 www.paper51.com
-windows 2000+IIS 内容来自www.paper51.com
-windowsXP+IIS
-最佳分辨率:1024*768 http://www.paper51.com
-要求IE流览器版本不低于5.0
-要系统未在NETSCAPE流览器下测试过，建议您使用IE流览器
-第5章  利用ASP设计动态WEB网页的技术实现具体系统
-<%function GetIp() 内容来自论文无忧网 www.paper51.com
-    getclientip =Request.ServerVariables("HTTP_X_FORWARDED_FOR") copyright paper51.com
-    If getclientip = "" Then
-       getclientip = Request.ServerVariables("REMOTE_ADDR")
-    end if
-    GetIp = getclientip paper51.com
-end function
-functionparamAdd(strParam,strAdd,value)
-    dim arrParam,intI,intJ
-    arrParam=split(strParam,"&")
-    strAdd=lcase(strAdd)
-    intJ=Ubound(arrParam) paper51.com
-    paramAdd=""
-    for intI=0 to intJ
-       if inStr(1,lcase(arrParam(intI)),strAdd&"=")<>1then paramAdd=paramAdd&arrParam(intI)&"&"
-    next
-    paramAdd=paramAdd&strAdd&"="&value copyright paper51.com
-end function
-function EncodeJs(byVal str) paper51.com
-    if isNull(str) then
-       EncodeJs=""
-       exit function
-    end if copyright paper51.com
-    str=replace(str,chr(10),"")
-    str=replace(str,chr(13),"\n")
-    str=replace(str,"\","\\")
-    str=replace(str,"""","\""")
-    str=replace(str,"'","\'") paper51.com
-    EncodeJs=str 
-end function
-On Error Resume Next
-StartTime=timer() paper51.com
-Db="Data/info.mdb"
-Set conn =Server.CreateObject("ADODB.Connection")
-Connstr="Provider=Microsoft.Jet.OLEDB.4.0;DataSource=" & Server.MapPath(db) 内容来自论文无忧网 www.paper51.com
-'Connstr="Driver={MicrosoftAccess Driver (*.mdb)};dbq=" & Server.MapPath(db)
-Conn.Open Connstr
-%></pre>
+                             @Model.detail[0].DetailInfo</pre>
                     </div>
                 </div>
 
@@ -477,7 +417,19 @@ Conn.Open Connstr
 
         }
 
+        function InitMenu() {
+            var type = $("body").data("type");
+            $(".menu-bar-fixd li a").removeClass("active");
+            $(".menu-bar-fixd li").each(function (index, element) {
 
+                if (type == (index + 1)) {
+                    $(element).find("a").addClass("active");
+                }
+
+            });
+        }
+
+        InitMenu();
         $(function () {
 
             $(".flexslider").flexslider();

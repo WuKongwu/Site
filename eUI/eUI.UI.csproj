@@ -143,6 +143,8 @@
     <Compile Include="Controllers\BusinessController.cs" />
     <Compile Include="Controllers\ExportController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HttpPost.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PaperController.cs" />
     <Compile Include="Controllers\PermissionSetController.cs" />
     <Compile Include="Controllers\UploadController.cs" />
@@ -629,6 +631,7 @@
     <Content Include="easyUI\Extension\GridToExport.js" />
     <Content Include="Js\Report\UserColumnReport.js" />
     <Content Include="Js\UserInfo.js" />
+    <Content Include="Content\themes\Paper\js\jquery.core.js" />
     <None Include="Properties\PublishProfiles\easyUITestRelease.pubxml" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Img\banner.jpg" />
@@ -680,14 +683,14 @@
     <Content Include="Views\Paper\PaperList.cshtml" />
     <Content Include="Views\Paper\PaperDetail.cshtml" />
     <Content Include="Views\UserRecord\Index.cshtml" />
-    <Content Include="Views\Admin\Input.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Business\Index.cshtml" />
     <Content Include="Views\Paper\PaperListV.cshtml" />
+    <Content Include="Views\Paper\_paperListVPaging.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="common\" />
-    <Folder Include="Controllers\PaperSite\" />
     <Folder Include="Models\" />
     <Folder Include="Views\PaperSite\" />
   </ItemGroup>

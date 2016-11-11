@@ -1,11 +1,16 @@
 ﻿///datagrid行内编辑
 
 function getRowIndex(target) {
-    var tr = $(target).closest('tr.datagrid-row');
+   
+    var tr = $(target).parents("tr");
+    
     return parseInt(tr.attr('datagrid-row-index'));
 }
+
 function editrow(target) {
-    $('#usergrid').datagrid('beginEdit', getRowIndex(target));
+    alert(getRowIndex(target));
+    $('#papergrid').datagrid('beginEdit', getRowIndex(target));
+    
 }
 function deleterow(target) {
     $.messager.confirm('确认', '您确认想要删除记录吗？', function (r) {

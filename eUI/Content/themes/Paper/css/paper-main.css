@@ -451,8 +451,12 @@
             -moz-transition: all 0.3s ease;
             -o-transition: all 0.3s ease;
             transition: all 0.3s ease;
+            text-align:center;
         }
-
+            .job-task .job-task-list li > p a {
+            color:#fff;
+            
+            }
         .job-task .job-task-list li:hover p {
             top: 125px;
         }
@@ -574,6 +578,8 @@
     color: #999;
     border-radius: 10px;
     border: 0;
+    min-height:355px;
+    position:relative;
 }
 
     .main-box > ul > li:nth-child(4n) {
@@ -599,12 +605,15 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     display: block;
-    line-height: 35px;
+    line-height: 27px;
+    border-bottom: 1px dashed #eee;
 }
+
 
 .main-box > ul > li > .cover > a {
     display: block;
     padding: 8px 10px;
+    text-align:center;
 }
 
 .main-box > ul > li > .cover > .extend {
@@ -649,6 +658,8 @@
     font-size: 12px;
     margin: 0 8px;
     color: #ccc;
+    position: absolute;
+    bottom: 0;
 }
 
     .main-box > ul > li > .data > a {
@@ -658,7 +669,7 @@
     }
 
     .main-box > ul > li > .data > span {
-        margin-right: 15px;
+        margin-right: 130px;
     }
 
         .main-box > ul > li > .data > span > i {
@@ -751,7 +762,7 @@
 .paper-detail {
     float: left;
     width: 820px;
-    min-height: 705px;
+    min-height: 978px;
 }
 
 .tb-detail-hd {
@@ -1288,4 +1299,10 @@ font-weight:bolder;
 }
 .hpw_love {
     color:#34495e;
+}
+.form-box dl > dd label.reg-error {
+    display: block;
+    line-height: 20px;
+   
+    color: red;
 }

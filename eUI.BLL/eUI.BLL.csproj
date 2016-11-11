@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="AdminBLL.cs" />
     <Compile Include="BusinessBLL.cs" />
+    <Compile Include="LoginBLL.cs" />
     <Compile Include="PaperBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserInfoBLL.cs" />

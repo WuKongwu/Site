@@ -59,10 +59,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserRecord.cs" />
     <Compile Include="ViewModel\BusinessList.cs" />
+    <Compile Include="ViewModel\Img.cs" />
     <Compile Include="ViewModel\ImgPath.cs" />
+    <Compile Include="ViewModel\PaperDetailViewModel.cs" />
     <Compile Include="ViewModel\PaperInfo.cs" />
+    <Compile Include="ViewModel\PaperInfoList.cs" />
     <Compile Include="ViewModel\PaperInit.cs" />
     <Compile Include="ViewModel\PaperList.cs" />
+    <Compile Include="ViewModel\PaperListViewModel.cs" />
     <Compile Include="ViewModel\UserRecordList.cs" />
   </ItemGroup>
   <ItemGroup>

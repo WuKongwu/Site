@@ -1,5 +1,14 @@
-﻿@{
-    Layout = null;
+﻿@model eUI.Model.ViewModel.PaperInit
+@{
+
+    int countOne = 0;
+    int countTwo = 0;
+    int countThree = 0;
+    int countFour = 0;
+    int countFive = 0;
+    int countSix = 0;
+    int countSeven = 0;
+    int countEight = 0;
 }
 <!DOCTYPE html>
 <html lang="zh">
@@ -11,7 +20,7 @@
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <title>论文下载</title>
-   
+
     <link href="~/Content/themes/Paper/css/paper01.css" rel="stylesheet" />
     <link href="~/Content/themes/Paper/css/paper.css" rel="stylesheet" />
     <link href="~/Content/themes/Paper/css/paper-main.css" rel="stylesheet" />
@@ -22,6 +31,7 @@
     <script src="~/Content/themes/Paper/js/jquery.min.js"></script>
     <script src="~/Content/themes/Paper/js/jquery.flexslider-min.js"></script>
     <script src="~/Content/themes/Paper/js/jquery.flip.min.js"></script>
+    <script src="~/Content/themes/Paper/js/jquery.core.js"></script>
     <style>
         .modal-content {
             padding: 10px 20px 20px 20px;
@@ -35,22 +45,22 @@
         </script>
     <![endif]-->
 </head>
-<body>
+<body data-website="@Url.Content("~/")">
     <div class="header">
         <div class="nav clearfix">
-            <a class="logo" href="/paper" >
-                <img src="~/Content/themes/Paper/css/images/SiteLogo.JPG"  alt="启源科技" />
+            <a class="logo" href="/paper">
+                <img src="~/Content/themes/Paper/css/images/SiteLogo.JPG" alt="启源科技" />
             </a>
             <div class="nav-list">
                 <ul>
-                    <li class="active"><a href="/" target="_self" title="首页">首页</a></li>
+                    <li class="active"><a href="/paper" target="_self" title="首页">首页</a></li>
                     <li><a href="#" target="_self" title="购买指南">购买指南</a></li>
                     <li><a href="#" target="_self" title="信誉保证">信誉保证</a></li>
                     <li><a href="#" target="_self" title="开发工具下载专区">开发工具下载</a></li>
                     <li><a href="#" target="_self" title="毕设模板专区下载">毕设模板下载</a></li>
                     <li><a href="#" target="_self" title="关于我们">关于我们</a></li>
                 </ul>
-               
+
             </div>
             <div class="nav-list top-user">
                 <ul>
@@ -69,7 +79,7 @@
                 </form>
             </div>
         </div>
-         <span class="user-log-info">Hi! <span>测试号</span></span>
+        <span class="user-log-info">Hi! <span>测试号</span></span>
     </div>
     <div class="bg">
         <div class="container topad clearfix">
@@ -101,57 +111,57 @@
             <div class="cont-box">
                 <ul class="clearfix">
                     <li>
-                        <a href="http://cg.yzfjy.com/" target="_blank">
-                            <img class="thumbs" src="~/Content/themes/Paper/css/images/asp-log.png"  width="60" height="60" />
+                        <a href="/paper/List?type=1">
+                            <img class="thumbs" src="~/Content/themes/Paper/css/images/asp-log.png" width="60" height="60" />
                             <h2>asp作品</h2>
                             <p>&nbsp;</p>
                         </a>
                     </li>
                     <li>
-                        <a href="http://vi.yzfjy.com/" target="_blank">
+                        <a href="/paper/List?type=2">
                             <img class="thumbs" src="~/Content/themes/Paper/css/images/jsp-log.png" width="60" height="60" />
                             <h2>jsp/java作品</h2>
                             <p>&nbsp;</p>
                         </a>
                     </li>
                     <li>
-                        <a href="http://in.yzfjy.com/" target="_blank">
-                            <img class="thumbs" src="~/Content/themes/Paper/css/images/asp.net-log.png"  width="60" height="60" />
+                        <a href="/paper/List?type=3">
+                            <img class="thumbs" src="~/Content/themes/Paper/css/images/asp.net-log.png" width="60" height="60" />
                             <h2>asp.net/c#作品</h2>
                             <p>&nbsp;</p>
                         </a>
                     </li>
                     <li>
-                        <a href="http://ui.yzfjy.com/" target="_blank">
+                        <a href="/paper/List?type=4">
                             <img class="thumbs" src="~/Content/themes/Paper/css/images/php-log.png" width="60" height="60" />
                             <h2>php作品</h2>
                             <p>&nbsp;</p>
                         </a>
                     </li>
                     <li>
-                        <a href="http://en.yzfjy.com/" target="_blank">
+                        <a href="/paper/List?type=5">
                             <img class="thumbs" src="~/Content/themes/Paper/css/images/vc-log.png" width="60" height="60" />
                             <h2>vc++作品</h2>
                             <p>&nbsp;</p>
                         </a>
                     </li>
                     <li>
-                        <a href="http://id.yzfjy.com/" target="_blank">
-                            <img class="thumbs" src="~/Content/themes/Paper/css/images/Android-log.png"  width="60" height="60" />
+                        <a href="/paper/List?type=6">
+                            <img class="thumbs" src="~/Content/themes/Paper/css/images/Android-log.png" width="60" height="60" />
                             <h2>安卓作品</h2>
                             <p>&nbsp;</p>
                         </a>
                     </li>
                     <li>
-                        <a href="http://id.yzfjy.com/" target="_blank">
+                        <a href="/paper/List?type=7">
                             <img class="thumbs" src="~/Content/themes/Paper/css/images/ios-log.png" width="60" height="60" />
                             <h2>ios作品</h2>
                             <p>&nbsp;</p>
                         </a>
                     </li>
                     <li>
-                        <a href="http://id.yzfjy.com/" target="_blank">
-                            <img class="thumbs" src="~/Content/themes/Paper/css/images/game-log.png"  width="60" height="60" />
+                        <a href="/paper/List?type=8">
+                            <img class="thumbs" src="~/Content/themes/Paper/css/images/game-log.png" width="60" height="60" />
                             <h2>游戏作品</h2>
                             <p>&nbsp;</p>
                         </a>
@@ -168,12 +178,12 @@
                 <ul class="clearfix">
                     <li>
                         <a href="http://in.yzfjy.com/CollegeCourse/Viewer/41" target="_blank">
-                            <img class="thumbs" src="~/Content/themes/Paper/css/images/show1.jpg"  width="280" height="180" />
+                            <img class="thumbs" src="~/Content/themes/Paper/css/images/show1.jpg" width="280" height="180" />
                         </a>
                     </li>
                     <li>
                         <a href="http://vi.yzfjy.com/Community/List/43?cid=225" target="_blank">
-                            <img class="thumbs" src="~/Content/themes/Paper/css/images/show1.jpg"  width="280" height="180" />
+                            <img class="thumbs" src="~/Content/themes/Paper/css/images/show1.jpg" width="280" height="180" />
                         </a>
                     </li>
                     <li>
@@ -183,7 +193,7 @@
                     </li>
                     <li>
                         <a href="http://cg.yzfjy.com/Community/Topic/8969" target="_blank">
-                            <img class="thumbs" src="~/Content/themes/Paper/css/images/show1.jpg"  width="280" height="180" />
+                            <img class="thumbs" src="~/Content/themes/Paper/css/images/show1.jpg" width="280" height="180" />
                         </a>
                     </li>
                 </ul>
@@ -200,186 +210,188 @@
                     <ul class="clearfix">
                         <li>
                             <div class="cover">
-                                <a href="/Community/Topic/2683 " target="_blank">
-                                    <div class="extend">ASP计算机毕业论文</div>
+                                <a href="/paper/List?type=1">
+                                    <div class="extend">asp作品</div>
                                 </a>
                             </div>
                             <div class="extend">
                                 <ul class="paper-type">
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    @foreach (var item in Model.allTypeList)
+                                    {
+                                        if (item.Type == 1)
+                                        {
+                                            countOne += 1;
+                                            <li><a href="/paper/Detail?id=@item.Id"><font class="date-font">@item.CreateDate.ToShortDateString()</font>@item.Title</a></li>
+                                        }
+                                    }
                                 </ul>
                             </div>
                             <div class="data">
-                                <span><i class="iconfont">&#xe60d;</i>5492 作品</span>
-                                <a href="/Community/Topic/2683 " target="_blank">更多作品</a>
+                                <span><i class="iconfont">&#xe60d;</i>@countOne 作品</span>
+                                <a href="/paper/List?type=1">更多作品</a>
                             </div>
                         </li>
                         <li>
                             <div class="cover">
-                                <a href="/Community/Topic/2683 " target="_blank">
-                                    <div class="extend">ASP计算机毕业论文</div>
+                                <a href="/paper/List?type=2">
+                                    <div class="extend">jsp/java作品</div>
                                 </a>
                             </div>
                             <div class="extend">
                                 <ul class="paper-type">
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+
+                                    @foreach (var item in Model.allTypeList)
+                                    {
+
+                                        if (item.Type == 2)
+                                        {
+                                            countTwo += 1;
+                                            <li><a href="/paper/Detail?id=@item.Id"><font class="date-font">@item.CreateDate.ToShortDateString()</font>@item.Title</a></li>
+                                        }
+                                    }
                                 </ul>
                             </div>
                             <div class="data">
-                                <span><i class="iconfont">&#xe60d;</i>5492 作品</span>
-                                <a href="/Community/Topic/2683 " target="_blank">更多作品</a>
+                                <span><i class="iconfont">&#xe60d;</i>@countTwo 作品</span>
+                                <a href="/paper/List?type=2">更多作品</a>
                             </div>
                         </li>
                         <li>
                             <div class="cover">
-                                <a href="/Community/Topic/2683 " target="_blank">
-                                    <div class="extend">ASP计算机毕业论文</div>
+                                <a href="/paper/List?type=3">
+                                    <div class="extend">asp.net/c#作品</div>
                                 </a>
                             </div>
                             <div class="extend">
                                 <ul class="paper-type">
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    @foreach (var item in Model.allTypeList)
+                                    {
+                                        if (item.Type == 3)
+                                        {
+                                            countThree += 1;
+                                            <li><a href="/paper/Detail?id=@item.Id"><font class="date-font">@item.CreateDate.ToShortDateString()</font>@item.Title</a></li>
+                                        }
+                                    }
                                 </ul>
                             </div>
                             <div class="data">
-                                <span><i class="iconfont">&#xe60d;</i>5492 作品</span>
-                                <a href="/Community/Topic/2683 " target="_blank">更多作品</a>
+                                <span><i class="iconfont">&#xe60d;</i>@countThree 作品</span>
+                                <a href="/paper/List?type=3">更多作品</a>
                             </div>
                         </li>
                         <li>
                             <div class="cover">
-                                <a href="/Community/Topic/2683 " target="_blank">
-                                    <div class="extend">ASP计算机毕业论文</div>
+                                <a href="/paper/List?type=4">
+                                    <div class="extend">php作品</div>
                                 </a>
                             </div>
                             <div class="extend">
                                 <ul class="paper-type">
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    @foreach (var item in Model.allTypeList)
+                                    {
+                                        if (item.Type == 4)
+                                        {
+                                            countFour += 1;
+                                            <li><a href="/paper/Detail?id=@item.Id"><font class="date-font">@item.CreateDate.ToShortDateString()</font>@item.Title</a></li>
+                                        }
+                                    }
                                 </ul>
                             </div>
                             <div class="data">
-                                <span><i class="iconfont">&#xe60d;</i>5492 作品</span>
-                                <a href="/Community/Topic/2683 " target="_blank">更多作品</a>
+                                <span><i class="iconfont">&#xe60d;</i>@countFour 作品</span>
+                                <a href="/paper/List?type=4">更多作品</a>
                             </div>
                         </li>
                         <li>
                             <div class="cover">
-                                <a href="/Community/Topic/2683 " target="_blank">
-                                    <div class="extend">ASP计算机毕业论文</div>
+                                <a href="/paper/List?type=5">
+                                    <div class="extend">vc++作品</div>
                                 </a>
                             </div>
                             <div class="extend">
                                 <ul class="paper-type">
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    @foreach (var item in Model.allTypeList)
+                                    {
+                                        if (item.Type == 5)
+                                        {
+                                            countFive += 1;
+                                            <li><a href="/paper/Detail?id=@item.Id"><font class="date-font">@item.CreateDate.ToShortDateString()</font>@item.Title</a></li>
+                                        }
+                                    }
                                 </ul>
                             </div>
                             <div class="data">
-                                <span><i class="iconfont">&#xe60d;</i>5492 作品</span>
-                                <a href="/Community/Topic/2683 " target="_blank">更多作品</a>
+                                <span><i class="iconfont">&#xe60d;</i>@countFive 作品</span>
+                                <a href="/paper/List?type=5">更多作品</a>
                             </div>
                         </li>
                         <li>
                             <div class="cover">
-                                <a href="/Community/Topic/2683 " target="_blank">
-                                    <div class="extend">ASP计算机毕业论文</div>
+                                <a href="/paper/List?type=6">
+                                    <div class="extend">安卓作品</div>
                                 </a>
                             </div>
                             <div class="extend">
                                 <ul class="paper-type">
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    @foreach (var item in Model.allTypeList)
+                                    {
+                                        if (item.Type == 6)
+                                        {
+                                            countSix += 1;
+                                            <li><a href="/paper/Detail?id=@item.Id"><font class="date-font">@item.CreateDate.ToShortDateString()</font>@item.Title</a></li>
+                                        }
+                                    }
                                 </ul>
                             </div>
                             <div class="data">
-                                <span><i class="iconfont">&#xe60d;</i>5492 作品</span>
-                                <a href="/Community/Topic/2683 " target="_blank">更多作品</a>
+                                <span><i class="iconfont">&#xe60d;</i>@countSix 作品</span>
+                                <a href="/paper/List?type=6">更多作品</a>
                             </div>
                         </li>
                         <li>
                             <div class="cover">
-                                <a href="/Community/Topic/2683 " target="_blank">
-                                    <div class="extend">ASP计算机毕业论文</div>
+                                <a href="/paper/List?type=7">
+                                    <div class="extend">ios作品</div>
                                 </a>
                             </div>
                             <div class="extend">
                                 <ul class="paper-type">
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    @foreach (var item in Model.allTypeList)
+                                    {
+                                        if (item.Type == 7)
+                                        {
+                                            countSeven += 1;
+                                            <li><a href="/paper/Detail?id=@item.Id"><font class="date-font">@item.CreateDate.ToShortDateString()</font>@item.Title</a></li>
+                                        }
+                                    }
                                 </ul>
                             </div>
                             <div class="data">
-                                <span><i class="iconfont">&#xe60d;</i>5492 作品</span>
-                                <a href="/Community/Topic/2683 " target="_blank">更多作品</a>
+                                <span><i class="iconfont">&#xe60d;</i>@countSeven 作品</span>
+                                <a href="/paper/List?type=7">更多作品</a>
                             </div>
                         </li>
                         <li>
                             <div class="cover">
-                                <a href="/Community/Topic/2683 " target="_blank">
-                                    <div class="extend">ASP计算机毕业论文</div>
+                                <a href="/paper/List?type=8">
+                                    <div class="extend">游戏作品</div>
                                 </a>
                             </div>
                             <div class="extend">
                                 <ul class="paper-type">
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                                    <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                                    @foreach (var item in Model.allTypeList)
+                                    {
+                                        if (item.Type == 8)
+                                        {
+                                            countEight += 1;
+                                            <li><a href="/paper/Detail?id=@item.Id"><font class="date-font">@item.CreateDate.ToShortDateString()</font>@item.Title</a></li>
+                                        }
+                                    }
                                 </ul>
                             </div>
                             <div class="data">
-                                <span><i class="iconfont">&#xe60d;</i>5492 作品</span>
-                                <a href="/Community/Topic/2683 " target="_blank">更多作品</a>
+                                <span><i class="iconfont">&#xe60d;</i>@countEight 作品</span>
+                                <a href="/paper/List?type=8">更多作品</a>
                             </div>
                         </li>
                     </ul>
@@ -391,27 +403,17 @@
                     <div class="job-task-list">
                         <ul class="job-task-list-img">
                             <li>
-                                <a href="#" target="_blank">
-                                    <img class="thumbs" src="http://cdn.yzfjy.com/Thumbs/280_155/Uploads/CommunityTopic/image/2016/10/23/6361285672002387358128763.jpg" width="280" height="155">
-                                </a>
+                                <img class="thumbs" src="http://cdn.yzfjy.com/Thumbs/280_155/Uploads/CommunityTopic/image/2016/10/23/6361285672002387358128763.jpg" width="280" height="155">
                                 <p>
-                                    <a href="#" target="_blank">
-                                        Q版日漫 皮肤及五官上色
-                                    </a>
+                                    最新作品推荐
                                 </p>
                             </li>
                         </ul>
                         <ul>
-                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                            @foreach (var item in Model.newList)
+                            {
+                                <li><a href="/paper/Detail?id=@item.Id"><font class="date-font">@item.CreateDate.ToShortDateString()</font>@item.Title</a></li>
+                            }
                         </ul>
                     </div>
                     <div class="cont-title">
@@ -420,27 +422,17 @@
                     <div class="job-task-list">
                         <ul class="job-task-list-img">
                             <li>
-                                <a href="#" target="_blank">
-                                    <img class="thumbs" src="http://cdn.yzfjy.com/Thumbs/280_155/Uploads/CommunityTopic/image/2016/10/23/6361285672002387358128763.jpg" width="280" height="155">
-                                </a>
+                                <img class="thumbs" src="http://cdn.yzfjy.com/Thumbs/280_155/Uploads/CommunityTopic/image/2016/10/23/6361285672002387358128763.jpg" width="280" height="155">
                                 <p>
-                                    <a href="#" target="_blank">
-                                        Q版日漫 皮肤及五官上色
-                                    </a>
+                                    作品随机推荐
                                 </p>
                             </li>
                         </ul>
                         <ul>
-                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
-                            <li><a href="www.baidu.com"><font class="date-font">2015-01-10</font>基于ASP的在线测验考试系统（13原创）</a></li>
+                            @foreach (var item in Model.randomList)
+                            {
+                                <li><a href="/paper/Detail?id=@item.Id"><font class="date-font">@item.CreateDate.ToShortDateString()</font>@item.Title</a></li>
+                            }
                         </ul>
                     </div>
                 </div>
@@ -457,19 +449,19 @@
             </div>
             <div class="link-box">
                 <a href="#" title="" target="_blank">
-                    <img class="thumbs" src="~/Content/themes/Paper/css/images/show2.jpg"  width="180" height="90" alt="" />
+                    <img class="thumbs" src="~/Content/themes/Paper/css/images/show2.jpg" width="180" height="90" alt="" />
                 </a>
                 <a href="#" title="" target="_blank">
-                    <img class="thumbs" src="~/Content/themes/Paper/css/images/show2.jpg"  width="180" height="90" alt="" />
+                    <img class="thumbs" src="~/Content/themes/Paper/css/images/show2.jpg" width="180" height="90" alt="" />
                 </a>
                 <a href="#" title="" target="_blank">
-                    <img class="thumbs" src="~/Content/themes/Paper/css/images/show2.jpg"  width="180" height="90" alt="" />
+                    <img class="thumbs" src="~/Content/themes/Paper/css/images/show2.jpg" width="180" height="90" alt="" />
                 </a>
                 <a href="#" title="" target="_blank">
                     <img class="thumbs" src="~/Content/themes/Paper/css/images/show2.jpg" width="180" height="90" alt="" />
                 </a>
                 <a href="#" title="站酷" target="_blank">
-                    <img class="thumbs" src="~/Content/themes/Paper/css/images/show2.jpg"  width="180" height="90" alt="" />
+                    <img class="thumbs" src="~/Content/themes/Paper/css/images/show2.jpg" width="180" height="90" alt="" />
                 </a>
                 <a href="#" title="" target="_blank">
                     <img class="thumbs" src="~/Content/themes/Paper/css/images/show2.jpg" width="180" height="90" alt="" />
@@ -551,42 +543,50 @@
                     </div>
 
                     <div id="reg_content" class="modal-content">
+
                         <div class="login-box ">
                             <div class="form-box">
-                                <form name="register" autocomplete="off" novalidate="novalidate">
+                                <form id="register_fom" method="post" action="/Login/UserRegist">
                                     <dl>
                                         <dt>注册邮箱</dt>
                                         <dd>
-                                            <input name="password" type="password" placeholder="请输入邮箱">
+                                            <input id="reg_mail" name="email" type="email" placeholder="请输入邮箱" autocomplete="off">
+                                            <label class="reg-error mail-error"></label>
                                         </dd>
                                     </dl>
                                     <dl>
                                         <dt>用户密码</dt>
                                         <dd>
-                                            <input name="password" type="password" placeholder="请输入登录密码">
+
+                                            <input id="password" name="Onepassword" type="password" placeholder="请输入登录密码" maxlength="12" autocomplete="off">
+                                            <label class="reg-error password-error"></label>
                                         </dd>
                                     </dl>
                                     <dl>
                                         <dt>确认密码</dt>
                                         <dd>
-                                            <input name="repassword" type="password" placeholder="请再次输入登录密码">
+                                            <input id="reg_password" name="password" type="password" placeholder="请再次输入登录密码" maxlength="12" autocomplete="off">
+                                            <label class="reg-error reg-password-error"></label>
                                         </dd>
                                     </dl>
                                     <dl>
                                         <dt>用户昵称</dt>
                                         <dd>
-                                            <input name="nickname" type="text" placeholder="请输入用户昵称">
+                                            <input id="reg_name" name="name" type="text" placeholder="请输入用户昵称" maxlength="8" autocomplete="off">
+                                            <label class="reg-error name-error"></label>
                                         </dd>
                                     </dl>
                                     <dl>
                                         <dt>&nbsp;</dt>
                                         <dd>
-                                            <button>注册</button>
+                                            <button id="reg_btn" type="button">注册</button>
+                                            <label class="reg-error back-error"></label>
                                         </dd>
                                     </dl>
                                 </form>
                             </div>
                         </div>
+
                     </div>
                 </div>
 
@@ -608,155 +608,7 @@
     </div>
 
 
-    <script>
-
-        function backToTop() {
-            var speed = 500;//滑动的速度
-            $('body,html').animate({ scrollTop: 0 }, speed);
-            return false;
-        }
-
-        function scrollFixed() {
-            var obMenu = $(".cont-box").offset().top + 90;
-
-            var win = $(window); //得到窗口对象
-            var sc = $(document);//得到document文档对象。
-            win.scroll(function () {
-                if (sc.scrollTop() >= obMenu) {
-                    $(".menu-bg").css("display", "block");
-                    $(".menu-bg").addClass("menufixed");
-                } else {
-                    $(".menu-bg").removeClass("menufixed");
-                }
-            })
-
-        }
-
-
-        $(function () {
-            scrollFixed();
-            $(".flexslider").flexslider();
-            var nav = $(".menu-bar"); //得到导航对象
-            var win = $(window); //得到窗口对象
-            var sc = $(document);//得到document文档对象。
-            win.scroll(function () {
-                if (sc.scrollTop() >= 700) {
-
-                    $(".menu-bar").fadeIn();
-                } else {
-
-                    $(".menu-bar").fadeOut();
-                }
-            })
-            $("#search_ipt").focus(function () {
-                $("#search_ipt").attr("placeholder", "请输入搜索内容");
-                $("#search_ipt").css("width", "150px");
-                $("#search_ipt").css("color", "#000");
-            });
-            $("#search_ipt").blur(function () {
-                $("#search_ipt").attr("placeholder", "");
-                $("#search_ipt").css("width", "65px");
-                $("#search_ipt").css("color", "#fff");
-            });
-
-            $(".btn-open-login").off("click").on("click", function () {
-                $(".modal-content").css("display", "none");
-                $("#login_content.modal-content").css("display", "block");
-                $(".modal h1 span").removeClass("on");
-                $(".modal h1 span.login").addClass("on");
-                var wid = ($(window).width() - 400) / 2;
-                $(".modal").css("display", "block");
-                $(".modal-dialog").css({
-                    display: "block",
-                    right: wid,
-                    top: "0"
-                }).animate({
-                    top: "40%",
-
-                }, function () {
-                    $(".modal-dialog").animate({ top: "20%" });
-                });
-            });
-
-            $(".btn-open-register").off("click").on("click", function () {
-                $(".modal-content").css("display", "none");
-                $("#reg_content.modal-content").css("display", "block");
-                $(".modal h1 span").removeClass("on");
-                $(".modal h1 span.register").addClass("on");
-                var wid = ($(window).width() - 400) / 2;
-                $(".modal").css("display", "block");
-                $(".modal-dialog").css({
-                    display: "block",
-                    right: wid,
-                    top: "60%"
-                }).animate({
-                    top: "10%",
-                }, function () {
-                    $(".modal-dialog").animate({ top: "20%" });
-                });
-            });
-
-
-            $(".btn-close").off("click").on("click", function () {
-                $(".modal").fadeOut(500);
-
-            });
-
-            $(".socialwrapper").flip({
-                direction: 'lr',
-                speed: 300,
-                color: '#f9f9f9',
-                onEnd: function () {
-                    $(".inbox").find("#reg_content").toggle();
-                    $(".inbox").find("#login_content").toggle();
-                }
-            });
-
-
-            $(".modal-title .login").off("click").on("click", function () {
-
-                if ($("#login_content.modal-content").css("display") == "block") {
-                    return;
-                }
-                $(".modal h1 span").removeClass("on");
-                $(".modal h1 span.login").addClass("on");
-                $(".modal-content").css("display", "none");
-                $("#reg_content.modal-content").css("display", "block");
-
-                $(".socialwrapper").flip({
-                    direction: 'lr',
-                    speed: 300,
-                    color: '#f9f9f9',
-                    onEnd: function () {
-                        $(".inbox").find("#reg_content").toggle();
-                        $(".inbox").find("#login_content").toggle();
-                    }
-                });
-            });
-
-            $(".modal-title .register").off("click").on("click", function () {
-                if ($("#reg_content.modal-content").css("display") == "block") {
-                    return;
-                }
-                $(".modal h1 span").removeClass("on");
-                $(".modal h1 span.register").addClass("on");
-                $(".modal-content").css("display", "none");
-                $("#login_content.modal-content").css("display", "block");
-
-                $(".socialwrapper").flip({
-                    direction: 'rl',
-                    speed: 300,
-                    color: '#f9f9f9',
-                    onEnd: function () {
-                        $(".inbox").find("#reg_content").toggle();
-                        $(".inbox").find("#login_content").toggle();
-                    }
-                });
-            });
-        })
-    </script>
+  
 
 </body>
 </html>
-
-
