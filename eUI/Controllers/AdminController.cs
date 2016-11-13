@@ -39,5 +39,14 @@ namespace easyUITest.Controllers
 
             return View("Input");
         }
+        public ActionResult Save()
+        {
+            return Redirect("Index");
+        }
+        public ActionResult Uploadfile()
+        {
+            return Json(new { });
+        }
+
     }
 }

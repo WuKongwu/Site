@@ -3,10 +3,24 @@
 }
 @Scripts.Render(eUI.Common.JsFiles.AdminInput)
 @Scripts.Render(eUI.Common.JsFiles.UserGridEditingInline)
-<div style="
-    font-size: 12px;
-    padding: 10px 0;
-">
+<script src="~/Style/kindeditor-4.1.7/kindeditor-min.js"></script>
+<script src="~/Style/kindeditor-4.1.7/lang/zh_CN.js"></script>
+<link href="~/Style/kindeditor-4.1.7/themes/default/default.css" rel="stylesheet" />
+<script type="text/javascript">
+    var editor;
+    KindEditor.ready(function (K) {
+        editor = K.create('textarea[name="content"]', {
+            allowFileManager: true
+        });
+        K.create('#textarea_id', {
+            uploadJson: '../asp.net/upload_json.ashx',
+            fileManagerJson: '../asp.net/file_manager_json.ashx',
+            allowFileManager: true
+        });
+    });
+
+</script>
+<div style="font-size: 12px;padding: 10px 0;">
     <div>
         查询条件：<div style="padding: 5px;border: 1px solid #95B8E7;margin: 5px 0;">
             订单号：<input class="textbox-value easyui-textbox" id="txtSearchOrderNumber" type="text" />
@@ -15,12 +29,53 @@
                 交易起止时间：<input id="txtSearchPayDateStart" type="date" class="easyui-textbox" />——<input id="txtSearchPayDateEnd" class="easyui-textbox" type="date" />
             </div>
         </div>
-
         <button id="btnSearch" class="easyui-linkbutton" style="width:80px;">查询</button>
+        <button id="btnAdd" class="easyui-linkbutton" style="width:80px;" onclick="$('#dlg').dialog('open')">添加</button>
     </div>
 </div>
 <div id="papergrid"></div>
+<div id="dlg" class="easyui-dialog" title="Basic Dialog" data-options="iconCls:'icon-save'" style="width:700px;height:500px;padding:10px">
+   
+        <div>
+            论文标题：<input class="textbox-value easyui-textbox" id="txtAddTitle" type="text" />
+            论文简介：<input class="textbox-value easyui-textbox" id="txtAddShow" type="text" />
+        </div><br />
+        <div>
+            论文价格：<input class="textbox-value easyui-textbox" id="txtAddPrice" type="text" />
+            论文类别：<select name="Type" class="selected">
+                <option value="0">----</option>
+                <option value="1">asp作品</option>
+                <option value="2">jsp/java作品</option>
+                <option value="3">asp.net/c#作品</option>
+                <option value="4">php作品</option>
+                <option value="5">vc++作品</option>
+                <option value="6">安卓作品</option>
+                <option value="7">ios作品</option>
+                <option value="8">游戏作品</option>
+            </select>
+        </div><br />
+        <div>
+            <textarea id="textarea_id" name="content" style="width:670px;height:300px;"></textarea>
+        </div>
+        <div><button type="button" class="easyui-linkbutton l-btn l-btn-small" id="submit">提交</button></div>
+ 
+</div>
 
+<script>
+    $("#submit").click(function () {
+        $.ajax({
+            url: "../Admin/Save",
+           // type: 'POST',
+           //// data: data,
+           // //dataType: dataType,
+           // success(function () {
+           //     alert(1111);
+           // })
+
+        });
+    });
+
+</script>
 @*<h2 style="text-align:center">论文管理</h2>
 <div id="paper_input">
     <form action="input">
