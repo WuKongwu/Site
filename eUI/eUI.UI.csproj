@@ -216,6 +216,7 @@
     <Content Include="Content\themes\Paper\css\images\game-log.png" />
     <Content Include="Content\themes\Paper\css\images\ios-log.png" />
     <Content Include="Content\themes\Paper\css\images\jsp-log.png" />
+    <Content Include="Content\themes\Paper\css\images\loading.gif" />
     <Content Include="Content\themes\Paper\css\images\php-log.png" />
     <Content Include="Content\themes\Paper\css\images\SiteLogo.JPG" />
     <Content Include="Content\themes\Paper\css\images\SiteLogo.png" />
@@ -687,6 +688,8 @@
     <Content Include="Views\Business\Index.cshtml" />
     <Content Include="Views\Paper\PaperListV.cshtml" />
     <Content Include="Views\Paper\_paperListVPaging.cshtml" />
+    <Content Include="Views\Paper\SearchList.cshtml" />
+    <Content Include="Views\Paper\_searchListPaging.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

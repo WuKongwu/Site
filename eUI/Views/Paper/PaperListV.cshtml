@@ -1,5 +1,5 @@
 @model eUI.Model.ViewModel.PaperListViewModel
-
+@{ string log = ViewData["login"].ToString();}
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -21,6 +21,8 @@
     <script src="~/Content/themes/Paper/js/jquery.flexslider-min.js"></script>
     <script src="~/Content/themes/Paper/js/jquery.flip.min.js"></script>
     <script type="text/javascript" src="~/Content/themes/Paper/js/jquery.twbsPagination.min.js"></script>
+    <script src="~/Content/themes/Paper/js/jquery.core.js"></script>
+
     <style>
         .modal-content {
             padding: 10px 20px 20px 20px;
@@ -66,7 +68,7 @@
         </script>
     <![endif]-->
 </head>
-<body data-type="@ViewData["type"]" data-website="@Url.Content("~/")">
+<body data-type="@ViewData["type"]" data-website="@Url.Content("~/")" data-loguser="@log">
     <div class="header">
         <div class="nav clearfix">
             <a class="logo" href="/paper">
@@ -92,10 +94,12 @@
                     </li>
                 </ul>
             </div>
+            <div class="user-log-info">Hi! <span style="margin:0 10px;">@log</span><a href="/login/logout" style="text-decoration: underline;">退出</a></div>
+
             <div class="top-search">
-                <form class="sform" method="get" action="/Search/Result">
-                    <input id="search_ipt" type="text" name='k' placeholder="" />
-                    <button type="button"><i class="iconfont">&#xe627;</i></button>
+                <form class="sform" method="get" action="/Paper/SearchList">
+                    <input id="search_ipt" type="text" name='key' placeholder="" />
+                    <button id="search_btn" type="submit"><i class="iconfont">&#xe627;</i></button>
                 </form>
             </div>
         </div>
@@ -242,35 +246,45 @@
     <!--注册popup开始-->
     <div class="modal" style="z-index: 2005; background: rgba(0, 0, 0, 0.4); display: none">
         <div class="modal-dialog" style="width: 400px; top: 30%; cursor: default; display: none">
-            <a class="btn-close"><i class="iconfont"></i></a><div class="inbox">
+            <div class="loading-pop">
+                <img style="position: relative;top: 41%;" src="/Content/themes/Paper/css/images/loading.gif">
+            </div>
+            <a class="btn-close"><i class="iconfont"></i></a>
+            <div class="inbox">
                 <div class="modal-title">
                     <h1>
                         <span class="login">用户登录</span>
                         <span class="register">注册</span>
                     </h1>
                 </div>
+
+
+
                 <div class="socialwrapper">
                     <div id="login_content" class="modal-content">
                         <div class="login-box ">
                             <div class="form-box">
-                                <form name="login" style="" autocomplete="off" novalidate="novalidate">
+                                <form name="login" id="login_fom" autocomplete="off" novalidate="novalidate" method="post">
                                     <dl>
                                         <dt>用户账号</dt>
                                         <dd>
-                                            <input type="text" class="ipt" name="username" placeholder="邮箱/手机号码" value="">
+                                            <input id="login_mail" type="text" class="ipt" name="email" placeholder="邮箱地址" value="">
+                                            <label class="reg-error mail-login-error"></label>
                                         </dd>
                                     </dl>
                                     <dl>
                                         <dt>用户密码</dt>
                                         <dd>
-                                            <input type="password" class="ipt" name="password" placeholder="请输入登录密码">
+                                            <input id="login_pwd" type="password" class="ipt" name="password" placeholder="请输入登录密码">
+                                            <label class="reg-error pwd-login-error"></label>
                                         </dd>
                                     </dl>
                                     <dl>
                                         <dt>&nbsp;</dt>
                                         <dd>
-                                            <button type="submit" class="btn-blue">登录</button>
-                                            <a href="javascript:;" class="forget-pwd">忘记密码？点击找回</a>
+                                            <button id="login_btn" type="button" class="btn-blue">登录</button>
+                                            @* <a href="javascript:;" class="forget-pwd">忘记密码？点击找回</a>*@
+                                            <label class="reg-error back-error"></label>
                                         </dd>
                                     </dl>
 
@@ -280,42 +294,50 @@
                     </div>
 
                     <div id="reg_content" class="modal-content">
+
                         <div class="login-box ">
                             <div class="form-box">
-                                <form name="register" autocomplete="off" novalidate="novalidate">
+                                <form id="register_fom" method="post" action="/Login/UserRegist">
                                     <dl>
                                         <dt>注册邮箱</dt>
                                         <dd>
-                                            <input name="password" type="password" placeholder="请输入邮箱">
+                                            <input id="reg_mail" name="email" type="email" placeholder="请输入邮箱" autocomplete="off">
+                                            <label class="reg-error mail-error"></label>
                                         </dd>
                                     </dl>
                                     <dl>
                                         <dt>用户密码</dt>
                                         <dd>
-                                            <input name="password" type="password" placeholder="请输入登录密码">
+
+                                            <input id="password" name="Onepassword" type="password" placeholder="请输入登录密码" maxlength="12" autocomplete="off">
+                                            <label class="reg-error password-error"></label>
                                         </dd>
                                     </dl>
                                     <dl>
                                         <dt>确认密码</dt>
                                         <dd>
-                                            <input name="repassword" type="password" placeholder="请再次输入登录密码">
+                                            <input id="reg_password" name="password" type="password" placeholder="请再次输入登录密码" maxlength="12" autocomplete="off">
+                                            <label class="reg-error reg-password-error"></label>
                                         </dd>
                                     </dl>
                                     <dl>
                                         <dt>用户昵称</dt>
                                         <dd>
-                                            <input name="nickname" type="text" placeholder="请输入用户昵称">
+                                            <input id="reg_name" name="name" type="text" placeholder="请输入用户昵称" maxlength="8" autocomplete="off">
+                                            <label class="reg-error name-error"></label>
                                         </dd>
                                     </dl>
                                     <dl>
                                         <dt>&nbsp;</dt>
                                         <dd>
-                                            <button>注册</button>
+                                            <button id="reg_btn" type="button">注册</button>
+                                            <label class="reg-error back-error"></label>
                                         </dd>
                                     </dl>
                                 </form>
                             </div>
                         </div>
+
                     </div>
                 </div>
 
@@ -340,41 +362,6 @@
     <script>
 
 
-        function backToTop() {
-            var speed = 500;//滑动的速度
-            $('body,html').animate({ scrollTop: 0 }, speed);
-            return false;
-        }
-
-        function scrollFixed() {
-            var obMenu = $(".menu-bg").offset().top;
-
-            var win = $(window); //得到窗口对象
-            var sc = $(document);//得到document文档对象。
-            win.scroll(function () {
-                if (sc.scrollTop() >= obMenu) {
-
-                    $(".menu-bg").addClass("menufixed");
-                } else {
-
-                    $(".menu-bg").removeClass("menufixed");
-                }
-            })
-
-        }
-
-        function InitMenu() {
-            var type = $("body").data("type");
-            $(".menu-bar-fixd li a").removeClass("active");
-            $(".menu-bar-fixd li").each(function (index, element) {
-
-                if (type == (index + 1)) {
-                    $(element).find("a").addClass("active");
-                }
-
-            });
-
-        }
         var flag = "true";
         function Paging(pageNo) {
             var type = $("body").data("type");
@@ -394,144 +381,27 @@
                         $(".paper-detail ul.detail-ul").html(data);
                     },
                     error: function (e) { flag = "true"; }
-
                 })
-
             }
-
         }
 
-
-        $(function () {
-
-            InitMenu();
-
-            scrollFixed();
-            $(".flexslider").flexslider();
-
-            $("#search_ipt").focus(function () {
-                $("#search_ipt").attr("placeholder", "请输入搜索内容");
-                $("#search_ipt").css("width", "150px");
-                $("#search_ipt").css("color", "#000");
-            });
-            $("#search_ipt").blur(function () {
-                $("#search_ipt").attr("placeholder", "");
-                $("#search_ipt").css("width", "65px");
-                $("#search_ipt").css("color", "#fff");
-            });
-
-            $(".btn-open-login").off("click").on("click", function () {
-                $(".modal-content").css("display", "none");
-                $("#login_content.modal-content").css("display", "block");
-                $(".modal h1 span").removeClass("on");
-                $(".modal h1 span.login").addClass("on");
-                var wid = ($(window).width() - 400) / 2;
-                $(".modal").css("display", "block");
-                $(".modal-dialog").css({
-                    display: "block",
-                    right: wid,
-                    top: "0"
-                }).animate({
-                    top: "40%",
-
-                }, function () {
-                    $(".modal-dialog").animate({ top: "20%" });
-                });
-            });
-
-            $(".btn-open-register").off("click").on("click", function () {
-                $(".modal-content").css("display", "none");
-                $("#reg_content.modal-content").css("display", "block");
-                $(".modal h1 span").removeClass("on");
-                $(".modal h1 span.register").addClass("on");
-                var wid = ($(window).width() - 400) / 2;
-                $(".modal").css("display", "block");
-                $(".modal-dialog").css({
-                    display: "block",
-                    right: wid,
-                    top: "60%"
-                }).animate({
-                    top: "10%",
-                }, function () {
-                    $(".modal-dialog").animate({ top: "20%" });
-                });
-            });
-
-
-            $(".btn-close").off("click").on("click", function () {
-                $(".modal").fadeOut(500);
-
-            });
-
-            $(".socialwrapper").flip({
-                direction: 'lr',
-                speed: 300,
-                color: '#f9f9f9',
-                onEnd: function () {
-                    $(".inbox").find("#reg_content").toggle();
-                    $(".inbox").find("#login_content").toggle();
+        var count = $(".paper-detail ul.detail-ul").data("count");
+        if (count > 0) {
+            var pageCount = Math.ceil(count / 9);
+            $('#pagination-demo').twbsPagination({
+                totalPages: pageCount,
+                visiblePages: 5,
+                first: "首页",
+                last: "末页",
+                prev: "上一页",
+                next: "下一页",
+                initiateStartPageClick: false,
+                onPageClick: function (event, page) {
+                    Paging(page);
                 }
             });
+        }
 
-
-            $(".modal-title .login").off("click").on("click", function () {
-
-                if ($("#login_content.modal-content").css("display") == "block") {
-                    return;
-                }
-                $(".modal h1 span").removeClass("on");
-                $(".modal h1 span.login").addClass("on");
-                $(".modal-content").css("display", "none");
-                $("#reg_content.modal-content").css("display", "block");
-
-                $(".socialwrapper").flip({
-                    direction: 'lr',
-                    speed: 300,
-                    color: '#f9f9f9',
-                    onEnd: function () {
-                        $(".inbox").find("#reg_content").toggle();
-                        $(".inbox").find("#login_content").toggle();
-                    }
-                });
-            });
-
-            $(".modal-title .register").off("click").on("click", function () {
-                if ($("#reg_content.modal-content").css("display") == "block") {
-                    return;
-                }
-                $(".modal h1 span").removeClass("on");
-                $(".modal h1 span.register").addClass("on");
-                $(".modal-content").css("display", "none");
-                $("#login_content.modal-content").css("display", "block");
-
-                $(".socialwrapper").flip({
-                    direction: 'rl',
-                    speed: 300,
-                    color: '#f9f9f9',
-                    onEnd: function () {
-                        $(".inbox").find("#reg_content").toggle();
-                        $(".inbox").find("#login_content").toggle();
-                    }
-                });
-            });
-
-            var count = $(".paper-detail ul.detail-ul").data("count");
-            if (count > 0) {
-                var pageCount = Math.ceil(count / 9);
-                $('#pagination-demo').twbsPagination({
-                    totalPages: pageCount,
-                    visiblePages: 5,
-                    first: "首页",
-                    last: "末页",
-                    prev: "上一页",
-                    next: "下一页",
-                    initiateStartPageClick: false,
-                    onPageClick: function (event, page) {
-                        Paging(page);
-                    }
-                });
-            }
-        })
     </script>
 </body>
 </html>

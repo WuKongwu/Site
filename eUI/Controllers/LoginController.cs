@@ -24,14 +24,22 @@ namespace easyUITest.Controllers
             LoginBLL loginBLL = new LoginBLL();
             UserRecordList UserRecordList=new UserRecordList();
             UserRecordList = loginBLL.UserLogin(password, email);
+            
             if (UserRecordList == null || UserRecordList.rows.Count <= 0)
             {
                 return Json(JsonResult("false", "登录邮箱或密码不正确！"));
             }
             else {
+                Session["user"] = UserRecordList.rows;
                 return Json(JsonResult("true", Newtonsoft.Json.JsonConvert.SerializeObject(UserRecordList.rows)));
             }
         }
+
+        public ActionResult Logout() {
+            Session["user"] = null;
+            return RedirectToAction("Index","Paper");
+        }
+
 
         public JsonResult UserRegist(string password, string name, string email)
         {

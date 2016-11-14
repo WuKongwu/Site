@@ -52,6 +52,25 @@ namespace eUI.BLL
             return paperListViewModel;
         }
 
+        public PaperListViewModel PaperSearchList(string key)
+        {
+
+            PaperListViewModel paperListViewModel = new PaperListViewModel();
+            DataTable dtTypeList = paperDAL.SearchPaperList(key);
+
+            DataTable dtSearchRandomList = paperDAL.SearchRandomList(null);
+
+            DataTable dtSearchPaperHotListBytype = paperDAL.SearchPaperHotListBytype(null);
+            PaperInfoList PaperInfoList = new PaperInfoList();
+            paperListViewModel.paperInfoList = PaperInfoList;
+            paperListViewModel.paperInfoList.rows = dtTypeList.toList<PaperInfo>();
+            paperListViewModel.randomList = dtSearchRandomList.toList<PaperList>();
+            paperListViewModel.HotList = dtSearchPaperHotListBytype.toList<PaperList>();
+
+            return paperListViewModel;
+        }
+
+
         public PaperDetailViewModel PaperDetailById(string Id)
         {
             PaperDetailViewModel paperDetailViewModel = new PaperDetailViewModel();

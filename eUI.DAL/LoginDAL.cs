@@ -22,7 +22,7 @@ namespace eUI.DAL
             {
                 string userId = Guid.NewGuid().ToString("D");
                 StringBuilder sbSIOne = new StringBuilder();
-                sbSIOne.AppendFormat("INSERT userrecord  (UserId,Email,Name,Password,Flag) VALUES('{0}','{1}','{2}','{3}',0)", userId, email, name, password);
+                sbSIOne.AppendFormat("INSERT INTO userrecord  (UserId,Email,Name,Password,Flag) VALUES('{0}','{1}','{2}','{3}',0)", userId, email, name, password);
                 int result = DBHelper.ExcuteNoQuerySql(sbSIOne.ToString());
                 if (result == 1)
                 {

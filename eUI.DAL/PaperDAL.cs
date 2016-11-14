@@ -61,11 +61,32 @@ namespace eUI.DAL
         {
 
             StringBuilder sbSI = new StringBuilder();
-            sbSI.Append("select A.*,B.Num from paper as A LEFT JOIN (SELECT Num,PaperId from count where type=2)as B ON A.id=B.PaperId where type=" + type + " order by Num desc limit 10");
+            sbSI.Append("select A.*,B.Num from paper as A LEFT JOIN (SELECT Num,PaperId from count where type=2)as B ON A.id=B.PaperId where 1=1 ");
+            if (!string.IsNullOrEmpty(type))
+            {
+                sbSI.Append("and type=" + type + " order by Num desc limit 10");
+            }
+            else {
+                sbSI.Append("order by Num desc limit 10");
+            }
             DataTable dtTypeList = DBHelper.SearchSql(sbSI.ToString());
 
             return dtTypeList;
         }
+
+        public DataTable SearchPaperList(string key)
+        {
+
+            StringBuilder sbSI = new StringBuilder();
+            sbSI.Append("SELECT A.*, B.Path as imgPath,C.ReadCount,D.BuyCount FROM((SELECT * FROM paper WHERE title  LIKE '%" + key + "%') AS A LEFT JOIN (SELECT PaperId,Path FROM paperimg LIMIT 1 ) AS B ON A.Id = B.PaperId )");
+            sbSI.Append("LEFT JOIN (SELECT Num AS ReadCount, PaperId FROM count WHERE Type = 1 ) AS C ON A.id = C.PaperId LEFT JOIN ( SELECT Num AS BuyCount, PaperId FROM count WHERE Type = 2 ) AS D ON A.id = D.PaperId");
+            DataTable dtTypeList = DBHelper.SearchSql(sbSI.ToString());
+
+            return dtTypeList;
+        }
+
+
+
 
         public DataTable SearchPaperDetailById(string Id)
         {

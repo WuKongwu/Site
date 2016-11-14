@@ -9,6 +9,7 @@
     int countSix = 0;
     int countSeven = 0;
     int countEight = 0;
+    string log = ViewData["login"].ToString();
 }
 <!DOCTYPE html>
 <html lang="zh">
@@ -45,7 +46,7 @@
         </script>
     <![endif]-->
 </head>
-<body data-website="@Url.Content("~/")">
+<body data-website="@Url.Content("~/")" data-loguser="@log">
     <div class="header">
         <div class="nav clearfix">
             <a class="logo" href="/paper">
@@ -62,6 +63,7 @@
                 </ul>
 
             </div>
+
             <div class="nav-list top-user">
                 <ul>
                     <li>
@@ -72,14 +74,19 @@
                     </li>
                 </ul>
             </div>
+
+
+            <div class="user-log-info">Hi! <span style="margin:0 10px;">@log</span><a href="/login/logout" style="text-decoration: underline;">退出</a></div>
+
             <div class="top-search">
-                <form class="sform" method="get" action="/Search/Result">
-                    <input id="search_ipt" type="text" name='k' placeholder="" />
-                    <button type="button"><i class="iconfont">&#xe627;</i></button>
+                <form class="sform" method="get" action="/Paper/SearchList">
+                    <input id="search_ipt" type="text" name='key' placeholder="" />
+                    <button id="search_btn" type="submit"><i class="iconfont">&#xe627;</i></button>
                 </form>
             </div>
+
         </div>
-        <span class="user-log-info">Hi! <span>测试号</span></span>
+
     </div>
     <div class="bg">
         <div class="container topad clearfix">
@@ -489,113 +496,123 @@
         <div class="container">
             <div class="clearfix">
                 <ul class="menu-bar-fixd">
-                    <li><a class="active">asp作品</a></li>
-                    <li><a>jsp/java作品</a></li>
-                    <li><a>asp.net/c#作品</a></li>
-                    <li><a>php作品</a></li>
-                    <li><a>vc++作品</a></li>
-                    <li><a>安卓作品</a></li>
-                    <li><a>ios作品</a></li>
-                    <li><a>游戏作品</a></li>
+                    <li><a href="/paper/List?type=1">asp作品</a></li>
+                    <li><a href="/paper/List?type=2">jsp/java作品</a></li>
+                    <li><a href="/paper/List?type=3">asp.net/c#作品</a></li>
+                    <li><a href="/paper/List?type=4">php作品</a></li>
+                    <li><a href="/paper/List?type=5">vc++作品</a></li>
+                    <li><a href="/paper/List?type=6">安卓作品</a></li>
+                    <li><a href="/paper/List?type=7">ios作品</a></li>
+                    <li><a href="/paper/List?type=8">游戏作品</a></li>
                 </ul>
             </div>
         </div>
     </div>
     <!--tip菜单结束-->
     <!--注册popup开始-->
-    <div class="modal" style="z-index: 2005; background: rgba(0, 0, 0, 0.4); display: none">
+    <div  class="modal" style="z-index: 2005; background: rgba(0, 0, 0, 0.4); display: none">
         <div class="modal-dialog" style="width: 400px; top: 30%; cursor: default; display: none">
-            <a class="btn-close"><i class="iconfont"></i></a><div class="inbox">
+            <div class="loading-pop">
+                <img style="position: relative;top: 41%;" src="/Content/themes/Paper/css/images/loading.gif">
+            </div>
+            <a class="btn-close"><i class="iconfont"></i></a>
+            <div class="inbox">
                 <div class="modal-title">
                     <h1>
                         <span class="login">用户登录</span>
                         <span class="register">注册</span>
                     </h1>
                 </div>
-                <div class="socialwrapper">
-                    <div id="login_content" class="modal-content">
-                        <div class="login-box ">
-                            <div class="form-box">
-                                <form name="login" id="login_fom" autocomplete="off" novalidate="novalidate" method="post">
-                                    <dl>
-                                        <dt>用户账号</dt>
-                                        <dd>
-                                            <input id="login_mail"  type="text" class="ipt" name="email" placeholder="邮箱地址" value="">
-                                             <label class="reg-error mail-login-error"></label>
-                                        </dd>
-                                    </dl>
-                                    <dl>
-                                        <dt>用户密码</dt>
-                                        <dd>
-                                            <input id="login_pwd" type="password" class="ipt" name="password" placeholder="请输入登录密码">
-                                             <label class="reg-error pwd-login-error"></label>
-                                        </dd>
-                                    </dl>
-                                    <dl>
-                                        <dt>&nbsp;</dt>
-                                        <dd>
-                                            <button id="login_btn" type="button" class="btn-blue">登录</button>
-                                           @* <a href="javascript:;" class="forget-pwd">忘记密码？点击找回</a>*@
-                                        </dd>
-                                    </dl>
 
-                                </form>
-                            </div>
+          
+
+            <div class="socialwrapper">
+                <div id="login_content" class="modal-content">
+                    <div class="login-box ">
+                        <div class="form-box">
+                            <form name="login" id="login_fom" autocomplete="off" novalidate="novalidate" method="post">
+                                <dl>
+                                    <dt>用户账号</dt>
+                                    <dd>
+                                        <input id="login_mail" type="text" class="ipt" name="email" placeholder="邮箱地址" value="">
+                                        <label class="reg-error mail-login-error"></label>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>用户密码</dt>
+                                    <dd>
+                                        <input id="login_pwd" type="password" class="ipt" name="password" placeholder="请输入登录密码">
+                                        <label class="reg-error pwd-login-error"></label>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>&nbsp;</dt>
+                                    <dd>
+                                        <button id="login_btn" type="button" class="btn-blue">登录</button>
+                                        @* <a href="javascript:;" class="forget-pwd">忘记密码？点击找回</a>*@
+                                        <label class="reg-error back-error"></label>
+                                    </dd>
+                                </dl>
+
+                            </form>
                         </div>
-                    </div>
-
-                    <div id="reg_content" class="modal-content">
-
-                        <div class="login-box ">
-                            <div class="form-box">
-                                <form id="register_fom" method="post" action="/Login/UserRegist">
-                                    <dl>
-                                        <dt>注册邮箱</dt>
-                                        <dd>
-                                            <input id="reg_mail" name="email" type="email" placeholder="请输入邮箱" autocomplete="off">
-                                            <label class="reg-error mail-error"></label>
-                                        </dd>
-                                    </dl>
-                                    <dl>
-                                        <dt>用户密码</dt>
-                                        <dd>
-
-                                            <input id="password" name="Onepassword" type="password" placeholder="请输入登录密码" maxlength="12" autocomplete="off">
-                                            <label class="reg-error password-error"></label>
-                                        </dd>
-                                    </dl>
-                                    <dl>
-                                        <dt>确认密码</dt>
-                                        <dd>
-                                            <input id="reg_password" name="password" type="password" placeholder="请再次输入登录密码" maxlength="12" autocomplete="off">
-                                            <label class="reg-error reg-password-error"></label>
-                                        </dd>
-                                    </dl>
-                                    <dl>
-                                        <dt>用户昵称</dt>
-                                        <dd>
-                                            <input id="reg_name" name="name" type="text" placeholder="请输入用户昵称" maxlength="8" autocomplete="off">
-                                            <label class="reg-error name-error"></label>
-                                        </dd>
-                                    </dl>
-                                    <dl>
-                                        <dt>&nbsp;</dt>
-                                        <dd>
-                                            <button id="reg_btn" type="button">注册</button>
-                                            <label class="reg-error back-error"></label>
-                                        </dd>
-                                    </dl>
-                                </form>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
 
+                <div id="reg_content" class="modal-content">
+
+                    <div class="login-box ">
+                        <div class="form-box">
+                            <form id="register_fom" method="post" action="/Login/UserRegist">
+                                <dl>
+                                    <dt>注册邮箱</dt>
+                                    <dd>
+                                        <input id="reg_mail" name="email" type="email" placeholder="请输入邮箱" autocomplete="off">
+                                        <label class="reg-error mail-error"></label>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>用户密码</dt>
+                                    <dd>
+
+                                        <input id="password" name="Onepassword" type="password" placeholder="请输入登录密码" maxlength="12" autocomplete="off">
+                                        <label class="reg-error password-error"></label>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>确认密码</dt>
+                                    <dd>
+                                        <input id="reg_password" name="password" type="password" placeholder="请再次输入登录密码" maxlength="12" autocomplete="off">
+                                        <label class="reg-error reg-password-error"></label>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>用户昵称</dt>
+                                    <dd>
+                                        <input id="reg_name" name="name" type="text" placeholder="请输入用户昵称" maxlength="8" autocomplete="off">
+                                        <label class="reg-error name-error"></label>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>&nbsp;</dt>
+                                    <dd>
+                                        <button id="reg_btn" type="button">注册</button>
+                                        <label class="reg-error back-error"></label>
+                                    </dd>
+                                </dl>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
             </div>
+
         </div>
     </div>
+    </div>
     <!--注册popup结束-->
+
+
 
     <div class="QQ_S1" style="display: block;">
         <div class="Q_top1"> <span></span>&nbsp;</div>
@@ -610,7 +627,7 @@
     </div>
 
 
-  
+
 
 </body>
 </html>
