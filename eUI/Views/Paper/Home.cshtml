@@ -516,24 +516,26 @@
                     <div id="login_content" class="modal-content">
                         <div class="login-box ">
                             <div class="form-box">
-                                <form name="login" style="" autocomplete="off" novalidate="novalidate">
+                                <form name="login" id="login_fom" autocomplete="off" novalidate="novalidate" method="post">
                                     <dl>
                                         <dt>用户账号</dt>
                                         <dd>
-                                            <input type="text" class="ipt" name="username" placeholder="邮箱/手机号码" value="">
+                                            <input id="login_mail"  type="text" class="ipt" name="email" placeholder="邮箱地址" value="">
+                                             <label class="reg-error mail-login-error"></label>
                                         </dd>
                                     </dl>
                                     <dl>
                                         <dt>用户密码</dt>
                                         <dd>
-                                            <input type="password" class="ipt" name="password" placeholder="请输入登录密码">
+                                            <input id="login_pwd" type="password" class="ipt" name="password" placeholder="请输入登录密码">
+                                             <label class="reg-error pwd-login-error"></label>
                                         </dd>
                                     </dl>
                                     <dl>
                                         <dt>&nbsp;</dt>
                                         <dd>
-                                            <button type="submit" class="btn-blue">登录</button>
-                                            <a href="javascript:;" class="forget-pwd">忘记密码？点击找回</a>
+                                            <button id="login_btn" type="button" class="btn-blue">登录</button>
+                                           @* <a href="javascript:;" class="forget-pwd">忘记密码？点击找回</a>*@
                                         </dd>
                                     </dl>
 

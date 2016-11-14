@@ -88,7 +88,11 @@ $(function () {
 
 
 	$(".btn-close").off("click").on("click", function () {
-		$(".modal").fadeOut(500);
+	    $(".modal").fadeOut(500, function () {
+	        $(".modal-dialog .form-box dd label").html("");
+	        $(".form-box form input").val("");
+	    });
+	    
 
 	});
 
@@ -111,6 +115,7 @@ $(function () {
 		$(".modal h1 span").removeClass("on");
 		$(".modal h1 span.login").addClass("on");
 		$(".modal-content").css("display", "none");
+		$(".modal-dialog .form-box dd label").html("");
 		$("#reg_content.modal-content").css("display", "block");
 
 		$(".socialwrapper").flip({
@@ -131,6 +136,7 @@ $(function () {
 		$(".modal h1 span").removeClass("on");
 		$(".modal h1 span.register").addClass("on");
 		$(".modal-content").css("display", "none");
+		$(".modal-dialog .form-box dd label").html("");
 		$("#login_content.modal-content").css("display", "block");
 
 		$(".socialwrapper").flip({
@@ -170,6 +176,10 @@ $(function () {
 			$password_error.html("密码不能为空！");
 			result = false;
 		}
+		if (password.length > 6 && password.length < 12) {
+		    $password_error.html("密码长度为6-12位字符！");
+		    result = false;
+		}
 		if (password != regPassword) {
 			$reg_password_error.html("两次输入的密码不一致！");
 			result = false;
@@ -178,12 +188,40 @@ $(function () {
 			result = false;
 		}
 		return result;
-
-
 	}
+
+	function checkLogin() {
+	    var result = true;
+	    var email = $("#login_mail").val();
+	    var password = $("#login_pwd").val();
+	    var reg = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
+	    $emailLeb = $(".mail-login-error");
+	    $password_error = $(".pwd-login-error");
+
+	    if (email == "") {
+	        $emailLeb.html("邮箱地址不能为空！");
+	        result = false;
+	    } else {
+	        if (!reg.test(email)) {
+	            $emailLeb.html("邮箱地址格式不正确！");
+	            result = false;
+	        }
+	    }
+	    if (password == "") {
+	        $password_error.html("密码不能为空！");
+	        result = false;
+	    }
+	    if (password.length > 6 && password.length < 12) {
+	        $password_error.html("密码长度为6-12位字符！");
+	        result = false;
+	    }
+	    return result;
+	}
+
 
 	var flagLog = "true";
 	$("#reg_btn").off("click").on("click", function () {
+	    $(".modal-dialog .form-box dd label").html("");
 		if (checkReg() == true) {
 			var url = $("body").data("website") + "Login/UserRegist";
 			var data = $("#register_fom").serialize();
@@ -204,6 +242,11 @@ $(function () {
 
 						if (dataSet["Result"] == "false") {
 							$(".back-error").html(dataSet["data"]);
+						} else if (dataSet["Result"] == "true") {
+						    $(".modal").fadeOut(100, function () {
+						        $(".modal-dialog .form-box dd label").html("");
+						        alert(dataSet["data"]);
+						    });
 						}
 					},
 					error: function (e) {
@@ -212,5 +255,46 @@ $(function () {
 				});
 			}
 		}
+	});
+	var flags = "true";
+	$("#login_btn").off("click").on("click", function () {
+	    $(".modal-dialog .form-box dd label").html("");
+	    if (checkLogin() == true) {
+	        var url = $("body").data("website") + "Login/UserLogin";
+	        var data = $("#login_fom").serialize();
+
+	        if (flags == "true") {
+	            flags = "false";
+
+	            $.ajax({
+	                url: url,
+	                type: "POST",
+	                dataType: "json",
+	                cache: false,
+	                headers: { "Cache-Control": "no-cache" },
+	                data: data,
+	                success: function (data) {
+	                    flags = "true";
+	                    var dataSet = $.parseJSON(data);
+	                    if (dataSet["Result"] == "false") {
+	                        $(".back-error").html(dataSet["data"]);
+	                    } else if (dataSet["Result"] == "true") {
+	                        $(".modal").fadeOut(500, function () {
+	                            $(".modal-dialog .form-box dd label").html("");
+	                           
+	                            var emailText = $.parseJSON(dataSet["data"])[0]["Email"];
+	                            var nameText = $.parseJSON(dataSet["data"])[0]["Name"];
+	                           
+	                        });
+	                    }
+	                },
+	                error: function (e) {
+	                    flags = "true";
+	                }
+	            });
+	        }
+	    }
+
+
 	});
 })

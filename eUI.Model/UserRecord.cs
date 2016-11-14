@@ -8,7 +8,7 @@ namespace eUI.Model
 {
     public class UserRecord :baseModel
     {
-        public virtual int UserId { get; set; }
+        public virtual string UserId { get; set; }
         public virtual string Email { get; set; }
         public virtual string Name { get; set; }
         public virtual string Password { get; set; }
