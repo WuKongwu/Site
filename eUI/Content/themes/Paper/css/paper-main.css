@@ -1284,9 +1284,11 @@ background-color:#fff;
     box-shadow:1px 1px 1px 1px #999 ;
     }
 .user-log-info {
-    position: absolute;
-    top: 23px;
-    right: 60px;
+    color: black;
+    height: 65px;
+    float: right;
+    line-height: 65px;
+    padding: 0 15px;
     display:none;
 }
 .hpw_pl {
@@ -1307,4 +1309,14 @@ font-weight:bolder;
     line-height: 20px;
    
     color: red;
+}
+.loading-pop {
+    z-index: 2005;
+    background: rgba(0, 0, 0, 0.4);
+    display: none;
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    text-align: center;
+
 }

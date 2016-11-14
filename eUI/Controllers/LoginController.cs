@@ -1,11 +1,15 @@
 ﻿using eUI.BLL;
+using eUI.Model.ViewModel;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Runtime.Serialization.Json;
 using System.Security.Cryptography;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Web.Http;
 using System.Web.Mvc;
@@ -14,19 +18,34 @@ namespace easyUITest.Controllers
 {
     public class LoginController : Controller
     {
-        public JsonResult UserLogin(string userId, string password)
+        public JsonResult UserLogin(string email, string password)
         {
-
-            return null;
+            password = Encrypt(password);
+            LoginBLL loginBLL = new LoginBLL();
+            UserRecordList UserRecordList=new UserRecordList();
+            UserRecordList = loginBLL.UserLogin(password, email);
+            
+            if (UserRecordList == null || UserRecordList.rows.Count <= 0)
+            {
+                return Json(JsonResult("false", "登录邮箱或密码不正确！"));
+            }
+            else {
+                Session["user"] = UserRecordList.rows;
+                return Json(JsonResult("true", Newtonsoft.Json.JsonConvert.SerializeObject(UserRecordList.rows)));
+            }
         }
-        
+
+        public ActionResult Logout() {
+            Session["user"] = null;
+            return RedirectToAction("Index","Paper");
+        }
+
+
         public JsonResult UserRegist(string password, string name, string email)
         {
-            if (string.IsNullOrEmpty(password)||checkPassword(password))
+            if (string.IsNullOrEmpty(password) || checkPassword(password))
             {
-                return Json(JsonResult("false","密码格式不正确！"));
-                    
-                 
+                return Json(JsonResult("false", "密码格式不正确！"));
             }
             else if (string.IsNullOrEmpty(name))
             {
@@ -38,20 +57,39 @@ namespace easyUITest.Controllers
             }
             password = Encrypt(password);
             LoginBLL loginBLL = new LoginBLL();
-            int result=loginBLL.RegistUser(password, name, email);
-            if (result==-1)
+            int result = loginBLL.RegistUser(password, name, email);
+            if (result == -1)
             {
                 return Json(JsonResult("false", "邮箱已注册！"));
             }
-            else if (result == 0) {
+            else if (result == 0)
+            {
                 return Json(JsonResult("false", "注册失败，请重新注册！"));
+            }
+            else if (result == 2)
+            {
+                return Json(JsonResult("false", "发送注册邮箱激活信息失败！"));
             }
             else
             {
-                return Json(JsonResult("false", "注册成功请到注册邮箱激活登录！"));
+                return Json(JsonResult("true", "注册成功,请到注册邮箱激活后登陆！"));
             }
-            
+
         }
+
+        public ActionResult Activation(string userId)
+        {
+            LoginBLL loginBLL = new LoginBLL();
+            if (loginBLL.Activation(userId))
+            {
+                return RedirectToAction("UserLogin");
+
+            }
+            else {
+                return View("error");
+            }
+        }
+
 
         private bool checkEmail(string email)
         {
@@ -62,21 +100,22 @@ namespace easyUITest.Controllers
         }
         private bool checkPassword(string password)
         {
-            if (System.Text.RegularExpressions.Regex.IsMatch(password, "[A-Z]") ||
-                System.Text.RegularExpressions.Regex.IsMatch(password, "[a-z]"))
-            {
-                if (password.Length > 6 && password.Length < 12) 
+            //if (System.Text.RegularExpressions.Regex.IsMatch(password, "[A-Z]") ||
+            //    System.Text.RegularExpressions.Regex.IsMatch(password, "[a-z]"))
+            //{
+                if (password.Length > 6 && password.Length < 12)
                 {
                     return true;
                 }
-                else {
+                else
+                {
                     return false;
                 }
-            }
-            else
-            {
-                return false;
-            }
+            //}
+            //else
+            //{
+            //    return false;
+            //}
         }
 
         private string Encrypt(string strPwd)
@@ -93,7 +132,7 @@ namespace easyUITest.Controllers
             return str;
         }
 
-        private string JsonResult(string result, string data) 
+        private string JsonResult(string result, string data)
         {
             JObject JData = new JObject();
             JData.Add("Result", result);

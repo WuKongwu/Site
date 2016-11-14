@@ -1,5 +1,7 @@
-@model eUI.Model.ViewModel.PaperDetailViewModel
-@{ string log = ViewData["login"].ToString();}
+@model eUI.Model.ViewModel.PaperListViewModel
+
+ @{string log = ViewData["login"].ToString();}
+
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -21,6 +23,8 @@
     <script src="~/Content/themes/Paper/js/jquery.flexslider-min.js"></script>
     <script src="~/Content/themes/Paper/js/jquery.flip.min.js"></script>
     <script src="~/Content/themes/Paper/js/jquery.core.js"></script>
+    <script type="text/javascript" src="~/Content/themes/Paper/js/jquery.twbsPagination.min.js"></script>
+   
     <style>
         .modal-content {
             padding: 10px 20px 20px 20px;
@@ -66,7 +70,7 @@
         </script>
     <![endif]-->
 </head>
-<body data-type="@Model.detail[0].Type" data-loguser="@log" data-website="@Url.Content("~/")">
+<body data-type="@ViewData["type"]" data-website="@Url.Content("~/")" data-loguser="@log">
     <div class="header">
         <div class="nav clearfix">
             <a class="logo" href="/paper">
@@ -92,12 +96,12 @@
                     </li>
                 </ul>
             </div>
-
             <div class="user-log-info">Hi! <span style="margin:0 10px;">@log</span><a href="/login/logout" style="text-decoration: underline;">退出</a></div>
 
             <div class="top-search">
                 <form class="sform" method="get" action="/Paper/SearchList">
                     <input id="search_ipt" type="text" name='key' placeholder="" />
+                    <input id="key_val" type="hidden" value="@ViewData["key"]" />
                     <button id="search_btn" type="submit"><i class="iconfont">&#xe627;</i></button>
                 </form>
             </div>
@@ -106,67 +110,7 @@
     <div class="bg">
         <div class="container">
             <div class="clearfix">
-                <div class="paper-img-list">
-                    <div class="flexslider">
-                        <ul class="slides" style="height: 350px">
-                            @if (Model.imgList.Count() <= 0)
-                            {
-                                <li>
-                                    <img class="thumbs" src="@Url.Content("~/default.png")" width="500" height="350" alt="默认图片" />
-                                </li>
-                            }
-                            else
-                            {
-                                foreach (var item in Model.imgList)
-                                {
-                                    <li>
-                                        <img class="thumbs" src="@Url.Content("~/"+item.Path)" width="500" height="350" />
-                                    </li>
-                                }
-                            }
-                        </ul>
-                    </div>
-                </div>
-                <div class="paper-info">
-                    <div class="tb-detail-hd">
-                        <h1>
-                            @Model.detail[0].Title
-                        </h1>
-                        <p class="date-info">日期：@Model.detail[0].CreateDate.ToShortDateString()</p>
-                    </div>
-                    <div class="paper-note">@Model.detail[0].Info</div>
-
-                    <div class="tm-fcs-panel">
-                        <dl class="tm-promo-panel tm-promo-cur" data-label="价格">
-                            <dt class="tb-metatit">价格</dt>
-                            <dd>
-                                <div class="tm-promo-price">
-                                    <em class="tm-yen">&#165;</em><span class="tm-price">@Model.detail[0].Price</span>
-                                    <em class="tm-promo-type "><s></s>火速购买</em>&nbsp;&nbsp;
-                                </div>
-                                <p></p>
-                            </dd>
-                        </dl>
-                        <dl class="tm-phoneprice">
-                            <dt class="tb-metatit">&nbsp;</dt>
-                            <dd>
-                                <div class="wraper">
-                                    <div class="read-div">阅读量&nbsp;<span>@Model.detail[0].ReadCount</span></div>
-                                    <div class="buy-div">购买量&nbsp;<span>@Model.detail[0].BuyCount</span></div>
-                                </div>
-                                <div class="clearfix"></div>
-                            </dd>
-                        </dl>
-                    </div>
-
-                    <div class="paper-pay">
-                        <div class="wx-pay"><a></a></div>
-                        <div class="tb-pay"><a></a></div>
-                        <div class="clearfix"></div>
-
-                    </div>
-                </div>
-
+                <img src="~/Content/themes/Paper/css/images/show1.jpg" width="100%" height="150px" />
             </div>
         </div>
     </div>
@@ -188,22 +132,19 @@
         </div>
     </div>
 
-
     <div class="bg bg-gray">
         <div class="container">
             <div class="clearfix">
                 <div class="paper-left-list box3">
                     <div class="cont-title dtl-list-title">
-                        <h3>最新作品</h3>
+                        <h3>随机作品</h3>
                     </div>
                     <div class="job-task-list dtl-list">
                         <ul>
-                            @foreach (var item in Model.NewList)
+                            @foreach (var item in Model.randomList)
                             {
                                 <li><a href="/paper/Detail?id=@item.Id"><font class="date-font">@item.CreateDate.ToShortDateString()</font>@item.Title</a></li>
-
                             }
-
                         </ul>
                     </div>
                     <div class="dtl-dashed">&nbsp;</div>
@@ -215,28 +156,48 @@
                             @foreach (var item in Model.HotList)
                             {
                                 <li><a href="/paper/Detail?id=@item.Id"><font class="date-font">@item.CreateDate.ToShortDateString()</font>@item.Title</a></li>
-
                             }
-
                         </ul>
                     </div>
                     <div class="clearfix"></div>
                 </div>
                 <div class="paper-detail box3">
-                    <div class="detail-text">
-                        <h1 class="dtl-h1">
-                            @Model.detail[0].Title
-                        </h1>
-                        @if (!string.IsNullOrEmpty(Model.detail[0].videoPath))
-                        {
-                            <div class="video-div">
-                                <video src="c235b_01_hd_h264_1280_720.mp4" controls preload="auto" width="600"></video>
-                            </div>
-                        }
+                    <div class="opuslist bd">
+                        <ul class="clearfix detail-ul" data-count="@Model.paperInfoList.total">
 
-                        <pre>
-                             @Model.detail[0].DetailInfo</pre>
+                            @foreach (var item in Model.paperInfoList.rows)
+                            {
+
+
+                                <li>
+                                    <div class="imgbox">
+                                        <a href="/paper/Detail?id=@item.Id" title="@item.Title">
+                                            <img class="thumbs" src="@item.imgPath" width="232" height="186" alt="@item.Title">
+                                        </a>
+                                    </div>
+                                    <div class="infobox">
+                                        <p class="vtitle">
+                                            <a href="/paper/Detail?id=@item.Id" title="@item.Title">
+                                                @item.Title
+                                            </a>
+                                        </p>
+                                        <div class="info clearfix">
+                                            <span class="hpw_love">价格：</span>
+                                            <span class="hpw_pl"> <em class="tm-yen">&#165;</em>@item.Price</span>
+                                        </div>
+                                        <div class="userinfo">
+
+                                            <span class="badge-pat">购买数<span class="badge">@item.BuyCount</span>阅读数<span class="badge">@item.ReadCount</span></span>
+
+                                        </div>
+                                    </div>
+                                </li>
+                            }
+                        </ul>
                     </div>
+                    <nav style="text-align: center;margin: 10px 0;">
+                        <ul id="pagination-demo" class="pagination-sm"></ul>
+                    </nav>
                 </div>
 
             </div>
@@ -299,9 +260,6 @@
                         <span class="register">注册</span>
                     </h1>
                 </div>
-
-
-
                 <div class="socialwrapper">
                     <div id="login_content" class="modal-content">
                         <div class="login-box ">
@@ -400,5 +358,50 @@
         </div>
     </div>
 
+    <script>
+        var flag = "true";
+        function Paging(pageNo) {
+            var key = $("#key_val").val();
+            var url = $("body").data("website") + "paper/SearchListPaging";
+            if (flag == "true") {
+                flag = "false";
+
+                $.ajax({
+                    url: url,
+                    type: "POST",
+                    dataType: "html",
+                    cache: false,
+                    headers: { "CaChe-Control": "no-cache" },
+                    data: { pageNo: pageNo, key: key },
+                    success: function (data) {
+                        flag = "true";
+                        $(".paper-detail ul.detail-ul").html(data);
+                    },
+                    error: function (e) { flag = "true"; }
+                })
+            }
+        }
+
+
+
+        var count = $(".paper-detail ul.detail-ul").data("count");
+        if (count > 0) {
+            var pageCount = Math.ceil(count / 9);
+            $('#pagination-demo').twbsPagination({
+                totalPages: pageCount,
+                visiblePages: 5,
+                first: "首页",
+                last: "末页",
+                prev: "上一页",
+                next: "下一页",
+                initiateStartPageClick: false,
+                onPageClick: function (event, page) {
+                    Paging(page);
+                }
+            });
+        }
+
+    </script>
 </body>
 </html>
+
