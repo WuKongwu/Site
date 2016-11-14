@@ -39,9 +39,11 @@ namespace easyUITest.Controllers
 
             return View("Input");
         }
-        public ActionResult Save()
+        public ActionResult Save(PaperInfo paperInfo)
         {
-            return Redirect("Index");
+            AdminBLL admin = new AdminBLL();
+            bool b = admin.SavePaper(paperInfo);
+            return Json(new { success = b},JsonRequestBehavior.AllowGet);
         }
         public ActionResult Uploadfile()
         {

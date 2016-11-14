@@ -14,8 +14,6 @@ namespace eUI.BLL
     public class PaperBLL
     {
         PaperDAL paperDAL = new PaperDAL();
-
-
         public PaperInit PaperInit()
         {
             PaperInit paperInit = new PaperInit();
@@ -36,19 +34,15 @@ namespace eUI.BLL
 
         public PaperListViewModel PaperTypeList(string type)
         {
-
             PaperListViewModel paperListViewModel = new PaperListViewModel();
             DataTable dtTypeList = paperDAL.SearchPaperListByType(type);
-
             DataTable dtSearchRandomList = paperDAL.SearchRandomList(type);
-
             DataTable dtSearchPaperHotListBytype = paperDAL.SearchPaperHotListBytype(type);
             PaperInfoList PaperInfoList = new PaperInfoList();
             paperListViewModel.paperInfoList = PaperInfoList;
             paperListViewModel.paperInfoList.rows = dtTypeList.toList<PaperInfo>();
             paperListViewModel.randomList = dtSearchRandomList.toList<PaperList>();
             paperListViewModel.HotList = dtSearchPaperHotListBytype.toList<PaperList>();
-
             return paperListViewModel;
         }
 
@@ -56,11 +50,8 @@ namespace eUI.BLL
         {
             PaperDetailViewModel paperDetailViewModel = new PaperDetailViewModel();
             DataTable dtPaperDetail = paperDAL.SearchPaperDetailById(Id);
-
             DataTable dtImgList = paperDAL.SearchPaperImgListById(Id);
-
             paperDetailViewModel.detail = dtPaperDetail.toList<PaperInfo>();
-            
             DataTable dtSearchPaperHotListBytype = paperDAL.SearchPaperHotListBytype(paperDetailViewModel.detail[0].Type.ToString());
             DataTable dtSearchNewList = paperDAL.SearchNewList();
             paperDetailViewModel.HotList = dtSearchPaperHotListBytype.toList<PaperList>();
@@ -68,8 +59,6 @@ namespace eUI.BLL
             paperDetailViewModel.imgList = dtImgList.toList<Img>();
             return paperDetailViewModel;
         }
-
-
         public void AddReadCount(string id) {
             paperDAL.AddReadCount(id);
         }

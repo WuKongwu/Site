@@ -34,7 +34,8 @@ namespace eUI.DAL
         {
             StringBuilder sbAddUser = new StringBuilder();
             ;
-            string GetSessionWithDsmId = "INSERT INTO PAPER (ID,Title,Info,DetailInfo,Price,CreateDate,Type) VALUES(SEQ_CG_MR_MOD_DET.NEXTVAL,:CG_SESN_ID,:TAB_ID,:ATBT_ID,:ATBT_VALUE)";
+            string GetSessionWithDsmId = string.Format(@"INSERT INTO PAPER (Title,Info,DetailInfo,Price,CreateDate,Type) 
+                VALUES('{0}','{1}','{2}','{3}','{4}','{5}')",paperInfo.Title,paperInfo.Info,paperInfo.DetailInfo,paperInfo.Price,DateTime.Now,paperInfo.Type);
 
 
             int iResult = DBHelper.ExcuteNoQuerySql(GetSessionWithDsmId);

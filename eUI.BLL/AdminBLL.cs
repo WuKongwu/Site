@@ -13,7 +13,6 @@ namespace eUI.BLL
 {
     public class AdminBLL
     {
-
         adminDAL adminDAL = new adminDAL();
         public PaperInfoList getPaperList(PaperList paperList)
         {
@@ -24,12 +23,9 @@ namespace eUI.BLL
             return paperInfoList;
         }
 
-        public int InputPaperInfo(PaperInfo paperInfo)
+        public bool SavePaper(PaperInfo paperInfo)
         {
-
-
-
-            return 0;
+            return adminDAL.Input(paperInfo); ;
         }
     }
 }

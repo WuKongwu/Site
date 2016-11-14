@@ -17,6 +17,25 @@
             fileManagerJson: '../asp.net/file_manager_json.ashx',
             allowFileManager: true
         });
+        K('#submit').click(function (e) {
+            var param = {
+                Title: $("#txtAddTitle").val(),
+                Info: $("#txtAddShow").val(),
+                Price: $("#txtAddPrice").val(),
+                Type: $("#txtAddType").val(),
+                DetailInfo: editor.html()
+            };
+            $.ajax({
+                url: "../Admin/Save",
+                type: 'POST',
+                data: param,
+                success: function (data) {
+                    if (data.success) {
+                        $("#papergrid").datagrid('reload');
+                    }
+                },
+            });
+        });
     });
 
 </script>
@@ -35,91 +54,28 @@
 </div>
 <div id="papergrid"></div>
 <div id="dlg" class="easyui-dialog" title="Basic Dialog" data-options="iconCls:'icon-save'" style="width:700px;height:500px;padding:10px">
-   
-        <div>
-            论文标题：<input class="textbox-value easyui-textbox" id="txtAddTitle" type="text" />
-            论文简介：<input class="textbox-value easyui-textbox" id="txtAddShow" type="text" />
-        </div><br />
-        <div>
-            论文价格：<input class="textbox-value easyui-textbox" id="txtAddPrice" type="text" />
-            论文类别：<select name="Type" class="selected">
-                <option value="0">----</option>
-                <option value="1">asp作品</option>
-                <option value="2">jsp/java作品</option>
-                <option value="3">asp.net/c#作品</option>
-                <option value="4">php作品</option>
-                <option value="5">vc++作品</option>
-                <option value="6">安卓作品</option>
-                <option value="7">ios作品</option>
-                <option value="8">游戏作品</option>
-            </select>
-        </div><br />
-        <div>
-            <textarea id="textarea_id" name="content" style="width:670px;height:300px;"></textarea>
-        </div>
-        <div><button type="button" class="easyui-linkbutton l-btn l-btn-small" id="submit">提交</button></div>
- 
+
+    <div>
+        论文标题：<input class="textbox-value easyui-textbox" id="txtAddTitle" type="text" />
+        论文简介：<input class="textbox-value easyui-textbox" id="txtAddShow" type="text" />
+    </div><br />
+    <div>
+        论文价格：<input class="textbox-value easyui-textbox" id="txtAddPrice" type="text" />
+        论文类别：<select name="Type" class="selected" id="txtAddType">
+            <option value="0">----</option>
+            <option value="1">asp作品</option>
+            <option value="2">jsp/java作品</option>
+            <option value="3">asp.net/c#作品</option>
+            <option value="4">php作品</option>
+            <option value="5">vc++作品</option>
+            <option value="6">安卓作品</option>
+            <option value="7">ios作品</option>
+            <option value="8">游戏作品</option>
+        </select>
+    </div><br />
+    <div>
+        <textarea id="textarea_id" name="content" style="width:670px;height:300px;"></textarea>
+    </div>
+    <div><button type="button" name="submitName" class="easyui-linkbutton l-btn l-btn-small" id="submit">提交</button></div>
+
 </div>
-
-<script>
-    $("#submit").click(function () {
-        $.ajax({
-            url: "../Admin/Save",
-           // type: 'POST',
-           //// data: data,
-           // //dataType: dataType,
-           // success(function () {
-           //     alert(1111);
-           // })
-
-        });
-    });
-
-</script>
-@*<h2 style="text-align:center">论文管理</h2>
-<div id="paper_input">
-    <form action="input">
-        <div>
-            <label>论文标题</label>
-            <input type="text" name="Title" class="easyui-textbox" />
-        </div>
-        <div>
-            <label class="info">论文简介</label>
-            <textarea name="Info"  ></textarea>
-        </div>
-
-        <div>
-            <label class="info">论文详情</label>
-            <textarea name="DetailInfo"  ></textarea>
-        </div>
-
-        <div>
-            <label>论文售价</label>
-            <input name="Price" type="number" class="easyui-textbox"  />
-        </div>
-
-        <div>
-            <label>论文类别</label>
-            <select name="Type" class="selected">
-                <option value="0">----</option>
-                <option value="1">asp作品</option>
-                <option value="2">jsp/java作品</option>
-                <option value="3">asp.net/c#作品</option>
-                <option value="4">php作品</option>
-                <option value="5">vc++作品</option>
-                <option value="6">安卓作品</option>
-                <option value="7">ios作品</option>
-                <option value="8">游戏作品</option>
-            </select>
-        </div>
-        <div><label>图片上传(1)</label><input type="file" name="img1" class="filebox" value="图片上传" accept="image/*" /></div>
-        <div>图片2<input type="file" name="img2" value="图片上传" /></div>
-        <div>图片3<input type="file" name="img3" value="图片上传" /></div>
-        <div>图片4<input type="file" name="img4" value="图片上传" /></div>
-        <div>图片5<input type="file" name="img5" value="图片上传" /></div>
-
-        <div>视频<input type="file" name="video" value="视频上传" /></div>
-
-        <button type="submit">提交</button>
-    </form>
-</div>*@
