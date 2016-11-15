@@ -82,7 +82,7 @@ namespace easyUITest.Controllers
             LoginBLL loginBLL = new LoginBLL();
             if (loginBLL.Activation(userId))
             {
-                return RedirectToAction("UserLogin");
+                return View("success");
 
             }
             else {

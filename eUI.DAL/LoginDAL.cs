@@ -39,7 +39,6 @@ namespace eUI.DAL
             }
         }
 
-
         public bool UpdateActivationFlag(string userId)
         {
             StringBuilder sbSI = new StringBuilder();
@@ -47,7 +46,6 @@ namespace eUI.DAL
             int result = DBHelper.ExcuteNoQuerySql(sbSI.ToString());
             if (result == 1)
             {
-
                 return true;
             }
             else
@@ -55,7 +53,6 @@ namespace eUI.DAL
                 return false;
             }
         }
-
 
         public DataTable UserLogin(string password, string email)
         {
@@ -65,26 +62,16 @@ namespace eUI.DAL
             return dt;
         }
 
-
-
-
-
-
-
-
-
-
-
         private bool SendActivationEmail(string userId, string email)
         {
             string emailSte = ConfigurationManager.AppSettings["emailSte"];
             string emailCode = ConfigurationManager.AppSettings["emailCode"];
-            string SiteBaseUrl = ConfigurationManager.AppSettings["SiteBaseUrl"];
+            string SiteBaseUrl = ConfigurationManager.AppSettings["SiteBaseUrl"] + "/login/Activation?userId=" + userId;
             System.Net.Mail.MailMessage msg = new System.Net.Mail.MailMessage();
             msg.From = new MailAddress(emailSte, "启源科技", System.Text.Encoding.UTF8); //发件人地址（可以随便写），发件人姓名，编码*/ 
             msg.Subject = "启源科技论文网站激活信息";//邮件标题 
             msg.SubjectEncoding = System.Text.Encoding.UTF8;//邮件标题编码 
-            msg.Body = "<h2>感谢您注册启源科技</h2><p>请点击以下链接来完成网站激活,激活后方可登录</p><a href='" + SiteBaseUrl + "'>" + SiteBaseUrl + "</a>";//邮件内容 
+            msg.Body = "<h2>感谢您注册启源科技</h2><p>请复制以下链接在浏览器打开,来完成网站激活,激活后方可登录</p><a target='_blank' href='" + SiteBaseUrl + "'>" + SiteBaseUrl + "</a>";//邮件内容 
             msg.BodyEncoding = System.Text.Encoding.UTF8;//邮件内容编码 
             msg.IsBodyHtml = true;//是否是HTML邮件 
             msg.Priority = MailPriority.High;//邮件优先级 
@@ -100,15 +87,6 @@ namespace eUI.DAL
             msg.To.Add(email);
             try
             {
-                /***************************/
-                /*请注意SmtpClient类还有两个用于发送Email的方法：
-                 * Send()和SendAsync()。Send()方法在它的发送操作完成前阻塞其它的程序执行；
-                 * SendAsync()方法异步地发送Email。
-                 * 不像Send()方法，SendAsync()方法不必等待检测发送操作是否成功。*/
-                /***************************/
-                //client.SendAsync(msg, userState);
-                ////client.Send(msg);
-                //Console.WriteLine("success!");
                 System.Threading.Thread.Sleep(100);
                 client.Send(msg);
                 return true;
