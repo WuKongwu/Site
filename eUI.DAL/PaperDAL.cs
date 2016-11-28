@@ -97,7 +97,7 @@ namespace eUI.DAL
         {
 
             StringBuilder sbSI = new StringBuilder();
-            sbSI.Append("SELECT A.*, B.Path as videoPath,C.ReadCount,D.BuyCount FROM((SELECT * FROM paper WHERE id = " + Id + ") AS A LEFT JOIN (SELECT PaperId,Path FROM papervideo ) AS B ON A.Id = B.PaperId ) LEFT JOIN (SELECT Num AS ReadCount, PaperId FROM count WHERE Type = 1 ) AS C ON A.id = C.PaperId LEFT JOIN ( SELECT Num AS BuyCount, PaperId FROM count WHERE Type = 2 ) AS D ON A.id = D.PaperId");
+            sbSI.Append("SELECT A.*,C.ReadCount,D.BuyCount FROM (SELECT * FROM paper WHERE id = " + Id + ") AS A   LEFT JOIN (SELECT Num AS ReadCount, PaperId FROM count WHERE Type = 1 ) AS C ON A.id = C.PaperId LEFT JOIN ( SELECT Num AS BuyCount, PaperId FROM count WHERE Type = 2 ) AS D ON A.id = D.PaperId");
 
             DataTable dtPaperDetail = DBHelper.SearchSql(sbSI.ToString());
 

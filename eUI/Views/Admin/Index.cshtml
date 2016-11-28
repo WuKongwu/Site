@@ -5,7 +5,7 @@
 @Scripts.Render(eUI.Common.JsFiles.UserGridEditingInline)
 @*<script src="~/Style/kindeditor-4.1.7/kindeditor-min.js"></script>
 <script src="~/Style/kindeditor-4.1.7/lang/zh_CN.js"></script>*@
-<script src="~/Style/kindeditor/kindeditor.js"></script>
+@*<script src="~/Style/kindeditor/kindeditor.js"></script>*@
 <script src="~/Js/jquery.fileupload.js"></script>
 <script src="~/Js/jquery.iframe-transport.js"></script>
 <script src="~/Js/ajaxfileupload.js"></script>
@@ -76,11 +76,11 @@
 
 
 
-    KE.show({
-        id: 'txtContent'
-    });
-    var editor;
-    KindEditor.ready(function (K) {
+    //KE.show({
+    //    id: 'txtContent'
+    //});
+    //var editor;
+    $(function () {
         //editor = K.create('textarea[name="content"]', {
         //    allowFileManager: true
         //});
@@ -89,15 +89,16 @@
         //    fileManagerJson: '../asp.net/file_manager_json.ashx',
         //    allowFileManager: true
         //});
-        K('#submit').click(function (e) {
+        $('#submit').click(function (e) {
+
             var param = {
                 Id: $("#Id").val(),
                 Title: $('[name="txtAddTitle"]').val(),
                 Info: $('[name="txtAddShow"]').val(),
                 Price: $('[name="txtAddPrice"]').val(),
                 Type: $("#txtAddType").val(),
-                DetailInfo: editor.html(),
-                imgPath: $("#t_file1").val() + "|" + $("#t_file2").val() + "|" + $("#t_file3").val()
+                DetailInfo: $("#textarea_id").val(),
+                imgPath: $("#file1").val() + "|" + $("#file2").val() + "|" + $("#file3").val()
 
             };
             $.ajax({
@@ -123,7 +124,7 @@
             $('[name="txtAddPrice"]').prev().val('');
             $("#txtAddType").val(0),
             $("#Id").val(0);
-            KindEditor.instances[0].html("")
+            //KindEditor.instances[0].html("")
 
         }
     });
@@ -163,26 +164,26 @@
         </select>
     </div>
     <div>
-        <input type="file" /><button type="button" name="submitName" class="easyui-linkbutton l-btn l-btn-small" id="upload">上傳</button><br />
+        <input type="file" /><button type="button" name="submitName" class="easyui-linkbutton l-btn l-btn-small" id="upload">上传</button><br />
         <input type="file" id="file1" name="file1"/>
-            <button type="button" name="submitName1" class="easyui-linkbutton l-btn l-btn-small" id="uploadImg1">上傳图片</button>
+            <button type="button" name="submitName1" class="easyui-linkbutton l-btn l-btn-small" id="uploadImg1">上传图片</button>
         <span id="t_file1"></span>
         <br />
        
         <input type="file" id="file2" name="file2"/>
-        <button type="button" name="submitName2" class="easyui-linkbutton l-btn l-btn-small" id="uploadImg2">上傳图片</button>
+        <button type="button" name="submitName2" class="easyui-linkbutton l-btn l-btn-small" id="uploadImg2">上传图片</button>
         <span id="t_file2"></span>
         <br />
        
-        <input type="file" id="file3" name="file3"/><button type="button" name="submitName3" class="easyui-linkbutton l-btn l-btn-small" id="uploadImg3">上傳图片</button>
+        <input type="file" id="file3" name="file3"/><button type="button" name="submitName3" class="easyui-linkbutton l-btn l-btn-small" id="uploadImg3">上传图片</button>
         <span id="t_file3"></span><br />
         
     </div>
     
     
     <div>
-        <textarea id="txtContent" cols="10" rows="5" name="txtContent" style="width: 670px; height: 300px;"></textarea>
-        @*<textarea id="textarea_id" name="content" style="width:670px;height:300px;"></textarea>*@
+        @*<nav id="txtContent" cols="10" rows="5" name="txtContent" style="width: 670px; height: 300px;"></nav>*@
+        <textarea id="textarea_id" name="content" style="width:670px;height:300px;"></textarea>
     </div>
     <div><button type="button" name="submitName" class="easyui-linkbutton l-btn l-btn-small" id="submit">提交</button></div>
 

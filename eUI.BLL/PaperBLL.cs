@@ -69,13 +69,16 @@ namespace eUI.BLL
         {
             PaperDetailViewModel paperDetailViewModel = new PaperDetailViewModel();
             DataTable dtPaperDetail = paperDAL.SearchPaperDetailById(Id);
-            DataTable dtImgList = paperDAL.SearchPaperImgListById(Id);
+           // DataTable dtImgList = paperDAL.SearchPaperImgListById(Id);
+            List<Img> imgList = new List<Img>();
+
+            imgList.Add((Img)dtPaperDetail.Rows[0]["ImgA"]);
             paperDetailViewModel.detail = dtPaperDetail.toList<PaperInfo>();
             DataTable dtSearchPaperHotListBytype = paperDAL.SearchPaperHotListBytype(paperDetailViewModel.detail[0].Type.ToString());
             DataTable dtSearchNewList = paperDAL.SearchNewList();
             paperDetailViewModel.HotList = dtSearchPaperHotListBytype.toList<PaperList>();
             paperDetailViewModel.NewList = dtSearchNewList.toList<PaperList>();
-            paperDetailViewModel.imgList = dtImgList.toList<Img>();
+            paperDetailViewModel.imgList = imgList;
             return paperDetailViewModel;
         }
         public void AddReadCount(string id) {

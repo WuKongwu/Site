@@ -16,7 +16,7 @@ namespace eUI.Model.ViewModel
         public DateTime CreateDate { get; set; }
         public int Type { get; set; }
 
-        public string videoPath { get; set; }
+        public string Video { get; set; }
         public string imgPath { get; set; }
         public int ReadCount { get; set; }
         public int BuyCount { get; set; }
