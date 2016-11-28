@@ -130,5 +130,86 @@ namespace easyUITest.Controllers
             PaperDetailViewModel paperDetailViewModel = paperBLL.PaperDetailById(id);
             return View("PaperDetail", paperDetailViewModel);
         }
+
+
+        public ViewResult PayGuide() {
+            if (Session["user"] != null)
+            {
+                List<UserRecord> list = (List<UserRecord>)Session["user"];
+                ViewData["login"] = list[0].Name;
+            }
+            else
+            {
+                ViewData["login"] = string.Empty;
+            }
+            PaperBLL paperBLL = new PaperBLL();
+            PaperListViewModel paperListViewModel = paperBLL.PaperTypeList(null);
+            return View("PayGuide", paperListViewModel);
+        }
+
+        public ViewResult CreditGuarantee()
+        {
+            if (Session["user"] != null)
+            {
+                List<UserRecord> list = (List<UserRecord>)Session["user"];
+                ViewData["login"] = list[0].Name;
+            }
+            else
+            {
+                ViewData["login"] = string.Empty;
+            }
+            PaperBLL paperBLL = new PaperBLL();
+            PaperListViewModel paperListViewModel = paperBLL.PaperTypeList(null);
+            return View("CreditGuarantee", paperListViewModel);
+        }
+
+        public ViewResult ToolDownload()
+        {
+            if (Session["user"] != null)
+            {
+                List<UserRecord> list = (List<UserRecord>)Session["user"];
+                ViewData["login"] = list[0].Name;
+            }
+            else
+            {
+                ViewData["login"] = string.Empty;
+            }
+            PaperBLL paperBLL = new PaperBLL();
+            PaperListViewModel paperListViewModel = paperBLL.PaperTypeList(null);
+            return View("ToolDownload", paperListViewModel);
+        }
+
+        public ViewResult TemplateDownload()
+        {
+            if (Session["user"] != null)
+            {
+                List<UserRecord> list = (List<UserRecord>)Session["user"];
+                ViewData["login"] = list[0].Name;
+            }
+            else
+            {
+                ViewData["login"] = string.Empty;
+            }
+            PaperBLL paperBLL = new PaperBLL();
+            PaperListViewModel paperListViewModel = paperBLL.PaperTypeList(null);
+            return View("TemplateDownload", paperListViewModel);
+        }
+
+        public ViewResult About()
+        {
+            if (Session["user"] != null)
+            {
+                List<UserRecord> list = (List<UserRecord>)Session["user"];
+                ViewData["login"] = list[0].Name;
+            }
+            else
+            {
+                ViewData["login"] = string.Empty;
+            }
+            PaperBLL paperBLL = new PaperBLL();
+            PaperListViewModel paperListViewModel = paperBLL.PaperTypeList(null);
+            return View("About", paperListViewModel);
+        }
+
     }
 }

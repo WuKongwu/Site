@@ -55,11 +55,11 @@
             <div class="nav-list">
                 <ul>
                     <li class="active"><a href="/paper" target="_self" title="首页">首页</a></li>
-                    <li><a href="#" target="_self" title="购买指南">购买指南</a></li>
-                    <li><a href="#" target="_self" title="信誉保证">信誉保证</a></li>
-                    <li><a href="#" target="_self" title="开发工具下载专区">开发工具下载</a></li>
-                    <li><a href="#" target="_self" title="毕设模板专区下载">毕设模板下载</a></li>
-                    <li><a href="#" target="_self" title="关于我们">关于我们</a></li>
+                    <li><a href="/paper/PayGuide" target="_self" title="购买指南">购买指南</a></li>
+                    <li><a href="/paper/CreditGuarantee" target="_self" title="信誉保证">信誉保证</a></li>
+                    <li><a href="/paper/ToolDownload" target="_self" title="开发工具下载">开发工具下载</a></li>
+                    <li><a href="/paper/TemplateDownload" target="_self" title="毕设模板下载">毕设模板下载</a></li>
+                    <li><a href="/paper/About" target="_self" title="关于我们">关于我们</a></li>
                 </ul>
 
             </div>
@@ -228,7 +228,10 @@
                                         if (item.Type == 1)
                                         {
                                             countOne += 1;
-                                            <li><a href="/paper/Detail?id=@item.Id"><font class="date-font">@item.CreateDate.ToShortDateString()</font>@item.Title</a></li>
+                                            if (countOne <= 10)
+                                            {
+                                                <li><a href="/paper/Detail?id=@item.Id"><font class="date-font">@item.CreateDate.ToShortDateString()</font>@item.Title</a></li>
+                                            }
                                         }
                                     }
                                 </ul>
@@ -253,7 +256,9 @@
                                         if (item.Type == 2)
                                         {
                                             countTwo += 1;
-                                            <li><a href="/paper/Detail?id=@item.Id"><font class="date-font">@item.CreateDate.ToShortDateString()</font>@item.Title</a></li>
+                                            if (countTwo <= 10)
+                                            {
+                                            <li><a href="/paper/Detail?id=@item.Id"><font class="date-font">@item.CreateDate.ToShortDateString()</font>@item.Title</a></li>}
                                         }
                                     }
                                 </ul>
@@ -276,7 +281,9 @@
                                         if (item.Type == 3)
                                         {
                                             countThree += 1;
-                                            <li><a href="/paper/Detail?id=@item.Id"><font class="date-font">@item.CreateDate.ToShortDateString()</font>@item.Title</a></li>
+                                            if (countThree <= 10)
+                                            {
+                                            <li><a href="/paper/Detail?id=@item.Id"><font class="date-font">@item.CreateDate.ToShortDateString()</font>@item.Title</a></li> }
                                         }
                                     }
                                 </ul>
@@ -299,7 +306,8 @@
                                         if (item.Type == 4)
                                         {
                                             countFour += 1;
-                                            <li><a href="/paper/Detail?id=@item.Id"><font class="date-font">@item.CreateDate.ToShortDateString()</font>@item.Title</a></li>
+                                            if (countFour <= 10) { 
+                                            <li><a href="/paper/Detail?id=@item.Id"><font class="date-font">@item.CreateDate.ToShortDateString()</font>@item.Title</a></li>}
                                         }
                                     }
                                 </ul>
@@ -322,7 +330,8 @@
                                         if (item.Type == 5)
                                         {
                                             countFive += 1;
-                                            <li><a href="/paper/Detail?id=@item.Id"><font class="date-font">@item.CreateDate.ToShortDateString()</font>@item.Title</a></li>
+                                              if (countFive <= 10) { 
+                                            <li><a href="/paper/Detail?id=@item.Id"><font class="date-font">@item.CreateDate.ToShortDateString()</font>@item.Title</a></li>}
                                         }
                                     }
                                 </ul>
@@ -345,7 +354,8 @@
                                         if (item.Type == 6)
                                         {
                                             countSix += 1;
-                                            <li><a href="/paper/Detail?id=@item.Id"><font class="date-font">@item.CreateDate.ToShortDateString()</font>@item.Title</a></li>
+                                             if (countSix <= 10) { 
+                                            <li><a href="/paper/Detail?id=@item.Id"><font class="date-font">@item.CreateDate.ToShortDateString()</font>@item.Title</a></li>}
                                         }
                                     }
                                 </ul>
@@ -368,7 +378,8 @@
                                         if (item.Type == 7)
                                         {
                                             countSeven += 1;
-                                            <li><a href="/paper/Detail?id=@item.Id"><font class="date-font">@item.CreateDate.ToShortDateString()</font>@item.Title</a></li>
+                                            if (countSeven <= 10) { 
+                                            <li><a href="/paper/Detail?id=@item.Id"><font class="date-font">@item.CreateDate.ToShortDateString()</font>@item.Title</a></li>}
                                         }
                                     }
                                 </ul>
@@ -391,7 +402,8 @@
                                         if (item.Type == 8)
                                         {
                                             countEight += 1;
-                                            <li><a href="/paper/Detail?id=@item.Id"><font class="date-font">@item.CreateDate.ToShortDateString()</font>@item.Title</a></li>
+                                               if (countEight <= 10) { 
+                                            <li><a href="/paper/Detail?id=@item.Id"><font class="date-font">@item.CreateDate.ToShortDateString()</font>@item.Title</a></li>}
                                         }
                                     }
                                 </ul>
@@ -510,7 +522,7 @@
     </div>
     <!--tip菜单结束-->
     <!--注册popup开始-->
-    <div  class="modal" style="z-index: 2005; background: rgba(0, 0, 0, 0.4); display: none">
+    <div class="modal" style="z-index: 2005; background: rgba(0, 0, 0, 0.4); display: none">
         <div class="modal-dialog" style="width: 400px; top: 30%; cursor: default; display: none">
             <div class="loading-pop">
                 <img style="position: relative;top: 41%;" src="/Content/themes/Paper/css/images/loading.gif">
@@ -524,91 +536,91 @@
                     </h1>
                 </div>
 
-          
 
-            <div class="socialwrapper">
-                <div id="login_content" class="modal-content">
-                    <div class="login-box ">
-                        <div class="form-box">
-                            <form name="login" id="login_fom" autocomplete="off" novalidate="novalidate" method="post">
-                                <dl>
-                                    <dt>用户账号</dt>
-                                    <dd>
-                                        <input id="login_mail" type="text" class="ipt" name="email" placeholder="邮箱地址" value="">
-                                        <label class="reg-error mail-login-error"></label>
-                                    </dd>
-                                </dl>
-                                <dl>
-                                    <dt>用户密码</dt>
-                                    <dd>
-                                        <input id="login_pwd" type="password" class="ipt" name="password" placeholder="请输入登录密码">
-                                        <label class="reg-error pwd-login-error"></label>
-                                    </dd>
-                                </dl>
-                                <dl>
-                                    <dt>&nbsp;</dt>
-                                    <dd>
-                                        <button id="login_btn" type="button" class="btn-blue">登录</button>
-                                        @* <a href="javascript:;" class="forget-pwd">忘记密码？点击找回</a>*@
-                                        <label class="reg-error back-error"></label>
-                                    </dd>
-                                </dl>
 
-                            </form>
-                        </div>
-                    </div>
-                </div>
+                <div class="socialwrapper">
+                    <div id="login_content" class="modal-content">
+                        <div class="login-box ">
+                            <div class="form-box">
+                                <form name="login" id="login_fom" autocomplete="off" novalidate="novalidate" method="post">
+                                    <dl>
+                                        <dt>用户账号</dt>
+                                        <dd>
+                                            <input id="login_mail" type="text" class="ipt" name="email" placeholder="邮箱地址" value="">
+                                            <label class="reg-error mail-login-error"></label>
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>用户密码</dt>
+                                        <dd>
+                                            <input id="login_pwd" type="password" class="ipt" name="password" placeholder="请输入登录密码">
+                                            <label class="reg-error pwd-login-error"></label>
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>&nbsp;</dt>
+                                        <dd>
+                                            <button id="login_btn" type="button" class="btn-blue">登录</button>
+                                            @* <a href="javascript:;" class="forget-pwd">忘记密码？点击找回</a>*@
+                                            <label class="reg-error back-error"></label>
+                                        </dd>
+                                    </dl>
 
-                <div id="reg_content" class="modal-content">
-
-                    <div class="login-box ">
-                        <div class="form-box">
-                            <form id="register_fom" method="post" action="/Login/UserRegist">
-                                <dl>
-                                    <dt>注册邮箱</dt>
-                                    <dd>
-                                        <input id="reg_mail" name="email" type="email" placeholder="请输入邮箱" autocomplete="off">
-                                        <label class="reg-error mail-error"></label>
-                                    </dd>
-                                </dl>
-                                <dl>
-                                    <dt>用户密码</dt>
-                                    <dd>
-
-                                        <input id="password" name="Onepassword" type="password" placeholder="请输入登录密码" maxlength="12" autocomplete="off">
-                                        <label class="reg-error password-error"></label>
-                                    </dd>
-                                </dl>
-                                <dl>
-                                    <dt>确认密码</dt>
-                                    <dd>
-                                        <input id="reg_password" name="password" type="password" placeholder="请再次输入登录密码" maxlength="12" autocomplete="off">
-                                        <label class="reg-error reg-password-error"></label>
-                                    </dd>
-                                </dl>
-                                <dl>
-                                    <dt>用户昵称</dt>
-                                    <dd>
-                                        <input id="reg_name" name="name" type="text" placeholder="请输入用户昵称" maxlength="8" autocomplete="off">
-                                        <label class="reg-error name-error"></label>
-                                    </dd>
-                                </dl>
-                                <dl>
-                                    <dt>&nbsp;</dt>
-                                    <dd>
-                                        <button id="reg_btn" type="button">注册</button>
-                                        <label class="reg-error back-error"></label>
-                                    </dd>
-                                </dl>
-                            </form>
+                                </form>
+                            </div>
                         </div>
                     </div>
 
+                    <div id="reg_content" class="modal-content">
+
+                        <div class="login-box ">
+                            <div class="form-box">
+                                <form id="register_fom" method="post" action="/Login/UserRegist">
+                                    <dl>
+                                        <dt>注册邮箱</dt>
+                                        <dd>
+                                            <input id="reg_mail" name="email" type="email" placeholder="请输入邮箱" autocomplete="off">
+                                            <label class="reg-error mail-error"></label>
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>用户密码</dt>
+                                        <dd>
+
+                                            <input id="password" name="Onepassword" type="password" placeholder="请输入登录密码" maxlength="12" autocomplete="off">
+                                            <label class="reg-error password-error"></label>
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>确认密码</dt>
+                                        <dd>
+                                            <input id="reg_password" name="password" type="password" placeholder="请再次输入登录密码" maxlength="12" autocomplete="off">
+                                            <label class="reg-error reg-password-error"></label>
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>用户昵称</dt>
+                                        <dd>
+                                            <input id="reg_name" name="name" type="text" placeholder="请输入用户昵称" maxlength="8" autocomplete="off">
+                                            <label class="reg-error name-error"></label>
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>&nbsp;</dt>
+                                        <dd>
+                                            <button id="reg_btn" type="button">注册</button>
+                                            <label class="reg-error back-error"></label>
+                                        </dd>
+                                    </dl>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
+
             </div>
-
         </div>
-    </div>
     </div>
     <!--注册popup结束-->
 

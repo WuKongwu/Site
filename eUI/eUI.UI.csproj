@@ -938,6 +938,11 @@
     <Content Include="Views\Paper\_paperListVPaging.cshtml" />
     <Content Include="Views\Paper\SearchList.cshtml" />
     <Content Include="Views\Paper\_searchListPaging.cshtml" />
+    <Content Include="Views\Paper\PayGuide.cshtml" />
+    <Content Include="Views\Paper\CreditGuarantee.cshtml" />
+    <Content Include="Views\Paper\ToolDownload.cshtml" />
+    <Content Include="Views\Paper\TemplateDownload.cshtml" />
+    <Content Include="Views\Paper\About.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

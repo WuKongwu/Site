@@ -33,7 +33,26 @@ function InitMenu() {
         }
 
     });
+}
 
+function InitTopMenu() {
+
+    var url = window.location.pathname;
+    $item = $(".header .nav-list li");
+    $item.removeClass("active");
+    if (url.indexOf("PayGuide")>=0) {
+        $item.eq(1).addClass("active");
+    } else if (url.indexOf("CreditGuarantee") >= 0) {
+        $item.eq(2).addClass("active");
+    } else if (url.indexOf("ToolDownload") >= 0) {
+        $item.eq(3).addClass("active");
+    } else if (url.indexOf("TemplateDownload") >= 0) {
+        $item.eq(4).addClass("active");
+    } else if (url.indexOf("About") >= 0) {
+        $item.eq(5).addClass("active");
+    } else {
+        $item.eq(0).addClass("active");
+    }
 }
 
 
@@ -51,6 +70,7 @@ function loginState() {
 
 
 $(function () {
+    InitTopMenu();
     scrollFixed();
     loginState();
     InitMenu();

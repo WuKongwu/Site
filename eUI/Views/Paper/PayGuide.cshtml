@@ -1,6 +1,6 @@
-@model eUI.Model.ViewModel.PaperListViewModel
+ï»¿@model eUI.Model.ViewModel.PaperListViewModel
 
- @{string log = ViewData["login"].ToString();}
+@{string log = ViewData["login"].ToString();}
 
 <!DOCTYPE html>
 <html lang="zh">
@@ -11,7 +11,7 @@
     <meta name="renderer" content="webkit">
     <meta name="keywords" content="" />
     <meta name="description" content="" />
-    <title>ÂÛÎÄÏÂÔØ</title>
+    <title>å¯æºç§‘æŠ€|è´­ä¹°æŒ‡å—</title>
     <link href="~/Content/themes/Paper/css/paper01.css" rel="stylesheet" />
     <link href="~/Content/themes/Paper/css/paper.css" rel="stylesheet" />
     <link href="~/Content/themes/Paper/css/paper-main.css" rel="stylesheet" />
@@ -23,8 +23,7 @@
     <script src="~/Content/themes/Paper/js/jquery.flexslider-min.js"></script>
     <script src="~/Content/themes/Paper/js/jquery.flip.min.js"></script>
     <script src="~/Content/themes/Paper/js/jquery.core.js"></script>
-    <script type="text/javascript" src="~/Content/themes/Paper/js/jquery.twbsPagination.min.js"></script>
-   
+
     <style>
         .modal-content {
             padding: 10px 20px 20px 20px;
@@ -66,7 +65,7 @@
     </style>
     <!--[if lt IE 9]>
         <script type="text/javascript">
-            alert('ÏµÍ³¼ì²âµ½ÄúÊ¹ÓÃµÄä¯ÀÀÆ÷ÎªIEä¯ÀÀÆ÷£¬²¢ÇÒ°æ±¾¹ýµÍ£¬±¾Õ¾ÒÑ¾­²»ÔÙÖ§³ÖIE8.0¼°ÒÔÏÂ°æ±¾µÄä¯ÀÀÆ÷¡£ÇëÄúÊ¹ÓÃÆäÆäËüä¯ÀÀÆ÷£¬±¾Õ¾½¨ÒéÄúÊ¹ÓÃµÄä¯ÀÀÆ÷ÓÐ£º360¼«ËÙä¯ÀÀÆ÷¡¢¹È¸èä¯ÀÀÆ÷¡¢»ðºüä¯ÀÀÆ÷µÈ');
+            alert('ç³»ç»Ÿæ£€æµ‹åˆ°æ‚¨ä½¿ç”¨çš„æµè§ˆå™¨ä¸ºIEæµè§ˆå™¨ï¼Œå¹¶ä¸”ç‰ˆæœ¬è¿‡ä½Žï¼Œæœ¬ç«™å·²ç»ä¸å†æ”¯æŒIE8.0åŠä»¥ä¸‹ç‰ˆæœ¬çš„æµè§ˆå™¨ã€‚è¯·æ‚¨ä½¿ç”¨å…¶å…¶å®ƒæµè§ˆå™¨ï¼Œæœ¬ç«™å»ºè®®æ‚¨ä½¿ç”¨çš„æµè§ˆå™¨æœ‰ï¼š360æžé€Ÿæµè§ˆå™¨ã€è°·æ­Œæµè§ˆå™¨ã€ç«ç‹æµè§ˆå™¨ç­‰');
         </script>
     <![endif]-->
 </head>
@@ -74,29 +73,29 @@
     <div class="header">
         <div class="nav clearfix">
             <a class="logo" href="/paper">
-                <img src="~/Content/themes/Paper/css/images/SiteLogo.JPG" alt="ÆôÔ´¿Æ¼¼" />
+                <img src="~/Content/themes/Paper/css/images/SiteLogo.JPG" alt="å¯æºç§‘æŠ€" />
             </a>
             <div class="nav-list">
                 <ul>
-                    <li class="active"><a href="/paper" target="_self" title="Ê×Ò³">Ê×Ò³</a></li>
-                    <li><a href="/paper/PayGuide" target="_self" title="¹ºÂòÖ¸ÄÏ">¹ºÂòÖ¸ÄÏ</a></li>
-                    <li><a href="/paper/CreditGuarantee" target="_self" title="ÐÅÓþ±£Ö¤">ÐÅÓþ±£Ö¤</a></li>
-                    <li><a href="/paper/ToolDownload" target="_self" title="¿ª·¢¹¤¾ßÏÂÔØ">¿ª·¢¹¤¾ßÏÂÔØ</a></li>
-                    <li><a href="/paper/TemplateDownload" target="_self" title="±ÏÉèÄ£°åÏÂÔØ">±ÏÉèÄ£°åÏÂÔØ</a></li>
-                    <li><a href="/paper/About" target="_self" title="¹ØÓÚÎÒÃÇ">¹ØÓÚÎÒÃÇ</a></li>
+                    <li class="active"><a href="/paper" target="_self" title="é¦–é¡µ">é¦–é¡µ</a></li>
+                    <li><a href="/paper/PayGuide" target="_self" title="è´­ä¹°æŒ‡å—">è´­ä¹°æŒ‡å—</a></li>
+                    <li><a href="/paper/CreditGuarantee" target="_self" title="ä¿¡èª‰ä¿è¯">ä¿¡èª‰ä¿è¯</a></li>
+                    <li><a href="/paper/ToolDownload" target="_self" title="å¼€å‘å·¥å…·ä¸‹è½½">å¼€å‘å·¥å…·ä¸‹è½½</a></li>
+                    <li><a href="/paper/TemplateDownload" target="_self" title="æ¯•è®¾æ¨¡æ¿ä¸‹è½½">æ¯•è®¾æ¨¡æ¿ä¸‹è½½</a></li>
+                    <li><a href="/paper/About" target="_self" title="å…³äºŽæˆ‘ä»¬">å…³äºŽæˆ‘ä»¬</a></li>
                 </ul>
             </div>
             <div class="nav-list top-user">
                 <ul>
                     <li>
-                        <a href="javascript:;" class="btn-open-login">µÇÂ¼</a>
+                        <a href="javascript:;" class="btn-open-login">ç™»å½•</a>
                     </li>
                     <li>
-                        <a href="javascript:;" class="btn-open-register">×¢²á</a>
+                        <a href="javascript:;" class="btn-open-register">æ³¨å†Œ</a>
                     </li>
                 </ul>
             </div>
-            <div class="user-log-info">Hi! <span style="margin:0 10px;">@log</span><a href="/login/logout" style="text-decoration: underline;">ÍË³ö</a></div>
+            <div class="user-log-info">Hi! <span style="margin:0 10px;">@log</span><a href="/login/logout" style="text-decoration: underline;">é€€å‡º</a></div>
 
             <div class="top-search">
                 <form class="sform" method="get" action="/Paper/SearchList">
@@ -119,14 +118,14 @@
         <div class="container">
             <div class="clearfix">
                 <ul class="menu-bar-fixd">
-                    <li><a href="/paper/List?type=1">asp×÷Æ·</a></li>
-                    <li><a href="/paper/List?type=2">jsp/java×÷Æ·</a></li>
-                    <li><a href="/paper/List?type=3">asp.net/c#×÷Æ·</a></li>
-                    <li><a href="/paper/List?type=4">php×÷Æ·</a></li>
-                    <li><a href="/paper/List?type=5">vc++×÷Æ·</a></li>
-                    <li><a href="/paper/List?type=6">°²×¿×÷Æ·</a></li>
-                    <li><a href="/paper/List?type=7">ios×÷Æ·</a></li>
-                    <li><a href="/paper/List?type=8">ÓÎÏ·×÷Æ·</a></li>
+                    <li><a href="/paper/List?type=1">aspä½œå“</a></li>
+                    <li><a href="/paper/List?type=2">jsp/javaä½œå“</a></li>
+                    <li><a href="/paper/List?type=3">asp.net/c#ä½œå“</a></li>
+                    <li><a href="/paper/List?type=4">phpä½œå“</a></li>
+                    <li><a href="/paper/List?type=5">vc++ä½œå“</a></li>
+                    <li><a href="/paper/List?type=6">å®‰å“ä½œå“</a></li>
+                    <li><a href="/paper/List?type=7">iosä½œå“</a></li>
+                    <li><a href="/paper/List?type=8">æ¸¸æˆä½œå“</a></li>
                 </ul>
             </div>
         </div>
@@ -137,7 +136,7 @@
             <div class="clearfix">
                 <div class="paper-left-list box3">
                     <div class="cont-title dtl-list-title">
-                        <h3>Ëæ»ú×÷Æ·</h3>
+                        <h3>éšæœºä½œå“</h3>
                     </div>
                     <div class="job-task-list dtl-list">
                         <ul>
@@ -149,7 +148,7 @@
                     </div>
                     <div class="dtl-dashed">&nbsp;</div>
                     <div class="cont-title dtl-list-title">
-                        <h3>ÈÈµãÍÆ¼ö</h3>
+                        <h3>çƒ­ç‚¹æŽ¨è</h3>
                     </div>
                     <div class="job-task-list dtl-list">
                         <ul>
@@ -162,42 +161,7 @@
                     <div class="clearfix"></div>
                 </div>
                 <div class="paper-detail box3">
-                    <div class="opuslist bd">
-                        <ul class="clearfix detail-ul" data-count="@Model.paperInfoList.total">
-
-                            @foreach (var item in Model.paperInfoList.rows)
-                            {
-
-
-                                <li>
-                                    <div class="imgbox">
-                                        <a href="/paper/Detail?id=@item.Id" title="@item.Title">
-                                            <img class="thumbs" src="@item.imgPath" width="232" height="186" alt="@item.Title">
-                                        </a>
-                                    </div>
-                                    <div class="infobox">
-                                        <p class="vtitle">
-                                            <a href="/paper/Detail?id=@item.Id" title="@item.Title">
-                                                @item.Title
-                                            </a>
-                                        </p>
-                                        <div class="info clearfix">
-                                            <span class="hpw_love">¼Û¸ñ£º</span>
-                                            <span class="hpw_pl"> <em class="tm-yen">&#165;</em>@item.Price</span>
-                                        </div>
-                                        <div class="userinfo">
-
-                                            <span class="badge-pat">¹ºÂòÊý<span class="badge">@item.BuyCount</span>ÔÄ¶ÁÊý<span class="badge">@item.ReadCount</span></span>
-
-                                        </div>
-                                    </div>
-                                </li>
-                            }
-                        </ul>
-                    </div>
-                    <nav style="text-align: center;margin: 10px 0;">
-                        <ul id="pagination-demo" class="pagination-sm"></ul>
-                    </nav>
+                  è´­ä¹°æŒ‡å—å†…å®¹.....
                 </div>
 
             </div>
@@ -206,7 +170,7 @@
     <div class="bg">
         <div class="container" style="padding-top: 20px;">
             <div class="cont-title">
-                <h3>ºÏ×÷ÆóÒµ</h3>
+                <h3>åˆä½œä¼ä¸š</h3>
 
             </div>
             <div class="link-box">
@@ -222,7 +186,7 @@
                 <a href="#" title="" target="_blank">
                     <img class="thumbs" src="~/Content/themes/Paper/css/images/show2.jpg" width="180" height="90" alt="" />
                 </a>
-                <a href="#" title="Õ¾¿á" target="_blank">
+                <a href="#" title="ç«™é…·" target="_blank">
                     <img class="thumbs" src="~/Content/themes/Paper/css/images/show2.jpg" width="180" height="90" alt="" />
                 </a>
                 <a href="#" title="" target="_blank">
@@ -232,32 +196,32 @@
         </div>
     </div>
 
-    <!--Ò³½Å¿ªÊ¼-->
+    <!--é¡µè„šå¼€å§‹-->
     <div class="footer">
         <div class="waper">
             <div class="footerwaper clearfix">
                 <div class="footer-info">
-                    <p>Copyright&#169; 2008-2016 WWW.PAPER51.COM. ÂÛÎÄÎÞÓÇÍø °æÈ¨ËùÓÐ</p>
+                    <p>Copyright&#169; 2008-2016 WWW.PAPER51.COM. è®ºæ–‡æ— å¿§ç½‘ ç‰ˆæƒæ‰€æœ‰</p>
                     <p>
-                        ±¾Õ¾Ìá¹©µÄ¼ÆËã»ú±ÏÒµÂÛÎÄ·¶ÎÄ|¼ÆËã»ú±ÏÒµÂÛÎÄÉè¼Æ|¼ÆËã»ú±ÏÒµÉè¼Æ¼°ÆäËû×¨Òµ±ÏÒµÂÛÎÄ½ö¹©Ñ§Ï°²Î¿¼Ê¹ÓÃ
+                        æœ¬ç«™æä¾›çš„è®¡ç®—æœºæ¯•ä¸šè®ºæ–‡èŒƒæ–‡|è®¡ç®—æœºæ¯•ä¸šè®ºæ–‡è®¾è®¡|è®¡ç®—æœºæ¯•ä¸šè®¾è®¡åŠå…¶ä»–ä¸“ä¸šæ¯•ä¸šè®ºæ–‡ä»…ä¾›å­¦ä¹ å‚è€ƒä½¿ç”¨
                     </p>
                 </div>
             </div>
         </div>
     </div>
-    <!--Ò³½Å½áÊø-->
-    <!--×¢²ápopup¿ªÊ¼-->
+    <!--é¡µè„šç»“æŸ-->
+    <!--æ³¨å†Œpopupå¼€å§‹-->
     <div class="modal" style="z-index: 2005; background: rgba(0, 0, 0, 0.4); display: none">
         <div class="modal-dialog" style="width: 400px; top: 30%; cursor: default; display: none">
             <div class="loading-pop">
                 <img style="position: relative;top: 41%;" src="/Content/themes/Paper/css/images/loading.gif">
             </div>
-            <a class="btn-close"><i class="iconfont">¤›</i></a>
+            <a class="btn-close"><i class="iconfont">î™€</i></a>
             <div class="inbox">
                 <div class="modal-title">
                     <h1>
-                        <span class="login">ÓÃ»§µÇÂ¼</span>
-                        <span class="register">×¢²á</span>
+                        <span class="login">ç”¨æˆ·ç™»å½•</span>
+                        <span class="register">æ³¨å†Œ</span>
                     </h1>
                 </div>
                 <div class="socialwrapper">
@@ -266,24 +230,24 @@
                             <div class="form-box">
                                 <form name="login" id="login_fom" autocomplete="off" novalidate="novalidate" method="post">
                                     <dl>
-                                        <dt>ÓÃ»§ÕËºÅ</dt>
+                                        <dt>ç”¨æˆ·è´¦å·</dt>
                                         <dd>
-                                            <input id="login_mail" type="text" class="ipt" name="email" placeholder="ÓÊÏäµØÖ·" value="">
+                                            <input id="login_mail" type="text" class="ipt" name="email" placeholder="é‚®ç®±åœ°å€" value="">
                                             <label class="reg-error mail-login-error"></label>
                                         </dd>
                                     </dl>
                                     <dl>
-                                        <dt>ÓÃ»§ÃÜÂë</dt>
+                                        <dt>ç”¨æˆ·å¯†ç </dt>
                                         <dd>
-                                            <input id="login_pwd" type="password" class="ipt" name="password" placeholder="ÇëÊäÈëµÇÂ¼ÃÜÂë">
+                                            <input id="login_pwd" type="password" class="ipt" name="password" placeholder="è¯·è¾“å…¥ç™»å½•å¯†ç ">
                                             <label class="reg-error pwd-login-error"></label>
                                         </dd>
                                     </dl>
                                     <dl>
                                         <dt>&nbsp;</dt>
                                         <dd>
-                                            <button id="login_btn" type="button" class="btn-blue">µÇÂ¼</button>
-                                            @* <a href="javascript:;" class="forget-pwd">Íü¼ÇÃÜÂë£¿µã»÷ÕÒ»Ø</a>*@
+                                            <button id="login_btn" type="button" class="btn-blue">ç™»å½•</button>
+                                            @* <a href="javascript:;" class="forget-pwd">å¿˜è®°å¯†ç ï¼Ÿç‚¹å‡»æ‰¾å›ž</a>*@
                                             <label class="reg-error back-error"></label>
                                         </dd>
                                     </dl>
@@ -299,38 +263,38 @@
                             <div class="form-box">
                                 <form id="register_fom" method="post" action="/Login/UserRegist">
                                     <dl>
-                                        <dt>×¢²áÓÊÏä</dt>
+                                        <dt>æ³¨å†Œé‚®ç®±</dt>
                                         <dd>
-                                            <input id="reg_mail" name="email" type="email" placeholder="ÇëÊäÈëÓÊÏä" autocomplete="off">
+                                            <input id="reg_mail" name="email" type="email" placeholder="è¯·è¾“å…¥é‚®ç®±" autocomplete="off">
                                             <label class="reg-error mail-error"></label>
                                         </dd>
                                     </dl>
                                     <dl>
-                                        <dt>ÓÃ»§ÃÜÂë</dt>
+                                        <dt>ç”¨æˆ·å¯†ç </dt>
                                         <dd>
 
-                                            <input id="password" name="Onepassword" type="password" placeholder="ÇëÊäÈëµÇÂ¼ÃÜÂë" maxlength="12" autocomplete="off">
+                                            <input id="password" name="Onepassword" type="password" placeholder="è¯·è¾“å…¥ç™»å½•å¯†ç " maxlength="12" autocomplete="off">
                                             <label class="reg-error password-error"></label>
                                         </dd>
                                     </dl>
                                     <dl>
-                                        <dt>È·ÈÏÃÜÂë</dt>
+                                        <dt>ç¡®è®¤å¯†ç </dt>
                                         <dd>
-                                            <input id="reg_password" name="password" type="password" placeholder="ÇëÔÙ´ÎÊäÈëµÇÂ¼ÃÜÂë" maxlength="12" autocomplete="off">
+                                            <input id="reg_password" name="password" type="password" placeholder="è¯·å†æ¬¡è¾“å…¥ç™»å½•å¯†ç " maxlength="12" autocomplete="off">
                                             <label class="reg-error reg-password-error"></label>
                                         </dd>
                                     </dl>
                                     <dl>
-                                        <dt>ÓÃ»§êÇ³Æ</dt>
+                                        <dt>ç”¨æˆ·æ˜µç§°</dt>
                                         <dd>
-                                            <input id="reg_name" name="name" type="text" placeholder="ÇëÊäÈëÓÃ»§êÇ³Æ" maxlength="8" autocomplete="off">
+                                            <input id="reg_name" name="name" type="text" placeholder="è¯·è¾“å…¥ç”¨æˆ·æ˜µç§°" maxlength="8" autocomplete="off">
                                             <label class="reg-error name-error"></label>
                                         </dd>
                                     </dl>
                                     <dl>
                                         <dt>&nbsp;</dt>
                                         <dd>
-                                            <button id="reg_btn" type="button">×¢²á</button>
+                                            <button id="reg_btn" type="button">æ³¨å†Œ</button>
                                             <label class="reg-error back-error"></label>
                                         </dd>
                                     </dl>
@@ -344,64 +308,19 @@
             </div>
         </div>
     </div>
-    <!--×¢²ápopup½áÊø-->
+    <!--æ³¨å†Œpopupç»“æŸ-->
 
     <div class="QQ_S1" style="display: block;">
         <div class="Q_top1"> <span></span>&nbsp;</div>
         <div class="Q_botm1">
             <div class="Q_pic1">
-                <div class="Q_pic1_hide"><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=345608595&amp;site=qq&amp;menu=yes" rel="nofollow" target="_blank"><span class="hide_pic3"></span>QQ½»Ì¸</a></div>
+                <div class="Q_pic1_hide"><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=345608595&amp;site=qq&amp;menu=yes" rel="nofollow" target="_blank"><span class="hide_pic3"></span>QQäº¤è°ˆ</a></div>
             </div>
             <div class="Q_sign1">
-                <div class="Q_sign1_hide" onclick="backToTop();"><a href="javascript:void(0)">·µ»Ø¶¥²¿</a></div>
+                <div class="Q_sign1_hide" onclick="backToTop();"><a href="javascript:void(0)">è¿”å›žé¡¶éƒ¨</a></div>
             </div>
         </div>
     </div>
-
-    <script>
-        var flag = "true";
-        function Paging(pageNo) {
-            var key = $("#key_val").val();
-            var url = $("body").data("website") + "paper/SearchListPaging";
-            if (flag == "true") {
-                flag = "false";
-
-                $.ajax({
-                    url: url,
-                    type: "POST",
-                    dataType: "html",
-                    cache: false,
-                    headers: { "CaChe-Control": "no-cache" },
-                    data: { pageNo: pageNo, key: key },
-                    success: function (data) {
-                        flag = "true";
-                        $(".paper-detail ul.detail-ul").html(data);
-                    },
-                    error: function (e) { flag = "true"; }
-                })
-            }
-        }
-
-
-
-        var count = $(".paper-detail ul.detail-ul").data("count");
-        if (count > 0) {
-            var pageCount = Math.ceil(count / 9);
-            $('#pagination-demo').twbsPagination({
-                totalPages: pageCount,
-                visiblePages: 5,
-                first: "Ê×Ò³",
-                last: "Ä©Ò³",
-                prev: "ÉÏÒ»Ò³",
-                next: "ÏÂÒ»Ò³",
-                initiateStartPageClick: false,
-                onPageClick: function (event, page) {
-                    Paging(page);
-                }
-            });
-        }
-
-    </script>
 </body>
 </html>
 
