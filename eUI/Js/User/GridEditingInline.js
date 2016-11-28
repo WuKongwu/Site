@@ -41,6 +41,9 @@ function editrow(target) {
                 $('[name="txtAddShow"]').prev().val(data.models.Info);
                 $('[name="txtAddPrice"]').val(data.models.Price),
                 $('[name="txtAddPrice"]').prev().val(data.models.Price);
+                $("#t_file3").val(data.models.ImgC);
+                $("#t_file1").val(data.models.ImgA);
+                $("#t_file2").val(data.models.ImgB);
                 $("#txtAddType").val(data.models.Type),
                 $("#Id").val(data.models.Id);
                 $("#textarea_id").val(data.models.DetailInfo)
