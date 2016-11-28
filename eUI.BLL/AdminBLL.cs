@@ -25,7 +25,25 @@ namespace eUI.BLL
 
         public bool SavePaper(PaperInfo paperInfo)
         {
-            return adminDAL.Input(paperInfo); ;
+            bool b = false;
+            if (paperInfo.Id>0)
+            {
+                b = adminDAL.UpdatePaper(paperInfo);
+            }
+            else
+            {
+                b = adminDAL.Input(paperInfo); 
+            }
+            return b ;
+        }
+        public PaperInfo GetPaperById(int id)
+        {
+            return adminDAL.GetPaperId(id).toList<PaperInfo>().FirstOrDefault();
+        }
+
+        public bool DetelePaper(int id)
+        {
+           return adminDAL.DetelePaper(id);
         }
     }
 }

@@ -13,5 +13,7 @@ namespace eUI.Model
         public virtual string DetailInfo { get; set; }
         public virtual decimal Price { get; set; }
         public virtual int Type { get; set; }
+        public virtual string ImgUrl { get; set; }
+        public virtual string VUrl { get; set; }
     }
 }

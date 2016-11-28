@@ -1,8 +1,10 @@
 ﻿$(function () {
     //css 
     $("#userInfoForm>div ").css("height", 35);
-    //加载表格
+    //加载表格 
+    debugger
     $('#papergrid').datagrid({
+
         url: '/Admin/SearchPaper',
         singleSelect: true,
         queryParams: { name: '' },
@@ -11,33 +13,33 @@
         pageSize: 5,//每页显示的记录条数，默认为10 
         pageList: [5, 10, 15],//可以设置每页记录条数的列表 
         columns: [[
+            { field: 'Title', title: '论文标题', width: 200, align: 'left' },
+            { field: 'Info', title: '论文简介', width: 200, align: 'left' },
+            { field: 'Price', title: '价格', width: 50, align: 'left' },
             {
-                field: 'Title', title: '论文标题', width: 200, align: 'left', editor: { type: 'validatebox', options: { required: true } }
+                field: 'CreateDate', title: '上传时间', width: 200, align: 'left', formatter: function (value, row, index) {
+                    return DateFormat(row.CreateDate);
+                }
             },
-            { field: 'Info', title: '论文简介', width: 200, align: 'left', editor: { type: 'validatebox', options: { required: true } } },
-            { field: 'Price', title: '价格', width: 50, align: 'left', editor: { type: 'numberbox', options: { required: true } } },
-              {
-                  field: 'CreateDate', title: '上传时间', width: 200, align: 'left', formatter: function (value, row, index) {
-                      return DateFormat(row.CreateDate);
-                  }, editor: { type: 'datetimebox', options: { required: true } }
-              },
-              { field: 'Type', title: '论文类别', width: 200, align: 'left' },
-               {
-                   field: 'action', title: '操作', width: 80, align: 'center',
-                   formatter: function (value, row, index) {
-                       alert(row.editing);
-                       if (row.editing) {
-                           var s = '<a href="#" onclick="saverow(this)">保存</a> ';
-                           var c = '<a href="#" onclick="cancelrow(this)">取消</a>';
-                           return s + c;
-                       } else {
-                           var e = '<a href="#" onclick="editrow(this)">修改</a> ';
-                           var d = '<a href="#" onclick="deleterow(this)">删除</a>';
-                           return e + d;
-                       }
-                   }
-               }
+            { field: 'Type', title: '论文类别', width: 200, align: 'left' },
+            {
+                field: 'action', title: '操作', width: 80, align: 'center',
+                formatter: function (value, row, index) {
+                    var e = '<a href="#" onclick="editrow(' + row.Id + ')">修改</a> ';
+                    var d = '<a href="#" onclick="deleterow(' + row.Id + ')">删除</a>';
+                    return e + d;
+                }
+            }
+
         ]],
+        onClickCell: function (rowIndex, field, value) {
+            //如果点击的是商品列.弹出窗口.
+            debugger
+            if (field == "GoodsName") {
+                detailIndex = rowIndex;
+                $("#goodsWindows").window("open");
+            }
+        },
         onBeforeEdit: function (index, row) {
             row.editing = true;
             $('#papergrid').datagrid('refreshRow', index);
@@ -123,12 +125,12 @@
                 $('#papergrid').datagrid('reload');
             }
             else {
-                alert(data.ErrorMsg);
+                //alert(data.ErrorMsg);
             }
         }
 
     });
- 
+
 
     $("body").keyup(function (event) {
         //"Esc"键关闭弹出窗口
@@ -137,9 +139,8 @@
         }
     });
 
-
+    
 });
-
 function enableFilter() {
     $('#paper_input').datagrid('getRow');
 }

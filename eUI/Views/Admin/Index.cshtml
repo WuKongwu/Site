@@ -3,27 +3,102 @@
 }
 @Scripts.Render(eUI.Common.JsFiles.AdminInput)
 @Scripts.Render(eUI.Common.JsFiles.UserGridEditingInline)
-<script src="~/Style/kindeditor-4.1.7/kindeditor-min.js"></script>
-<script src="~/Style/kindeditor-4.1.7/lang/zh_CN.js"></script>
-<link href="~/Style/kindeditor-4.1.7/themes/default/default.css" rel="stylesheet" />
+@*<script src="~/Style/kindeditor-4.1.7/kindeditor-min.js"></script>
+<script src="~/Style/kindeditor-4.1.7/lang/zh_CN.js"></script>*@
+<script src="~/Style/kindeditor/kindeditor.js"></script>
+<script src="~/Js/jquery.fileupload.js"></script>
+<script src="~/Js/jquery.iframe-transport.js"></script>
+<script src="~/Js/ajaxfileupload.js"></script>
+@*<link href="~/Style/kindeditor-4.1.7/themes/default/default.css" rel="stylesheet" />*@
 <script type="text/javascript">
+    $(function () {
+        $("#uploadImg1").click(function () {
+            if ($("#file1").val().length > 0) {
+               var img = ajaxFileUpload("file1");
+               $("#imgurl1").val(img);
+            }
+            else {
+                alert("请选择图片");
+            }
+        });
+        $("#uploadImg2").click(function () {
+            if ($("#file2").val().length > 0) {
+                var img =ajaxFileUpload("file2");
+                $("#imgurl3").val(img);
+            }
+            else {
+                alert("请选择图片");
+            }
+        });
+        $("#uploadImg3").click(function () {
+            if ($("#file3").val().length > 0) {
+                var img =ajaxFileUpload("file3");
+                $("#imgurl3").val(img);
+            }
+            else {
+                alert("请选择图片");
+            }
+        });
+    });
+    function ajaxFileUpload(val) {
+        $.ajaxFileUpload
+        (
+            {
+                url: '/Admin/Uploadfile', //用于文件上传的服务器端请求地址
+                    type: 'post',
+                    data: { Id: '123', name: 'lunis' }, //此参数非常严谨，写错一个引号都不行
+                    secureuri: false, //一般设置为false
+                    fileElementId: [val], //文件上传空间的id属性  <input type="file" id="file" name="file" />
+                    dataType: 'HTML', //返回值类型 一般设置为json
+                    success: function (data, status)  //服务器成功响应处理函数
+                    {
+                        //alert(data);
+                        //$("#img1").attr("src", data.imgPath1);
+                        //alert("你请求的Id是" + data.Id + "     " + "你请求的名字是:" + data.name);
+                        //if (typeof (data.error) != 'undefined') {
+                        //    if (data.error != '') {
+                        //        alert(data.error);
+                        //    } else {
+                        //        alert(data.msg);
+                        //    }
+                        //}
+                        var ext= JSON.parse(data)
+                        $("#t_"+val).text(ext.imgPath1);
+                    },
+                    error: function (data, status, e)//服务器响应失败处理函数
+                    {
+                        alert(e);
+                    }
+            }
+        )
+       
+    }
+
+
+
+    KE.show({
+        id: 'txtContent'
+    });
     var editor;
     KindEditor.ready(function (K) {
-        editor = K.create('textarea[name="content"]', {
-            allowFileManager: true
-        });
-        K.create('#textarea_id', {
-            uploadJson: '../asp.net/upload_json.ashx',
-            fileManagerJson: '../asp.net/file_manager_json.ashx',
-            allowFileManager: true
-        });
+        //editor = K.create('textarea[name="content"]', {
+        //    allowFileManager: true
+        //});
+        //K.create('#textarea_id', {
+        //    uploadJson: '../asp.net/upload_json.ashx',
+        //    fileManagerJson: '../asp.net/file_manager_json.ashx',
+        //    allowFileManager: true
+        //});
         K('#submit').click(function (e) {
             var param = {
-                Title: $("#txtAddTitle").val(),
-                Info: $("#txtAddShow").val(),
-                Price: $("#txtAddPrice").val(),
+                Id: $("#Id").val(),
+                Title: $('[name="txtAddTitle"]').val(),
+                Info: $('[name="txtAddShow"]').val(),
+                Price: $('[name="txtAddPrice"]').val(),
                 Type: $("#txtAddType").val(),
-                DetailInfo: editor.html()
+                DetailInfo: editor.html(),
+                imgPath: $("#t_file1").val() + "|" + $("#t_file2").val() + "|" + $("#t_file3").val()
+
             };
             $.ajax({
                 url: "../Admin/Save",
@@ -32,12 +107,26 @@
                 success: function (data) {
                     if (data.success) {
                         $("#papergrid").datagrid('reload');
+                        $('#dlg').window('close');
                     }
-                },
+                }
             });
         });
-    });
+        //+});
+        function Add() {
+            $('#dlg').window('open');
+            $('[name="txtAddTitle"]').val(''),
+              $('[name="txtAddTitle"]').prev().val('');
+            $('[name="txtAddShow"]').val(''),
+            $('[name="txtAddPrice"]').val(''),
+              $('[name="txtAddShow"]').prev().val('');
+            $('[name="txtAddPrice"]').prev().val('');
+            $("#txtAddType").val(0),
+            $("#Id").val(0);
+            KindEditor.instances[0].html("")
 
+        }
+    });
 </script>
 <div style="font-size: 12px;padding: 10px 0;">
     <div>
@@ -49,18 +138,18 @@
             </div>
         </div>
         <button id="btnSearch" class="easyui-linkbutton" style="width:80px;">查询</button>
-        <button id="btnAdd" class="easyui-linkbutton" style="width:80px;" onclick="$('#dlg').dialog('open')">添加</button>
+        <button id="btnAdd" class="easyui-linkbutton" style="width:80px;" onclick="Add()">添加</button>
     </div>
 </div>
 <div id="papergrid"></div>
-<div id="dlg" class="easyui-dialog" title="Basic Dialog" data-options="iconCls:'icon-save'" style="width:700px;height:500px;padding:10px">
-
+<div id="dlg" class="easyui-window" title="详情" data-options="iconCls:'icon-save'" style="width:700px;height:500px;padding:10px;" >
+    <div><input type="hidden" id="Id" /></div>
     <div>
-        论文标题：<input class="textbox-value easyui-textbox" id="txtAddTitle" type="text" />
-        论文简介：<input class="textbox-value easyui-textbox" id="txtAddShow" type="text" />
+        论文标题：<input class="textbox-value easyui-textbox" id="txtAddTitle" name="txtAddTitle" type="text" />
+        论文简介：<input class="textbox-value easyui-textbox" id="txtAddShow" name="txtAddShow" type="text" />
     </div><br />
     <div>
-        论文价格：<input class="textbox-value easyui-textbox" id="txtAddPrice" type="text" />
+        论文价格：<input class="textbox-value easyui-textbox" name="txtAddPrice" id="txtAddPrice" type="text" />
         论文类别：<select name="Type" class="selected" id="txtAddType">
             <option value="0">----</option>
             <option value="1">asp作品</option>
@@ -72,9 +161,28 @@
             <option value="7">ios作品</option>
             <option value="8">游戏作品</option>
         </select>
-    </div><br />
+    </div>
     <div>
-        <textarea id="textarea_id" name="content" style="width:670px;height:300px;"></textarea>
+        <input type="file" /><button type="button" name="submitName" class="easyui-linkbutton l-btn l-btn-small" id="upload">上傳</button><br />
+        <input type="file" id="file1" name="file1"/>
+            <button type="button" name="submitName1" class="easyui-linkbutton l-btn l-btn-small" id="uploadImg1">上傳图片</button>
+        <span id="t_file1"></span>
+        <br />
+       
+        <input type="file" id="file2" name="file2"/>
+        <button type="button" name="submitName2" class="easyui-linkbutton l-btn l-btn-small" id="uploadImg2">上傳图片</button>
+        <span id="t_file2"></span>
+        <br />
+       
+        <input type="file" id="file3" name="file3"/><button type="button" name="submitName3" class="easyui-linkbutton l-btn l-btn-small" id="uploadImg3">上傳图片</button>
+        <span id="t_file3"></span><br />
+        
+    </div>
+    
+    
+    <div>
+        <textarea id="txtContent" cols="10" rows="5" name="txtContent" style="width: 670px; height: 300px;"></textarea>
+        @*<textarea id="textarea_id" name="content" style="width:670px;height:300px;"></textarea>*@
     </div>
     <div><button type="button" name="submitName" class="easyui-linkbutton l-btn l-btn-small" id="submit">提交</button></div>
 
