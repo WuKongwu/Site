@@ -46,14 +46,25 @@ namespace easyUITest.Controllers
         public ActionResult Save(PaperInfo paperInfo)
         {
             AdminBLL admin = new AdminBLL();
+            List<string> imgList = paperInfo.imgPath.Split('|').ToList();
+            string imgStr = "";
+            foreach (var item in imgList)
+            {
+                if (!string.IsNullOrEmpty(item))
+                {
+                    imgStr += System.IO.Path.GetFileName(item) + ",";
+                }
+            }
+            imgStr = imgStr.Substring(0, imgStr.Length - 1);
+            paperInfo.imgPath = imgStr;
             bool b = admin.SavePaper(paperInfo);
-            return Json(new { success = b},JsonRequestBehavior.AllowGet);
+            return Json(new { success = b }, JsonRequestBehavior.AllowGet);
         }
         public ActionResult GetPaperById(int id)
         {
             AdminBLL admin = new AdminBLL();
             var model = admin.GetPaperById(id);
-            return Json(new { success = true,models = model },JsonRequestBehavior.AllowGet);
+            return Json(new { success = true, models = model }, JsonRequestBehavior.AllowGet);
         }
         public ActionResult Detele(int id)
         {
@@ -130,7 +141,7 @@ namespace easyUITest.Controllers
                 if (files.ContentLength > 0)
                 {
                     string filePath = files.FileName;      //获得文件的完整路径名
-                                                           //以年月日时分秒-毫秒将文件重新命名
+                    //以年月日时分秒-毫秒将文件重新命名
                     string filename2 = DateTime.Now.ToString("yyyy-MM-dd-hh-mm-ss-fffffff");
                     string filename = filename2 + filePath.Substring(filePath.LastIndexOf('.'), filePath.Length - filePath.LastIndexOf('.'));
                     //设定上传路径（绝对路径）

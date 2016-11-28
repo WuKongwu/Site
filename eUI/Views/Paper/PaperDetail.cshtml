@@ -119,9 +119,11 @@
                             {
                                 foreach (var item in Model.imgList)
                                 {
-                                    <li>
-                                        <img class="thumbs" src="@Url.Content("~/"+item.Path)" width="500" height="350" />
-                                    </li>
+                                    if (!string.IsNullOrEmpty(item))
+                                    {
+                                        <li>
+                                            <img class="thumbs" src="@Server.MapPath("/Img/" + item)" width="500" height="350" />
+                                        </li>}
                                 }
                             }
                         </ul>
@@ -227,15 +229,14 @@
                         <h1 class="dtl-h1">
                             @Model.detail[0].Title
                         </h1>
-                        @if (!string.IsNullOrEmpty(Model.detail[0].videoPath))
+                        @if (!string.IsNullOrEmpty(Model.detail[0].Video))
                         {
                             <div class="video-div">
-                                <video src="c235b_01_hd_h264_1280_720.mp4" controls preload="auto" width="600"></video>
+                                <video src="Model.detail[0].Video" controls preload="auto" width="600"></video>
                             </div>
                         }
 
-                        <pre>
-                             @Model.detail[0].DetailInfo</pre>
+                        <pre>@Model.detail[0].DetailInfo</pre>
                     </div>
                 </div>
 

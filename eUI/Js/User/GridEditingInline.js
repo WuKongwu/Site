@@ -33,7 +33,7 @@ function editrow(target) {
         data: { id: target },
         success: function (data) {
             if (data.success) {
-                console.log(data.models.id);
+                console.log(data.models.DetailInfo);
                 debugger
                 $('[name="txtAddTitle"]').val(data.models.Title),
                 $('[name="txtAddTitle"]').prev().val(data.models.Title);
@@ -43,7 +43,7 @@ function editrow(target) {
                 $('[name="txtAddPrice"]').prev().val(data.models.Price);
                 $("#txtAddType").val(data.models.Type),
                 $("#Id").val(data.models.Id);
-                $("#txtContent").val(data.models.DetailInfo)
+                $("#textarea_id").val(data.models.DetailInfo)
             }
         },
     });
