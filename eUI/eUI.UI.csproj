@@ -223,6 +223,7 @@
     <Content Include="Content\themes\Paper\css\images\php-log.png" />
     <Content Include="Content\themes\Paper\css\images\SiteLogo.JPG" />
     <Content Include="Content\themes\Paper\css\images\SiteLogo.png" />
+    <Content Include="Content\themes\Paper\css\images\sub-bar.jpg" />
     <Content Include="Content\themes\Paper\css\images\vc-log.png" />
     <Content Include="Content\themes\Paper\css\paper-main.css" />
     <Content Include="Content\themes\Paper\css\paper.css" />
@@ -622,8 +623,10 @@
     <Content Include="Img\layout-browser-hd-bg.gif" />
     <Content Include="Img\loading.gif" />
     <Content Include="Img\nav_link.png" />
+    <Content Include="Img\new-bar.jpg" />
     <Content Include="Img\noscript.gif" />
     <Content Include="Img\plugin_big.gif" />
+    <Content Include="Img\rand-bar.jpg" />
     <Content Include="Img\ShowCustomPropertiesPage.png" />
     <Content Include="Img\tabicons.png" />
     <Content Include="Img\TableDrawTable.png" />
@@ -972,6 +975,8 @@
     <Content Include="Style\kindeditor\skins\p.gif" />
     <Content Include="Style\kindeditor\skins\tinymce.css" />
     <Content Include="Style\kindeditor\skins\ul.gif" />
+    <Content Include="TemImg\6df1a2602504f4efb5f1c13103682a77.jpg" />
+    <Content Include="TemImg\default.png" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

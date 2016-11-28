@@ -112,7 +112,7 @@
                             @if (Model.imgList.Count() <= 0)
                             {
                                 <li>
-                                    <img class="thumbs" src="@Url.Content("~/default.png")" width="500" height="350" alt="Ä¬ÈÏÍ¼Æ¬" />
+                                    <img class="thumbs" src="@Url.Content("~/TemImg/default.png")" width="500" height="350" alt="Ä¬ÈÏÍ¼Æ¬" />
                                 </li>
                             }
                             else
@@ -122,7 +122,7 @@
                                     if (!string.IsNullOrEmpty(item))
                                     {
                                         <li>
-                                            <img class="thumbs" src="@Server.MapPath("/Img/" + item)" width="500" height="350" />
+                                            <img class="thumbs" src="@Url.Content("~/TemImg/" + item)" width="500" height="350" />
                                         </li>}
                                 }
                             }
