@@ -16,7 +16,7 @@ namespace eUI.DAL
         {
             StringBuilder sbSI = new StringBuilder();
             sbSI.Append("select * from paper Where 1=1 ");
-           
+
             DataTable dtBusiness = DBHelper.SearchSql(sbSI.ToString());
 
             return dtBusiness;
@@ -33,21 +33,43 @@ namespace eUI.DAL
         public bool Input(PaperInfo paperInfo)
         {
             StringBuilder sbAddUser = new StringBuilder();
-            ;
             string GetSessionWithDsmId = string.Format(@"INSERT INTO PAPER (Title,Info,DetailInfo,Price,CreateDate,Type) 
-                VALUES('{0}','{1}','{2}','{3}','{4}','{5}')",paperInfo.Title,paperInfo.Info,paperInfo.DetailInfo,paperInfo.Price,DateTime.Now,paperInfo.Type);
-
-
+                VALUES('{0}','{1}','{2}','{3}','{4}','{5}')", paperInfo.Title, paperInfo.Info, paperInfo.DetailInfo, paperInfo.Price, DateTime.Now, paperInfo.Type);
             int iResult = DBHelper.ExcuteNoQuerySql(GetSessionWithDsmId);
             if (iResult == 1)
-            {
                 return true;
-            }
             else
-            {
                 return false;
-            }
+        }
 
+        public bool DetelePaper(int id)
+        {
+            StringBuilder sbAddUser = new StringBuilder();
+            string GetSessionWithDsmId = string.Format(@"delete from PAPER where Id='{0}' ", id);
+            int iResult = DBHelper.ExcuteNoQuerySql(GetSessionWithDsmId);
+            if (iResult == 1)
+                return true;
+            else
+                return false;
+        }
+
+        public bool UpdatePaper(PaperInfo paperInfo)
+        {
+            StringBuilder sbAddUser = new StringBuilder();
+            string GetSessionWithDsmId = string.Format(@"update PAPER set Title='{0}',Info ='{1}',DetailInfo ='{2}',Price='{3}',Type ='{4}' where Id ='{5}'
+               ", paperInfo.Title, paperInfo.Info, paperInfo.DetailInfo, paperInfo.Price,paperInfo.Type,paperInfo.Id);
+            int iResult = DBHelper.ExcuteNoQuerySql(GetSessionWithDsmId);
+            if (iResult == 1)
+                return true;
+            else
+                return false;
+        }
+
+        public DataTable GetPaperId(int id)
+        {
+            string str = string.Format("select * from PAPER where Id ={0}", id);
+
+            return DBHelper.SearchSql(str);
         }
     }
 }
