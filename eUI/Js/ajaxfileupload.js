@@ -36,19 +36,19 @@ jQuery.extend({
         var fileId = 'jUploadFile' + id;
         var form = $('<form  action="" method="POST" name="' + formId + '" id="' + formId + '" enctype="multipart/form-data"></form>');
 
-        //var oldElement = $('#' + fileElementId);
-        //var newElement = $(oldElement).clone();
-        //$(oldElement).attr('id', fileId);
-        //$(oldElement).before(newElement);
-        //$(oldElement).appendTo(form);
-        for (var i = 0; i < fileElementId.length; i++) {
-            var oldElement = jQuery('#' + fileElementId[i]);
-            var newElement = jQuery(oldElement).clone();
-            jQuery(oldElement).attr('id', fileElementId[i]);
-            jQuery(oldElement).attr('name', fileElementId[i]);
-            jQuery(oldElement).before(newElement);
-            jQuery(oldElement).appendTo(form);
-        }
+        var oldElement = $('#' + fileElementId);
+        var newElement = $(oldElement).clone();
+        $(oldElement).attr('id', fileId);
+        $(oldElement).before(newElement);
+        $(oldElement).appendTo(form);
+        //for (var i = 0; i < fileElementId.length; i++) {
+        //    var oldElement = jQuery('#' + fileElementId[i]);
+        //    var newElement = jQuery(oldElement).clone();
+        //    jQuery(oldElement).attr('id', fileElementId[i]);
+        //    jQuery(oldElement).attr('name', fileElementId[i]);
+        //    jQuery(oldElement).before(newElement);
+        //    jQuery(oldElement).appendTo(form);
+        //}
         //set attributes
         $(form).css('position', 'absolute');
         $(form).css('top', '-1200px');

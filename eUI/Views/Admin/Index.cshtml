@@ -4,18 +4,56 @@
 @Scripts.Render(eUI.Common.JsFiles.AdminInput)
 @Scripts.Render(eUI.Common.JsFiles.UserGridEditingInline)
 @*<script src="~/Style/kindeditor-4.1.7/kindeditor-min.js"></script>
-<script src="~/Style/kindeditor-4.1.7/lang/zh_CN.js"></script>*@
-@*<script src="~/Style/kindeditor/kindeditor.js"></script>*@
+    <script src="~/Style/kindeditor-4.1.7/lang/zh_CN.js"></script>*@
 <script src="~/Js/jquery.fileupload.js"></script>
 <script src="~/Js/jquery.iframe-transport.js"></script>
+<script src="~/Js/jquery.ui.widget.js"></script>
+<script src="~/Js/upload.js"></script>
+<script src="~/Style/kindeditor/kindeditor.js"></script>
 <script src="~/Js/ajaxfileupload.js"></script>
 @*<link href="~/Style/kindeditor-4.1.7/themes/default/default.css" rel="stylesheet" />*@
+<script>
+    $(function(){
+        $("#upload").fileupload({
+            autoUpload: true,
+
+            type: 'post',
+
+            url: "@Url.Action("UploadVideo")",//文件上传地址，当然也可以直接写在input的data-url属性内
+
+            dataType: "json", //如果不指定json类型，则传来的json字符串就需要解析jQuery.parseJSON(data.result);
+
+            progressall: function (e, data) {
+                var progress = parseInt(data.loaded / data.total * 100, 10);
+                $('#progress .bar').css(
+                    'width',
+                    progress + '%'
+                );
+            },
+
+            done: function (e, data) {
+                //done方法就是上传完毕的回调函数，其他回调函数可以自行查看api
+                //注意data要和jquery的ajax的data参数区分，这个对象包含了整个请求信息
+                //返回的数据在data.result中，这里dataType中设置的返回的数据类型为json
+                if (data.result.sta) {
+                    // 上传成功：
+                    $(".preview").html("<video width='640' id='video111' height='360' src=" + data.result.previewSrc +
+                        " id='player1'controls='controls' preload='none'></video> ");
+                } else {
+                    // 上传失败：
+                    alert(data.result.msg);
+                }
+
+            }
+        });
+    });
+</script>
 <script type="text/javascript">
     $(function () {
         $("#uploadImg1").click(function () {
             if ($("#file1").val().length > 0) {
-               var img = ajaxFileUpload("file1");
-               $("#imgurl1").val(img);
+                var img = ajaxFileUpload("file1");
+                $("#imgurl1").val(img);
             }
             else {
                 alert("请选择图片");
@@ -39,48 +77,92 @@
                 alert("请选择图片");
             }
         });
+        //$("#upload").click(function () {
+        //    $.ajaxFileUpload({
+        //        type: "post",                          //请求类型：post或get,当要使用data提交自定义参数时一定要设置为post
+        //        url: "/Admin/UploadVideo",                 //文件上传的服务器端请求地址
+        //        secureuri: false,                      //是否启用安全提交，一般默认为false就行，不用特殊处理
+        //        fileElementId: ["filevideo"],          //文件上传控件的id   <input type="file" id="filePicture" name="filePicture" accept=".jpg,.jpeg,.png,.bmp" onchange="filePictureChange()" />
+        //        dataType: "multipart/form-data",                      //返回值类型，一般设置为json，还支持html\xml\script类型
+        //        data: { "id": "1", "name": "test" },   //用于post请求提交自定义参数
+        //        success: function (data, status) {     //服务器成功响应处理函数
+        //        },
+        //        error: function (data, status, e) {    //服务器响应失败处理函数
+        //        }
+        //    });
+        // $.ajaxFileUpload
+        //(
+        //    {
+        //        url: '/Admin/UploadVideo', //用于文件上传的服务器端请求地址
+        //        type: 'post',
+        //        data: { Id: '123', name: 'lunis' }, //此参数非常严谨，写错一个引号都不行
+        //        secureuri: false, //一般设置为false
+        //        fileElementId: ['filevideo'], //文件上传空间的id属性  <input type="file" id="file" name="file" />
+        //        dataType: 'json', //返回值类型 一般设置为json
+        //        success: function (data, status)  //服务器成功响应处理函数
+        //        {
+        //            //alert(data);
+        //            //$("#img1").attr("src", data.imgPath1);
+        //            //alert("你请求的Id是" + data.Id + "     " + "你请求的名字是:" + data.name);
+        //            //if (typeof (data.error) != 'undefined') {
+        //            //    if (data.error != '') {
+        //            //        alert(data.error);
+        //            //    } else {
+        //            //        alert(data.msg);
+        //            //    }
+        //            //}
+        //            var ext = JSON.parse(data)
+        //            $("#t_" + val).text(ext.imgPath1);
+        //        },
+        //        error: function (data, status, e)//服务器响应失败处理函数
+        //        {
+        //            alert(e);
+        //        }
+        //    }
+        //)
+    });
+
     });
     function ajaxFileUpload(val) {
         $.ajaxFileUpload
         (
             {
                 url: '/Admin/Uploadfile', //用于文件上传的服务器端请求地址
-                    type: 'post',
-                    data: { Id: '123', name: 'lunis' }, //此参数非常严谨，写错一个引号都不行
-                    secureuri: false, //一般设置为false
-                    fileElementId: [val], //文件上传空间的id属性  <input type="file" id="file" name="file" />
-                    dataType: 'HTML', //返回值类型 一般设置为json
-                    success: function (data, status)  //服务器成功响应处理函数
-                    {
-                        //alert(data);
-                        //$("#img1").attr("src", data.imgPath1);
-                        //alert("你请求的Id是" + data.Id + "     " + "你请求的名字是:" + data.name);
-                        //if (typeof (data.error) != 'undefined') {
-                        //    if (data.error != '') {
-                        //        alert(data.error);
-                        //    } else {
-                        //        alert(data.msg);
-                        //    }
-                        //}
-                        var ext= JSON.parse(data)
-                        $("#t_"+val).text(ext.imgPath1);
-                    },
-                    error: function (data, status, e)//服务器响应失败处理函数
-                    {
-                        alert(e);
-                    }
+                type: 'post',
+                data: { Id: '123', name: 'lunis' }, //此参数非常严谨，写错一个引号都不行
+                secureuri: false, //一般设置为false
+                fileElementId: [val], //文件上传空间的id属性  <input type="file" id="file" name="file" />
+                dataType: 'HTML', //返回值类型 一般设置为json
+                success: function (data, status)  //服务器成功响应处理函数
+                {
+                    //alert(data);
+                    //$("#img1").attr("src", data.imgPath1);
+                    //alert("你请求的Id是" + data.Id + "     " + "你请求的名字是:" + data.name);
+                    //if (typeof (data.error) != 'undefined') {
+                    //    if (data.error != '') {
+                    //        alert(data.error);
+                    //    } else {
+                    //        alert(data.msg);
+                    //    }
+                    //}
+                    var ext= JSON.parse(data)
+                    $("#t_"+val).text(ext.imgPath1);
+                },
+                error: function (data, status, e)//服务器响应失败处理函数
+                {
+                    alert(e);
+                }
             }
         )
-       
+
     }
-
-
 
     //KE.show({
     //    id: 'txtContent'
     //});
     //var editor;
     $(function () {
+        $('#dlg').window('close');
         //editor = K.create('textarea[name="content"]', {
         //    allowFileManager: true
         //});
@@ -98,8 +180,9 @@
                 Price: $('[name="txtAddPrice"]').val(),
                 Type: $("#txtAddType").val(),
                 DetailInfo: $("#textarea_id").val(),
-                imgPath: $("#file1").val() + "|" + $("#file2").val() + "|" + $("#file3").val()
-
+                ImgA: $("#file1").val() ,
+                ImgB:$("#file2").val(),
+                ImgC:$("#file3").val()
             };
             $.ajax({
                 url: "../Admin/Save",
@@ -143,7 +226,7 @@
     </div>
 </div>
 <div id="papergrid"></div>
-<div id="dlg" class="easyui-window" title="详情" data-options="iconCls:'icon-save'" style="width:700px;height:500px;padding:10px;" >
+<div id="dlg" class="easyui-window" title="详情" data-options="iconCls:'icon-save'" style="width:700px;height:500px;padding:10px;">
     <div><input type="hidden" id="Id" /></div>
     <div>
         论文标题：<input class="textbox-value easyui-textbox" id="txtAddTitle" name="txtAddTitle" type="text" />
@@ -164,23 +247,24 @@
         </select>
     </div>
     <div>
-        <input type="file" /><button type="button" name="submitName" class="easyui-linkbutton l-btn l-btn-small" id="upload">上传</button><br />
-        <input type="file" id="file1" name="file1"/>
-            <button type="button" name="submitName1" class="easyui-linkbutton l-btn l-btn-small" id="uploadImg1">上传图片</button>
+
+        <input type="file" id="filevideo" name="filevideo" /><button type="button" name="submitName" class="easyui-linkbutton l-btn l-btn-small" id="upload">上传</button><br />
+        <input type="file" id="file1" name="file1" />
+        <button type="button" name="submitName1" class="easyui-linkbutton l-btn l-btn-small" id="uploadImg1">上传图片</button>
         <span id="t_file1"></span>
         <br />
-       
-        <input type="file" id="file2" name="file2"/>
+
+        <input type="file" id="file2" name="file2" />
         <button type="button" name="submitName2" class="easyui-linkbutton l-btn l-btn-small" id="uploadImg2">上传图片</button>
         <span id="t_file2"></span>
         <br />
-       
-        <input type="file" id="file3" name="file3"/><button type="button" name="submitName3" class="easyui-linkbutton l-btn l-btn-small" id="uploadImg3">上传图片</button>
+
+        <input type="file" id="file3" name="file3" /><button type="button" name="submitName3" class="easyui-linkbutton l-btn l-btn-small" id="uploadImg3">上传图片</button>
         <span id="t_file3"></span><br />
-        
+
     </div>
-    
-    
+
+
     <div>
         @*<nav id="txtContent" cols="10" rows="5" name="txtContent" style="width: 670px; height: 300px;"></nav>*@
         <textarea id="textarea_id" name="content" style="width:670px;height:300px;"></textarea>
