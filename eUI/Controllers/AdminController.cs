@@ -73,7 +73,7 @@ namespace easyUITest.Controllers
                 for (int i = 0; i < hfc.Count; i++)
                 {
                     imgPath = DateTime.Now.ToString("yyyyMMddHHmmssff") + hfc[0].FileName;
-                    string PhysicalPath = Server.MapPath("/" + imgPath);
+                    string PhysicalPath = Server.MapPath("/Img/" + imgPath);
                     fileName = imgPath;
 
                     hfc[0].SaveAs(PhysicalPath);
@@ -153,34 +153,47 @@ namespace easyUITest.Controllers
         }
 
         [System.Web.Http.HttpPost]
-        public ActionResult UploadVideo(HttpPostedFileBase files = null)
+        public ActionResult UploadVideo()
         {
-            if (files != null && files.ContentLength > 0)
+            NameValueCollection nvc = System.Web.HttpContext.Current.Request.Form;
+
+            HttpFileCollection hfc = System.Web.HttpContext.Current.Request.Files;
+            string fileName = string.Empty;
+            string imgPath = "";
+            for (int i = 0; i < hfc.Count; i++)
             {
-                string folderpath = "/UploadFile/Video/";
-                if (!Directory.Exists(folderpath))
-                {
-                    Directory.CreateDirectory(Server.MapPath(folderpath));
-                }
-                string ext1 = Path.GetExtension(files.FileName);
-                if (ext1 != ".mp4" && ext1 != ".wmv" && ext1 != ".mpeg" && ext1 != ".avi" && ext1 != ".mp3" && ext1 != ".wav" && ext1 != ".wma" && ext1 != ".rmvb")
-                {
-                    return Json(new { sta = false, msg = "文件格式不正确！" });
-                }
-                else
-                {
-                    string name = DateTime.Now.ToString("yyyyMMddHHmmssff");
-                    string ext = Path.GetExtension(files.FileName);
-                    string downpath = folderpath + name + ext;
-                    string filepath = Server.MapPath(folderpath) + name + ext;
-                    files.SaveAs(filepath);
-                    return Json(new { sta = true, previewSrc = downpath, id = name });
-                }
+                imgPath = DateTime.Now.ToString("yyyyMMddHHmmssff") + hfc[0].FileName;
+                string PhysicalPath = Server.MapPath("/" + imgPath);
+                fileName = imgPath;
+
+                hfc[0].SaveAs(PhysicalPath);
             }
-            else
-            {
-                return Json(new { sta = false, msg = "请上传文件！" });
-            }
+            //if (files != null && files.ContentLength > 0)
+            //{
+            //    string folderpath = "/UploadFile/Video/";
+            //    if (!Directory.Exists(folderpath))
+            //    {
+            //        Directory.CreateDirectory(Server.MapPath(folderpath));
+            //    }
+            //    string ext1 = Path.GetExtension(files.FileName);
+            //    if (ext1 != ".mp4" && ext1 != ".wmv" && ext1 != ".mpeg" && ext1 != ".avi" && ext1 != ".mp3" && ext1 != ".wav" && ext1 != ".wma" && ext1 != ".rmvb")
+            //    {
+            //        return Json(new { sta = false, msg = "文件格式不正确！" });
+            //    }
+            //    else
+            //    {
+            //        string name = DateTime.Now.ToString("yyyyMMddHHmmssff");
+            //        string ext = Path.GetExtension(files.FileName);
+            //        string downpath = folderpath + name + ext;
+            //        string filepath = Server.MapPath(folderpath) + name + ext;
+            //        files.SaveAs(filepath);
+            //        return Json(new { sta = true, previewSrc = downpath, id = name });
+            //    }
+            //}
+            //else
+            //{
+            return Json(new { sta = false, msg = "请上传文件！" });
+            //}
         }
     }
 

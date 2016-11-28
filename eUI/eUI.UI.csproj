@@ -636,7 +636,9 @@
     <Content Include="easyUI\Extension\GridToExport.js" />
     <Content Include="Js\jquery.fileupload.js" />
     <Content Include="Js\jquery.iframe-transport.js" />
+    <Content Include="Js\jquery.ui.widget.js" />
     <Content Include="Js\Report\UserColumnReport.js" />
+    <Content Include="Js\upload.js" />
     <Content Include="Js\UserInfo.js" />
     <Content Include="Content\themes\Paper\js\jquery.core.js" />
     <Content Include="Style\handler\upload.ashx" />
