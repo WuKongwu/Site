@@ -70,9 +70,13 @@ namespace eUI.BLL
             PaperDetailViewModel paperDetailViewModel = new PaperDetailViewModel();
             DataTable dtPaperDetail = paperDAL.SearchPaperDetailById(Id);
            // DataTable dtImgList = paperDAL.SearchPaperImgListById(Id);
-            List<Img> imgList = new List<Img>();
-
-            imgList.Add((Img)dtPaperDetail.Rows[0]["ImgA"]);
+            List<string> imgList = new List<string>();
+            string ImgA = dtPaperDetail.Rows[0]["ImgA"].ToString() ?? "";
+            if (!string.IsNullOrEmpty(ImgA)) { imgList.Add(ImgA); }
+            string ImgB = dtPaperDetail.Rows[0]["ImgB"].ToString() ?? "";
+            if (!string.IsNullOrEmpty(ImgB)) { imgList.Add(ImgB); }
+            string ImgC = dtPaperDetail.Rows[0]["ImgC"].ToString() ?? "";
+            if (!string.IsNullOrEmpty(ImgC)) { imgList.Add(ImgC); }
             paperDetailViewModel.detail = dtPaperDetail.toList<PaperInfo>();
             DataTable dtSearchPaperHotListBytype = paperDAL.SearchPaperHotListBytype(paperDetailViewModel.detail[0].Type.ToString());
             DataTable dtSearchNewList = paperDAL.SearchNewList();

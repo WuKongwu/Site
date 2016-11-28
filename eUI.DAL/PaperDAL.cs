@@ -53,7 +53,7 @@ namespace eUI.DAL
             DataTable dtTypeList = new DataTable();
             if (!string.IsNullOrEmpty(type))
             {
-                sbSI.Append("SELECT A.*, B.Path as imgPath,C.ReadCount,D.BuyCount FROM((SELECT * FROM paper WHERE Type = " + type + ") AS A LEFT JOIN (SELECT PaperId,Path FROM paperimg LIMIT 1 ) AS B ON A.Id = B.PaperId )");
+                sbSI.Append("SELECT A.*, C.ReadCount,D.BuyCount FROM (SELECT * FROM paper WHERE Type = " + type + ") AS A ");
                 sbSI.Append("LEFT JOIN (SELECT Num AS ReadCount, PaperId FROM count WHERE Type = 1 ) AS C ON A.id = C.PaperId LEFT JOIN ( SELECT Num AS BuyCount, PaperId FROM count WHERE Type = 2 ) AS D ON A.id = D.PaperId");
                 dtTypeList = DBHelper.SearchSql(sbSI.ToString());
             }
