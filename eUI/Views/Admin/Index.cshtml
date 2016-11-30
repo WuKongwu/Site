@@ -5,14 +5,15 @@
 @Scripts.Render(eUI.Common.JsFiles.UserGridEditingInline)
 @*<script src="~/Style/kindeditor-4.1.7/kindeditor-min.js"></script>
     <script src="~/Style/kindeditor-4.1.7/lang/zh_CN.js"></script>*@
-<script src="~/Js/jquery.fileupload.js"></script>
+@*<script src="~/Js/jquery.fileupload.js"></script>
 <script src="~/Js/jquery.iframe-transport.js"></script>
 <script src="~/Js/jquery.ui.widget.js"></script>
 <script src="~/Js/upload.js"></script>
-<script src="~/Style/kindeditor/kindeditor.js"></script>
+<script src="~/Style/kindeditor/kindeditor.js"></script>*@
 <script src="~/Js/ajaxfileupload.js"></script>
 @*<link href="~/Style/kindeditor-4.1.7/themes/default/default.css" rel="stylesheet" />*@
-<script>
+@*<script>
+   
     $(function(){
         $("#upload").fileupload({
             autoUpload: true,
@@ -47,8 +48,62 @@
             }
         });
     });
-</script>
+</script>*@
 <script type="text/javascript">
+
+    function Add() {
+        $('#dlg').window('open');
+        $('[name="txtAddTitle"]').val(''),
+          $('[name="txtAddTitle"]').prev().val('');
+        $('[name="txtAddShow"]').val(''),
+        $('[name="txtAddPrice"]').val(''),
+          $('[name="txtAddShow"]').prev().val('');
+        $('[name="txtAddPrice"]').prev().val('');
+        $("#txtAddType").val(0),
+        $("#Id").val(0);
+
+    }
+    $(function () {
+        $('#dlg').window('close');
+        //editor = K.create('textarea[name="content"]', {
+        //    allowFileManager: true
+        //});
+        //K.create('#textarea_id', {
+        //    uploadJson: '../asp.net/upload_json.ashx',
+        //    fileManagerJson: '../asp.net/file_manager_json.ashx',
+        //    allowFileManager: true
+        //});
+        $('#submit').click(function (e) {
+            var param = {
+                Id: $("#Id").val(),
+                Title: $('[name="txtAddTitle"]').val(),
+                Info: $('[name="txtAddShow"]').val(),
+                Price: $('[name="txtAddPrice"]').val(),
+                Type: $("#txtAddType").val(),
+                DetailInfo: $("#textarea_id").val(),
+                ImgA: $("#t_file1").html(),
+                ImgB: $("#t_file2").html(),
+                ImgC: $("#t_file3").html()
+            };
+
+            $.ajax({
+                url: "../Admin/Save",
+                type: 'POST',
+                data: param,
+                success: function (data) {
+                    if (data.success) {
+                        $("#papergrid").datagrid('reload');
+                        $('#dlg').window('close');
+                    }
+                }
+            });
+        });
+        //+});
+      
+    });
+
+
+
     $(function () {
         $("#uploadImg1").click(function () {
             if ($("#file1").val().length > 0) {
@@ -120,7 +175,7 @@
         //        }
         //    }
         //)
-    });
+    //});
 
     });
     function ajaxFileUpload(val) {
@@ -161,56 +216,7 @@
     //    id: 'txtContent'
     //});
     //var editor;
-    $(function () {
-        $('#dlg').window('close');
-        //editor = K.create('textarea[name="content"]', {
-        //    allowFileManager: true
-        //});
-        //K.create('#textarea_id', {
-        //    uploadJson: '../asp.net/upload_json.ashx',
-        //    fileManagerJson: '../asp.net/file_manager_json.ashx',
-        //    allowFileManager: true
-        //});
-        $('#submit').click(function (e) {
-
-            var param = {
-                Id: $("#Id").val(),
-                Title: $('[name="txtAddTitle"]').val(),
-                Info: $('[name="txtAddShow"]').val(),
-                Price: $('[name="txtAddPrice"]').val(),
-                Type: $("#txtAddType").val(),
-                DetailInfo: $("#textarea_id").val(),
-                ImgA: $("#file1").val() ,
-                ImgB:$("#file2").val(),
-                ImgC:$("#file3").val()
-            };
-            $.ajax({
-                url: "../Admin/Save",
-                type: 'POST',
-                data: param,
-                success: function (data) {
-                    if (data.success) {
-                        $("#papergrid").datagrid('reload');
-                        $('#dlg').window('close');
-                    }
-                }
-            });
-        });
-        //+});
-        function Add() {
-            $('#dlg').window('open');
-            $('[name="txtAddTitle"]').val(''),
-              $('[name="txtAddTitle"]').prev().val('');
-            $('[name="txtAddShow"]').val(''),
-            $('[name="txtAddPrice"]').val(''),
-              $('[name="txtAddShow"]').prev().val('');
-            $('[name="txtAddPrice"]').prev().val('');
-            $("#txtAddType").val(0),
-            $("#Id").val(0);
-            //KindEditor.instances[0].html("")
-
-        }
-    });
+  
 </script>
 <div style="font-size: 12px;padding: 10px 0;">
     <div>

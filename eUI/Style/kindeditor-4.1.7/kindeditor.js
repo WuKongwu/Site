@@ -5809,16 +5809,16 @@ _plugin('core', function(K) {
 			return $1 + _unescape($2).replace(/\s+/g, ' ') + $3;
 		})
 		.replace(/<img[^>]*class="?ke-(flash|rm|media)"?[^>]*>/ig, function(full) {
-			var imgAttrs = _getAttrList(full),
-				styles = _getCssList(imgAttrs.style || ''),
-				attrs = _mediaAttrs(imgAttrs['data-ke-tag']);
-			attrs.width = _undef(imgAttrs.width, _removeUnit(_undef(styles.width, '')));
-			attrs.height = _undef(imgAttrs.height, _removeUnit(_undef(styles.height, '')));
+			var ImgAttrs = _getAttrList(full),
+				styles = _getCssList(ImgAttrs.style || ''),
+				attrs = _mediaAttrs(ImgAttrs['data-ke-tag']);
+			attrs.width = _undef(ImgAttrs.width, _removeUnit(_undef(styles.width, '')));
+			attrs.height = _undef(ImgAttrs.height, _removeUnit(_undef(styles.height, '')));
 			return _mediaEmbed(attrs);
 		})
 		.replace(/<img[^>]*class="?ke-anchor"?[^>]*>/ig, function(full) {
-			var imgAttrs = _getAttrList(full);
-			return '<a name="' + unescape(imgAttrs['data-ke-name']) + '"></a>';
+			var ImgAttrs = _getAttrList(full);
+			return '<a name="' + unescape(ImgAttrs['data-ke-name']) + '"></a>';
 		})
 		.replace(/<div\s+[^>]*data-ke-script-attr="([^"]*)"[^>]*>([\s\S]*?)<\/div>/ig, function(full, attr, code) {
 			return '<script' + unescape(attr) + '>' + unescape(code) + '</script>';

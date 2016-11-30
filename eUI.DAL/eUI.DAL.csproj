@@ -59,6 +59,7 @@
     <Compile Include="LoginDAL.cs" />
     <Compile Include="PaperDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SubPageDAL.cs" />
     <Compile Include="UserInfoDAL.cs" />
     <Compile Include="UserRecordDAL.cs" />
   </ItemGroup>

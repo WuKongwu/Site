@@ -38,11 +38,13 @@ namespace eUI.BLL
             DataTable dtTypeList = paperDAL.SearchPaperListByType(type);
             DataTable dtSearchRandomList = paperDAL.SearchRandomList(type);
             DataTable dtSearchPaperHotListBytype = paperDAL.SearchPaperHotListBytype(type);
+            DataTable dtSubPage = paperDAL.SearchPaperSubPage();
             PaperInfoList PaperInfoList = new PaperInfoList();
             paperListViewModel.paperInfoList = PaperInfoList;
             paperListViewModel.paperInfoList.rows = dtTypeList.toList<PaperInfo>();
             paperListViewModel.randomList = dtSearchRandomList.toList<PaperList>();
             paperListViewModel.HotList = dtSearchPaperHotListBytype.toList<PaperList>();
+            paperListViewModel.paperSubPage = dtSubPage.toList<PaperSubPage>();
             return paperListViewModel;
         }
 

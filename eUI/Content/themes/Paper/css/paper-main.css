@@ -1320,3 +1320,6 @@ font-weight:bolder;
     text-align: center;
 
 }
+.text-area-content {
+        padding: 15px 20px;
+}

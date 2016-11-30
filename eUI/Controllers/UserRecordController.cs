@@ -1,4 +1,5 @@
-﻿using eUI.BLL;
+﻿using easyUITest.Filters;
+using eUI.BLL;
 using eUI.Model;
 using eUI.Model.ViewModel;
 using System;
@@ -13,10 +14,12 @@ namespace easyUITest.Controllers
 {
     public class UserRecordController : Controller
     {
+         [Authentication] 
        public ActionResult Index()
         {
             return View();
         }
+         [Authentication] 
         public ActionResult SearchUsers(UserRecord userRecord)
         {
             UserRecordBLL bll = new UserRecordBLL();

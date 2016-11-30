@@ -1,4 +1,5 @@
-﻿using eUI.BLL;
+﻿using easyUITest.Filters;
+using eUI.BLL;
 using eUI.Model.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -16,10 +17,12 @@ namespace easyUITest.Controllers
 {
     public class AdminController : Controller
     {
+        [Authentication] 
         public ActionResult Index()
         {
             return View();
         }
+         [Authentication] 
         public ActionResult SearchPaper(PaperList paperList)
         {
             AdminBLL adminBLL = new AdminBLL();
@@ -27,7 +30,7 @@ namespace easyUITest.Controllers
             return Json(paperInfoList, JsonRequestBehavior.AllowGet);
         }
 
-
+         [Authentication] 
         public ViewResult Input(PaperInfo paperInfo)
         {
             var file1 = Request["img1"];
@@ -43,35 +46,39 @@ namespace easyUITest.Controllers
 
             return View("Input");
         }
+         [Authentication] 
         public ActionResult Save(PaperInfo paperInfo)
         {
             AdminBLL admin = new AdminBLL();
-            List<string> imgList = paperInfo.imgPath.Split('|').ToList();
-            string imgStr = "";
-            foreach (var item in imgList)
-            {
-                if (!string.IsNullOrEmpty(item))
-                {
-                    imgStr += System.IO.Path.GetFileName(item) + ",";
-                }
-            }
-            imgStr = imgStr.Substring(0, imgStr.Length - 1);
-            paperInfo.imgPath = imgStr;
+            //List<string> imgList = paperInfo.imgPath.Split('|').ToList();
+            //string imgStr = "";
+            //foreach (var item in imgList)
+            //{
+            //    if (!string.IsNullOrEmpty(item))
+            //    {
+            //        imgStr += System.IO.Path.GetFileName(item) + ",";
+            //    }
+            //}
+            //imgStr = imgStr.Substring(0, imgStr.Length - 1);
+            //paperInfo.imgPath = imgStr;
             bool b = admin.SavePaper(paperInfo);
             return Json(new { success = b }, JsonRequestBehavior.AllowGet);
         }
+         [Authentication] 
         public ActionResult GetPaperById(int id)
         {
             AdminBLL admin = new AdminBLL();
             var model = admin.GetPaperById(id);
             return Json(new { success = true, models = model }, JsonRequestBehavior.AllowGet);
         }
+         [Authentication] 
         public ActionResult Detele(int id)
         {
             AdminBLL admin = new AdminBLL();
             bool b = admin.DetelePaper(id);
             return Json(new { success = b }, JsonRequestBehavior.AllowGet);
         }
+         [Authentication] 
         public ActionResult Uploadfile()//HttpContext context
         {
             NameValueCollection nvc = System.Web.HttpContext.Current.Request.Form;
@@ -84,7 +91,7 @@ namespace easyUITest.Controllers
                 for (int i = 0; i < hfc.Count; i++)
                 {
                     imgPath = DateTime.Now.ToString("yyyyMMddHHmmssff") + hfc[0].FileName;
-                    string PhysicalPath = Server.MapPath("/Img/" + imgPath);
+                    string PhysicalPath = Server.MapPath("/TemImg/" + imgPath);
                     fileName = imgPath;
 
                     hfc[0].SaveAs(PhysicalPath);
@@ -134,6 +141,8 @@ namespace easyUITest.Controllers
             //    error = error
             //});
         }
+
+         [Authentication] 
         public ActionResult MultiUpload(HttpPostedFileBase files)
         {
             if (files != null)
@@ -162,7 +171,7 @@ namespace easyUITest.Controllers
             }
             return RedirectToAction("videoIndex");
         }
-
+         [Authentication] 
         [System.Web.Http.HttpPost]
         public ActionResult UploadVideo()
         {

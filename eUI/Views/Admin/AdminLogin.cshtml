@@ -1,0 +1,24 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Styles.Render(eUI.Common.CssFiles.easyDefault)
+@Scripts.Render(eUI.Common.JsFiles.AdminLogin)
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>管理应用</title>
+</head>
+<body>
+    <div>
+    <div class="login-bg-img">
+        <div class="login-bg-name">账号：<input type="text" id="adminName" /></div>
+        <div class="login-bg-pws">密码：<input type="password" id="adminPaw" /></div>
+        <button id="admin_login" class="login-bg-btn">登录</button>
+        <label class="login-bg-message"></label>
+    </div>
+        <div class="login-bg-info">启源科技论文管理应用程序 V1.0</div>
+    </div>
+</body>
+</html>

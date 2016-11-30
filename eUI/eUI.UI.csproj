@@ -143,6 +143,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AdminLoginController.cs" />
     <Compile Include="Controllers\BusinessController.cs" />
     <Compile Include="Controllers\ExportController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -150,9 +151,11 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PaperController.cs" />
     <Compile Include="Controllers\PermissionSetController.cs" />
+    <Compile Include="Controllers\SubPageController.cs" />
     <Compile Include="Controllers\UploadController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\UserRecordController.cs" />
+    <Compile Include="Filters\AuthenticationAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -616,6 +619,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="easyUI\1.5\themes\material\images\Thumbs.db" />
     <Content Include="easyUI\combobox_data1.json" />
+    <Content Include="Img\admin-login.jpg" />
     <Content Include="Img\arrow.gif" />
     <Content Include="Img\blocks.gif" />
     <Content Include="Img\CategorizeMenu.png" />
@@ -632,7 +636,9 @@
     <Content Include="Img\TableDrawTable.png" />
     <Content Include="Img\tools-sprites-trans.gif" />
     <Content Include="Js\Admin\admin.js" />
+    <Content Include="Js\Admin\admin.login.js" />
     <Content Include="Js\ajaxfileupload.js" />
+    <Content Include="Js\Business\subpage.js" />
     <Content Include="Js\Business\business.js" />
     <Content Include="Js\common.js" />
     <Content Include="Js\EUIIndex.js" />
@@ -1001,7 +1007,6 @@
     <Content Include="Views\Report\UserLine.cshtml" />
     <Content Include="Views\Home\UserBoard.cshtml" />
     <Content Include="Views\Paper\Home.cshtml" />
-    <Content Include="Views\Paper\PaperList.cshtml" />
     <Content Include="Views\Paper\PaperDetail.cshtml" />
     <Content Include="Views\UserRecord\Index.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
@@ -1015,6 +1020,8 @@
     <Content Include="Views\Paper\ToolDownload.cshtml" />
     <Content Include="Views\Paper\TemplateDownload.cshtml" />
     <Content Include="Views\Paper\About.cshtml" />
+    <Content Include="Views\SubPage\Index.cshtml" />
+    <Content Include="Views\Admin\AdminLogin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

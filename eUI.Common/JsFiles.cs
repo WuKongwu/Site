@@ -9,7 +9,7 @@ namespace eUI.Common
 {
     public class JsFiles
     {
-        private static string ver = "1.0.9";
+        private static string ver = "1.1.9";
 
         public static string jQuery = "/Scripts/jquery-1.7.1.min.js";
         public static string easyUI = "/easyUI/1.5/jquery.easyui.min.js?ver=" + ver;  //1.5
@@ -37,5 +37,7 @@ namespace eUI.Common
         public static string UserRecord = "/Js/UserRecord/userRecord.js?ver=" + ver;
         public static string AdminInput = "/Js/Admin/admin.js?ver=" + ver;
         public static string Business = "/Js/Business/business.js?ver=" + ver;
+        public static string SubPage = "/Js/Business/subpage.js?ver=" + ver;
+        public static string AdminLogin = "/Js/Admin/admin.login.js?ver=" + ver;
     }
 }

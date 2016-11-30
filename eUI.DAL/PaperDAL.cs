@@ -79,6 +79,19 @@ namespace eUI.DAL
             return dtTypeList;
         }
 
+        public DataTable SearchPaperSubPage()
+        {
+
+            StringBuilder sbSI = new StringBuilder();
+            sbSI.Append("select * from subpage");
+            
+            DataTable dtTypeList = DBHelper.SearchSql(sbSI.ToString());
+
+            return dtTypeList;
+        }
+
+
+
         public DataTable SearchPaperList(string key)
         {
 

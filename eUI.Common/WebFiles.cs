@@ -15,6 +15,8 @@ namespace eUI.Common
         public static string UserColumnReport = "/Views/Report/UserColumn.cshtml";
         public static string UserLineReport = "/Views/Report/UserLine.cshtml";
         public static string UserBoard = "/Views/Home/UserBoard.cshtml";
+
+        public static string SubPage = "/Views/SubPage/SubPage.cshtml";
         public static string WxPage = "/Views/Wx/WxPage.cshtml";
     }
 }

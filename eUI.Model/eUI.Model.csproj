@@ -67,6 +67,8 @@
     <Compile Include="ViewModel\PaperInit.cs" />
     <Compile Include="ViewModel\PaperList.cs" />
     <Compile Include="ViewModel\PaperListViewModel.cs" />
+    <Compile Include="ViewModel\PaperSubPage.cs" />
+    <Compile Include="ViewModel\PaperSubPageList.cs" />
     <Compile Include="ViewModel\UserRecordList.cs" />
   </ItemGroup>
   <ItemGroup>
