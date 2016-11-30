@@ -46,17 +46,7 @@ namespace easyUITest.Controllers
         public ActionResult Save(PaperInfo paperInfo)
         {
             AdminBLL admin = new AdminBLL();
-            List<string> imgList = paperInfo.imgPath.Split('|').ToList();
-            string imgStr = "";
-            foreach (var item in imgList)
-            {
-                if (!string.IsNullOrEmpty(item))
-                {
-                    imgStr += System.IO.Path.GetFileName(item) + ",";
-                }
-            }
-            imgStr = imgStr.Substring(0, imgStr.Length - 1);
-            paperInfo.imgPath = imgStr;
+           
             bool b = admin.SavePaper(paperInfo);
             return Json(new { success = b }, JsonRequestBehavior.AllowGet);
         }
@@ -84,7 +74,7 @@ namespace easyUITest.Controllers
                 for (int i = 0; i < hfc.Count; i++)
                 {
                     imgPath = DateTime.Now.ToString("yyyyMMddHHmmssff") + hfc[0].FileName;
-                    string PhysicalPath = Server.MapPath("/Img/" + imgPath);
+                    string PhysicalPath = Server.MapPath("/TemImg/" + imgPath);
                     fileName = imgPath;
 
                     hfc[0].SaveAs(PhysicalPath);

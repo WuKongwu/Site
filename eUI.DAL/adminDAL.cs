@@ -34,8 +34,8 @@ namespace eUI.DAL
         {
             StringBuilder sbAddUser = new StringBuilder();
             string GetSessionWithDsmId = string.Format(@"INSERT INTO PAPER 
-                (Title,Info,DetailInfo,Price,CreateDate,Type,ImgA,ImgB,ImgC) 
-                VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}')", paperInfo.Title, paperInfo.Info, paperInfo.DetailInfo, paperInfo.Price, DateTime.Now, paperInfo.Type,paperInfo.ImgA,paperInfo.ImgB,paperInfo.ImgC);
+                (Title,Info,DetailInfo,Price,CreateDate,Type,ImgA,ImgB,ImgC,Video) 
+                VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}')", paperInfo.Title, paperInfo.Info, paperInfo.DetailInfo, paperInfo.Price, DateTime.Now, paperInfo.Type,paperInfo.ImgA,paperInfo.ImgB,paperInfo.ImgC,paperInfo.Video);
             int iResult = DBHelper.ExcuteNoQuerySql(GetSessionWithDsmId);
             if (iResult == 1)
                 return true;
@@ -58,9 +58,9 @@ namespace eUI.DAL
         {
             StringBuilder sbAddUser = new StringBuilder();
             string GetSessionWithDsmId = string.Format(@"update PAPER set Title='{0}',Info ='{1}',
-                DetailInfo ='{2}',Price='{3}',Type ='{4}',ImgA='{5}',ImgB='{6}',ImgC='{7}' where Id ='{8}'
+                DetailInfo ='{2}',Price='{3}',Type ='{4}',ImgA='{5}',ImgB='{6}',ImgC='{7}',Video='{8}' where Id ='{9}'
                ", paperInfo.Title, paperInfo.Info, paperInfo.DetailInfo, paperInfo.Price,paperInfo.Type
-               ,paperInfo.ImgA,paperInfo.ImgB,paperInfo.ImgC,paperInfo.Id);
+               ,paperInfo.ImgA,paperInfo.ImgB,paperInfo.ImgC,paperInfo.Video,paperInfo.Id);
             int iResult = DBHelper.ExcuteNoQuerySql(GetSessionWithDsmId);
             if (iResult == 1)
                 return true;

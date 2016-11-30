@@ -141,6 +141,8 @@
 
     
 });
+
+
 function enableFilter() {
     $('#paper_input').datagrid('getRow');
 }

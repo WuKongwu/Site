@@ -29,5 +29,11 @@ namespace easyUITest.Controllers
                 return Json(new { success = false }, JsonRequestBehavior.AllowGet);
             }
         }
+        public ActionResult LogOut() {
+            Session["adminUser"] = null;
+            return RedirectToAction("Index", "AdminLogin");
+
+        }
+        
     }
 }

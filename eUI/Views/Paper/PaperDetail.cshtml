@@ -232,7 +232,7 @@
                         @if (!string.IsNullOrEmpty(Model.detail[0].Video))
                         {
                             <div class="video-div">
-                                <video src="@Model.detail[0].Video" controls preload="auto" width="600"></video>
+                                <video src="@Url.Content("~/TemImg/" + Model.detail[0].Video)" controls preload="auto" width="600"></video>
                             </div>
                         }
 

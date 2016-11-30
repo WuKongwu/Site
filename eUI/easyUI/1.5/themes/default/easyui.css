@@ -3526,3 +3526,39 @@
             #paper_input div label.info {
                 vertical-align: top;
             }
+.upload-table {
+    border: 1px solid #E0ECFF;
+    width: 100%;
+    margin: 15px 0;
+    padding: 5px;
+}
+    .upload-table th {
+       font-weight: normal;
+    border-bottom: 1px solid #E0ECFF;
+        padding-bottom: 7px;
+         }
+.upload-input {
+height: 20px;
+    border-radius: 5px;
+    border: 1px solid #95B8E7;
+    padding: 3px;
+}
+.upload-textarea {
+    width: 97%;
+    height: 200px;
+    border: 1px solid #eeeeee;
+    border-radius: 5px;
+    padding: 10px;
+}
+.upload-button {
+position: absolute;
+    top: 39px;
+    right: 57px;
+    width: 100px;
+    height: 25px;
+    background-color: #99BBE8;
+    color: #fff;
+    background: #99BBE8;
+    border: 1px solid #99BBE8;
+    font-weight: bolder;
+}

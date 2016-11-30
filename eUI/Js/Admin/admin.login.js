@@ -1,7 +1,7 @@
 ﻿$(function () {
 
     $("#admin_login").off("click").on("click", function () {
-        alert("0000");
+       
         var name = $("#adminName").val();
         var password = $("#adminPaw").val();
         $.ajax({

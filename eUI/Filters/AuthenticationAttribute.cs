@@ -14,7 +14,7 @@ namespace easyUITest.Filters
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             if (filterContext.HttpContext.Session["adminUser"] == null)
-                filterContext.Result = new RedirectToRouteResult("AdminLogin", new RouteValueDictionary { { "Index", "" } },false);
+                filterContext.Result = new RedirectToRouteResult("AdminLogin", new RouteValueDictionary { { "AdminLogin", "Index" } }, false);
 
             base.OnActionExecuting(filterContext);
         }

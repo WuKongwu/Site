@@ -620,6 +620,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="easyUI\1.5\themes\material\images\Thumbs.db" />
     <Content Include="easyUI\combobox_data1.json" />
+    <Content Include="Img\admin-login.jpg" />
     <Content Include="Img\arrow.gif" />
     <Content Include="Img\blocks.gif" />
     <Content Include="Img\CategorizeMenu.png" />
@@ -1093,6 +1094,7 @@
     <Content Include="Style\jquery.uploadify-v2.1.4\uploadify.fla" />
     <Content Include="Style\jquery.uploadify-v2.1.4\uploadify.php" />
     <Content Include="Views\SubPage\Index.cshtml" />
+    <Content Include="Views\Admin\AdminLogin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
