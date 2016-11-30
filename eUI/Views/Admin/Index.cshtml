@@ -32,16 +32,12 @@
         initPop();
     }
     $(function () {
-       
-
         function CheckFileType(file, type) {
             var reg = /[^\\\/]*[\\\/]+/g; //匹配文件的名称和后缀的正则表达式
             var name = $(file).val().replace(reg, '');
             var postfix = /\.[^\.]+/.exec(name);//获取文件的后缀
             postfix = postfix + "";
             postfix = postfix.toLowerCase();
-
-          
             if (type == "img") {
                 if (postfix == ".jpeg") {
                     return true;
@@ -76,7 +72,6 @@
                 } else {
                     return false;
                 }
-
             }
             return false;
         }
@@ -139,8 +134,7 @@
             }
         });
         $("#uploadCode").click(function () {
-            if ($("#Vfile").val().length > 0) {
-
+            if ($("#Cfile").val().length > 0) {
                 if (CheckFileType($("#Cfile"), "file")) {
                     var img = ajaxFileUpload("Cfile");
                 } else {
@@ -169,6 +163,7 @@
                     var ext = JSON.parse(data)
                    
                     $("#t_" + val).text(ext.imgPath1);
+                    $("#t_guid").text(ext.guid);
                 },
                 error: function (data, status, e)//服务器响应失败处理函数
                 {
@@ -181,7 +176,7 @@
     $(function () {
         $('#dlg').window('close');
         $('#submit').click(function (e) {
-
+            debugger
             var param = {
                 Id: $("#Id").val(),
                 Title: $('[name="txtAddTitle"]').val(),
@@ -192,7 +187,9 @@
                 ImgA: $("#t_file1").html(),
                 ImgB: $("#t_file2").html(),
                 ImgC: $("#t_file3").html(),
-                Video: $("#t_Vfile").html()
+                Video: $("#t_Vfile").html(),
+                FileUrl: $("#t_Cfile").text(),
+                Code: $("#t_guid").text()
             };
             $.ajax({
                 url: "../Admin/Save",
@@ -255,7 +252,8 @@
             <tr>
                 <td><input type="file" id="Cfile" name="Cfile" /></td>
                 <td><button type="button" name="submitName" class="easyui-linkbutton l-btn l-btn-small" id="uploadCode" style="width:75px">上传论文</button></td>
-                <td><span id="t_Cfile" class="file-name"></span></td>
+                <td><span id="t_Cfile" class="file-name"></span><input type="hidden" id="t_guid" /></td>
+              
             </tr>
             <tr>
                 <td><input type="file" id="Vfile" name="Vfile" /></td>
