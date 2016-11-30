@@ -1,5 +1,4 @@
-﻿using easyUITest.Filters;
-using eUI.BLL;
+﻿using eUI.BLL;
 using eUI.Model.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -17,12 +16,10 @@ namespace easyUITest.Controllers
 {
     public class AdminController : Controller
     {
-        [Authentication] 
         public ActionResult Index()
         {
             return View();
         }
-         [Authentication] 
         public ActionResult SearchPaper(PaperList paperList)
         {
             AdminBLL adminBLL = new AdminBLL();
@@ -30,7 +27,7 @@ namespace easyUITest.Controllers
             return Json(paperInfoList, JsonRequestBehavior.AllowGet);
         }
 
-         [Authentication] 
+
         public ViewResult Input(PaperInfo paperInfo)
         {
             var file1 = Request["img1"];
@@ -46,39 +43,35 @@ namespace easyUITest.Controllers
 
             return View("Input");
         }
-         [Authentication] 
         public ActionResult Save(PaperInfo paperInfo)
         {
             AdminBLL admin = new AdminBLL();
-            //List<string> imgList = paperInfo.imgPath.Split('|').ToList();
-            //string imgStr = "";
-            //foreach (var item in imgList)
-            //{
-            //    if (!string.IsNullOrEmpty(item))
-            //    {
-            //        imgStr += System.IO.Path.GetFileName(item) + ",";
-            //    }
-            //}
-            //imgStr = imgStr.Substring(0, imgStr.Length - 1);
-            //paperInfo.imgPath = imgStr;
+            List<string> imgList = paperInfo.imgPath.Split('|').ToList();
+            string imgStr = "";
+            foreach (var item in imgList)
+            {
+                if (!string.IsNullOrEmpty(item))
+                {
+                    imgStr += System.IO.Path.GetFileName(item) + ",";
+                }
+            }
+            imgStr = imgStr.Substring(0, imgStr.Length - 1);
+            paperInfo.imgPath = imgStr;
             bool b = admin.SavePaper(paperInfo);
             return Json(new { success = b }, JsonRequestBehavior.AllowGet);
         }
-         [Authentication] 
         public ActionResult GetPaperById(int id)
         {
             AdminBLL admin = new AdminBLL();
             var model = admin.GetPaperById(id);
             return Json(new { success = true, models = model }, JsonRequestBehavior.AllowGet);
         }
-         [Authentication] 
         public ActionResult Detele(int id)
         {
             AdminBLL admin = new AdminBLL();
             bool b = admin.DetelePaper(id);
             return Json(new { success = b }, JsonRequestBehavior.AllowGet);
         }
-         [Authentication] 
         public ActionResult Uploadfile()//HttpContext context
         {
             NameValueCollection nvc = System.Web.HttpContext.Current.Request.Form;
@@ -91,7 +84,7 @@ namespace easyUITest.Controllers
                 for (int i = 0; i < hfc.Count; i++)
                 {
                     imgPath = DateTime.Now.ToString("yyyyMMddHHmmssff") + hfc[0].FileName;
-                    string PhysicalPath = Server.MapPath("/TemImg/" + imgPath);
+                    string PhysicalPath = Server.MapPath("/Img/" + imgPath);
                     fileName = imgPath;
 
                     hfc[0].SaveAs(PhysicalPath);
@@ -141,8 +134,6 @@ namespace easyUITest.Controllers
             //    error = error
             //});
         }
-
-         [Authentication] 
         public ActionResult MultiUpload(HttpPostedFileBase files)
         {
             if (files != null)
@@ -171,49 +162,33 @@ namespace easyUITest.Controllers
             }
             return RedirectToAction("videoIndex");
         }
-         [Authentication] 
-        [System.Web.Http.HttpPost]
-        public ActionResult UploadVideo()
+
+        public ActionResult UploadVideo(HttpContext context)
         {
-            NameValueCollection nvc = System.Web.HttpContext.Current.Request.Form;
+            context.Response.ContentType = "text/plain";
+            context.Response.Charset = "utf-8";
 
-            HttpFileCollection hfc = System.Web.HttpContext.Current.Request.Files;
-            string fileName = string.Empty;
-            string imgPath = "";
-            for (int i = 0; i < hfc.Count; i++)
+            HttpPostedFile file = context.Request.Files["Filedata"];
+
+           // string uploadPath = HttpContext.Current.Server.MapPath(@context.Request["folder"] + "\\");
+            string uploadPath = Server.MapPath("~/Uploads/") + "Video";
+            if (file != null)
             {
-                imgPath = DateTime.Now.ToString("yyyyMMddHHmmssff") + hfc[0].FileName;
-                string PhysicalPath = Server.MapPath("/" + imgPath);
-                fileName = imgPath;
+                if (!Directory.Exists(uploadPath))
+                {
+                    Directory.CreateDirectory(uploadPath);
+                }
+                string name = DateTime.Now.ToString("yyyyMMddhhmmss") + System.IO.Path.GetExtension(file.FileName).ToLower();
+                file.SaveAs(uploadPath + name);
 
-                hfc[0].SaveAs(PhysicalPath);
+                context.Response.Write("1");
             }
-            //if (files != null && files.ContentLength > 0)
-            //{
-            //    string folderpath = "/UploadFile/Video/";
-            //    if (!Directory.Exists(folderpath))
-            //    {
-            //        Directory.CreateDirectory(Server.MapPath(folderpath));
-            //    }
-            //    string ext1 = Path.GetExtension(files.FileName);
-            //    if (ext1 != ".mp4" && ext1 != ".wmv" && ext1 != ".mpeg" && ext1 != ".avi" && ext1 != ".mp3" && ext1 != ".wav" && ext1 != ".wma" && ext1 != ".rmvb")
-            //    {
-            //        return Json(new { sta = false, msg = "文件格式不正确！" });
-            //    }
-            //    else
-            //    {
-            //        string name = DateTime.Now.ToString("yyyyMMddHHmmssff");
-            //        string ext = Path.GetExtension(files.FileName);
-            //        string downpath = folderpath + name + ext;
-            //        string filepath = Server.MapPath(folderpath) + name + ext;
-            //        files.SaveAs(filepath);
-            //        return Json(new { sta = true, previewSrc = downpath, id = name });
-            //    }
-            //}
-            //else
-            //{
+            else
+            {
+                context.Response.Write("0");
+            }
             return Json(new { sta = false, msg = "请上传文件！" });
-            //}
+            
         }
     }
 
