@@ -199,6 +199,47 @@ $(function () {
         });
     });
 
+    $("#WxPay").off("click").on("click", function () {
+        var url = $("body").data("website") + "Paper/WXPayUrl";
+        var data = $("#paperData").serialize();
+        $.ajax({
+            url: url,
+            type: "POST",
+            dataType: "json",
+            cache: false,
+            headers: { "Cache-Control": "no-cache" },
+            data: data,
+            success: function (data) {
+                if (data.success == true) {
+                    var codeUrl = data.data;
+
+                    $("#wxPayCode").qrcode({
+                        width: 200,
+                        height: 200,
+                        text: codeUrl
+                    });
+                    $(".modal-backdrop").css("display", "block");
+                    $("#wx_pay_pop").css("display", "block");
+                  
+
+                } else {
+                    alert("微信生成订单时出现错误，请您重新支付！");
+                }
+            },
+            error: function (e) {
+                
+            }
+        });
+
+    });
+
+    $("button.close").off("click").on("click", function () {
+        $(".modal-backdrop").css("display", "none");
+        $("#wx_pay_pop").css("display", "none");
+        $("canvas").remove();
+
+    });
+
     function checkReg() {
         var result = true;
         var reg = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;

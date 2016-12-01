@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eUI.UI", "eUI\eUI.UI.csproj", "{D81E194D-C1A9-4F51-BBBD-601FD898A31C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eUI.BLL", "eUI.BLL\eUI.BLL.csproj", "{8B17FF98-F958-415E-8893-499AFC73923D}"
@@ -10,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eUI.Model", "eUI.Model\eUI.Model.csproj", "{8D1B7785-ACF7-47CE-8FD0-1C7EFE4EBAB2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eUI.Common", "eUI.Common\eUI.Common.csproj", "{5622F96F-87C3-47A9-B6C7-A82E37F59441}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WxPayAPI", "..\..\..\下载\WxPayAPI_CS_v3\WxPayAPI_CS_v3\WxPayAPI_CS_v3\WxPayAPI\WxPayAPI\WxPayAPI.csproj", "{25911370-F06A-4956-8EE3-659A7BA14961}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +41,10 @@ Global
 		{5622F96F-87C3-47A9-B6C7-A82E37F59441}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5622F96F-87C3-47A9-B6C7-A82E37F59441}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5622F96F-87C3-47A9-B6C7-A82E37F59441}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25911370-F06A-4956-8EE3-659A7BA14961}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25911370-F06A-4956-8EE3-659A7BA14961}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25911370-F06A-4956-8EE3-659A7BA14961}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25911370-F06A-4956-8EE3-659A7BA14961}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

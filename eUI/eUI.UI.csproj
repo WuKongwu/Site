@@ -258,6 +258,7 @@
     <Content Include="Content\themes\Paper\js\jquery.flexslider-min.js" />
     <Content Include="Content\themes\Paper\js\jquery.flip.min.js" />
     <Content Include="Content\themes\Paper\js\jquery.min.js" />
+    <Content Include="Content\themes\Paper\js\jquery.qrcode.min.js" />
     <Content Include="Content\themes\Paper\js\jquery.twbsPagination.min.js" />
     <Content Include="easyUI\1.5\jquery.easyui.min.js" />
     <Content Include="easyUI\1.5\themes\black\accordion.css" />
@@ -636,6 +637,7 @@
     <Content Include="Img\tabicons.png" />
     <Content Include="Img\TableDrawTable.png" />
     <Content Include="Img\tools-sprites-trans.gif" />
+    <Content Include="Img\weixin-qrcode.jpg" />
     <Content Include="Js\Admin\admin.js" />
     <Content Include="Js\Admin\admin.login.js" />
     <Content Include="Js\ajaxfileupload.js" />
@@ -994,7 +996,6 @@
     <Content Include="Style\kindeditor\skins\p.gif" />
     <Content Include="Style\kindeditor\skins\tinymce.css" />
     <Content Include="Style\kindeditor\skins\ul.gif" />
-    <Content Include="TemImg\6df1a2602504f4efb5f1c13103682a77.jpg" />
     <Content Include="TemImg\default.png" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -1107,6 +1108,10 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\下载\WxPayAPI_CS_v3\WxPayAPI_CS_v3\WxPayAPI_CS_v3\WxPayAPI\WxPayAPI\WxPayAPI.csproj">
+      <Project>{25911370-f06a-4956-8ee3-659a7ba14961}</Project>
+      <Name>WxPayAPI</Name>
+    </ProjectReference>
     <ProjectReference Include="..\eUI.BLL\eUI.BLL.csproj">
       <Project>{8b17ff98-f958-415e-8893-499afc73923d}</Project>
       <Name>eUI.BLL</Name>

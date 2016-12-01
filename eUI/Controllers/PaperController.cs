@@ -8,6 +8,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Mvc;
+using WxPayAPI;
 
 namespace easyUITest.Controllers
 {
@@ -67,8 +68,6 @@ namespace easyUITest.Controllers
             ViewData["key"] = key;
             return View("SearchList", paperListViewModel);
         }
-
-
 
 
         public ViewResult ListPaging(int pageNo,string type)
@@ -209,6 +208,15 @@ namespace easyUITest.Controllers
             PaperBLL paperBLL = new PaperBLL();
             PaperListViewModel paperListViewModel = paperBLL.PaperTypeList(null);
             return View("About", paperListViewModel);
+        }
+
+        public JsonResult WXPayUrl(PaperInfo paperInfo)
+        {
+            NativePay nativePay = new NativePay();
+            PaperBLL paperBLL = new PaperBLL();
+            PaperDetailViewModel paperDetailViewModel = paperBLL.PaperDetailById(paperInfo.Id.ToString());
+            string url = nativePay.GetPayUrl(paperDetailViewModel.detail[0]);
+            return Json(new { success = true, data = url }, JsonRequestBehavior.AllowGet);
         }
 
     }

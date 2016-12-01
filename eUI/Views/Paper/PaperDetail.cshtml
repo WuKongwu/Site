@@ -16,11 +16,11 @@
     <link href="~/Content/themes/Paper/css/flexslider.css" rel="stylesheet" />
     <link href="~/Content/themes/Paper/css/qqfixd.css" rel="stylesheet" />
 
-
     <script src="~/Content/themes/Paper/js/jquery.min.js"></script>
     <script src="~/Content/themes/Paper/js/jquery.flexslider-min.js"></script>
     <script src="~/Content/themes/Paper/js/jquery.flip.min.js"></script>
     <script src="~/Content/themes/Paper/js/jquery.core.js"></script>
+    <script src="~/Content/themes/Paper/js/jquery.qrcode.min.js"></script>
     <style>
         .modal-content {
             padding: 10px 20px 20px 20px;
@@ -162,8 +162,16 @@
                     </div>
 
                     <div class="paper-pay">
-                        <div class="wx-pay"><a></a></div>
-                        <div class="tb-pay"><a></a></div>
+                        <form id="paperData" action="/Paper/WXPayUrl" method="post">
+                            <input type="hidden" name="Id" value="@Model.detail[0].Id" />
+                            <input type="hidden" name="Code" value="@Model.detail[0].Code" />
+                            <input type="hidden" name="Price" value="@Model.detail[0].Price" />
+                            <input type="hidden" name="Title" value="@Model.detail[0].Title" />
+                            <input type="hidden" name="FileUrl" value="@Model.detail[0].FileUrl" />
+                            @*<input type="hidden" name="Code" value="@Model.detail[0].Code" />*@
+                        </form>
+                        <div class="wx-pay"><a id="WxPay"></a></div>
+                        <div class="tb-pay"><a id="AliPay"></a></div>
                         <div class="clearfix"></div>
 
                     </div>
@@ -401,5 +409,25 @@
         </div>
     </div>
 
+
+    <div class="modal fade in" id="wx_pay_pop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static" aria-hidden="false" style="display: none;">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button><h4 class="modal-title" id="myModalLabel">微信支付</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-left">
+                        <p><span>请使用</span><span class="orange">微信</span><span class="orange">扫一扫</span><br>扫描二维码支付</p>
+                        <div id="wxPayCode">
+                            <div class="modal-info"><span>二维码有效时长为2小时, 请尽快支付</span></div>
+                        </div>
+                    </div>
+                    <div class="modal-right"><img src="~/Img/weixin-qrcode.jpg" alt="微信扫码"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-backdrop fade in" style="display: none;"></div>
 </body>
 </html>

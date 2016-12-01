@@ -71,14 +71,17 @@ namespace eUI.BLL
         {
             PaperDetailViewModel paperDetailViewModel = new PaperDetailViewModel();
             DataTable dtPaperDetail = paperDAL.SearchPaperDetailById(Id);
-           // DataTable dtImgList = paperDAL.SearchPaperImgListById(Id);
+            // DataTable dtImgList = paperDAL.SearchPaperImgListById(Id);
             List<string> imgList = new List<string>();
-            string ImgA = dtPaperDetail.Rows[0]["ImgA"].ToString() ?? "";
-            if (!string.IsNullOrEmpty(ImgA)) { imgList.Add(ImgA); }
-            string ImgB = dtPaperDetail.Rows[0]["ImgB"].ToString() ?? "";
-            if (!string.IsNullOrEmpty(ImgB)) { imgList.Add(ImgB); }
-            string ImgC = dtPaperDetail.Rows[0]["ImgC"].ToString() ?? "";
-            if (!string.IsNullOrEmpty(ImgC)) { imgList.Add(ImgC); }
+            if (dtPaperDetail.Rows.Count > 0)
+            {
+                string ImgA = dtPaperDetail.Rows[0]["ImgA"].ToString() ?? "";
+                if (!string.IsNullOrEmpty(ImgA)) { imgList.Add(ImgA); }
+                string ImgB = dtPaperDetail.Rows[0]["ImgB"].ToString() ?? "";
+                if (!string.IsNullOrEmpty(ImgB)) { imgList.Add(ImgB); }
+                string ImgC = dtPaperDetail.Rows[0]["ImgC"].ToString() ?? "";
+                if (!string.IsNullOrEmpty(ImgC)) { imgList.Add(ImgC); }
+            }
             paperDetailViewModel.detail = dtPaperDetail.toList<PaperInfo>();
             DataTable dtSearchPaperHotListBytype = paperDAL.SearchPaperHotListBytype(paperDetailViewModel.detail[0].Type.ToString());
             DataTable dtSearchNewList = paperDAL.SearchNewList();
@@ -87,7 +90,8 @@ namespace eUI.BLL
             paperDetailViewModel.imgList = imgList;
             return paperDetailViewModel;
         }
-        public void AddReadCount(string id) {
+        public void AddReadCount(string id)
+        {
             paperDAL.AddReadCount(id);
         }
     }
