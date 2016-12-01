@@ -15,7 +15,7 @@ namespace eUI.DAL
         public DataTable getPaperList(PaperList paperList)
         {
             StringBuilder sbSI = new StringBuilder();
-            sbSI.AppendFormat("select * from paper Where 1=1 limit {0},{1};", paperList.page,paperList.rows);
+            sbSI.AppendFormat("select * from paper order by id limit {0},{1};", (paperList.page - 1) * paperList.rows, paperList.rows);
 
             DataTable dtBusiness = DBHelper.SearchSql(sbSI.ToString());
 
