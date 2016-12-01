@@ -1,0 +1,2354 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>eUI.Model.Fakes</name>
+    </assembly>
+    <members>
+        <member name="T:eUI.Model.Fakes.ShimBusiness">
+            <summary>eUI.Model.Business 的填充码类型</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.ShimBusiness.#ctor">
+            <summary>初始化新的填充码实例</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.ShimBusiness.#ctor(eUI.Model.Business)">
+            <summary>初始化给定实例的新填充码</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.ShimBusiness.BehaveAsCurrent">
+            <summary>为已填充的类型的所有方法分配“Current”行为</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.ShimBusiness.BehaveAsNotImplemented">
+            <summary>为已填充的类型的所有方法分配“NotImplemented”行为</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimBusiness.Behavior">
+            <summary>为已填充的类型的所有方法分配行为</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimBusiness.Constructor">
+            <summary>设置 Business.Business() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimBusiness.NameGet">
+            <summary>设置 Business.get_Name() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimBusiness.NameSetString">
+            <summary>设置 Business.set_Name(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimBusiness.OrderNumberGet">
+            <summary>设置 Business.get_OrderNumber() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimBusiness.OrderNumberSetString">
+            <summary>设置 Business.set_OrderNumber(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimBusiness.PayDateEndGet">
+            <summary>设置 Business.get_PayDateEnd() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimBusiness.PayDateEndSetDateTime">
+            <summary>设置 Business.set_PayDateEnd(DateTime value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimBusiness.PayDateGet">
+            <summary>设置 Business.get_PayDate() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimBusiness.PayDateSetDateTime">
+            <summary>设置 Business.set_PayDate(DateTime value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimBusiness.PayDateStartGet">
+            <summary>设置 Business.get_PayDateStart() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimBusiness.PayDateStartSetDateTime">
+            <summary>设置 Business.set_PayDateStart(DateTime value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimBusiness.PriceGet">
+            <summary>设置 Business.get_Price() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimBusiness.PriceSetDecimal">
+            <summary>设置 Business.set_Price(Decimal value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimBusiness.TitleGet">
+            <summary>设置 Business.get_Title() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimBusiness.TitleSetString">
+            <summary>设置 Business.set_Title(String value) 的 填充码</summary>
+        </member>
+        <member name="T:eUI.Model.Fakes.ShimBusiness.AllInstances">
+            <summary>为所有实例成员定义填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimBusiness.AllInstances.NameGet">
+            <summary>设置 Business.get_Name() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimBusiness.AllInstances.NameSetString">
+            <summary>设置 Business.set_Name(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimBusiness.AllInstances.OrderNumberGet">
+            <summary>设置 Business.get_OrderNumber() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimBusiness.AllInstances.OrderNumberSetString">
+            <summary>设置 Business.set_OrderNumber(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimBusiness.AllInstances.PayDateEndGet">
+            <summary>设置 Business.get_PayDateEnd() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimBusiness.AllInstances.PayDateEndSetDateTime">
+            <summary>设置 Business.set_PayDateEnd(DateTime value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimBusiness.AllInstances.PayDateGet">
+            <summary>设置 Business.get_PayDate() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimBusiness.AllInstances.PayDateSetDateTime">
+            <summary>设置 Business.set_PayDate(DateTime value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimBusiness.AllInstances.PayDateStartGet">
+            <summary>设置 Business.get_PayDateStart() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimBusiness.AllInstances.PayDateStartSetDateTime">
+            <summary>设置 Business.set_PayDateStart(DateTime value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimBusiness.AllInstances.PriceGet">
+            <summary>设置 Business.get_Price() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimBusiness.AllInstances.PriceSetDecimal">
+            <summary>设置 Business.set_Price(Decimal value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimBusiness.AllInstances.TitleGet">
+            <summary>设置 Business.get_Title() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimBusiness.AllInstances.TitleSetString">
+            <summary>设置 Business.set_Title(String value) 的 填充码</summary>
+        </member>
+        <member name="T:eUI.Model.Fakes.ShimCountRecord">
+            <summary>eUI.Model.CountRecord 的填充码类型</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.ShimCountRecord.#ctor">
+            <summary>初始化新的填充码实例</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.ShimCountRecord.#ctor(eUI.Model.CountRecord)">
+            <summary>初始化给定实例的新填充码</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.ShimCountRecord.BehaveAsCurrent">
+            <summary>为已填充的类型的所有方法分配“Current”行为</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.ShimCountRecord.BehaveAsNotImplemented">
+            <summary>为已填充的类型的所有方法分配“NotImplemented”行为</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimCountRecord.Behavior">
+            <summary>为已填充的类型的所有方法分配行为</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimCountRecord.Constructor">
+            <summary>设置 CountRecord.CountRecord() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimCountRecord.NumGet">
+            <summary>设置 CountRecord.get_Num() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimCountRecord.NumSetInt32">
+            <summary>设置 CountRecord.set_Num(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimCountRecord.PaperIdGet">
+            <summary>设置 CountRecord.get_PaperId() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimCountRecord.PaperIdSetInt32">
+            <summary>设置 CountRecord.set_PaperId(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimCountRecord.TypeGet">
+            <summary>设置 CountRecord.get_Type() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimCountRecord.TypeSetInt32">
+            <summary>设置 CountRecord.set_Type(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="T:eUI.Model.Fakes.ShimCountRecord.AllInstances">
+            <summary>为所有实例成员定义填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimCountRecord.AllInstances.NumGet">
+            <summary>设置 CountRecord.get_Num() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimCountRecord.AllInstances.NumSetInt32">
+            <summary>设置 CountRecord.set_Num(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimCountRecord.AllInstances.PaperIdGet">
+            <summary>设置 CountRecord.get_PaperId() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimCountRecord.AllInstances.PaperIdSetInt32">
+            <summary>设置 CountRecord.set_PaperId(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimCountRecord.AllInstances.TypeGet">
+            <summary>设置 CountRecord.get_Type() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimCountRecord.AllInstances.TypeSetInt32">
+            <summary>设置 CountRecord.set_Type(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="T:eUI.Model.Fakes.ShimPaper">
+            <summary>eUI.Model.Paper 的填充码类型</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.ShimPaper.#ctor">
+            <summary>初始化新的填充码实例</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.ShimPaper.#ctor(eUI.Model.Paper)">
+            <summary>初始化给定实例的新填充码</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.ShimPaper.BehaveAsCurrent">
+            <summary>为已填充的类型的所有方法分配“Current”行为</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.ShimPaper.BehaveAsNotImplemented">
+            <summary>为已填充的类型的所有方法分配“NotImplemented”行为</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimPaper.Behavior">
+            <summary>为已填充的类型的所有方法分配行为</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimPaper.Constructor">
+            <summary>设置 Paper.Paper() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimPaper.DetailInfoGet">
+            <summary>设置 Paper.get_DetailInfo() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimPaper.DetailInfoSetString">
+            <summary>设置 Paper.set_DetailInfo(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimPaper.ImgUrlGet">
+            <summary>设置 Paper.get_ImgUrl() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimPaper.ImgUrlSetString">
+            <summary>设置 Paper.set_ImgUrl(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimPaper.InfoGet">
+            <summary>设置 Paper.get_Info() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimPaper.InfoSetString">
+            <summary>设置 Paper.set_Info(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimPaper.PriceGet">
+            <summary>设置 Paper.get_Price() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimPaper.PriceSetDecimal">
+            <summary>设置 Paper.set_Price(Decimal value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimPaper.TitleGet">
+            <summary>设置 Paper.get_Title() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimPaper.TitleSetString">
+            <summary>设置 Paper.set_Title(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimPaper.TypeGet">
+            <summary>设置 Paper.get_Type() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimPaper.TypeSetInt32">
+            <summary>设置 Paper.set_Type(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimPaper.VUrlGet">
+            <summary>设置 Paper.get_VUrl() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimPaper.VUrlSetString">
+            <summary>设置 Paper.set_VUrl(String value) 的 填充码</summary>
+        </member>
+        <member name="T:eUI.Model.Fakes.ShimPaper.AllInstances">
+            <summary>为所有实例成员定义填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimPaper.AllInstances.DetailInfoGet">
+            <summary>设置 Paper.get_DetailInfo() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimPaper.AllInstances.DetailInfoSetString">
+            <summary>设置 Paper.set_DetailInfo(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimPaper.AllInstances.ImgUrlGet">
+            <summary>设置 Paper.get_ImgUrl() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimPaper.AllInstances.ImgUrlSetString">
+            <summary>设置 Paper.set_ImgUrl(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimPaper.AllInstances.InfoGet">
+            <summary>设置 Paper.get_Info() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimPaper.AllInstances.InfoSetString">
+            <summary>设置 Paper.set_Info(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimPaper.AllInstances.PriceGet">
+            <summary>设置 Paper.get_Price() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimPaper.AllInstances.PriceSetDecimal">
+            <summary>设置 Paper.set_Price(Decimal value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimPaper.AllInstances.TitleGet">
+            <summary>设置 Paper.get_Title() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimPaper.AllInstances.TitleSetString">
+            <summary>设置 Paper.set_Title(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimPaper.AllInstances.TypeGet">
+            <summary>设置 Paper.get_Type() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimPaper.AllInstances.TypeSetInt32">
+            <summary>设置 Paper.set_Type(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimPaper.AllInstances.VUrlGet">
+            <summary>设置 Paper.get_VUrl() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimPaper.AllInstances.VUrlSetString">
+            <summary>设置 Paper.set_VUrl(String value) 的 填充码</summary>
+        </member>
+        <member name="T:eUI.Model.Fakes.ShimPaperImg">
+            <summary>eUI.Model.PaperImg 的填充码类型</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.ShimPaperImg.#ctor">
+            <summary>初始化新的填充码实例</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.ShimPaperImg.#ctor(eUI.Model.PaperImg)">
+            <summary>初始化给定实例的新填充码</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.ShimPaperImg.BehaveAsCurrent">
+            <summary>为已填充的类型的所有方法分配“Current”行为</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.ShimPaperImg.BehaveAsNotImplemented">
+            <summary>为已填充的类型的所有方法分配“NotImplemented”行为</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimPaperImg.Behavior">
+            <summary>为已填充的类型的所有方法分配行为</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimPaperImg.Constructor">
+            <summary>设置 PaperImg.PaperImg() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimPaperImg.PaperIdGet">
+            <summary>设置 PaperImg.get_PaperId() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimPaperImg.PaperIdSetInt32">
+            <summary>设置 PaperImg.set_PaperId(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimPaperImg.PathGet">
+            <summary>设置 PaperImg.get_Path() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimPaperImg.PathSetString">
+            <summary>设置 PaperImg.set_Path(String value) 的 填充码</summary>
+        </member>
+        <member name="T:eUI.Model.Fakes.ShimPaperImg.AllInstances">
+            <summary>为所有实例成员定义填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimPaperImg.AllInstances.PaperIdGet">
+            <summary>设置 PaperImg.get_PaperId() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimPaperImg.AllInstances.PaperIdSetInt32">
+            <summary>设置 PaperImg.set_PaperId(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimPaperImg.AllInstances.PathGet">
+            <summary>设置 PaperImg.get_Path() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimPaperImg.AllInstances.PathSetString">
+            <summary>设置 PaperImg.set_Path(String value) 的 填充码</summary>
+        </member>
+        <member name="T:eUI.Model.Fakes.ShimPaperVideo">
+            <summary>eUI.Model.PaperVideo 的填充码类型</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.ShimPaperVideo.#ctor">
+            <summary>初始化新的填充码实例</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.ShimPaperVideo.#ctor(eUI.Model.PaperVideo)">
+            <summary>初始化给定实例的新填充码</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.ShimPaperVideo.BehaveAsCurrent">
+            <summary>为已填充的类型的所有方法分配“Current”行为</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.ShimPaperVideo.BehaveAsNotImplemented">
+            <summary>为已填充的类型的所有方法分配“NotImplemented”行为</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimPaperVideo.Behavior">
+            <summary>为已填充的类型的所有方法分配行为</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimPaperVideo.Constructor">
+            <summary>设置 PaperVideo.PaperVideo() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimPaperVideo.PaperIdGet">
+            <summary>设置 PaperVideo.get_PaperId() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimPaperVideo.PaperIdSetInt32">
+            <summary>设置 PaperVideo.set_PaperId(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimPaperVideo.PathGet">
+            <summary>设置 PaperVideo.get_Path() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimPaperVideo.PathSetString">
+            <summary>设置 PaperVideo.set_Path(String value) 的 填充码</summary>
+        </member>
+        <member name="T:eUI.Model.Fakes.ShimPaperVideo.AllInstances">
+            <summary>为所有实例成员定义填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimPaperVideo.AllInstances.PaperIdGet">
+            <summary>设置 PaperVideo.get_PaperId() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimPaperVideo.AllInstances.PaperIdSetInt32">
+            <summary>设置 PaperVideo.set_PaperId(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimPaperVideo.AllInstances.PathGet">
+            <summary>设置 PaperVideo.get_Path() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimPaperVideo.AllInstances.PathSetString">
+            <summary>设置 PaperVideo.set_Path(String value) 的 填充码</summary>
+        </member>
+        <member name="T:eUI.Model.Fakes.ShimUserRecord">
+            <summary>eUI.Model.UserRecord 的填充码类型</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.ShimUserRecord.#ctor">
+            <summary>初始化新的填充码实例</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.ShimUserRecord.#ctor(eUI.Model.UserRecord)">
+            <summary>初始化给定实例的新填充码</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.ShimUserRecord.BehaveAsCurrent">
+            <summary>为已填充的类型的所有方法分配“Current”行为</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.ShimUserRecord.BehaveAsNotImplemented">
+            <summary>为已填充的类型的所有方法分配“NotImplemented”行为</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimUserRecord.Behavior">
+            <summary>为已填充的类型的所有方法分配行为</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimUserRecord.Constructor">
+            <summary>设置 UserRecord.UserRecord() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimUserRecord.EmailGet">
+            <summary>设置 UserRecord.get_Email() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimUserRecord.EmailSetString">
+            <summary>设置 UserRecord.set_Email(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimUserRecord.FlagGet">
+            <summary>设置 UserRecord.get_Flag() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimUserRecord.FlagSetInt32">
+            <summary>设置 UserRecord.set_Flag(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimUserRecord.NameGet">
+            <summary>设置 UserRecord.get_Name() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimUserRecord.NameSetString">
+            <summary>设置 UserRecord.set_Name(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimUserRecord.PasswordGet">
+            <summary>设置 UserRecord.get_Password() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimUserRecord.PasswordSetString">
+            <summary>设置 UserRecord.set_Password(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimUserRecord.UserIdGet">
+            <summary>设置 UserRecord.get_UserId() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimUserRecord.UserIdSetString">
+            <summary>设置 UserRecord.set_UserId(String value) 的 填充码</summary>
+        </member>
+        <member name="T:eUI.Model.Fakes.ShimUserRecord.AllInstances">
+            <summary>为所有实例成员定义填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimUserRecord.AllInstances.EmailGet">
+            <summary>设置 UserRecord.get_Email() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimUserRecord.AllInstances.EmailSetString">
+            <summary>设置 UserRecord.set_Email(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimUserRecord.AllInstances.FlagGet">
+            <summary>设置 UserRecord.get_Flag() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimUserRecord.AllInstances.FlagSetInt32">
+            <summary>设置 UserRecord.set_Flag(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimUserRecord.AllInstances.NameGet">
+            <summary>设置 UserRecord.get_Name() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimUserRecord.AllInstances.NameSetString">
+            <summary>设置 UserRecord.set_Name(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimUserRecord.AllInstances.PasswordGet">
+            <summary>设置 UserRecord.get_Password() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimUserRecord.AllInstances.PasswordSetString">
+            <summary>设置 UserRecord.set_Password(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimUserRecord.AllInstances.UserIdGet">
+            <summary>设置 UserRecord.get_UserId() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimUserRecord.AllInstances.UserIdSetString">
+            <summary>设置 UserRecord.set_UserId(String value) 的 填充码</summary>
+        </member>
+        <member name="T:eUI.Model.Fakes.ShimbaseModel">
+            <summary>eUI.Model.baseModel 的填充码类型</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.ShimbaseModel.#ctor">
+            <summary>初始化新的填充码实例</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.ShimbaseModel.#ctor(eUI.Model.baseModel)">
+            <summary>初始化给定实例的新填充码</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.ShimbaseModel.BehaveAsCurrent">
+            <summary>为已填充的类型的所有方法分配“Current”行为</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.ShimbaseModel.BehaveAsNotImplemented">
+            <summary>为已填充的类型的所有方法分配“NotImplemented”行为</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimbaseModel.Behavior">
+            <summary>为已填充的类型的所有方法分配行为</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimbaseModel.Constructor">
+            <summary>设置 baseModel.baseModel() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimbaseModel.CreateDateGet">
+            <summary>设置 baseModel.get_CreateDate() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimbaseModel.CreateDateSetDateTime">
+            <summary>设置 baseModel.set_CreateDate(DateTime value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimbaseModel.CreateUserIdGet">
+            <summary>设置 baseModel.get_CreateUserId() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimbaseModel.CreateUserIdSetString">
+            <summary>设置 baseModel.set_CreateUserId(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimbaseModel.IdGet">
+            <summary>设置 baseModel.get_Id() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimbaseModel.IdSetInt32">
+            <summary>设置 baseModel.set_Id(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimbaseModel.pageGet">
+            <summary>设置 baseModel.get_page() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimbaseModel.pageSetInt32">
+            <summary>设置 baseModel.set_page(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimbaseModel.rowsGet">
+            <summary>设置 baseModel.get_rows() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimbaseModel.rowsSetInt32">
+            <summary>设置 baseModel.set_rows(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="T:eUI.Model.Fakes.ShimbaseModel.AllInstances">
+            <summary>为所有实例成员定义填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimbaseModel.AllInstances.CreateDateGet">
+            <summary>设置 baseModel.get_CreateDate() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimbaseModel.AllInstances.CreateDateSetDateTime">
+            <summary>设置 baseModel.set_CreateDate(DateTime value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimbaseModel.AllInstances.CreateUserIdGet">
+            <summary>设置 baseModel.get_CreateUserId() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimbaseModel.AllInstances.CreateUserIdSetString">
+            <summary>设置 baseModel.set_CreateUserId(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimbaseModel.AllInstances.IdGet">
+            <summary>设置 baseModel.get_Id() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimbaseModel.AllInstances.IdSetInt32">
+            <summary>设置 baseModel.set_Id(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimbaseModel.AllInstances.pageGet">
+            <summary>设置 baseModel.get_page() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimbaseModel.AllInstances.pageSetInt32">
+            <summary>设置 baseModel.set_page(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimbaseModel.AllInstances.rowsGet">
+            <summary>设置 baseModel.get_rows() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimbaseModel.AllInstances.rowsSetInt32">
+            <summary>设置 baseModel.set_rows(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="T:eUI.Model.Fakes.StubBusiness">
+            <summary>eUI.Model.Business 的存根类型</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubBusiness.#ctor">
+            <summary>初始化新实例</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubBusiness.AttachBackingFieldToCreateDate">
+            <summary>附加委托以将 StubBusiness.CreateDate 作为具有支持字段的属性进行模拟。</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubBusiness.AttachBackingFieldToCreateUserId">
+            <summary>附加委托以将 StubBusiness.CreateUserId 作为具有支持字段的属性进行模拟。</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubBusiness.AttachBackingFieldToId">
+            <summary>附加委托以将 StubBusiness.Id 作为具有支持字段的属性进行模拟。</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubBusiness.AttachBackingFieldToName">
+            <summary>附加委托以将 StubBusiness.Name 作为具有支持字段的属性进行模拟。</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubBusiness.AttachBackingFieldToOrderNumber">
+            <summary>附加委托以将 StubBusiness.OrderNumber 作为具有支持字段的属性进行模拟。</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubBusiness.AttachBackingFieldToPayDate">
+            <summary>附加委托以将 StubBusiness.PayDate 作为具有支持字段的属性进行模拟。</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubBusiness.AttachBackingFieldToPayDateEnd">
+            <summary>附加委托以将 StubBusiness.PayDateEnd 作为具有支持字段的属性进行模拟。</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubBusiness.AttachBackingFieldToPayDateStart">
+            <summary>附加委托以将 StubBusiness.PayDateStart 作为具有支持字段的属性进行模拟。</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubBusiness.AttachBackingFieldToPrice">
+            <summary>附加委托以将 StubBusiness.Price 作为具有支持字段的属性进行模拟。</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubBusiness.AttachBackingFieldToTitle">
+            <summary>附加委托以将 StubBusiness.Title 作为具有支持字段的属性进行模拟。</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubBusiness.CreateDateGet">
+            <summary>设置 baseModel.get_CreateDate() 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubBusiness.CreateDateSetDateTime">
+            <summary>设置 baseModel.set_CreateDate(DateTime value) 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubBusiness.CreateUserIdGet">
+            <summary>设置 baseModel.get_CreateUserId() 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubBusiness.CreateUserIdSetString">
+            <summary>设置 baseModel.set_CreateUserId(String value) 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubBusiness.IdGet">
+            <summary>设置 baseModel.get_Id() 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubBusiness.IdSetInt32">
+            <summary>设置 baseModel.set_Id(Int32 value) 的 stub</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubBusiness.InitializeStub">
+            <summary>初始化 type StubBusiness 的新实例</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubBusiness.NameGet">
+            <summary>设置 Business.get_Name() 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubBusiness.NameSetString">
+            <summary>设置 Business.set_Name(String value) 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubBusiness.OrderNumberGet">
+            <summary>设置 Business.get_OrderNumber() 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubBusiness.OrderNumberSetString">
+            <summary>设置 Business.set_OrderNumber(String value) 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubBusiness.PayDateEndGet">
+            <summary>设置 Business.get_PayDateEnd() 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubBusiness.PayDateEndSetDateTime">
+            <summary>设置 Business.set_PayDateEnd(DateTime value) 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubBusiness.PayDateGet">
+            <summary>设置 Business.get_PayDate() 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubBusiness.PayDateSetDateTime">
+            <summary>设置 Business.set_PayDate(DateTime value) 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubBusiness.PayDateStartGet">
+            <summary>设置 Business.get_PayDateStart() 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubBusiness.PayDateStartSetDateTime">
+            <summary>设置 Business.set_PayDateStart(DateTime value) 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubBusiness.PriceGet">
+            <summary>设置 Business.get_Price() 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubBusiness.PriceSetDecimal">
+            <summary>设置 Business.set_Price(Decimal value) 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubBusiness.TitleGet">
+            <summary>设置 Business.get_Title() 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubBusiness.TitleSetString">
+            <summary>设置 Business.set_Title(String value) 的 stub</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubBusiness.CallBase">
+            <summary>获取或设置一个值，该值指示是否应调用基方法而不调用回退行为</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubBusiness.CreateDate">
+            <summary>设置 baseModel.get_CreateDate() 的 stub</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubBusiness.CreateUserId">
+            <summary>设置 baseModel.get_CreateUserId() 的 stub</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubBusiness.Id">
+            <summary>设置 baseModel.get_Id() 的 stub</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubBusiness.InstanceBehavior">
+            <summary>获取或设置实例行为。</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubBusiness.InstanceObserver">
+            <summary>获取或设置实例观察者。</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubBusiness.Name">
+            <summary>设置 Business.get_Name() 的 stub</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubBusiness.OrderNumber">
+            <summary>设置 Business.get_OrderNumber() 的 stub</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubBusiness.PayDate">
+            <summary>设置 Business.get_PayDate() 的 stub</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubBusiness.PayDateEnd">
+            <summary>设置 Business.get_PayDateEnd() 的 stub</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubBusiness.PayDateStart">
+            <summary>设置 Business.get_PayDateStart() 的 stub</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubBusiness.Price">
+            <summary>设置 Business.get_Price() 的 stub</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubBusiness.Title">
+            <summary>设置 Business.get_Title() 的 stub</summary>
+        </member>
+        <member name="T:eUI.Model.Fakes.StubCountRecord">
+            <summary>eUI.Model.CountRecord 的存根类型</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubCountRecord.#ctor">
+            <summary>初始化新实例</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubCountRecord.AttachBackingFieldToCreateDate">
+            <summary>附加委托以将 StubCountRecord.CreateDate 作为具有支持字段的属性进行模拟。</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubCountRecord.AttachBackingFieldToCreateUserId">
+            <summary>附加委托以将 StubCountRecord.CreateUserId 作为具有支持字段的属性进行模拟。</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubCountRecord.AttachBackingFieldToId">
+            <summary>附加委托以将 StubCountRecord.Id 作为具有支持字段的属性进行模拟。</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubCountRecord.AttachBackingFieldToNum">
+            <summary>附加委托以将 StubCountRecord.Num 作为具有支持字段的属性进行模拟。</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubCountRecord.AttachBackingFieldToPaperId">
+            <summary>附加委托以将 StubCountRecord.PaperId 作为具有支持字段的属性进行模拟。</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubCountRecord.AttachBackingFieldToType">
+            <summary>附加委托以将 StubCountRecord.Type 作为具有支持字段的属性进行模拟。</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubCountRecord.CreateDateGet">
+            <summary>设置 baseModel.get_CreateDate() 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubCountRecord.CreateDateSetDateTime">
+            <summary>设置 baseModel.set_CreateDate(DateTime value) 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubCountRecord.CreateUserIdGet">
+            <summary>设置 baseModel.get_CreateUserId() 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubCountRecord.CreateUserIdSetString">
+            <summary>设置 baseModel.set_CreateUserId(String value) 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubCountRecord.IdGet">
+            <summary>设置 baseModel.get_Id() 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubCountRecord.IdSetInt32">
+            <summary>设置 baseModel.set_Id(Int32 value) 的 stub</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubCountRecord.InitializeStub">
+            <summary>初始化 type StubCountRecord 的新实例</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubCountRecord.NumGet">
+            <summary>设置 CountRecord.get_Num() 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubCountRecord.NumSetInt32">
+            <summary>设置 CountRecord.set_Num(Int32 value) 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubCountRecord.PaperIdGet">
+            <summary>设置 CountRecord.get_PaperId() 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubCountRecord.PaperIdSetInt32">
+            <summary>设置 CountRecord.set_PaperId(Int32 value) 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubCountRecord.TypeGet">
+            <summary>设置 CountRecord.get_Type() 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubCountRecord.TypeSetInt32">
+            <summary>设置 CountRecord.set_Type(Int32 value) 的 stub</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubCountRecord.CallBase">
+            <summary>获取或设置一个值，该值指示是否应调用基方法而不调用回退行为</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubCountRecord.CreateDate">
+            <summary>设置 baseModel.get_CreateDate() 的 stub</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubCountRecord.CreateUserId">
+            <summary>设置 baseModel.get_CreateUserId() 的 stub</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubCountRecord.Id">
+            <summary>设置 baseModel.get_Id() 的 stub</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubCountRecord.InstanceBehavior">
+            <summary>获取或设置实例行为。</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubCountRecord.InstanceObserver">
+            <summary>获取或设置实例观察者。</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubCountRecord.Num">
+            <summary>设置 CountRecord.get_Num() 的 stub</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubCountRecord.PaperId">
+            <summary>设置 CountRecord.get_PaperId() 的 stub</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubCountRecord.Type">
+            <summary>设置 CountRecord.get_Type() 的 stub</summary>
+        </member>
+        <member name="T:eUI.Model.Fakes.StubPaper">
+            <summary>eUI.Model.Paper 的存根类型</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubPaper.#ctor">
+            <summary>初始化新实例</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubPaper.AttachBackingFieldToCreateDate">
+            <summary>附加委托以将 StubPaper.CreateDate 作为具有支持字段的属性进行模拟。</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubPaper.AttachBackingFieldToCreateUserId">
+            <summary>附加委托以将 StubPaper.CreateUserId 作为具有支持字段的属性进行模拟。</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubPaper.AttachBackingFieldToDetailInfo">
+            <summary>附加委托以将 StubPaper.DetailInfo 作为具有支持字段的属性进行模拟。</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubPaper.AttachBackingFieldToId">
+            <summary>附加委托以将 StubPaper.Id 作为具有支持字段的属性进行模拟。</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubPaper.AttachBackingFieldToImgUrl">
+            <summary>附加委托以将 StubPaper.ImgUrl 作为具有支持字段的属性进行模拟。</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubPaper.AttachBackingFieldToInfo">
+            <summary>附加委托以将 StubPaper.Info 作为具有支持字段的属性进行模拟。</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubPaper.AttachBackingFieldToPrice">
+            <summary>附加委托以将 StubPaper.Price 作为具有支持字段的属性进行模拟。</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubPaper.AttachBackingFieldToTitle">
+            <summary>附加委托以将 StubPaper.Title 作为具有支持字段的属性进行模拟。</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubPaper.AttachBackingFieldToType">
+            <summary>附加委托以将 StubPaper.Type 作为具有支持字段的属性进行模拟。</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubPaper.AttachBackingFieldToVUrl">
+            <summary>附加委托以将 StubPaper.VUrl 作为具有支持字段的属性进行模拟。</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubPaper.CreateDateGet">
+            <summary>设置 baseModel.get_CreateDate() 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubPaper.CreateDateSetDateTime">
+            <summary>设置 baseModel.set_CreateDate(DateTime value) 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubPaper.CreateUserIdGet">
+            <summary>设置 baseModel.get_CreateUserId() 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubPaper.CreateUserIdSetString">
+            <summary>设置 baseModel.set_CreateUserId(String value) 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubPaper.DetailInfoGet">
+            <summary>设置 Paper.get_DetailInfo() 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubPaper.DetailInfoSetString">
+            <summary>设置 Paper.set_DetailInfo(String value) 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubPaper.IdGet">
+            <summary>设置 baseModel.get_Id() 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubPaper.IdSetInt32">
+            <summary>设置 baseModel.set_Id(Int32 value) 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubPaper.ImgUrlGet">
+            <summary>设置 Paper.get_ImgUrl() 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubPaper.ImgUrlSetString">
+            <summary>设置 Paper.set_ImgUrl(String value) 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubPaper.InfoGet">
+            <summary>设置 Paper.get_Info() 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubPaper.InfoSetString">
+            <summary>设置 Paper.set_Info(String value) 的 stub</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubPaper.InitializeStub">
+            <summary>初始化 type StubPaper 的新实例</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubPaper.PriceGet">
+            <summary>设置 Paper.get_Price() 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubPaper.PriceSetDecimal">
+            <summary>设置 Paper.set_Price(Decimal value) 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubPaper.TitleGet">
+            <summary>设置 Paper.get_Title() 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubPaper.TitleSetString">
+            <summary>设置 Paper.set_Title(String value) 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubPaper.TypeGet">
+            <summary>设置 Paper.get_Type() 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubPaper.TypeSetInt32">
+            <summary>设置 Paper.set_Type(Int32 value) 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubPaper.VUrlGet">
+            <summary>设置 Paper.get_VUrl() 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubPaper.VUrlSetString">
+            <summary>设置 Paper.set_VUrl(String value) 的 stub</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubPaper.CallBase">
+            <summary>获取或设置一个值，该值指示是否应调用基方法而不调用回退行为</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubPaper.CreateDate">
+            <summary>设置 baseModel.get_CreateDate() 的 stub</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubPaper.CreateUserId">
+            <summary>设置 baseModel.get_CreateUserId() 的 stub</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubPaper.DetailInfo">
+            <summary>设置 Paper.get_DetailInfo() 的 stub</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubPaper.Id">
+            <summary>设置 baseModel.get_Id() 的 stub</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubPaper.ImgUrl">
+            <summary>设置 Paper.get_ImgUrl() 的 stub</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubPaper.Info">
+            <summary>设置 Paper.get_Info() 的 stub</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubPaper.InstanceBehavior">
+            <summary>获取或设置实例行为。</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubPaper.InstanceObserver">
+            <summary>获取或设置实例观察者。</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubPaper.Price">
+            <summary>设置 Paper.get_Price() 的 stub</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubPaper.Title">
+            <summary>设置 Paper.get_Title() 的 stub</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubPaper.Type">
+            <summary>设置 Paper.get_Type() 的 stub</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubPaper.VUrl">
+            <summary>设置 Paper.get_VUrl() 的 stub</summary>
+        </member>
+        <member name="T:eUI.Model.Fakes.StubPaperImg">
+            <summary>eUI.Model.PaperImg 的存根类型</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubPaperImg.#ctor">
+            <summary>初始化新实例</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubPaperImg.AttachBackingFieldToCreateDate">
+            <summary>附加委托以将 StubPaperImg.CreateDate 作为具有支持字段的属性进行模拟。</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubPaperImg.AttachBackingFieldToCreateUserId">
+            <summary>附加委托以将 StubPaperImg.CreateUserId 作为具有支持字段的属性进行模拟。</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubPaperImg.AttachBackingFieldToId">
+            <summary>附加委托以将 StubPaperImg.Id 作为具有支持字段的属性进行模拟。</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubPaperImg.AttachBackingFieldToPaperId">
+            <summary>附加委托以将 StubPaperImg.PaperId 作为具有支持字段的属性进行模拟。</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubPaperImg.AttachBackingFieldToPath">
+            <summary>附加委托以将 StubPaperImg.Path 作为具有支持字段的属性进行模拟。</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubPaperImg.CreateDateGet">
+            <summary>设置 baseModel.get_CreateDate() 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubPaperImg.CreateDateSetDateTime">
+            <summary>设置 baseModel.set_CreateDate(DateTime value) 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubPaperImg.CreateUserIdGet">
+            <summary>设置 baseModel.get_CreateUserId() 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubPaperImg.CreateUserIdSetString">
+            <summary>设置 baseModel.set_CreateUserId(String value) 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubPaperImg.IdGet">
+            <summary>设置 baseModel.get_Id() 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubPaperImg.IdSetInt32">
+            <summary>设置 baseModel.set_Id(Int32 value) 的 stub</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubPaperImg.InitializeStub">
+            <summary>初始化 type StubPaperImg 的新实例</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubPaperImg.PaperIdGet">
+            <summary>设置 PaperImg.get_PaperId() 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubPaperImg.PaperIdSetInt32">
+            <summary>设置 PaperImg.set_PaperId(Int32 value) 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubPaperImg.PathGet">
+            <summary>设置 PaperImg.get_Path() 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubPaperImg.PathSetString">
+            <summary>设置 PaperImg.set_Path(String value) 的 stub</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubPaperImg.CallBase">
+            <summary>获取或设置一个值，该值指示是否应调用基方法而不调用回退行为</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubPaperImg.CreateDate">
+            <summary>设置 baseModel.get_CreateDate() 的 stub</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubPaperImg.CreateUserId">
+            <summary>设置 baseModel.get_CreateUserId() 的 stub</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubPaperImg.Id">
+            <summary>设置 baseModel.get_Id() 的 stub</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubPaperImg.InstanceBehavior">
+            <summary>获取或设置实例行为。</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubPaperImg.InstanceObserver">
+            <summary>获取或设置实例观察者。</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubPaperImg.PaperId">
+            <summary>设置 PaperImg.get_PaperId() 的 stub</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubPaperImg.Path">
+            <summary>设置 PaperImg.get_Path() 的 stub</summary>
+        </member>
+        <member name="T:eUI.Model.Fakes.StubPaperVideo">
+            <summary>eUI.Model.PaperVideo 的存根类型</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubPaperVideo.#ctor">
+            <summary>初始化新实例</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubPaperVideo.AttachBackingFieldToCreateDate">
+            <summary>附加委托以将 StubPaperVideo.CreateDate 作为具有支持字段的属性进行模拟。</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubPaperVideo.AttachBackingFieldToCreateUserId">
+            <summary>附加委托以将 StubPaperVideo.CreateUserId 作为具有支持字段的属性进行模拟。</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubPaperVideo.AttachBackingFieldToId">
+            <summary>附加委托以将 StubPaperVideo.Id 作为具有支持字段的属性进行模拟。</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubPaperVideo.AttachBackingFieldToPaperId">
+            <summary>附加委托以将 StubPaperVideo.PaperId 作为具有支持字段的属性进行模拟。</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubPaperVideo.AttachBackingFieldToPath">
+            <summary>附加委托以将 StubPaperVideo.Path 作为具有支持字段的属性进行模拟。</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubPaperVideo.CreateDateGet">
+            <summary>设置 baseModel.get_CreateDate() 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubPaperVideo.CreateDateSetDateTime">
+            <summary>设置 baseModel.set_CreateDate(DateTime value) 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubPaperVideo.CreateUserIdGet">
+            <summary>设置 baseModel.get_CreateUserId() 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubPaperVideo.CreateUserIdSetString">
+            <summary>设置 baseModel.set_CreateUserId(String value) 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubPaperVideo.IdGet">
+            <summary>设置 baseModel.get_Id() 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubPaperVideo.IdSetInt32">
+            <summary>设置 baseModel.set_Id(Int32 value) 的 stub</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubPaperVideo.InitializeStub">
+            <summary>初始化 type StubPaperVideo 的新实例</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubPaperVideo.PaperIdGet">
+            <summary>设置 PaperVideo.get_PaperId() 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubPaperVideo.PaperIdSetInt32">
+            <summary>设置 PaperVideo.set_PaperId(Int32 value) 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubPaperVideo.PathGet">
+            <summary>设置 PaperVideo.get_Path() 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubPaperVideo.PathSetString">
+            <summary>设置 PaperVideo.set_Path(String value) 的 stub</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubPaperVideo.CallBase">
+            <summary>获取或设置一个值，该值指示是否应调用基方法而不调用回退行为</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubPaperVideo.CreateDate">
+            <summary>设置 baseModel.get_CreateDate() 的 stub</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubPaperVideo.CreateUserId">
+            <summary>设置 baseModel.get_CreateUserId() 的 stub</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubPaperVideo.Id">
+            <summary>设置 baseModel.get_Id() 的 stub</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubPaperVideo.InstanceBehavior">
+            <summary>获取或设置实例行为。</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubPaperVideo.InstanceObserver">
+            <summary>获取或设置实例观察者。</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubPaperVideo.PaperId">
+            <summary>设置 PaperVideo.get_PaperId() 的 stub</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubPaperVideo.Path">
+            <summary>设置 PaperVideo.get_Path() 的 stub</summary>
+        </member>
+        <member name="T:eUI.Model.Fakes.StubUserRecord">
+            <summary>eUI.Model.UserRecord 的存根类型</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubUserRecord.#ctor">
+            <summary>初始化新实例</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubUserRecord.AttachBackingFieldToCreateDate">
+            <summary>附加委托以将 StubUserRecord.CreateDate 作为具有支持字段的属性进行模拟。</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubUserRecord.AttachBackingFieldToCreateUserId">
+            <summary>附加委托以将 StubUserRecord.CreateUserId 作为具有支持字段的属性进行模拟。</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubUserRecord.AttachBackingFieldToEmail">
+            <summary>附加委托以将 StubUserRecord.Email 作为具有支持字段的属性进行模拟。</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubUserRecord.AttachBackingFieldToFlag">
+            <summary>附加委托以将 StubUserRecord.Flag 作为具有支持字段的属性进行模拟。</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubUserRecord.AttachBackingFieldToId">
+            <summary>附加委托以将 StubUserRecord.Id 作为具有支持字段的属性进行模拟。</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubUserRecord.AttachBackingFieldToName">
+            <summary>附加委托以将 StubUserRecord.Name 作为具有支持字段的属性进行模拟。</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubUserRecord.AttachBackingFieldToPassword">
+            <summary>附加委托以将 StubUserRecord.Password 作为具有支持字段的属性进行模拟。</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubUserRecord.AttachBackingFieldToUserId">
+            <summary>附加委托以将 StubUserRecord.UserId 作为具有支持字段的属性进行模拟。</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubUserRecord.CreateDateGet">
+            <summary>设置 baseModel.get_CreateDate() 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubUserRecord.CreateDateSetDateTime">
+            <summary>设置 baseModel.set_CreateDate(DateTime value) 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubUserRecord.CreateUserIdGet">
+            <summary>设置 baseModel.get_CreateUserId() 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubUserRecord.CreateUserIdSetString">
+            <summary>设置 baseModel.set_CreateUserId(String value) 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubUserRecord.EmailGet">
+            <summary>设置 UserRecord.get_Email() 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubUserRecord.EmailSetString">
+            <summary>设置 UserRecord.set_Email(String value) 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubUserRecord.FlagGet">
+            <summary>设置 UserRecord.get_Flag() 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubUserRecord.FlagSetInt32">
+            <summary>设置 UserRecord.set_Flag(Int32 value) 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubUserRecord.IdGet">
+            <summary>设置 baseModel.get_Id() 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubUserRecord.IdSetInt32">
+            <summary>设置 baseModel.set_Id(Int32 value) 的 stub</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubUserRecord.InitializeStub">
+            <summary>初始化 type StubUserRecord 的新实例</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubUserRecord.NameGet">
+            <summary>设置 UserRecord.get_Name() 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubUserRecord.NameSetString">
+            <summary>设置 UserRecord.set_Name(String value) 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubUserRecord.PasswordGet">
+            <summary>设置 UserRecord.get_Password() 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubUserRecord.PasswordSetString">
+            <summary>设置 UserRecord.set_Password(String value) 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubUserRecord.UserIdGet">
+            <summary>设置 UserRecord.get_UserId() 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubUserRecord.UserIdSetString">
+            <summary>设置 UserRecord.set_UserId(String value) 的 stub</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubUserRecord.CallBase">
+            <summary>获取或设置一个值，该值指示是否应调用基方法而不调用回退行为</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubUserRecord.CreateDate">
+            <summary>设置 baseModel.get_CreateDate() 的 stub</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubUserRecord.CreateUserId">
+            <summary>设置 baseModel.get_CreateUserId() 的 stub</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubUserRecord.Email">
+            <summary>设置 UserRecord.get_Email() 的 stub</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubUserRecord.Flag">
+            <summary>设置 UserRecord.get_Flag() 的 stub</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubUserRecord.Id">
+            <summary>设置 baseModel.get_Id() 的 stub</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubUserRecord.InstanceBehavior">
+            <summary>获取或设置实例行为。</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubUserRecord.InstanceObserver">
+            <summary>获取或设置实例观察者。</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubUserRecord.Name">
+            <summary>设置 UserRecord.get_Name() 的 stub</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubUserRecord.Password">
+            <summary>设置 UserRecord.get_Password() 的 stub</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubUserRecord.UserId">
+            <summary>设置 UserRecord.get_UserId() 的 stub</summary>
+        </member>
+        <member name="T:eUI.Model.Fakes.StubbaseModel">
+            <summary>eUI.Model.baseModel 的存根类型</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubbaseModel.#ctor">
+            <summary>初始化新实例</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubbaseModel.AttachBackingFieldToCreateDate">
+            <summary>附加委托以将 StubbaseModel.CreateDate 作为具有支持字段的属性进行模拟。</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubbaseModel.AttachBackingFieldToCreateUserId">
+            <summary>附加委托以将 StubbaseModel.CreateUserId 作为具有支持字段的属性进行模拟。</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubbaseModel.AttachBackingFieldToId">
+            <summary>附加委托以将 StubbaseModel.Id 作为具有支持字段的属性进行模拟。</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubbaseModel.CreateDateGet">
+            <summary>设置 baseModel.get_CreateDate() 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubbaseModel.CreateDateSetDateTime">
+            <summary>设置 baseModel.set_CreateDate(DateTime value) 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubbaseModel.CreateUserIdGet">
+            <summary>设置 baseModel.get_CreateUserId() 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubbaseModel.CreateUserIdSetString">
+            <summary>设置 baseModel.set_CreateUserId(String value) 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubbaseModel.IdGet">
+            <summary>设置 baseModel.get_Id() 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubbaseModel.IdSetInt32">
+            <summary>设置 baseModel.set_Id(Int32 value) 的 stub</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubbaseModel.InitializeStub">
+            <summary>初始化 type StubbaseModel 的新实例</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubbaseModel.CallBase">
+            <summary>获取或设置一个值，该值指示是否应调用基方法而不调用回退行为</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubbaseModel.CreateDate">
+            <summary>设置 baseModel.get_CreateDate() 的 stub</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubbaseModel.CreateUserId">
+            <summary>设置 baseModel.get_CreateUserId() 的 stub</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubbaseModel.Id">
+            <summary>设置 baseModel.get_Id() 的 stub</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubbaseModel.InstanceBehavior">
+            <summary>获取或设置实例行为。</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubbaseModel.InstanceObserver">
+            <summary>获取或设置实例观察者。</summary>
+        </member>
+        <member name="T:eUI.Model.ViewModel.Fakes.ShimBusinessList">
+            <summary>eUI.Model.ViewModel.BusinessList 的填充码类型</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimBusinessList.#ctor">
+            <summary>初始化新的填充码实例</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimBusinessList.#ctor(eUI.Model.ViewModel.BusinessList)">
+            <summary>初始化给定实例的新填充码</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimBusinessList.BehaveAsCurrent">
+            <summary>为已填充的类型的所有方法分配“Current”行为</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimBusinessList.BehaveAsNotImplemented">
+            <summary>为已填充的类型的所有方法分配“NotImplemented”行为</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimBusinessList.Behavior">
+            <summary>为已填充的类型的所有方法分配行为</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimBusinessList.Constructor">
+            <summary>设置 BusinessList.BusinessList() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimBusinessList.rowsGet">
+            <summary>设置 BusinessList.get_rows() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimBusinessList.rowsSetListOfBusiness">
+            <summary>设置 BusinessList.set_rows(List`1&lt;Business&gt; value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimBusinessList.totalGet">
+            <summary>设置 BusinessList.get_total() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimBusinessList.totalSetInt32">
+            <summary>设置 BusinessList.set_total(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="T:eUI.Model.ViewModel.Fakes.ShimBusinessList.AllInstances">
+            <summary>为所有实例成员定义填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimBusinessList.AllInstances.rowsGet">
+            <summary>设置 BusinessList.get_rows() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimBusinessList.AllInstances.rowsSetListOfBusiness">
+            <summary>设置 BusinessList.set_rows(List`1&lt;Business&gt; value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimBusinessList.AllInstances.totalGet">
+            <summary>设置 BusinessList.get_total() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimBusinessList.AllInstances.totalSetInt32">
+            <summary>设置 BusinessList.set_total(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="T:eUI.Model.ViewModel.Fakes.ShimImg">
+            <summary>eUI.Model.ViewModel.Img 的填充码类型</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimImg.#ctor">
+            <summary>初始化新的填充码实例</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimImg.#ctor(eUI.Model.ViewModel.Img)">
+            <summary>初始化给定实例的新填充码</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimImg.BehaveAsCurrent">
+            <summary>为已填充的类型的所有方法分配“Current”行为</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimImg.BehaveAsNotImplemented">
+            <summary>为已填充的类型的所有方法分配“NotImplemented”行为</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimImg.Behavior">
+            <summary>为已填充的类型的所有方法分配行为</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimImg.Constructor">
+            <summary>设置 Img.Img() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimImg.PathGet">
+            <summary>设置 Img.get_Path() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimImg.PathSetString">
+            <summary>设置 Img.set_Path(String value) 的 填充码</summary>
+        </member>
+        <member name="T:eUI.Model.ViewModel.Fakes.ShimImg.AllInstances">
+            <summary>为所有实例成员定义填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimImg.AllInstances.PathGet">
+            <summary>设置 Img.get_Path() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimImg.AllInstances.PathSetString">
+            <summary>设置 Img.set_Path(String value) 的 填充码</summary>
+        </member>
+        <member name="T:eUI.Model.ViewModel.Fakes.ShimImgPath">
+            <summary>eUI.Model.ViewModel.ImgPath 的填充码类型</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimImgPath.#ctor">
+            <summary>初始化新的填充码实例</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimImgPath.#ctor(eUI.Model.ViewModel.ImgPath)">
+            <summary>初始化给定实例的新填充码</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimImgPath.BehaveAsCurrent">
+            <summary>为已填充的类型的所有方法分配“Current”行为</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimImgPath.BehaveAsNotImplemented">
+            <summary>为已填充的类型的所有方法分配“NotImplemented”行为</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimImgPath.Behavior">
+            <summary>为已填充的类型的所有方法分配行为</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimImgPath.Constructor">
+            <summary>设置 ImgPath.ImgPath() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimImgPath.imgPathGet">
+            <summary>设置 ImgPath.get_imgPath() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimImgPath.imgPathSetString">
+            <summary>设置 ImgPath.set_imgPath(String value) 的 填充码</summary>
+        </member>
+        <member name="T:eUI.Model.ViewModel.Fakes.ShimImgPath.AllInstances">
+            <summary>为所有实例成员定义填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimImgPath.AllInstances.imgPathGet">
+            <summary>设置 ImgPath.get_imgPath() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimImgPath.AllInstances.imgPathSetString">
+            <summary>设置 ImgPath.set_imgPath(String value) 的 填充码</summary>
+        </member>
+        <member name="T:eUI.Model.ViewModel.Fakes.ShimPaperDetailViewModel">
+            <summary>eUI.Model.ViewModel.PaperDetailViewModel 的填充码类型</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimPaperDetailViewModel.#ctor">
+            <summary>初始化新的填充码实例</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimPaperDetailViewModel.#ctor(eUI.Model.ViewModel.PaperDetailViewModel)">
+            <summary>初始化给定实例的新填充码</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimPaperDetailViewModel.BehaveAsCurrent">
+            <summary>为已填充的类型的所有方法分配“Current”行为</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimPaperDetailViewModel.BehaveAsNotImplemented">
+            <summary>为已填充的类型的所有方法分配“NotImplemented”行为</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperDetailViewModel.Behavior">
+            <summary>为已填充的类型的所有方法分配行为</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperDetailViewModel.Constructor">
+            <summary>设置 PaperDetailViewModel.PaperDetailViewModel() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperDetailViewModel.HotListGet">
+            <summary>设置 PaperDetailViewModel.get_HotList() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperDetailViewModel.HotListSetListOfPaperList">
+            <summary>设置 PaperDetailViewModel.set_HotList(List`1&lt;PaperList&gt; value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperDetailViewModel.NewListGet">
+            <summary>设置 PaperDetailViewModel.get_NewList() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperDetailViewModel.NewListSetListOfPaperList">
+            <summary>设置 PaperDetailViewModel.set_NewList(List`1&lt;PaperList&gt; value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperDetailViewModel.detailGet">
+            <summary>设置 PaperDetailViewModel.get_detail() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperDetailViewModel.detailSetListOfPaperInfo">
+            <summary>设置 PaperDetailViewModel.set_detail(List`1&lt;PaperInfo&gt; value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperDetailViewModel.imgListGet">
+            <summary>设置 PaperDetailViewModel.get_imgList() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperDetailViewModel.imgListSetListOfString">
+            <summary>设置 PaperDetailViewModel.set_imgList(List`1&lt;String&gt; value) 的 填充码</summary>
+        </member>
+        <member name="T:eUI.Model.ViewModel.Fakes.ShimPaperDetailViewModel.AllInstances">
+            <summary>为所有实例成员定义填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperDetailViewModel.AllInstances.HotListGet">
+            <summary>设置 PaperDetailViewModel.get_HotList() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperDetailViewModel.AllInstances.HotListSetListOfPaperList">
+            <summary>设置 PaperDetailViewModel.set_HotList(List`1&lt;PaperList&gt; value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperDetailViewModel.AllInstances.NewListGet">
+            <summary>设置 PaperDetailViewModel.get_NewList() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperDetailViewModel.AllInstances.NewListSetListOfPaperList">
+            <summary>设置 PaperDetailViewModel.set_NewList(List`1&lt;PaperList&gt; value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperDetailViewModel.AllInstances.detailGet">
+            <summary>设置 PaperDetailViewModel.get_detail() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperDetailViewModel.AllInstances.detailSetListOfPaperInfo">
+            <summary>设置 PaperDetailViewModel.set_detail(List`1&lt;PaperInfo&gt; value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperDetailViewModel.AllInstances.imgListGet">
+            <summary>设置 PaperDetailViewModel.get_imgList() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperDetailViewModel.AllInstances.imgListSetListOfString">
+            <summary>设置 PaperDetailViewModel.set_imgList(List`1&lt;String&gt; value) 的 填充码</summary>
+        </member>
+        <member name="T:eUI.Model.ViewModel.Fakes.ShimPaperInfo">
+            <summary>eUI.Model.ViewModel.PaperInfo 的填充码类型</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimPaperInfo.#ctor">
+            <summary>初始化新的填充码实例</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimPaperInfo.#ctor(eUI.Model.ViewModel.PaperInfo)">
+            <summary>初始化给定实例的新填充码</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimPaperInfo.BehaveAsCurrent">
+            <summary>为已填充的类型的所有方法分配“Current”行为</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimPaperInfo.BehaveAsNotImplemented">
+            <summary>为已填充的类型的所有方法分配“NotImplemented”行为</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.Behavior">
+            <summary>为已填充的类型的所有方法分配行为</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.BuyCountGet">
+            <summary>设置 PaperInfo.get_BuyCount() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.BuyCountSetInt32">
+            <summary>设置 PaperInfo.set_BuyCount(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.CodeGet">
+            <summary>设置 PaperInfo.get_Code() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.CodeSetString">
+            <summary>设置 PaperInfo.set_Code(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.Constructor">
+            <summary>设置 PaperInfo.PaperInfo() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.CreateDateGet">
+            <summary>设置 PaperInfo.get_CreateDate() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.CreateDateSetDateTime">
+            <summary>设置 PaperInfo.set_CreateDate(DateTime value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.DetailInfoGet">
+            <summary>设置 PaperInfo.get_DetailInfo() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.DetailInfoSetString">
+            <summary>设置 PaperInfo.set_DetailInfo(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.FileUrlGet">
+            <summary>设置 PaperInfo.get_FileUrl() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.FileUrlSetString">
+            <summary>设置 PaperInfo.set_FileUrl(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.IdGet">
+            <summary>设置 PaperInfo.get_Id() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.IdSetInt64">
+            <summary>设置 PaperInfo.set_Id(Int64 value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.ImgAGet">
+            <summary>设置 PaperInfo.get_ImgA() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.ImgASetString">
+            <summary>设置 PaperInfo.set_ImgA(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.ImgBGet">
+            <summary>设置 PaperInfo.get_ImgB() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.ImgBSetString">
+            <summary>设置 PaperInfo.set_ImgB(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.ImgCGet">
+            <summary>设置 PaperInfo.get_ImgC() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.ImgCSetString">
+            <summary>设置 PaperInfo.set_ImgC(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.InfoGet">
+            <summary>设置 PaperInfo.get_Info() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.InfoSetString">
+            <summary>设置 PaperInfo.set_Info(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.PriceGet">
+            <summary>设置 PaperInfo.get_Price() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.PriceSetDecimal">
+            <summary>设置 PaperInfo.set_Price(Decimal value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.ReadCountGet">
+            <summary>设置 PaperInfo.get_ReadCount() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.ReadCountSetInt32">
+            <summary>设置 PaperInfo.set_ReadCount(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.TitleGet">
+            <summary>设置 PaperInfo.get_Title() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.TitleSetString">
+            <summary>设置 PaperInfo.set_Title(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.TypeGet">
+            <summary>设置 PaperInfo.get_Type() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.TypeSetInt32">
+            <summary>设置 PaperInfo.set_Type(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.VideoGet">
+            <summary>设置 PaperInfo.get_Video() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.VideoSetString">
+            <summary>设置 PaperInfo.set_Video(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.imgPathGet">
+            <summary>设置 PaperInfo.get_imgPath() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.imgPathSetString">
+            <summary>设置 PaperInfo.set_imgPath(String value) 的 填充码</summary>
+        </member>
+        <member name="T:eUI.Model.ViewModel.Fakes.ShimPaperInfo.AllInstances">
+            <summary>为所有实例成员定义填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.AllInstances.BuyCountGet">
+            <summary>设置 PaperInfo.get_BuyCount() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.AllInstances.BuyCountSetInt32">
+            <summary>设置 PaperInfo.set_BuyCount(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.AllInstances.CodeGet">
+            <summary>设置 PaperInfo.get_Code() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.AllInstances.CodeSetString">
+            <summary>设置 PaperInfo.set_Code(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.AllInstances.CreateDateGet">
+            <summary>设置 PaperInfo.get_CreateDate() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.AllInstances.CreateDateSetDateTime">
+            <summary>设置 PaperInfo.set_CreateDate(DateTime value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.AllInstances.DetailInfoGet">
+            <summary>设置 PaperInfo.get_DetailInfo() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.AllInstances.DetailInfoSetString">
+            <summary>设置 PaperInfo.set_DetailInfo(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.AllInstances.FileUrlGet">
+            <summary>设置 PaperInfo.get_FileUrl() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.AllInstances.FileUrlSetString">
+            <summary>设置 PaperInfo.set_FileUrl(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.AllInstances.IdGet">
+            <summary>设置 PaperInfo.get_Id() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.AllInstances.IdSetInt64">
+            <summary>设置 PaperInfo.set_Id(Int64 value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.AllInstances.ImgAGet">
+            <summary>设置 PaperInfo.get_ImgA() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.AllInstances.ImgASetString">
+            <summary>设置 PaperInfo.set_ImgA(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.AllInstances.ImgBGet">
+            <summary>设置 PaperInfo.get_ImgB() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.AllInstances.ImgBSetString">
+            <summary>设置 PaperInfo.set_ImgB(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.AllInstances.ImgCGet">
+            <summary>设置 PaperInfo.get_ImgC() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.AllInstances.ImgCSetString">
+            <summary>设置 PaperInfo.set_ImgC(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.AllInstances.InfoGet">
+            <summary>设置 PaperInfo.get_Info() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.AllInstances.InfoSetString">
+            <summary>设置 PaperInfo.set_Info(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.AllInstances.PriceGet">
+            <summary>设置 PaperInfo.get_Price() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.AllInstances.PriceSetDecimal">
+            <summary>设置 PaperInfo.set_Price(Decimal value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.AllInstances.ReadCountGet">
+            <summary>设置 PaperInfo.get_ReadCount() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.AllInstances.ReadCountSetInt32">
+            <summary>设置 PaperInfo.set_ReadCount(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.AllInstances.TitleGet">
+            <summary>设置 PaperInfo.get_Title() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.AllInstances.TitleSetString">
+            <summary>设置 PaperInfo.set_Title(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.AllInstances.TypeGet">
+            <summary>设置 PaperInfo.get_Type() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.AllInstances.TypeSetInt32">
+            <summary>设置 PaperInfo.set_Type(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.AllInstances.VideoGet">
+            <summary>设置 PaperInfo.get_Video() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.AllInstances.VideoSetString">
+            <summary>设置 PaperInfo.set_Video(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.AllInstances.imgPathGet">
+            <summary>设置 PaperInfo.get_imgPath() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.AllInstances.imgPathSetString">
+            <summary>设置 PaperInfo.set_imgPath(String value) 的 填充码</summary>
+        </member>
+        <member name="T:eUI.Model.ViewModel.Fakes.ShimPaperInfoList">
+            <summary>eUI.Model.ViewModel.PaperInfoList 的填充码类型</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimPaperInfoList.#ctor">
+            <summary>初始化新的填充码实例</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimPaperInfoList.#ctor(eUI.Model.ViewModel.PaperInfoList)">
+            <summary>初始化给定实例的新填充码</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimPaperInfoList.BehaveAsCurrent">
+            <summary>为已填充的类型的所有方法分配“Current”行为</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimPaperInfoList.BehaveAsNotImplemented">
+            <summary>为已填充的类型的所有方法分配“NotImplemented”行为</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfoList.Behavior">
+            <summary>为已填充的类型的所有方法分配行为</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfoList.Constructor">
+            <summary>设置 PaperInfoList.PaperInfoList() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfoList.rowsGet">
+            <summary>设置 PaperInfoList.get_rows() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfoList.rowsSetListOfPaperInfo">
+            <summary>设置 PaperInfoList.set_rows(List`1&lt;PaperInfo&gt; value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfoList.totalGet">
+            <summary>设置 PaperInfoList.get_total() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfoList.totalSetInt32">
+            <summary>设置 PaperInfoList.set_total(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="T:eUI.Model.ViewModel.Fakes.ShimPaperInfoList.AllInstances">
+            <summary>为所有实例成员定义填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfoList.AllInstances.rowsGet">
+            <summary>设置 PaperInfoList.get_rows() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfoList.AllInstances.rowsSetListOfPaperInfo">
+            <summary>设置 PaperInfoList.set_rows(List`1&lt;PaperInfo&gt; value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfoList.AllInstances.totalGet">
+            <summary>设置 PaperInfoList.get_total() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfoList.AllInstances.totalSetInt32">
+            <summary>设置 PaperInfoList.set_total(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="T:eUI.Model.ViewModel.Fakes.ShimPaperInit">
+            <summary>eUI.Model.ViewModel.PaperInit 的填充码类型</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimPaperInit.#ctor">
+            <summary>初始化新的填充码实例</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimPaperInit.#ctor(eUI.Model.ViewModel.PaperInit)">
+            <summary>初始化给定实例的新填充码</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimPaperInit.BehaveAsCurrent">
+            <summary>为已填充的类型的所有方法分配“Current”行为</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimPaperInit.BehaveAsNotImplemented">
+            <summary>为已填充的类型的所有方法分配“NotImplemented”行为</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInit.Behavior">
+            <summary>为已填充的类型的所有方法分配行为</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInit.Constructor">
+            <summary>设置 PaperInit.PaperInit() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInit.allTypeListCountGet">
+            <summary>设置 PaperInit.get_allTypeListCount() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInit.allTypeListCountSetInt32">
+            <summary>设置 PaperInit.set_allTypeListCount(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInit.allTypeListGet">
+            <summary>设置 PaperInit.get_allTypeList() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInit.allTypeListSetListOfPaperList">
+            <summary>设置 PaperInit.set_allTypeList(List`1&lt;PaperList&gt; value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInit.newListCountGet">
+            <summary>设置 PaperInit.get_newListCount() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInit.newListCountSetInt32">
+            <summary>设置 PaperInit.set_newListCount(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInit.newListGet">
+            <summary>设置 PaperInit.get_newList() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInit.newListSetListOfPaperList">
+            <summary>设置 PaperInit.set_newList(List`1&lt;PaperList&gt; value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInit.randomListCountGet">
+            <summary>设置 PaperInit.get_randomListCount() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInit.randomListCountSetInt32">
+            <summary>设置 PaperInit.set_randomListCount(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInit.randomListGet">
+            <summary>设置 PaperInit.get_randomList() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInit.randomListSetListOfPaperList">
+            <summary>设置 PaperInit.set_randomList(List`1&lt;PaperList&gt; value) 的 填充码</summary>
+        </member>
+        <member name="T:eUI.Model.ViewModel.Fakes.ShimPaperInit.AllInstances">
+            <summary>为所有实例成员定义填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInit.AllInstances.allTypeListCountGet">
+            <summary>设置 PaperInit.get_allTypeListCount() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInit.AllInstances.allTypeListCountSetInt32">
+            <summary>设置 PaperInit.set_allTypeListCount(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInit.AllInstances.allTypeListGet">
+            <summary>设置 PaperInit.get_allTypeList() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInit.AllInstances.allTypeListSetListOfPaperList">
+            <summary>设置 PaperInit.set_allTypeList(List`1&lt;PaperList&gt; value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInit.AllInstances.newListCountGet">
+            <summary>设置 PaperInit.get_newListCount() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInit.AllInstances.newListCountSetInt32">
+            <summary>设置 PaperInit.set_newListCount(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInit.AllInstances.newListGet">
+            <summary>设置 PaperInit.get_newList() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInit.AllInstances.newListSetListOfPaperList">
+            <summary>设置 PaperInit.set_newList(List`1&lt;PaperList&gt; value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInit.AllInstances.randomListCountGet">
+            <summary>设置 PaperInit.get_randomListCount() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInit.AllInstances.randomListCountSetInt32">
+            <summary>设置 PaperInit.set_randomListCount(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInit.AllInstances.randomListGet">
+            <summary>设置 PaperInit.get_randomList() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInit.AllInstances.randomListSetListOfPaperList">
+            <summary>设置 PaperInit.set_randomList(List`1&lt;PaperList&gt; value) 的 填充码</summary>
+        </member>
+        <member name="T:eUI.Model.ViewModel.Fakes.ShimPaperList">
+            <summary>eUI.Model.ViewModel.PaperList 的填充码类型</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimPaperList.#ctor">
+            <summary>初始化新的填充码实例</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimPaperList.#ctor(eUI.Model.ViewModel.PaperList)">
+            <summary>初始化给定实例的新填充码</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimPaperList.BehaveAsCurrent">
+            <summary>为已填充的类型的所有方法分配“Current”行为</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimPaperList.BehaveAsNotImplemented">
+            <summary>为已填充的类型的所有方法分配“NotImplemented”行为</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperList.Behavior">
+            <summary>为已填充的类型的所有方法分配行为</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperList.Constructor">
+            <summary>设置 PaperList.PaperList() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperList.CreateDateGet">
+            <summary>设置 PaperList.get_CreateDate() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperList.CreateDateSetDateTime">
+            <summary>设置 PaperList.set_CreateDate(DateTime value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperList.DetailInfoGet">
+            <summary>设置 PaperList.get_DetailInfo() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperList.DetailInfoSetString">
+            <summary>设置 PaperList.set_DetailInfo(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperList.IdGet">
+            <summary>设置 PaperList.get_Id() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperList.IdSetInt64">
+            <summary>设置 PaperList.set_Id(Int64 value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperList.InfoGet">
+            <summary>设置 PaperList.get_Info() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperList.InfoSetString">
+            <summary>设置 PaperList.set_Info(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperList.PriceGet">
+            <summary>设置 PaperList.get_Price() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperList.PriceSetDecimal">
+            <summary>设置 PaperList.set_Price(Decimal value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperList.TitleGet">
+            <summary>设置 PaperList.get_Title() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperList.TitleSetString">
+            <summary>设置 PaperList.set_Title(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperList.TypeGet">
+            <summary>设置 PaperList.get_Type() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperList.TypeSetInt32">
+            <summary>设置 PaperList.set_Type(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="T:eUI.Model.ViewModel.Fakes.ShimPaperList.AllInstances">
+            <summary>为所有实例成员定义填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperList.AllInstances.CreateDateGet">
+            <summary>设置 PaperList.get_CreateDate() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperList.AllInstances.CreateDateSetDateTime">
+            <summary>设置 PaperList.set_CreateDate(DateTime value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperList.AllInstances.DetailInfoGet">
+            <summary>设置 PaperList.get_DetailInfo() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperList.AllInstances.DetailInfoSetString">
+            <summary>设置 PaperList.set_DetailInfo(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperList.AllInstances.IdGet">
+            <summary>设置 PaperList.get_Id() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperList.AllInstances.IdSetInt64">
+            <summary>设置 PaperList.set_Id(Int64 value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperList.AllInstances.InfoGet">
+            <summary>设置 PaperList.get_Info() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperList.AllInstances.InfoSetString">
+            <summary>设置 PaperList.set_Info(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperList.AllInstances.PriceGet">
+            <summary>设置 PaperList.get_Price() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperList.AllInstances.PriceSetDecimal">
+            <summary>设置 PaperList.set_Price(Decimal value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperList.AllInstances.TitleGet">
+            <summary>设置 PaperList.get_Title() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperList.AllInstances.TitleSetString">
+            <summary>设置 PaperList.set_Title(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperList.AllInstances.TypeGet">
+            <summary>设置 PaperList.get_Type() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperList.AllInstances.TypeSetInt32">
+            <summary>设置 PaperList.set_Type(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="T:eUI.Model.ViewModel.Fakes.ShimPaperListViewModel">
+            <summary>eUI.Model.ViewModel.PaperListViewModel 的填充码类型</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimPaperListViewModel.#ctor">
+            <summary>初始化新的填充码实例</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimPaperListViewModel.#ctor(eUI.Model.ViewModel.PaperListViewModel)">
+            <summary>初始化给定实例的新填充码</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimPaperListViewModel.BehaveAsCurrent">
+            <summary>为已填充的类型的所有方法分配“Current”行为</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimPaperListViewModel.BehaveAsNotImplemented">
+            <summary>为已填充的类型的所有方法分配“NotImplemented”行为</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperListViewModel.Behavior">
+            <summary>为已填充的类型的所有方法分配行为</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperListViewModel.Constructor">
+            <summary>设置 PaperListViewModel.PaperListViewModel() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperListViewModel.HotListGet">
+            <summary>设置 PaperListViewModel.get_HotList() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperListViewModel.HotListSetListOfPaperList">
+            <summary>设置 PaperListViewModel.set_HotList(List`1&lt;PaperList&gt; value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperListViewModel.paperInfoListGet">
+            <summary>设置 PaperListViewModel.get_paperInfoList() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperListViewModel.paperInfoListSetPaperInfoList">
+            <summary>设置 PaperListViewModel.set_paperInfoList(PaperInfoList value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperListViewModel.paperSubPageGet">
+            <summary>设置 PaperListViewModel.get_paperSubPage() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperListViewModel.paperSubPageSetListOfPaperSubPage">
+            <summary>设置 PaperListViewModel.set_paperSubPage(List`1&lt;PaperSubPage&gt; value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperListViewModel.randomListGet">
+            <summary>设置 PaperListViewModel.get_randomList() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperListViewModel.randomListSetListOfPaperList">
+            <summary>设置 PaperListViewModel.set_randomList(List`1&lt;PaperList&gt; value) 的 填充码</summary>
+        </member>
+        <member name="T:eUI.Model.ViewModel.Fakes.ShimPaperListViewModel.AllInstances">
+            <summary>为所有实例成员定义填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperListViewModel.AllInstances.HotListGet">
+            <summary>设置 PaperListViewModel.get_HotList() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperListViewModel.AllInstances.HotListSetListOfPaperList">
+            <summary>设置 PaperListViewModel.set_HotList(List`1&lt;PaperList&gt; value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperListViewModel.AllInstances.paperInfoListGet">
+            <summary>设置 PaperListViewModel.get_paperInfoList() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperListViewModel.AllInstances.paperInfoListSetPaperInfoList">
+            <summary>设置 PaperListViewModel.set_paperInfoList(PaperInfoList value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperListViewModel.AllInstances.paperSubPageGet">
+            <summary>设置 PaperListViewModel.get_paperSubPage() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperListViewModel.AllInstances.paperSubPageSetListOfPaperSubPage">
+            <summary>设置 PaperListViewModel.set_paperSubPage(List`1&lt;PaperSubPage&gt; value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperListViewModel.AllInstances.randomListGet">
+            <summary>设置 PaperListViewModel.get_randomList() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperListViewModel.AllInstances.randomListSetListOfPaperList">
+            <summary>设置 PaperListViewModel.set_randomList(List`1&lt;PaperList&gt; value) 的 填充码</summary>
+        </member>
+        <member name="T:eUI.Model.ViewModel.Fakes.ShimPaperSubPage">
+            <summary>eUI.Model.ViewModel.PaperSubPage 的填充码类型</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimPaperSubPage.#ctor">
+            <summary>初始化新的填充码实例</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimPaperSubPage.#ctor(eUI.Model.ViewModel.PaperSubPage)">
+            <summary>初始化给定实例的新填充码</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimPaperSubPage.BehaveAsCurrent">
+            <summary>为已填充的类型的所有方法分配“Current”行为</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimPaperSubPage.BehaveAsNotImplemented">
+            <summary>为已填充的类型的所有方法分配“NotImplemented”行为</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperSubPage.Behavior">
+            <summary>为已填充的类型的所有方法分配行为</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperSubPage.Constructor">
+            <summary>设置 PaperSubPage.PaperSubPage() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperSubPage.DevelopmentToolPageGet">
+            <summary>设置 PaperSubPage.get_DevelopmentToolPage() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperSubPage.DevelopmentToolPageSetString">
+            <summary>设置 PaperSubPage.set_DevelopmentToolPage(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperSubPage.IdGet">
+            <summary>设置 PaperSubPage.get_Id() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperSubPage.IdSetInt32">
+            <summary>设置 PaperSubPage.set_Id(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperSubPage.TemplatePageGet">
+            <summary>设置 PaperSubPage.get_TemplatePage() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperSubPage.TemplatePageSetString">
+            <summary>设置 PaperSubPage.set_TemplatePage(String value) 的 填充码</summary>
+        </member>
+        <member name="T:eUI.Model.ViewModel.Fakes.ShimPaperSubPage.AllInstances">
+            <summary>为所有实例成员定义填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperSubPage.AllInstances.DevelopmentToolPageGet">
+            <summary>设置 PaperSubPage.get_DevelopmentToolPage() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperSubPage.AllInstances.DevelopmentToolPageSetString">
+            <summary>设置 PaperSubPage.set_DevelopmentToolPage(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperSubPage.AllInstances.IdGet">
+            <summary>设置 PaperSubPage.get_Id() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperSubPage.AllInstances.IdSetInt32">
+            <summary>设置 PaperSubPage.set_Id(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperSubPage.AllInstances.TemplatePageGet">
+            <summary>设置 PaperSubPage.get_TemplatePage() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperSubPage.AllInstances.TemplatePageSetString">
+            <summary>设置 PaperSubPage.set_TemplatePage(String value) 的 填充码</summary>
+        </member>
+        <member name="T:eUI.Model.ViewModel.Fakes.ShimPaperSubPageList">
+            <summary>eUI.Model.ViewModel.PaperSubPageList 的填充码类型</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimPaperSubPageList.#ctor">
+            <summary>初始化新的填充码实例</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimPaperSubPageList.#ctor(eUI.Model.ViewModel.PaperSubPageList)">
+            <summary>初始化给定实例的新填充码</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimPaperSubPageList.BehaveAsCurrent">
+            <summary>为已填充的类型的所有方法分配“Current”行为</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimPaperSubPageList.BehaveAsNotImplemented">
+            <summary>为已填充的类型的所有方法分配“NotImplemented”行为</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperSubPageList.Behavior">
+            <summary>为已填充的类型的所有方法分配行为</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperSubPageList.Constructor">
+            <summary>设置 PaperSubPageList.PaperSubPageList() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperSubPageList.rowsGet">
+            <summary>设置 PaperSubPageList.get_rows() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperSubPageList.rowsSetListOfPaperSubPage">
+            <summary>设置 PaperSubPageList.set_rows(List`1&lt;PaperSubPage&gt; value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperSubPageList.totalGet">
+            <summary>设置 PaperSubPageList.get_total() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperSubPageList.totalSetInt32">
+            <summary>设置 PaperSubPageList.set_total(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="T:eUI.Model.ViewModel.Fakes.ShimPaperSubPageList.AllInstances">
+            <summary>为所有实例成员定义填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperSubPageList.AllInstances.rowsGet">
+            <summary>设置 PaperSubPageList.get_rows() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperSubPageList.AllInstances.rowsSetListOfPaperSubPage">
+            <summary>设置 PaperSubPageList.set_rows(List`1&lt;PaperSubPage&gt; value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperSubPageList.AllInstances.totalGet">
+            <summary>设置 PaperSubPageList.get_total() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperSubPageList.AllInstances.totalSetInt32">
+            <summary>设置 PaperSubPageList.set_total(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="T:eUI.Model.ViewModel.Fakes.ShimUserRecordList">
+            <summary>eUI.Model.ViewModel.UserRecordList 的填充码类型</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimUserRecordList.#ctor">
+            <summary>初始化新的填充码实例</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimUserRecordList.#ctor(eUI.Model.ViewModel.UserRecordList)">
+            <summary>初始化给定实例的新填充码</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimUserRecordList.BehaveAsCurrent">
+            <summary>为已填充的类型的所有方法分配“Current”行为</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimUserRecordList.BehaveAsNotImplemented">
+            <summary>为已填充的类型的所有方法分配“NotImplemented”行为</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimUserRecordList.Behavior">
+            <summary>为已填充的类型的所有方法分配行为</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimUserRecordList.Constructor">
+            <summary>设置 UserRecordList.UserRecordList() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimUserRecordList.rowsGet">
+            <summary>设置 UserRecordList.get_rows() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimUserRecordList.rowsSetListOfUserRecord">
+            <summary>设置 UserRecordList.set_rows(List`1&lt;UserRecord&gt; value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimUserRecordList.totalGet">
+            <summary>设置 UserRecordList.get_total() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimUserRecordList.totalSetInt32">
+            <summary>设置 UserRecordList.set_total(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="T:eUI.Model.ViewModel.Fakes.ShimUserRecordList.AllInstances">
+            <summary>为所有实例成员定义填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimUserRecordList.AllInstances.rowsGet">
+            <summary>设置 UserRecordList.get_rows() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimUserRecordList.AllInstances.rowsSetListOfUserRecord">
+            <summary>设置 UserRecordList.set_rows(List`1&lt;UserRecord&gt; value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimUserRecordList.AllInstances.totalGet">
+            <summary>设置 UserRecordList.get_total() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimUserRecordList.AllInstances.totalSetInt32">
+            <summary>设置 UserRecordList.set_total(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="T:eUI.Model.ViewModel.Fakes.StubBusinessList">
+            <summary>eUI.Model.ViewModel.BusinessList 的存根类型</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.StubBusinessList.#ctor">
+            <summary>初始化新实例</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.StubBusinessList.InitializeStub">
+            <summary>初始化 type StubBusinessList 的新实例</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.StubBusinessList.CallBase">
+            <summary>获取或设置一个值，该值指示是否应调用基方法而不调用回退行为</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.StubBusinessList.InstanceBehavior">
+            <summary>获取或设置实例行为。</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.StubBusinessList.InstanceObserver">
+            <summary>获取或设置实例观察者。</summary>
+        </member>
+        <member name="T:eUI.Model.ViewModel.Fakes.StubImg">
+            <summary>eUI.Model.ViewModel.Img 的存根类型</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.StubImg.#ctor">
+            <summary>初始化新实例</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.StubImg.InitializeStub">
+            <summary>初始化 type StubImg 的新实例</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.StubImg.CallBase">
+            <summary>获取或设置一个值，该值指示是否应调用基方法而不调用回退行为</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.StubImg.InstanceBehavior">
+            <summary>获取或设置实例行为。</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.StubImg.InstanceObserver">
+            <summary>获取或设置实例观察者。</summary>
+        </member>
+        <member name="T:eUI.Model.ViewModel.Fakes.StubImgPath">
+            <summary>eUI.Model.ViewModel.ImgPath 的存根类型</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.StubImgPath.#ctor">
+            <summary>初始化新实例</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.StubImgPath.InitializeStub">
+            <summary>初始化 type StubImgPath 的新实例</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.StubImgPath.CallBase">
+            <summary>获取或设置一个值，该值指示是否应调用基方法而不调用回退行为</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.StubImgPath.InstanceBehavior">
+            <summary>获取或设置实例行为。</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.StubImgPath.InstanceObserver">
+            <summary>获取或设置实例观察者。</summary>
+        </member>
+        <member name="T:eUI.Model.ViewModel.Fakes.StubPaperDetailViewModel">
+            <summary>eUI.Model.ViewModel.PaperDetailViewModel 的存根类型</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.StubPaperDetailViewModel.#ctor">
+            <summary>初始化新实例</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.StubPaperDetailViewModel.InitializeStub">
+            <summary>初始化 type StubPaperDetailViewModel 的新实例</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.StubPaperDetailViewModel.CallBase">
+            <summary>获取或设置一个值，该值指示是否应调用基方法而不调用回退行为</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.StubPaperDetailViewModel.InstanceBehavior">
+            <summary>获取或设置实例行为。</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.StubPaperDetailViewModel.InstanceObserver">
+            <summary>获取或设置实例观察者。</summary>
+        </member>
+        <member name="T:eUI.Model.ViewModel.Fakes.StubPaperInfo">
+            <summary>eUI.Model.ViewModel.PaperInfo 的存根类型</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.StubPaperInfo.#ctor">
+            <summary>初始化新实例</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.StubPaperInfo.InitializeStub">
+            <summary>初始化 type StubPaperInfo 的新实例</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.StubPaperInfo.CallBase">
+            <summary>获取或设置一个值，该值指示是否应调用基方法而不调用回退行为</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.StubPaperInfo.InstanceBehavior">
+            <summary>获取或设置实例行为。</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.StubPaperInfo.InstanceObserver">
+            <summary>获取或设置实例观察者。</summary>
+        </member>
+        <member name="T:eUI.Model.ViewModel.Fakes.StubPaperInfoList">
+            <summary>eUI.Model.ViewModel.PaperInfoList 的存根类型</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.StubPaperInfoList.#ctor">
+            <summary>初始化新实例</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.StubPaperInfoList.InitializeStub">
+            <summary>初始化 type StubPaperInfoList 的新实例</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.StubPaperInfoList.CallBase">
+            <summary>获取或设置一个值，该值指示是否应调用基方法而不调用回退行为</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.StubPaperInfoList.InstanceBehavior">
+            <summary>获取或设置实例行为。</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.StubPaperInfoList.InstanceObserver">
+            <summary>获取或设置实例观察者。</summary>
+        </member>
+        <member name="T:eUI.Model.ViewModel.Fakes.StubPaperInit">
+            <summary>eUI.Model.ViewModel.PaperInit 的存根类型</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.StubPaperInit.#ctor">
+            <summary>初始化新实例</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.StubPaperInit.InitializeStub">
+            <summary>初始化 type StubPaperInit 的新实例</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.StubPaperInit.CallBase">
+            <summary>获取或设置一个值，该值指示是否应调用基方法而不调用回退行为</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.StubPaperInit.InstanceBehavior">
+            <summary>获取或设置实例行为。</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.StubPaperInit.InstanceObserver">
+            <summary>获取或设置实例观察者。</summary>
+        </member>
+        <member name="T:eUI.Model.ViewModel.Fakes.StubPaperList">
+            <summary>eUI.Model.ViewModel.PaperList 的存根类型</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.StubPaperList.#ctor">
+            <summary>初始化新实例</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.StubPaperList.AttachBackingFieldToCreateUserId">
+            <summary>附加委托以将 StubPaperList.CreateUserId 作为具有支持字段的属性进行模拟。</summary>
+        </member>
+        <member name="F:eUI.Model.ViewModel.Fakes.StubPaperList.CreateUserIdGet">
+            <summary>设置 baseModel.get_CreateUserId() 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.ViewModel.Fakes.StubPaperList.CreateUserIdSetString">
+            <summary>设置 baseModel.set_CreateUserId(String value) 的 stub</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.StubPaperList.InitializeStub">
+            <summary>初始化 type StubPaperList 的新实例</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.StubPaperList.CallBase">
+            <summary>获取或设置一个值，该值指示是否应调用基方法而不调用回退行为</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.StubPaperList.CreateUserId">
+            <summary>设置 baseModel.get_CreateUserId() 的 stub</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.StubPaperList.InstanceBehavior">
+            <summary>获取或设置实例行为。</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.StubPaperList.InstanceObserver">
+            <summary>获取或设置实例观察者。</summary>
+        </member>
+        <member name="T:eUI.Model.ViewModel.Fakes.StubPaperListViewModel">
+            <summary>eUI.Model.ViewModel.PaperListViewModel 的存根类型</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.StubPaperListViewModel.#ctor">
+            <summary>初始化新实例</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.StubPaperListViewModel.InitializeStub">
+            <summary>初始化 type StubPaperListViewModel 的新实例</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.StubPaperListViewModel.CallBase">
+            <summary>获取或设置一个值，该值指示是否应调用基方法而不调用回退行为</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.StubPaperListViewModel.InstanceBehavior">
+            <summary>获取或设置实例行为。</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.StubPaperListViewModel.InstanceObserver">
+            <summary>获取或设置实例观察者。</summary>
+        </member>
+        <member name="T:eUI.Model.ViewModel.Fakes.StubPaperSubPage">
+            <summary>eUI.Model.ViewModel.PaperSubPage 的存根类型</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.StubPaperSubPage.#ctor">
+            <summary>初始化新实例</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.StubPaperSubPage.InitializeStub">
+            <summary>初始化 type StubPaperSubPage 的新实例</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.StubPaperSubPage.CallBase">
+            <summary>获取或设置一个值，该值指示是否应调用基方法而不调用回退行为</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.StubPaperSubPage.InstanceBehavior">
+            <summary>获取或设置实例行为。</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.StubPaperSubPage.InstanceObserver">
+            <summary>获取或设置实例观察者。</summary>
+        </member>
+        <member name="T:eUI.Model.ViewModel.Fakes.StubPaperSubPageList">
+            <summary>eUI.Model.ViewModel.PaperSubPageList 的存根类型</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.StubPaperSubPageList.#ctor">
+            <summary>初始化新实例</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.StubPaperSubPageList.InitializeStub">
+            <summary>初始化 type StubPaperSubPageList 的新实例</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.StubPaperSubPageList.CallBase">
+            <summary>获取或设置一个值，该值指示是否应调用基方法而不调用回退行为</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.StubPaperSubPageList.InstanceBehavior">
+            <summary>获取或设置实例行为。</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.StubPaperSubPageList.InstanceObserver">
+            <summary>获取或设置实例观察者。</summary>
+        </member>
+        <member name="T:eUI.Model.ViewModel.Fakes.StubUserRecordList">
+            <summary>eUI.Model.ViewModel.UserRecordList 的存根类型</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.StubUserRecordList.#ctor">
+            <summary>初始化新实例</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.StubUserRecordList.InitializeStub">
+            <summary>初始化 type StubUserRecordList 的新实例</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.StubUserRecordList.CallBase">
+            <summary>获取或设置一个值，该值指示是否应调用基方法而不调用回退行为</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.StubUserRecordList.InstanceBehavior">
+            <summary>获取或设置实例行为。</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.StubUserRecordList.InstanceObserver">
+            <summary>获取或设置实例观察者。</summary>
+        </member>
+    </members>
+</doc>
