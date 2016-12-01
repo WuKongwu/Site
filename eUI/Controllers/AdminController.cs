@@ -65,64 +65,41 @@ namespace easyUITest.Controllers
         public ActionResult Uploadfile()//HttpContext context
         {
             NameValueCollection nvc = System.Web.HttpContext.Current.Request.Form;
-
             HttpFileCollection hfc = System.Web.HttpContext.Current.Request.Files;
             string fileName = string.Empty;
             string imgPath = "";
+            string strGuid = Guid.NewGuid().ToString().Replace("-", "");
             if (hfc.Count > 0)
             {
                 for (int i = 0; i < hfc.Count; i++)
                 {
-                    imgPath = DateTime.Now.ToString("yyyyMMddHHmmssff") + hfc[0].FileName;
-                    string PhysicalPath = Server.MapPath("/TemImg/" + imgPath);
-                    fileName = imgPath;
-
-                    hfc[0].SaveAs(PhysicalPath);
+                    var _strfileName = hfc[0].FileName.Substring(hfc[0].FileName.LastIndexOf(".") + 1);
+                    if (_strfileName.ToLower() == "zip" || _strfileName.ToLower() == "rar")
+                    {
+                   
+                        imgPath =  hfc[0].FileName;
+                        string PhysicalPath = Server.MapPath("/fileData/"+ strGuid + "/");
+                        fileName = imgPath;
+                        var url = PhysicalPath + imgPath;
+                        if (!Directory.Exists(PhysicalPath))
+                        {
+                            Directory.CreateDirectory(PhysicalPath);
+                        }
+                        hfc[0].SaveAs(url);
+                        //return Json(new { Id = imgPath, guid = strGuid }, "text/html", JsonRequestBehavior.AllowGet);
+                    }
+                    else
+                    {
+                        imgPath = DateTime.Now.ToString("yyyyMMddHHmmssff") + hfc[0].FileName;
+                        string PhysicalPath = Server.MapPath("/TemImg/" + imgPath);
+                        fileName = imgPath;
+                        hfc[0].SaveAs(PhysicalPath);
+                    }
+                   
                 }
-                //imgPath = "/testUpload" + hfc[0].FileName;
-                //string PhysicalPath = Server.MapPath(imgPath);
-                //hfc[0].SaveAs(PhysicalPath);
             }
-            //注意要写好后面的第二第三个参数
-            return Json(new { Id = nvc.Get("Id"), name = nvc.Get("name"), imgPath1 = fileName }, "text/html", JsonRequestBehavior.AllowGet);
-            //context.Response.ContentType = "text/plain";
-            //string pic = context.Request.QueryString["pic"];
-
-            //string[] arr = pic.Split('|');
-            //string sstr = "";
-            //UpLoadIMG st = new UpLoadIMG();
-            //for (int i = 0; i < arr.Length; i++)
-            //{
-            //    if (arr[i].IndexOf("http://") >= 0 || arr[i].IndexOf("https://") >= 0)
-            //    {
-            //        string std = st.SaveUrlPics(arr[i], "../../uploads/image/");
-            //        if (std.Length > 0)
-            //        {
-            //            if (i == arr.Length - 1)
-            //                sstr += std;
-            //            else
-            //                sstr += std + "|";
-            //        }
-            //    }
-            //}
-            //context.Response.Write(sstr);
-            //string fileName = System.IO.Path.GetFileName(upImg.FileName);
-            //string filePhysicalPath = Server.MapPath("~/upload/" + fileName);
-            //string pic = "", error = "";
-            //try
-            //{
-            //    upImg.SaveAs(filePhysicalPath);
-            //    pic = "/upload/" + fileName;
-            //}
-            //catch (Exception ex)
-            //{
-            //    error = ex.Message;
-            //}
-            //return Json(new
-            //{
-            //    pic = pic,
-            //    error = error
-            //});
+            return Json(new { Id = nvc.Get("Id"), name = nvc.Get("name"), imgPath1 = fileName ,guid = strGuid }, "text/html", JsonRequestBehavior.AllowGet);
+        
         }
         public ActionResult MultiUpload(HttpPostedFileBase files)
         {
@@ -180,6 +157,11 @@ namespace easyUITest.Controllers
             return Json(new { sta = false, msg = "请上传文件！" });
             
         }
+
+        //public ActionResult DownLoad(string code)
+        //{
+        //    return File(new byte);
+        //}
     }
 
     public class uploadpic : IHttpHandler

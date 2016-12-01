@@ -25,5 +25,6 @@ namespace eUI.Model.ViewModel
         public int BuyCount { get; set; }
         public string FileUrl { get; set; }
         public string Code { get; set; }
+
     }
 }

@@ -22,7 +22,9 @@ function editrow(target) {
                 $("#t_file2").val(data.models.ImgB);
                 $("#txtAddType").val(data.models.Type),
                 $("#Id").val(data.models.Id);
-                $("#textarea_id").val(data.models.DetailInfo)
+                $("#textarea_id").val(data.models.DetailInfo),
+                $("#t_Cfile").text(data.models.FileUrl),
+                $("#t_guid").text(data.models.Code)
             }
         },
     });

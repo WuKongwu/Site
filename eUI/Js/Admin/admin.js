@@ -10,6 +10,7 @@
         queryParams: { name: '' },
         pagination: true,
         ContentType: "application/json",
+        pageNumber:1,
         pageSize: 5,//每页显示的记录条数，默认为10 
         pageList: [5, 10, 15],//可以设置每页记录条数的列表 
         columns: [[
@@ -32,6 +33,8 @@
             }
 
         ]],
+        onBeforeRefresh: function () {  
+            return true;                 },
         onClickCell: function (rowIndex, field, value) {
             //如果点击的是商品列.弹出窗口.
             debugger
@@ -63,11 +66,10 @@
         beforePageText: '第',//页数文本框前显示的汉字 
         afterPageText: '页    共 {pages} 页',
         displayMsg: '当前显示 {from} - {to} 条记录   共 {total} 条记录',
-        /*onBeforeRefresh:function(){
+        onBeforeRefresh:function(){
             $(this).pagination('loading');
-            alert('before refresh');
             $(this).pagination('loaded');
-        }*/
+        }
     });
     //查询
     $("#btnSearch").click(function () {
