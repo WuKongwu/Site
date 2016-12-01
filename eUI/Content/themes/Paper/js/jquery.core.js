@@ -199,6 +199,26 @@ $(function () {
         });
     });
 
+    $("#WxPay").off("click").on("click", function () {
+        var url = $("body").data("website") + "Paper/WXPayUrl";
+        var data = $("#paperData").serialize();
+        $.ajax({
+            url: url,
+            type: "POST",
+            dataType: "json",
+            cache: false,
+            headers: { "Cache-Control": "no-cache" },
+            data: data,
+            success: function (data) {
+                alert(data.data);
+            },
+            error: function (e) {
+                
+            }
+        });
+
+    });
+
     function checkReg() {
         var result = true;
         var reg = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;

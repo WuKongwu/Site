@@ -23,6 +23,7 @@ namespace eUI.Model.ViewModel
         public string imgPath { get; set; }
         public int ReadCount { get; set; }
         public int BuyCount { get; set; }
-
+        public string FileUrl { get; set; }
+        public string Code { get; set; }
     }
 }

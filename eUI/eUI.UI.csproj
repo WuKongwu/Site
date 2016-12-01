@@ -994,7 +994,6 @@
     <Content Include="Style\kindeditor\skins\p.gif" />
     <Content Include="Style\kindeditor\skins\tinymce.css" />
     <Content Include="Style\kindeditor\skins\ul.gif" />
-    <Content Include="TemImg\6df1a2602504f4efb5f1c13103682a77.jpg" />
     <Content Include="TemImg\default.png" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -1107,6 +1106,10 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\下载\WxPayAPI_CS_v3\WxPayAPI_CS_v3\WxPayAPI_CS_v3\WxPayAPI\WxPayAPI\WxPayAPI.csproj">
+      <Project>{25911370-f06a-4956-8ee3-659a7ba14961}</Project>
+      <Name>WxPayAPI</Name>
+    </ProjectReference>
     <ProjectReference Include="..\eUI.BLL\eUI.BLL.csproj">
       <Project>{8b17ff98-f958-415e-8893-499afc73923d}</Project>
       <Name>eUI.BLL</Name>
