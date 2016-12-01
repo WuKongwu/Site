@@ -213,7 +213,9 @@ namespace easyUITest.Controllers
         public JsonResult WXPayUrl(PaperInfo paperInfo)
         {
             NativePay nativePay = new NativePay();
-            string url = nativePay.GetPayUrl(paperInfo);
+            PaperBLL paperBLL = new PaperBLL();
+            PaperDetailViewModel paperDetailViewModel = paperBLL.PaperDetailById(paperInfo.Id.ToString());
+            string url = nativePay.GetPayUrl(paperDetailViewModel.detail[0]);
             return Json(new { success = true, data = url }, JsonRequestBehavior.AllowGet);
         }
 

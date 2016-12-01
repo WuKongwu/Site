@@ -258,6 +258,7 @@
     <Content Include="Content\themes\Paper\js\jquery.flexslider-min.js" />
     <Content Include="Content\themes\Paper\js\jquery.flip.min.js" />
     <Content Include="Content\themes\Paper\js\jquery.min.js" />
+    <Content Include="Content\themes\Paper\js\jquery.qrcode.min.js" />
     <Content Include="Content\themes\Paper\js\jquery.twbsPagination.min.js" />
     <Content Include="easyUI\1.5\jquery.easyui.min.js" />
     <Content Include="easyUI\1.5\themes\black\accordion.css" />
@@ -636,6 +637,7 @@
     <Content Include="Img\tabicons.png" />
     <Content Include="Img\TableDrawTable.png" />
     <Content Include="Img\tools-sprites-trans.gif" />
+    <Content Include="Img\weixin-qrcode.jpg" />
     <Content Include="Js\Admin\admin.js" />
     <Content Include="Js\Admin\admin.login.js" />
     <Content Include="Js\ajaxfileupload.js" />
