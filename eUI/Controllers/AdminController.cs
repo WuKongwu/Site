@@ -22,6 +22,8 @@ namespace easyUITest.Controllers
         }
         public ActionResult SearchPaper(PaperList paperList)
         {
+            paperList.page = int.Parse(Request["page"]); ;
+            paperList.rows = int.Parse(Request["rows"]); ;
             AdminBLL adminBLL = new AdminBLL();
             PaperInfoList paperInfoList = adminBLL.getPaperList(paperList);
             return Json(paperInfoList, JsonRequestBehavior.AllowGet);

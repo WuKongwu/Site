@@ -15,11 +15,19 @@ namespace eUI.DAL
         public DataTable getPaperList(PaperList paperList)
         {
             StringBuilder sbSI = new StringBuilder();
-            sbSI.Append("select * from paper Where 1=1 ");
+            sbSI.AppendFormat("select * from paper Where 1=1 limit {0},{1};", paperList.page,paperList.rows);
 
             DataTable dtBusiness = DBHelper.SearchSql(sbSI.ToString());
 
             return dtBusiness;
+        }
+        public int getPaperCount(PaperList paperList) {
+            StringBuilder sbSI = new StringBuilder();
+            sbSI.AppendFormat("select 1 from paper  ");
+
+            DataTable dtBusiness = DBHelper.SearchSql(sbSI.ToString());
+
+            return dtBusiness.Rows.Count;
         }
 
 

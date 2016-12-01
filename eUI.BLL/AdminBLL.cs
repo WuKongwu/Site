@@ -19,7 +19,7 @@ namespace eUI.BLL
             PaperInfoList paperInfoList = new PaperInfoList();
             DataTable dt = adminDAL.getPaperList(paperList);
             paperInfoList.rows = dt.toList<PaperInfo>();
-            paperInfoList.total = dt.Rows.Count;
+            paperInfoList.total = adminDAL.getPaperCount(paperList);
             return paperInfoList;
         }
 

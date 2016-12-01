@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace eUI.Model.ViewModel
 {
-    public class PaperList
+    public class PaperList: baseModel
     {
         public long Id { get; set; }
         public string Title { get; set; }
