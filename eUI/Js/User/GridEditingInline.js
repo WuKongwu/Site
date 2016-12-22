@@ -17,9 +17,10 @@ function editrow(target) {
                 //$('[name="txtAddShow"]').prev().val(data.models.Info);
                 $('#txtAddPrice').val(data.models.Price),
                 //$('[name="txtAddPrice"]').prev().val(data.models.Price);
-                $("#t_file3").val(data.models.ImgC);
-                $("#t_file1").val(data.models.ImgA);
-                $("#t_file2").val(data.models.ImgB);
+               
+                $("#t_file1").html(data.models.ImgA);
+                $("#t_file2").html(data.models.ImgB);
+                $("#t_file3").html(data.models.ImgC);
                 $("#txtAddType").val(data.models.Type),
                 $("#Id").val(data.models.Id);
                 $("#textarea_id").val(data.models.DetailInfo),

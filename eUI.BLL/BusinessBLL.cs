@@ -19,7 +19,7 @@ namespace eUI.BLL
             BusinessList businessList = new BusinessList();
             DataTable dt = businessDAL.getList(business);
             businessList.rows = dt.toList<Business>();
-            businessList.total = dt.Rows.Count;
+            businessList.total = businessDAL.getCount(business);
             return businessList;
         }
     }

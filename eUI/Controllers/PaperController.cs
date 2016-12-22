@@ -14,13 +14,16 @@ namespace easyUITest.Controllers
 {
     public class PaperController : Controller
     {
-        public ViewResult Index() {
+        
+        public ViewResult Index()
+        {
             if (Session["user"] != null)
             {
                 List<UserRecord> list = (List<UserRecord>)Session["user"];
                 ViewData["login"] = list[0].Name;
             }
-            else {
+            else
+            {
                 ViewData["login"] = string.Empty;
             }
             PaperBLL paperBLL = new PaperBLL();
@@ -70,7 +73,7 @@ namespace easyUITest.Controllers
         }
 
 
-        public ViewResult ListPaging(int pageNo,string type)
+        public ViewResult ListPaging(int pageNo, string type)
         {
             if (Session["user"] != null)
             {
@@ -92,7 +95,7 @@ namespace easyUITest.Controllers
 
 
 
-        public ViewResult SearchListPaging(int pageNo,string key)
+        public ViewResult SearchListPaging(int pageNo, string key)
         {
             if (Session["user"] != null)
             {
@@ -111,7 +114,7 @@ namespace easyUITest.Controllers
             return View("_searchListPaging", paperListViewModel);
         }
 
-       
+
 
         public ViewResult Detail(string id)
         {
@@ -131,7 +134,8 @@ namespace easyUITest.Controllers
         }
 
 
-        public ViewResult PayGuide() {
+        public ViewResult PayGuide()
+        {
             if (Session["user"] != null)
             {
                 List<UserRecord> list = (List<UserRecord>)Session["user"];
@@ -212,11 +216,24 @@ namespace easyUITest.Controllers
 
         public JsonResult WXPayUrl(PaperInfo paperInfo)
         {
-            NativePay nativePay = new NativePay();
-            PaperBLL paperBLL = new PaperBLL();
-            PaperDetailViewModel paperDetailViewModel = paperBLL.PaperDetailById(paperInfo.Id.ToString());
-            string url = nativePay.GetPayUrl(paperDetailViewModel.detail[0]);
-            return Json(new { success = true, data = url }, JsonRequestBehavior.AllowGet);
+
+            if (Session["user"] == null)
+            {
+                return Json(new { success = false, data = "请您先登录，才能购买商品哦！" }, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                NativePay nativePay = new NativePay();
+                PaperBLL paperBLL = new PaperBLL();
+                PaperDetailViewModel paperDetailViewModel = paperBLL.PaperDetailById(paperInfo.Id.ToString());
+                string url = nativePay.GetPayUrl(paperDetailViewModel.detail[0]);
+                if (string.IsNullOrEmpty(url))
+                {
+                    return Json(new { success = false, data = "微信生成订单时出现错误，请您重新支付！" }, JsonRequestBehavior.AllowGet);
+                }
+                else { return Json(new { success = true, data = url }, JsonRequestBehavior.AllowGet); }
+            }
+
         }
 
     }

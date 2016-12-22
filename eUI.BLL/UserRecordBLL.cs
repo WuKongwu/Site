@@ -18,7 +18,7 @@ namespace eUI.BLL
             UserRecordList user = new UserRecordList();
             DataTable dt = userInfoDAL.getList(userInfo);
             user.rows = dt.toList<UserRecord>();
-            user.total = dt.Rows.Count;
+            user.total = userInfoDAL.getCount(userInfo);
             return user;
         }
     }

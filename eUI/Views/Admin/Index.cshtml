@@ -11,7 +11,7 @@
 @*<link href="~/Style/kindeditor-4.1.7/themes/default/default.css" rel="stylesheet" />*@
 
 <script type="text/javascript">
-    
+
     function initPop() {
         $('[name="txtAddTitle"]').val(''),
         $('[name="txtAddTitle"]').prev().val('');
@@ -25,11 +25,12 @@
         $(".file-name").html("");
         $("input[type='file']").val("");
         $('#dlg').window('open');
-       
+        $("#t_guid").text("");
     }
     function Add() {
-        $('#dlg').window('open');
         initPop();
+        $('#dlg').window('open');
+
     }
     $(function () {
         function CheckFileType(file, type) {
@@ -77,11 +78,11 @@
         }
 
         $("#uploadImg1").click(function () {
-
-
             if ($("#file1").val().length > 0) {
+                var size = $("#file1")[0].files[0].size;
                 if (CheckFileType($("#file1"), "img")) {
-                    var img = ajaxFileUpload("file1");
+                    if (size > 5242880) { alert("图片大小不能超过5M！"); } else { var img = ajaxFileUpload("file1"); }
+
                 } else {
                     alert("图片格式支持jpeg、jpg、png、bmp、gif");
                 }
@@ -93,9 +94,9 @@
         });
         $("#uploadImg2").click(function () {
             if ($("#file2").val().length > 0) {
-
+                var size = $("#file2")[0].files[0].size;
                 if (CheckFileType($("#file2"), "img")) {
-                    var img = ajaxFileUpload("file2");
+                    if (size > 5242880) { alert("图片大小不能超过5M！"); } else { var img = ajaxFileUpload("file2"); }
                 } else {
                     alert("图片格式支持jpeg、jpg、png、bmp、gif");
                 }
@@ -106,9 +107,9 @@
         });
         $("#uploadImg3").click(function () {
             if ($("#file3").val().length > 0) {
-
+                var size = $("#file3")[0].files[0].size;
                 if (CheckFileType($("#file3"), "img")) {
-                    var img = ajaxFileUpload("file3");
+                    if (size > 5242880) { alert("图片大小不能超过5M！"); } else { var img = ajaxFileUpload("file3"); }
                 } else {
                     alert("图片格式支持jpeg、jpg、png、bmp、gif");
                 }
@@ -122,9 +123,10 @@
 
         $("#uploadVideo").click(function () {
             if ($("#Vfile").val().length > 0) {
-
+                var size = $("#Vfile")[0].files[0].size;
                 if (CheckFileType($("#Vfile"), "video")) {
-                    var img = ajaxFileUpload("Vfile");
+                   
+                    if (size > 104857600) { alert("视频大小不能超过100M！"); } else { var img = ajaxFileUpload("Vfile"); }
                 } else {
                     alert("视频格式支持mp4、webm、ogg");
                 }
@@ -135,8 +137,9 @@
         });
         $("#uploadCode").click(function () {
             if ($("#Cfile").val().length > 0) {
+                var size = $("#Cfile")[0].files[0].size;
                 if (CheckFileType($("#Cfile"), "file")) {
-                    var img = ajaxFileUpload("Cfile");
+                    if (size > 104857600) { alert("文件大小不能超过100M！"); } else { var img = ajaxFileUpload("Cfile"); }
                 } else {
                     alert("代码附件格式支持zip、rar");
                 }
@@ -149,19 +152,20 @@
     });
 
     function ajaxFileUpload(val) {
+        var guid = $("#t_guid").text();
         $.ajaxFileUpload
         (
             {
                 url: '/Admin/Uploadfile', //用于文件上传的服务器端请求地址
                 type: 'post',
-                //  data: { Id: '123', name: 'lunis' }, //此参数非常严谨，写错一个引号都不行
+                data: { guid: guid }, //此参数非常严谨，写错一个引号都不行
                 secureuri: false, //一般设置为false
                 fileElementId: [val], //文件上传空间的id属性  <input type="file" id="file" name="file" />
                 dataType: 'HTML', //返回值类型 一般设置为json
                 success: function (data, status)  //服务器成功响应处理函数
                 {
                     var ext = JSON.parse(data)
-                   
+
                     $("#t_" + val).text(ext.imgPath1);
                     $("#t_guid").text(ext.guid);
                 },
@@ -203,13 +207,13 @@
                 }
             });
         });
-        
+
     });
 </script>
 <div style="font-size: 12px;padding: 10px 0;">
     <div>
         查询条件：<div style="padding: 5px;border: 1px solid #95B8E7;margin: 5px 0;">
-            订单号：<input class="textbox-value easyui-textbox" id="txtSearchOrderNumber" type="text" />
+            论文编号：<input class="textbox-value easyui-textbox" id="txtSearchOrderNumber" type="text" />
             论文标题：<input class="textbox-value easyui-textbox" id="txtSearchTitle" type="text" /><br /><br />
             <div>
                 交易起止时间：<input id="txtSearchPayDateStart" type="date" class="easyui-textbox" />——<input id="txtSearchPayDateEnd" class="easyui-textbox" type="date" />
@@ -253,7 +257,7 @@
                 <td><input type="file" id="Cfile" name="Cfile" /></td>
                 <td><button type="button" name="submitName" class="easyui-linkbutton l-btn l-btn-small" id="uploadCode" style="width:75px">上传论文</button></td>
                 <td><span id="t_Cfile" class="file-name"></span><input type="hidden" id="t_guid" /></td>
-              
+
             </tr>
             <tr>
                 <td><input type="file" id="Vfile" name="Vfile" /></td>

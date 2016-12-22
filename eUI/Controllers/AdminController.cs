@@ -16,20 +16,22 @@ namespace easyUITest.Controllers
 {
     public class AdminController : Controller
     {
+         [Authentication] 
         public ActionResult Index()
         {
             return View();
         }
+         [Authentication] 
         public ActionResult SearchPaper(PaperList paperList)
         {
-            paperList.page = int.Parse(Request["page"]); ;
-            paperList.rows = int.Parse(Request["rows"]); ;
+            paperList.page = int.Parse(Request["page"]); 
+            paperList.rows = int.Parse(Request["rows"]); 
             AdminBLL adminBLL = new AdminBLL();
             PaperInfoList paperInfoList = adminBLL.getPaperList(paperList);
             return Json(paperInfoList, JsonRequestBehavior.AllowGet);
         }
 
-
+         [Authentication] 
         public ViewResult Input(PaperInfo paperInfo)
         {
             var file1 = Request["img1"];
@@ -45,6 +47,7 @@ namespace easyUITest.Controllers
 
             return View("Input");
         }
+         [Authentication] 
         public ActionResult Save(PaperInfo paperInfo)
         {
             AdminBLL admin = new AdminBLL();
@@ -58,19 +61,25 @@ namespace easyUITest.Controllers
             var model = admin.GetPaperById(id);
             return Json(new { success = true, models = model }, JsonRequestBehavior.AllowGet);
         }
+         [Authentication] 
         public ActionResult Detele(int id)
         {
             AdminBLL admin = new AdminBLL();
             bool b = admin.DetelePaper(id);
             return Json(new { success = b }, JsonRequestBehavior.AllowGet);
         }
-        public ActionResult Uploadfile()//HttpContext context
+         [Authentication] 
+        public ActionResult Uploadfile(string guid)//HttpContext context
         {
             NameValueCollection nvc = System.Web.HttpContext.Current.Request.Form;
             HttpFileCollection hfc = System.Web.HttpContext.Current.Request.Files;
             string fileName = string.Empty;
             string imgPath = "";
-            string strGuid = Guid.NewGuid().ToString().Replace("-", "");
+            string strGuid = Guid.NewGuid().ToString("D");
+            if (!string.IsNullOrEmpty(guid))
+            {
+                strGuid = guid;
+            }
             if (hfc.Count > 0)
             {
                 for (int i = 0; i < hfc.Count; i++)
@@ -93,9 +102,14 @@ namespace easyUITest.Controllers
                     else
                     {
                         imgPath = DateTime.Now.ToString("yyyyMMddHHmmssff") + hfc[0].FileName;
-                        string PhysicalPath = Server.MapPath("/TemImg/" + imgPath);
+                        string PhysicalPath = Server.MapPath("/fileData/" + strGuid + "/");
                         fileName = imgPath;
-                        hfc[0].SaveAs(PhysicalPath);
+                        var url = PhysicalPath + imgPath;
+                        if (!Directory.Exists(PhysicalPath))
+                        {
+                            Directory.CreateDirectory(PhysicalPath);
+                        }
+                        hfc[0].SaveAs(url);
                     }
                    
                 }

@@ -7,19 +7,19 @@ function backToTop() {
 }
 
 function scrollFixed() {
-    if ($(".cont-box").length>0){
-    var obMenu = $(".cont-box").offset().top + 90;
+    if ($(".cont-box").length > 0) {
+        var obMenu = $(".cont-box").offset().top + 90;
 
-    var win = $(window); //得到窗口对象
-    var sc = $(document);//得到document文档对象。
-    win.scroll(function () {
-        if (sc.scrollTop() >= obMenu) {
-            $(".menu-bg").css("display", "block");
-            $(".menu-bg").addClass("menufixed");
-        } else {
-            $(".menu-bg").removeClass("menufixed");
-        }
-    })
+        var win = $(window); //得到窗口对象
+        var sc = $(document);//得到document文档对象。
+        win.scroll(function () {
+            if (sc.scrollTop() >= obMenu) {
+                $(".menu-bg").css("display", "block");
+                $(".menu-bg").addClass("menufixed");
+            } else {
+                $(".menu-bg").removeClass("menufixed");
+            }
+        })
     }
 }
 
@@ -35,12 +35,14 @@ function InitMenu() {
     });
 }
 
+
+
 function InitTopMenu() {
 
     var url = window.location.pathname;
     $item = $(".header .nav-list li");
     $item.removeClass("active");
-    if (url.indexOf("PayGuide")>=0) {
+    if (url.indexOf("PayGuide") >= 0) {
         $item.eq(1).addClass("active");
     } else if (url.indexOf("CreditGuarantee") >= 0) {
         $item.eq(2).addClass("active");
@@ -67,6 +69,8 @@ function loginState() {
         $(".user-log-info").css("display", "flex")
     }
 }
+
+
 
 
 $(function () {
@@ -99,13 +103,13 @@ $(function () {
     });
 
     $(".btn-open-login").off("click").on("click", function () {
-        $(".modal-content").css("display", "none");
+        $("#log-popup .modal-content").css("display", "none");
         $("#login_content.modal-content").css("display", "block");
-        $(".modal h1 span").removeClass("on");
-        $(".modal h1 span.login").addClass("on");
+        $("#log-popup.modal h1 span").removeClass("on");
+        $("#log-popup.modal h1 span.login").addClass("on");
         var wid = ($(window).width() - 400) / 2;
-        $(".modal").css("display", "block");
-        $(".modal-dialog").css({
+        $("#log-popup.modal").css("display", "block");
+        $("#log-popup .modal-dialog").css({
             display: "block",
             right: wid,
             top: "0"
@@ -113,32 +117,32 @@ $(function () {
             top: "40%",
 
         }, function () {
-            $(".modal-dialog").animate({ top: "20%" });
+            $("#log-popup .modal-dialog").animate({ top: "20%" });
         });
     });
 
     $(".btn-open-register").off("click").on("click", function () {
-        $(".modal-content").css("display", "none");
+        $("#log-popup .modal-content").css("display", "none");
         $("#reg_content.modal-content").css("display", "block");
-        $(".modal h1 span").removeClass("on");
-        $(".modal h1 span.register").addClass("on");
+        $("#log-popup.modal h1 span").removeClass("on");
+        $("#log-popup.modal h1 span.register").addClass("on");
         var wid = ($(window).width() - 400) / 2;
-        $(".modal").css("display", "block");
-        $(".modal-dialog").css({
+        $("#log-popup.modal").css("display", "block");
+        $("#log-popup .modal-dialog").css({
             display: "block",
             right: wid,
             top: "60%"
         }).animate({
             top: "10%",
         }, function () {
-            $(".modal-dialog").animate({ top: "20%" });
+            $("#log-popup .modal-dialog").animate({ top: "20%" });
         });
     });
 
 
     $(".btn-close").off("click").on("click", function () {
-        $(".modal").fadeOut(500, function () {
-            $(".modal-dialog .form-box dd label").html("");
+        $("#log-popup.modal").fadeOut(500, function () {
+            $("#log-popup .modal-dialog .form-box dd label").html("");
             $(".form-box form input").val("");
         });
 
@@ -199,42 +203,52 @@ $(function () {
         });
     });
 
+
+
     $("#WxPay").off("click").on("click", function () {
-        var url = $("body").data("website") + "Paper/WXPayUrl";
-        var data = $("#paperData").serialize();
-        $.ajax({
-            url: url,
-            type: "POST",
-            dataType: "json",
-            cache: false,
-            headers: { "Cache-Control": "no-cache" },
-            data: data,
-            success: function (data) {
-                if (data.success == true) {
-                    var codeUrl = data.data;
+        var stats = $(".user-log-info").css("display");
+      
+        if (stats != "none") {
+            var url = $("body").data("website") + "Paper/WXPayUrl";
+            var data = $("#paperData").serialize();
+            $.ajax({
+                url: url,
+                type: "POST",
+                dataType: "json",
+                cache: false,
+                headers: { "Cache-Control": "no-cache" },
+                data: data,
+                success: function (data) {
+                    if (data.success == true) {
+                        var codeUrl = data.data;
 
-                    $("#wxPayCode").qrcode({
-                        width: 200,
-                        height: 200,
-                        text: codeUrl
-                    });
-                    $(".modal-backdrop").css("display", "block");
-                    $("#wx_pay_pop").css("display", "block");
-                  
+                        $("#wxPayCode").qrcode({
+                            width: 200,
+                            height: 200,
+                            text: codeUrl
+                        });
+                        $(".modal-content").css("display", "block");
+                        $(".modal-backdrop").css("display", "block");
+                        $("#wx_pay_pop").css("display", "block");
 
-                } else {
-                    alert("微信生成订单时出现错误，请您重新支付！");
+
+                    } else {
+                        alert("微信生成订单时出现错误，请您重新支付！");
+                    }
+                },
+                error: function (e) {
+
                 }
-            },
-            error: function (e) {
-                
-            }
-        });
+            });
+        } else {
+            alert("请您先登录，才能购买商品哦！");
+        }
 
     });
 
     $("button.close").off("click").on("click", function () {
         $(".modal-backdrop").css("display", "none");
+        $(".modal-content").css("display", "none");
         $("#wx_pay_pop").css("display", "none");
         $("canvas").remove();
 
@@ -332,7 +346,7 @@ $(function () {
                         $(".loading-pop").css("display", "none");
                         if (dataSet["Result"] == "false") {
                             $(".back-error").html(dataSet["data"]);
-                          
+
                         } else if (dataSet["Result"] == "true") {
 
                             $(".modal").css("display", "none");
@@ -351,7 +365,7 @@ $(function () {
     });
     var flags = "true";
     $("#login_btn").off("click").on("click", function () {
-       
+
         $(".modal-dialog .form-box dd label").html("");
         if (checkLogin() == true) {
             var url = $("body").data("website") + "Login/UserLogin";
@@ -396,5 +410,5 @@ $(function () {
         }
     });
 
-   
+
 })

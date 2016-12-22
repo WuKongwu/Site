@@ -151,6 +151,7 @@
     <Compile Include="Controllers\HttpPost.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PaperController.cs" />
+    <Compile Include="Controllers\PayController.cs" />
     <Compile Include="Controllers\PermissionSetController.cs" />
     <Compile Include="Controllers\SubPageController.cs" />
     <Compile Include="Controllers\UploadController.cs" />
@@ -479,9 +480,13 @@
     <Content Include="easyUI\1.5\themes\icons\blank.gif" />
     <Content Include="easyUI\1.5\themes\icons\cancel.png" />
     <Content Include="easyUI\1.5\themes\icons\clear.png" />
+    <Content Include="easyUI\1.5\themes\icons\column.png" />
     <Content Include="easyUI\1.5\themes\icons\cut.png" />
+    <Content Include="easyUI\1.5\themes\icons\delete.png" />
+    <Content Include="easyUI\1.5\themes\icons\edit2.png" />
     <Content Include="easyUI\1.5\themes\icons\edit_add.png" />
     <Content Include="easyUI\1.5\themes\icons\edit_remove.png" />
+    <Content Include="easyUI\1.5\themes\icons\excel.png" />
     <Content Include="easyUI\1.5\themes\icons\filesave.png" />
     <Content Include="easyUI\1.5\themes\icons\filter.png" />
     <Content Include="easyUI\1.5\themes\icons\help.png" />
@@ -490,6 +495,7 @@
     <Content Include="easyUI\1.5\themes\icons\large_picture.png" />
     <Content Include="easyUI\1.5\themes\icons\large_shapes.png" />
     <Content Include="easyUI\1.5\themes\icons\large_smartart.png" />
+    <Content Include="easyUI\1.5\themes\icons\line.png" />
     <Content Include="easyUI\1.5\themes\icons\lock.png" />
     <Content Include="easyUI\1.5\themes\icons\man.png" />
     <Content Include="easyUI\1.5\themes\icons\mini_add.png" />
@@ -499,13 +505,17 @@
     <Content Include="easyUI\1.5\themes\icons\no.png" />
     <Content Include="easyUI\1.5\themes\icons\ok.png" />
     <Content Include="easyUI\1.5\themes\icons\pencil.png" />
+    <Content Include="easyUI\1.5\themes\icons\pie.png" />
     <Content Include="easyUI\1.5\themes\icons\print.png" />
     <Content Include="easyUI\1.5\themes\icons\redo.png" />
     <Content Include="easyUI\1.5\themes\icons\reload.png" />
+    <Content Include="easyUI\1.5\themes\icons\resize.png" />
     <Content Include="easyUI\1.5\themes\icons\search.png" />
+    <Content Include="easyUI\1.5\themes\icons\security.png" />
     <Content Include="easyUI\1.5\themes\icons\sum.png" />
     <Content Include="easyUI\1.5\themes\icons\tip.png" />
     <Content Include="easyUI\1.5\themes\icons\undo.png" />
+    <Content Include="easyUI\1.5\themes\icons\upload.png" />
     <Content Include="easyUI\1.5\themes\material\accordion.css" />
     <Content Include="easyUI\1.5\themes\material\calendar.css" />
     <Content Include="easyUI\1.5\themes\material\combo.css" />

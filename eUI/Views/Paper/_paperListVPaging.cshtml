@@ -5,7 +5,7 @@
                             <li>
                                 <div class="imgbox">
                                     <a href="/paper/Detail?id=@item.Id" title="@item.Title">
-                                        <img class="thumbs" src="@Url.Content("~/TemImg/" + @item.ImgA)" width=" 232" height="186" alt="@item.Title">
+                                        <img class="thumbs" src="@Url.Content("~/fileData/" + item.Code + "/" + item.ImgA)" width=" 232" height="186" alt="@item.Title" onerror="javascript:this.src='@Url.Content("~/TemImg/default.png")';">
                                     </a>
                                 </div>
                                 <div class="infobox">

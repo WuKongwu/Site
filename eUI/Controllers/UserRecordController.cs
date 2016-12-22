@@ -22,6 +22,8 @@ namespace easyUITest.Controllers
          [Authentication] 
         public ActionResult SearchUsers(UserRecord userRecord)
         {
+            userRecord.page = int.Parse(Request["page"]); 
+            userRecord.rows = int.Parse(Request["rows"]); 
             UserRecordBLL bll = new UserRecordBLL();
             UserRecordList userRecordList = bll.getUserList(userRecord);
             return Json(userRecordList,JsonRequestBehavior.AllowGet);

@@ -15,15 +15,41 @@ namespace eUI.DAL
         public DataTable getPaperList(PaperList paperList)
         {
             StringBuilder sbSI = new StringBuilder();
-            sbSI.AppendFormat("select * from paper order by id limit {0},{1};", (paperList.page - 1) * paperList.rows, paperList.rows);
+            sbSI.AppendFormat("select * from paper  Where 1=1 ");
+            if (!string.IsNullOrEmpty(paperList.Number))
+            {
+                sbSI.AppendFormat("AND CODE LIKE '%{0}%'", paperList.Number);
+            }
+            else if (!string.IsNullOrEmpty(paperList.Title))
+            {
+                sbSI.AppendFormat("AND TITLE LIKE '%{0}%'", paperList.Title);
+            }
 
+            else if (paperList.StTime > DateTime.MinValue && paperList.EdTime > DateTime.MinValue)
+            {
+                sbSI.AppendFormat("AND CreateDate BETWEEN '{0}' AND '{1}'", paperList.StTime, paperList.EdTime);
+            }
+            sbSI.AppendFormat(" limit {0},{1};", (paperList.page - 1) * paperList.rows, paperList.rows);
             DataTable dtBusiness = DBHelper.SearchSql(sbSI.ToString());
 
             return dtBusiness;
         }
         public int getPaperCount(PaperList paperList) {
             StringBuilder sbSI = new StringBuilder();
-            sbSI.AppendFormat("select 1 from paper  ");
+            sbSI.AppendFormat("select * from paper  Where 1=1 ");
+            if (!string.IsNullOrEmpty(paperList.Number))
+            {
+                sbSI.AppendFormat("AND CODE LIKE '%{0}%'", paperList.Number);
+            }
+            else if (!string.IsNullOrEmpty(paperList.Title))
+            {
+                sbSI.AppendFormat("AND TITLE LIKE '%{0}%'", paperList.Title);
+            }
+
+            else if (paperList.StTime > DateTime.MinValue && paperList.EdTime > DateTime.MinValue)
+            {
+                sbSI.AppendFormat("AND CreateDate BETWEEN '{0}' AND '{1}'", paperList.StTime, paperList.EdTime);
+            }
 
             DataTable dtBusiness = DBHelper.SearchSql(sbSI.ToString());
 
@@ -41,6 +67,9 @@ namespace eUI.DAL
         public bool Input(PaperInfo paperInfo)
         {
             StringBuilder sbAddUser = new StringBuilder();
+            if(string.IsNullOrEmpty(paperInfo.Code)){
+                paperInfo.Code = Guid.NewGuid().ToString("D");
+            }
             string GetSessionWithDsmId = string.Format(@"INSERT INTO PAPER 
                 (Title,Info,DetailInfo,Price,CreateDate,Type,ImgA,ImgB,ImgC,Video,FileUrl,Code) 
                 VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}')", paperInfo.Title, paperInfo.Info, paperInfo.DetailInfo, paperInfo.Price,

@@ -52,6 +52,7 @@
     <Compile Include="BusinessBLL.cs" />
     <Compile Include="LoginBLL.cs" />
     <Compile Include="PaperBLL.cs" />
+    <Compile Include="PayPaperBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SubPageBLL.cs" />
     <Compile Include="UserInfoBLL.cs" />

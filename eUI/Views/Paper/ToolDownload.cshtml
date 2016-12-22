@@ -25,9 +25,12 @@
     <script src="~/Content/themes/Paper/js/jquery.core.js"></script>
 
     <style>
-        .modal-content {
+         .socialwrapper .modal-content {
             padding: 10px 20px 20px 20px;
             background-color: #f9f9f9;
+            border: 0;
+            border-radius: 0;
+            box-shadow: 0 0 0;
         }
 
         .slides li {
@@ -142,7 +145,7 @@
                         <ul>
                             @foreach (var item in Model.randomList)
                             {
-                                <li><a href="/paper/Detail?id=@item.Id"><font class="date-font">@item.CreateDate.ToShortDateString()</font>@item.Title</a></li>
+                                <li><a href="/paper/Detail?id=@item.Id"><font class="date-font">@item.CreateDate.ToString("yyyy-MM-dd")</font>@item.Title</a></li>
                             }
                         </ul>
                     </div>
@@ -154,7 +157,7 @@
                         <ul>
                             @foreach (var item in Model.HotList)
                             {
-                                <li><a href="/paper/Detail?id=@item.Id"><font class="date-font">@item.CreateDate.ToShortDateString()</font>@item.Title</a></li>
+                                <li><a href="/paper/Detail?id=@item.Id"><font class="date-font">@item.CreateDate.ToString("yyyy-MM-dd")</font>@item.Title</a></li>
                             }
                         </ul>
                     </div>
@@ -211,7 +214,7 @@
     </div>
     <!--页脚结束-->
     <!--注册popup开始-->
-    <div class="modal" style="z-index: 2005; background: rgba(0, 0, 0, 0.4); display: none">
+    <div id="log-popup" class="modal" style="z-index: 2005; background: rgba(0, 0, 0, 0.4); display: none">
         <div class="modal-dialog" style="width: 400px; top: 30%; cursor: default; display: none">
             <div class="loading-pop">
                 <img style="position: relative;top: 41%;" src="/Content/themes/Paper/css/images/loading.gif">
@@ -314,7 +317,7 @@
         <div class="Q_top1"> <span></span>&nbsp;</div>
         <div class="Q_botm1">
             <div class="Q_pic1">
-                <div class="Q_pic1_hide"><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=345608595&amp;site=qq&amp;menu=yes" rel="nofollow" target="_blank"><span class="hide_pic3"></span>QQ交谈</a></div>
+                <div class="Q_pic1_hide"><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=14000123&amp;site=qq&amp;menu=yes" rel="nofollow" target="_blank"><span class="hide_pic3"></span>QQ交谈</a></div>
             </div>
             <div class="Q_sign1">
                 <div class="Q_sign1_hide" onclick="backToTop();"><a href="javascript:void(0)">返回顶部</a></div>

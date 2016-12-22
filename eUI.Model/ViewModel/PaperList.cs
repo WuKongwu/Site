@@ -15,5 +15,9 @@ namespace eUI.Model.ViewModel
         public decimal Price { get; set; }
         public DateTime CreateDate { get; set; }
         public int Type { get; set; }
+        public  string Number { get; set; }
+
+        public DateTime StTime { get; set; }
+        public DateTime EdTime { get; set; }
     }
 }

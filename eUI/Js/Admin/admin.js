@@ -14,15 +14,20 @@
         pageSize: 5,//每页显示的记录条数，默认为10 
         pageList: [5, 10, 15],//可以设置每页记录条数的列表 
         columns: [[
-            { field: 'Title', title: '论文标题', width: 200, align: 'left' },
-            { field: 'Info', title: '论文简介', width: 200, align: 'left' },
+             { field: 'Code', title: '论文编号', width: 300, align: 'left' },
+            { field: 'Title', title: '论文标题', width: 300, align: 'left' },
+           
             { field: 'Price', title: '价格', width: 50, align: 'left' },
             {
                 field: 'CreateDate', title: '上传时间', width: 200, align: 'left', formatter: function (value, row, index) {
                     return DateFormat(row.CreateDate);
                 }
             },
-            { field: 'Type', title: '论文类别', width: 200, align: 'left' },
+            {
+                field: 'Type', title: '论文类别', width: 150, align: 'left', formatter: function (value, row, index) {
+
+                return ShowType(row.Type);
+            }},
             {
                 field: 'action', title: '操作', width: 80, align: 'center',
                 formatter: function (value, row, index) {
@@ -75,11 +80,16 @@
     //查询
     $("#btnSearch").click(function () {
         //刷新grid
+        if (checkDateTime() == false) {
+            return false;
+        }
+        //刷新grid
         $('#papergrid').datagrid('load',
             {
-                name: $("#txtSearchUserName").textbox('getValue'),
-                stTime: $("#txtstTime").datebox('getValue'),
-                edTime: $("#txtedTime").datebox('getValue')
+                Number: $("#txtSearchOrderNumber").val(),
+                Title: $("#txtSearchTitle").val(),
+                StTime: $("#txtstTime").val(),
+                EdTime: $("#txtedTime").val()
             });
     });
 
@@ -145,6 +155,27 @@
     
 });
 
+function checkDateTime() {
+    var sDt = $("#txtSearchPayDateStart").val();
+    var eDt = $("#txtSearchPayDateEnd").val();
+
+    if ($("#txtSearchPayDateStart").val() != "" || $("#txtSearchPayDateEnd").val() != "") {
+        if ($("#txtSearchPayDateStart").val() == "") {
+            alert("起始时间不能为空！");
+            return false;
+        } else if ($("#txtSearchPayDateEnd").val() == "") {
+            alert("截止时间不能为空！");
+            return false;
+        } else if ($("#txtSearchPayDateEnd").val() < $("#txtSearchPayDateStart").val()) {
+            alert("截止时间不能小于起始时间！");
+            return false;
+        }
+    }
+    else {
+        return true;
+    }
+}
+
 
 function enableFilter() {
     $('#paper_input').datagrid('getRow');
@@ -155,4 +186,40 @@ function DateFormat(val) {
     var month = date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1;
     var currentDate = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
     return date.getFullYear() + "-" + month + "-" + currentDate;
+}
+
+function ShowType(val) {
+    var showStr = "";
+    
+    switch(val.toString()){
+        case "1":
+            showStr = "asp作品";
+            break;
+        case "2":
+            showStr = "sp/java作品";
+            break;
+        case "3":
+            showStr = "asp.net/c#作品";
+            break;
+        case "4":
+            showStr = "php作品";
+            break;
+        case "5":
+            showStr = "vc++作品";
+            break;
+        case "6":
+            showStr = "安卓作品";
+            break;
+        case "7":
+            showStr = "ios作品";
+            break;
+        case "8":
+            showStr = "游戏作品";
+            break;
+        default:
+            showStr = "未知类型";
+            break;
+           
+    }
+    return showStr
 }

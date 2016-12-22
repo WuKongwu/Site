@@ -22,6 +22,8 @@ namespace easyUITest.Controllers
          [Authentication] 
         public ActionResult SearchPay(Business business)
         {
+            business.page = int.Parse(Request["page"]);
+            business.rows = int.Parse(Request["rows"]); 
             BusinessBLL bll = new BusinessBLL();
             BusinessList businessList = bll.getBusinessList(business);
             return Json(businessList, JsonRequestBehavior.AllowGet);
