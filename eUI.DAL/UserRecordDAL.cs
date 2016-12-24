@@ -14,10 +14,14 @@ namespace eUI.DAL
         public DataTable getList(UserRecord userRecord)
         {
             StringBuilder sbSI = new StringBuilder();
-            sbSI.Append("select * from userrecord");
+            sbSI.Append("select * from userrecord where 1=1 ");
             if (!string.IsNullOrEmpty(userRecord.Email))
             {
-                sbSI.AppendFormat("  where Email like '%{0}%'",userRecord.Email);
+                sbSI.AppendFormat("AND Email like '%{0}%' ",userRecord.Email);
+            }
+            else if (!string.IsNullOrEmpty(userRecord.Name))
+            {
+                sbSI.AppendFormat("AND NAME like '%{0}%' ", userRecord.Name);
             }
             sbSI.AppendFormat(" limit {0},{1};", (userRecord.page - 1) * userRecord.rows, userRecord.rows);
             DataTable dtUserInfo = DBHelper.SearchSql(sbSI.ToString());
@@ -37,6 +41,17 @@ namespace eUI.DAL
             DataTable dtBusiness = DBHelper.SearchSql(sbSI.ToString());
 
             return dtBusiness.Rows.Count;
+        }
+
+        public bool DeteleUserRecord(int id)
+        {
+            StringBuilder sbAddUser = new StringBuilder();
+            string GetSessionWithDsmId = string.Format(@"delete from userrecord where Id='{0}' ", id);
+            int iResult = DBHelper.ExcuteNoQuerySql(GetSessionWithDsmId);
+            if (iResult == 1)
+                return true;
+            else
+                return false;
         }
     }
 }

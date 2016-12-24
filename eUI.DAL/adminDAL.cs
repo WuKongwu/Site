@@ -15,7 +15,7 @@ namespace eUI.DAL
         public DataTable getPaperList(PaperList paperList)
         {
             StringBuilder sbSI = new StringBuilder();
-            sbSI.AppendFormat("select * from paper  Where 1=1 ");
+            sbSI.AppendFormat("select * from  paper  Where 1=1 ");
             if (!string.IsNullOrEmpty(paperList.Number))
             {
                 sbSI.AppendFormat("AND CODE LIKE '%{0}%'", paperList.Number);
@@ -24,7 +24,10 @@ namespace eUI.DAL
             {
                 sbSI.AppendFormat("AND TITLE LIKE '%{0}%'", paperList.Title);
             }
-
+            else if (paperList.Type != 0)
+            {
+                sbSI.AppendFormat("AND TYPE = '{0}'", paperList.Type);
+            }
             else if (paperList.StTime > DateTime.MinValue && paperList.EdTime > DateTime.MinValue)
             {
                 sbSI.AppendFormat("AND CreateDate BETWEEN '{0}' AND '{1}'", paperList.StTime, paperList.EdTime);
@@ -34,7 +37,8 @@ namespace eUI.DAL
 
             return dtBusiness;
         }
-        public int getPaperCount(PaperList paperList) {
+        public int getPaperCount(PaperList paperList)
+        {
             StringBuilder sbSI = new StringBuilder();
             sbSI.AppendFormat("select * from paper  Where 1=1 ");
             if (!string.IsNullOrEmpty(paperList.Number))
@@ -45,7 +49,10 @@ namespace eUI.DAL
             {
                 sbSI.AppendFormat("AND TITLE LIKE '%{0}%'", paperList.Title);
             }
-
+            else if (paperList.Type != 0)
+            {
+                sbSI.AppendFormat("AND TYPE = '{0}'", paperList.Type);
+            }
             else if (paperList.StTime > DateTime.MinValue && paperList.EdTime > DateTime.MinValue)
             {
                 sbSI.AppendFormat("AND CreateDate BETWEEN '{0}' AND '{1}'", paperList.StTime, paperList.EdTime);
@@ -61,21 +68,30 @@ namespace eUI.DAL
         {
             string getId = "SELECT LAST_INSERT_ID()";
             DataTable dtUserInfo = DBHelper.SearchSql(getId);
-            return 0;
+            return int.Parse(dtUserInfo.Rows[0][0].ToString());
         }
 
         public bool Input(PaperInfo paperInfo)
         {
             StringBuilder sbAddUser = new StringBuilder();
-            if(string.IsNullOrEmpty(paperInfo.Code)){
+            if (string.IsNullOrEmpty(paperInfo.Code))
+            {
                 paperInfo.Code = Guid.NewGuid().ToString("D");
             }
             string GetSessionWithDsmId = string.Format(@"INSERT INTO PAPER 
-                (Title,Info,DetailInfo,Price,CreateDate,Type,ImgA,ImgB,ImgC,Video,FileUrl,Code) 
-                VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}')", paperInfo.Title, paperInfo.Info, paperInfo.DetailInfo, paperInfo.Price,
-                DateTime.Now, paperInfo.Type,paperInfo.ImgA,paperInfo.ImgB,
-                paperInfo.ImgC,paperInfo.Video,paperInfo.FileUrl,paperInfo.Code);
+                (Title,Info,DetailInfo,Price,CreateDate,Type,ImgA,ImgB,ImgC,ImgD,ImgE,
+                Video,VideoZip,Version,FileUrl,Code,ReadNum,PayNum) 
+                VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}',
+                '{11}','{12}','{13}','{14}','{15}','{16}','{17}')",
+                paperInfo.Title, paperInfo.Info, paperInfo.DetailInfo, paperInfo.Price,
+                DateTime.Now, paperInfo.Type, paperInfo.ImgA, paperInfo.ImgB,
+                paperInfo.ImgC, paperInfo.ImgD, paperInfo.ImgE, paperInfo.Video, 
+                paperInfo.VideoZip, paperInfo.Version, paperInfo.FileUrl, paperInfo.Code,
+                paperInfo.ReadNum,paperInfo.PayNum);
+          
+           
             int iResult = DBHelper.ExcuteNoQuerySql(GetSessionWithDsmId);
+           
             if (iResult == 1)
                 return true;
             else
@@ -97,9 +113,14 @@ namespace eUI.DAL
         {
             StringBuilder sbAddUser = new StringBuilder();
             string GetSessionWithDsmId = string.Format(@"update PAPER set Title='{0}',Info ='{1}',
-                DetailInfo ='{2}',Price='{3}',Type ='{4}',ImgA='{5}',ImgB='{6}',ImgC='{7}',Video='{8}',FileUrl='{9}',Code='{10}' where Id ='{11}'
-               ", paperInfo.Title, paperInfo.Info, paperInfo.DetailInfo, paperInfo.Price,paperInfo.Type
-               ,paperInfo.ImgA,paperInfo.ImgB,paperInfo.ImgC,paperInfo.Video,paperInfo.FileUrl,paperInfo.Code,paperInfo.Id);
+                DetailInfo ='{2}',Price='{3}',Type ='{4}',ImgA='{5}',ImgB='{6}',ImgC='{7}',ImgD='{8}',
+                ImgE='{9}',Video='{10}',VideoZip='{11}',Version='{12}',FileUrl='{13}',Code='{14}',
+                ReadNum='{15}',PayNum='{16}' where Id ='{17}'
+               ", paperInfo.Title, paperInfo.Info, paperInfo.DetailInfo, paperInfo.Price, paperInfo.Type
+               , paperInfo.ImgA, paperInfo.ImgB, paperInfo.ImgC, paperInfo.ImgD, paperInfo.ImgE, paperInfo.Video,
+               paperInfo.VideoZip, paperInfo.Version, paperInfo.FileUrl, paperInfo.Code, paperInfo.ReadNum,paperInfo.PayNum,paperInfo.Id);
+            
+         
             int iResult = DBHelper.ExcuteNoQuerySql(GetSessionWithDsmId);
             if (iResult == 1)
                 return true;
@@ -109,7 +130,7 @@ namespace eUI.DAL
 
         public DataTable GetPaperId(int id)
         {
-            string str = string.Format("select * from PAPER where Id ={0}", id);
+            string str = string.Format("select * from  paper  where paper.Id ={0}", id);
 
             return DBHelper.SearchSql(str);
         }

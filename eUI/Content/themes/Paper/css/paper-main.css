@@ -756,7 +756,7 @@
     width: 340px;
     float: left;
     margin-right: 20px;
-    height: 978px;
+    height: 998px;
 }
 
 .paper-detail {
@@ -1262,8 +1262,8 @@ background-color:#fff;
 }
 .opuslist {
     overflow: hidden;
-    margin: 0 auto 20px;
-    padding-top: 20px;
+    margin: 0 auto;
+    padding-top: 5px;
    width:755px;
 }
 .opuslist ul {
@@ -1503,3 +1503,43 @@ button {
     position: relative;
     padding: 15px;
 }
+.search-div {
+        float: right;
+    margin-right: 35px;
+}
+.search-input {
+display: inline-block;
+    vertical-align: top;
+    height: 30px;
+    color: #333;
+    padding-left: 7px;
+    border-radius: 5px;
+    border: 2px solid #e2e2e2;
+    margin: 5px;
+}
+.type-search {
+        height: 30px;
+    line-height: 30px;
+    padding: 0 20px;
+    background: #51b7ec;
+    color: #fff;
+    border: none;
+    margin: 7px;
+}
+.videoZip-div {
+    width: 325px;
+    height: 40px;
+    line-height: 40px;
+    background-color: #E0FFFF;
+    padding: 0 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bolder;
+    box-shadow: 2px 2px 1px #888888;
+    margin: auto;
+    margin-top: 30px;
+      border:1px solid #E0FFFF;
+}
+    .videoZip-div:hover {
+     box-shadow: 0px 0px 0px ;
+        }

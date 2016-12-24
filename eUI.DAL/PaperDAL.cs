@@ -53,8 +53,8 @@ namespace eUI.DAL
             DataTable dtTypeList = new DataTable();
             if (!string.IsNullOrEmpty(type))
             {
-                sbSI.Append("SELECT A.*, C.ReadCount,D.BuyCount FROM (SELECT * FROM paper WHERE Type = " + type + ") AS A ");
-                sbSI.Append("LEFT JOIN (SELECT Num AS ReadCount, PaperId FROM count WHERE Type = 1 ) AS C ON A.id = C.PaperId LEFT JOIN ( SELECT Num AS BuyCount, PaperId FROM count WHERE Type = 2 ) AS D ON A.id = D.PaperId");
+                sbSI.Append("SELECT * FROM  paper WHERE Type = " + type);
+
                 dtTypeList = DBHelper.SearchSql(sbSI.ToString());
             }
 
@@ -65,14 +65,14 @@ namespace eUI.DAL
         {
 
             StringBuilder sbSI = new StringBuilder();
-            sbSI.Append("select A.*,B.Num from paper as A LEFT JOIN (SELECT Num,PaperId from count where type=2)as B ON A.id=B.PaperId where 1=1 ");
+            sbSI.Append("select * from paper where 1=1 ");
             if (!string.IsNullOrEmpty(type))
             {
-                sbSI.Append("and type=" + type + " order by Num desc limit 10");
+                sbSI.Append("and type=" + type + " order by ReadNum desc limit 10");
             }
             else
             {
-                sbSI.Append("order by Num desc limit 10");
+                sbSI.Append("order by ReadNum desc limit 10");
             }
             DataTable dtTypeList = DBHelper.SearchSql(sbSI.ToString());
 
@@ -84,7 +84,7 @@ namespace eUI.DAL
 
             StringBuilder sbSI = new StringBuilder();
             sbSI.Append("select * from subpage");
-            
+
             DataTable dtTypeList = DBHelper.SearchSql(sbSI.ToString());
 
             return dtTypeList;
@@ -92,12 +92,14 @@ namespace eUI.DAL
 
 
 
-        public DataTable SearchPaperList(string key)
+        public DataTable SearchPaperList(string key,string type)
         {
 
             StringBuilder sbSI = new StringBuilder();
-            sbSI.Append("SELECT A.*, B.Path as imgPath,C.ReadCount,D.BuyCount FROM((SELECT * FROM paper WHERE title  LIKE '%" + key + "%') AS A LEFT JOIN (SELECT PaperId,Path FROM paperimg LIMIT 1 ) AS B ON A.Id = B.PaperId )");
-            sbSI.Append("LEFT JOIN (SELECT Num AS ReadCount, PaperId FROM count WHERE Type = 1 ) AS C ON A.id = C.PaperId LEFT JOIN ( SELECT Num AS BuyCount, PaperId FROM count WHERE Type = 2 ) AS D ON A.id = D.PaperId");
+            sbSI.Append("SELECT * FROM paper WHERE title  LIKE '%" + key + "%' ");
+            if (!string.IsNullOrEmpty(type)) {
+                sbSI.Append("AND type=" + type);
+            }
             DataTable dtTypeList = DBHelper.SearchSql(sbSI.ToString());
 
             return dtTypeList;
@@ -110,7 +112,7 @@ namespace eUI.DAL
         {
 
             StringBuilder sbSI = new StringBuilder();
-            sbSI.Append("SELECT A.*,C.ReadCount,D.BuyCount FROM (SELECT * FROM paper WHERE id = " + Id + ") AS A   LEFT JOIN (SELECT Num AS ReadCount, PaperId FROM count WHERE Type = 1 ) AS C ON A.id = C.PaperId LEFT JOIN ( SELECT Num AS BuyCount, PaperId FROM count WHERE Type = 2 ) AS D ON A.id = D.PaperId");
+            sbSI.Append("SELECT * FROM  paper WHERE id = " + Id );
 
             DataTable dtPaperDetail = DBHelper.SearchSql(sbSI.ToString());
 
@@ -127,22 +129,19 @@ namespace eUI.DAL
         public void AddReadCount(string id)
         {
             StringBuilder sbSI = new StringBuilder();
-            sbSI.Append("select num from count where type=1 ");
-            sbSI.AppendFormat("and  PaperId={0}", id);
+            sbSI.Append("select ReadNum from paper where 1=1 ");
+            sbSI.AppendFormat("and  id={0}", id);
             DataTable dt = DBHelper.SearchSql(sbSI.ToString());
-            if (dt.Rows.Count == 0)
-            {
-                StringBuilder sbSIOne = new StringBuilder();
-                sbSIOne.AppendFormat("INSERT INTO count (paperId,type,num) VALUES({0},1,1)", id);
-                DBHelper.ExcuteNoQuerySql(sbSIOne.ToString());
+            int num = 0;
+            if (dt.Rows[0]["ReadNum"] != null && !string.IsNullOrEmpty(dt.Rows[0]["ReadNum"].ToString()))
+            { 
+                num = int.Parse(dt.Rows[0]["ReadNum"].ToString()); 
             }
-            else
-            {
-                int num = Convert.ToInt32(dt.Rows[0]["num"].ToString());
-                StringBuilder sbSITwo = new StringBuilder();
-                sbSITwo.AppendFormat("update count set num={0} where paperId={1} and type=1", num + 1, id);
-                DBHelper.ExcuteNoQuerySql(sbSITwo.ToString());
-            }
+
+            StringBuilder sbSITwo = new StringBuilder();
+            sbSITwo.AppendFormat("update paper set ReadNum={0} where id={1}", num + 1, id);
+            DBHelper.ExcuteNoQuerySql(sbSITwo.ToString());
+
         }
 
     }

@@ -22,5 +22,9 @@ namespace eUI.BLL
             businessList.total = businessDAL.getCount(business);
             return businessList;
         }
+        public bool DeteleBusiness(int id)
+        {
+            return businessDAL.DeteleBusiness(id);
+        }
     }
 }

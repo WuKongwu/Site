@@ -28,5 +28,13 @@ namespace easyUITest.Controllers
             BusinessList businessList = bll.getBusinessList(business);
             return Json(businessList, JsonRequestBehavior.AllowGet);
         }
+         [Authentication]
+         public ActionResult Detele(int id)
+         {
+             BusinessBLL bll = new BusinessBLL();
+             bool b = bll.DeteleBusiness(id);
+             return Json(new { success = b }, JsonRequestBehavior.AllowGet);
+         }
+
     }
 }

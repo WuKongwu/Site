@@ -52,7 +52,7 @@ namespace easyUITest.Controllers
         }
 
 
-        public ViewResult SearchList(string key)
+        public ViewResult SearchList(string key,string type)
         {
             if (Session["user"] != null)
             {
@@ -64,13 +64,19 @@ namespace easyUITest.Controllers
                 ViewData["login"] = string.Empty;
             }
             PaperBLL paperBLL = new PaperBLL();
-            PaperListViewModel paperListViewModel = paperBLL.PaperSearchList(key);
+            PaperListViewModel paperListViewModel = paperBLL.PaperSearchList(key, type);
             paperListViewModel.paperInfoList.total = paperListViewModel.paperInfoList.rows.Count();
             paperListViewModel.paperInfoList.rows = paperListViewModel.paperInfoList.rows.Take(9).ToList<PaperInfo>();
-            ViewData["type"] = "99";
+            if (string.IsNullOrEmpty(type)) {
+                ViewData["type"] = "";
+            } else {
+                ViewData["type"] = type;
+            
+            }
             ViewData["key"] = key;
             return View("SearchList", paperListViewModel);
         }
+        
 
 
         public ViewResult ListPaging(int pageNo, string type)
@@ -95,7 +101,7 @@ namespace easyUITest.Controllers
 
 
 
-        public ViewResult SearchListPaging(int pageNo, string key)
+        public ViewResult SearchListPaging(int pageNo, string key,string type)
         {
             if (Session["user"] != null)
             {
@@ -107,10 +113,18 @@ namespace easyUITest.Controllers
                 ViewData["login"] = string.Empty;
             }
             PaperBLL paperBLL = new PaperBLL();
-            PaperListViewModel paperListViewModel = paperBLL.PaperSearchList(key);
+            PaperListViewModel paperListViewModel = paperBLL.PaperSearchList(key,type);
             paperListViewModel.paperInfoList.total = paperListViewModel.paperInfoList.rows.Count();
             paperListViewModel.paperInfoList.rows = paperListViewModel.paperInfoList.rows.Skip((pageNo - 1) * 9).Take(9).ToList<PaperInfo>();
-            ViewData["type"] = "99";
+            if (string.IsNullOrEmpty(type))
+            {
+                ViewData["type"] = "";
+            }
+            else
+            {
+                ViewData["type"] = type;
+
+            }
             return View("_searchListPaging", paperListViewModel);
         }
 

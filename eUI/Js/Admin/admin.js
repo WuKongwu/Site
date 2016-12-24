@@ -11,25 +11,28 @@
         pagination: true,
         ContentType: "application/json",
         pageNumber:1,
-        pageSize: 5,//每页显示的记录条数，默认为10 
-        pageList: [5, 10, 15],//可以设置每页记录条数的列表 
+        pageSize: 20,//每页显示的记录条数，默认为10 
+        pageList: [20, 50, 100],//可以设置每页记录条数的列表 
         columns: [[
-             { field: 'Code', title: '论文编号', width: 300, align: 'left' },
-            { field: 'Title', title: '论文标题', width: 300, align: 'left' },
+             { field: 'Version', title: '论文编号', width: '10%', align: 'left' },
+            { field: 'Title', title: '论文标题', width: '20%', align: 'left' },
            
-            { field: 'Price', title: '价格', width: 50, align: 'left' },
+            { field: 'Price', title: '价格', width: '10%', align: 'left' },
             {
-                field: 'CreateDate', title: '上传时间', width: 200, align: 'left', formatter: function (value, row, index) {
+                field: 'CreateDate', title: '上传时间', width: '20%', align: 'left', formatter: function (value, row, index) {
                     return DateFormat(row.CreateDate);
                 }
             },
             {
-                field: 'Type', title: '论文类别', width: 150, align: 'left', formatter: function (value, row, index) {
+                field: 'Type', title: '论文类别', width: '10%', align: 'left', formatter: function (value, row, index) {
 
                 return ShowType(row.Type);
-            }},
+                }
+            },
+              { field: 'ReadNum', title: '阅读数', width: '5%', align: 'left' },
+                { field: 'PayNum', title: '购买数', width: '5%', align: 'left' },
             {
-                field: 'action', title: '操作', width: 80, align: 'center',
+                field: 'action', title: '操作', width: '10%', align: 'center',
                 formatter: function (value, row, index) {
                     var e = '<a href="#" onclick="editrow(' + row.Id + ')">修改</a> ';
                     var d = '<a href="#" onclick="deleterow(' + row.Id + ')">删除</a>';
@@ -67,8 +70,8 @@
     var p = $('#papergrid').datagrid('getPager');
 
     $(p).pagination({
-        pageSize: 5,//每页显示的记录条数，默认为10 
-        pageList: [5, 10, 15],//可以设置每页记录条数的列表 
+        pageSize: 20,//每页显示的记录条数，默认为10 
+        pageList: [20, 50, 100],//可以设置每页记录条数的列表 
         beforePageText: '第',//页数文本框前显示的汉字 
         afterPageText: '页    共 {pages} 页',
         displayMsg: '当前显示 {from} - {to} 条记录   共 {total} 条记录',
@@ -88,8 +91,9 @@
             {
                 Number: $("#txtSearchOrderNumber").val(),
                 Title: $("#txtSearchTitle").val(),
-                StTime: $("#txtstTime").val(),
-                EdTime: $("#txtedTime").val()
+                StTime: $("#txtSearchPayDateStart").val(),
+                EdTime: $("#txtSearchPayDateEnd").val(),
+                Type: $("#txtType").val()
             });
     });
 
@@ -196,7 +200,7 @@ function ShowType(val) {
             showStr = "asp作品";
             break;
         case "2":
-            showStr = "sp/java作品";
+            showStr = "jsp/java作品";
             break;
         case "3":
             showStr = "asp.net/c#作品";

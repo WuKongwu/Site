@@ -17,15 +17,19 @@
         $('[name="txtAddTitle"]').prev().val('');
         $('[name="txtAddShow"]').val(''),
         $('[name="txtAddPrice"]').val(''),
-          $('[name="txtAddShow"]').prev().val('');
+        $('[name="txtAddShow"]').prev().val('');
         $('[name="txtAddPrice"]').prev().val('');
         $("#txtAddType").val(0),
-         $("#textarea_id").val("");
+        $("#textarea_id").val("");
         $("#Id").val(0);
         $(".file-name").html("");
         $("input[type='file']").val("");
         $('#dlg').window('open');
         $("#t_guid").text("");
+        $('[name="txtAddReadNum"]').val(''),
+        $('[name="txtAddPayNum"]').val(''),
+        $('[name="txtAddVersion"]').val('')
+      
     }
     function Add() {
         initPop();
@@ -118,7 +122,32 @@
                 alert("请选择图片");
             }
         });
-
+        $("#uploadImg4").click(function () {
+            if ($("#file4").val().length > 0) {
+                var size = $("#file4")[0].files[0].size;
+                if (CheckFileType($("#file4"), "img")) {
+                    if (size > 5242880) { alert("图片大小不能超过5M！"); } else { var img = ajaxFileUpload("file4"); }
+                } else {
+                    alert("图片格式支持jpeg、jpg、png、bmp、gif");
+                }
+            }
+            else {
+                alert("请选择图片");
+            }
+        });
+        $("#uploadImg5").click(function () {
+            if ($("#file5").val().length > 0) {
+                var size = $("#file5")[0].files[0].size;
+                if (CheckFileType($("#file5"), "img")) {
+                    if (size > 5242880) { alert("图片大小不能超过5M！"); } else { var img = ajaxFileUpload("file5"); }
+                } else {
+                    alert("图片格式支持jpeg、jpg、png、bmp、gif");
+                }
+            }
+            else {
+                alert("请选择图片");
+            }
+        });
 
 
         $("#uploadVideo").click(function () {
@@ -148,6 +177,21 @@
                 alert("请选择代码附件");
             }
         });
+
+        $("#uploadVideoZip").click(function () {
+            if ($("#VfileZip").val().length > 0) {
+                var size = $("#VfileZip")[0].files[0].size;
+                if (CheckFileType($("#VfileZip"), "file")) {
+                    if (size > 104857600) { alert("文件大小不能超过100M！"); } else { var img = ajaxFileUpload("VfileZip"); }
+                } else {
+                    alert("代码附件格式支持zip、rar");
+                }
+            }
+            else {
+                alert("请选择代码附件");
+            }
+        });
+
 
     });
 
@@ -191,7 +235,13 @@
                 ImgA: $("#t_file1").html(),
                 ImgB: $("#t_file2").html(),
                 ImgC: $("#t_file3").html(),
+                ImgD: $("#t_file4").html(),
+                ImgE: $("#t_file5").html(),
                 Video: $("#t_Vfile").html(),
+                VideoZip: $("#t_VfileZip").html(),
+                ReadNum: $("#txtAddReadNum").val(),
+                PayNum: $("#txtAddPayNum").val(),
+                Version: $("#txtAddVersion").val(),
                 FileUrl: $("#t_Cfile").text(),
                 Code: $("#t_guid").text()
             };
@@ -213,10 +263,21 @@
 <div style="font-size: 12px;padding: 10px 0;">
     <div>
         查询条件：<div style="padding: 5px;border: 1px solid #95B8E7;margin: 5px 0;">
+            论文类别：<select name="Type" class="selected" id="txtType">
+    <option value="0">----</option>
+    <option value="1">asp作品</option>
+    <option value="2">jsp/java作品</option>
+    <option value="3">asp.net/c#作品</option>
+    <option value="4">php作品</option>
+    <option value="5">vc++作品</option>
+    <option value="6">安卓作品</option>
+    <option value="7">ios作品</option>
+    <option value="8">游戏作品</option>
+</select>
             论文编号：<input class="textbox-value easyui-textbox" id="txtSearchOrderNumber" type="text" />
             论文标题：<input class="textbox-value easyui-textbox" id="txtSearchTitle" type="text" /><br /><br />
             <div>
-                交易起止时间：<input id="txtSearchPayDateStart" type="date" class="easyui-textbox" />——<input id="txtSearchPayDateEnd" class="easyui-textbox" type="date" />
+                上传起止时间：<input id="txtSearchPayDateStart" type="date" class="easyui-textbox" />——<input id="txtSearchPayDateEnd" class="easyui-textbox" type="date" />
             </div>
         </div>
         <button id="btnSearch" class="easyui-linkbutton" style="width:80px;">查询</button>
@@ -224,12 +285,14 @@
     </div>
 </div>
 <div id="papergrid"></div>
-<div id="dlg" class="easyui-window" title="论文编辑" data-options="iconCls:'icon-save'" style="width:700px;height:500px;padding:10px;position: relative;">
+<div id="dlg" class="easyui-window" title="论文编辑" data-options="iconCls:'icon-save'" style="width:700px;height:750px;padding:10px;position: relative;">
     <div><input type="hidden" id="Id" /></div>
     <div>
         论文标题：<input class="textbox-value upload-input" id="txtAddTitle" name="txtAddTitle" type="text" />
-        论文简介：<input class="textbox-value upload-input" id="txtAddShow" name="txtAddShow" type="text" />
+        论文编号：<input class="textbox-value upload-input" id="txtAddVersion" name="txtAddVersion" type="text" />
+      
     </div><br />
+    <div>  论文简介：<input class="textbox-value upload-input" id="txtAddShow" name="txtAddShow" type="text" /></div><br />
     <div>
         论文价格：<input class="textbox-value upload-input" name="txtAddPrice" id="txtAddPrice" type="number" />
         论文类别：<select name="Type" class="selected" id="txtAddType">
@@ -244,40 +307,61 @@
             <option value="8">游戏作品</option>
         </select>
     </div>
+    <br />
+    <div>
+        阅读数量：<input class="textbox-value upload-input" id="txtAddReadNum" name="txtAddReadNum" type="text" />
+        购买数量：<input class="textbox-value upload-input" id="txtAddPayNum" name="txtAddPayNum" type="text" />
+    </div>
     <div>
         <table class="upload-table">
             <thead>
                 <tr>
-                    <th width="35%">附件选择</th>
-                    <th width="15%">点击上传</th>
-                    <th width="50%">文件名称</th>
+                    <th width="32%" style="text-align:center">附件选择</th>
+                    <th width="18%" style="text-align:center">点击上传</th>
+                    <th width="50%" style="text-align:center">文件名称</th>
                 </tr>
             </thead>
             <tr>
                 <td><input type="file" id="Cfile" name="Cfile" /></td>
-                <td><button type="button" name="submitName" class="easyui-linkbutton l-btn l-btn-small" id="uploadCode" style="width:75px">上传论文</button></td>
+                <td><button type="button" name="submitName" class="easyui-linkbutton l-btn l-btn-small" id="uploadCode" style="width:100px">上传论文</button></td>
                 <td><span id="t_Cfile" class="file-name"></span><input type="hidden" id="t_guid" /></td>
 
             </tr>
             <tr>
                 <td><input type="file" id="Vfile" name="Vfile" /></td>
-                <td><button type="button" name="submitName" class="easyui-linkbutton l-btn l-btn-small" id="uploadVideo" style="width:75px">上传视频</button></td>
+                <td><button type="button" name="submitName" class="easyui-linkbutton l-btn l-btn-small" id="uploadVideo" style="width:100px">上传视频</button></td>
                 <td><span id="t_Vfile" class="file-name"></span></td>
             </tr>
             <tr>
+                <td><input type="file" id="VfileZip" name="VfileZip" /></td>
+                <td><button type="button" name="submitName" class="easyui-linkbutton l-btn l-btn-small" id="uploadVideoZip" style="width:100px">上传视频压缩包</button></td>
+                <td><span id="t_VfileZip" class="file-name"></span></td>
+            </tr>
+
+            <tr>
                 <td><input type="file" id="file1" name="file1" /></td>
-                <td><button type="button" name="submitName" class="easyui-linkbutton l-btn l-btn-small" id="uploadImg1" style="width:75px">上传图片</button></td>
+                <td><button type="button" name="submitName" class="easyui-linkbutton l-btn l-btn-small" id="uploadImg1" style="width:100px">上传图片</button></td>
                 <td><span id="t_file1" class="file-name"></span></td>
             </tr>
             <tr>
                 <td><input type="file" id="file2" name="file2" /></td>
-                <td><button type="button" name="submitName" class="easyui-linkbutton l-btn l-btn-small" id="uploadImg2" style="width:75px">上传图片</button></td>
+                <td><button type="button" name="submitName" class="easyui-linkbutton l-btn l-btn-small" id="uploadImg2" style="width:100px">上传图片</button></td>
                 <td><span id="t_file2" class="file-name"></span></td>
             </tr>
             <tr>
                 <td><input type="file" id="file3" name="file3" /></td>
-                <td><button type="button" name="submitName" class="easyui-linkbutton l-btn l-btn-small" id="uploadImg3" style="width:75px">上传图片</button></td>
+                <td><button type="button" name="submitName" class="easyui-linkbutton l-btn l-btn-small" id="uploadImg3" style="width:100px">上传图片</button></td>
                 <td><span id="t_file3" class="file-name"></span></td>
+            </tr>
+            <tr>
+                <td><input type="file" id="file4" name="file4" /></td>
+                <td><button type="button" name="submitName" class="easyui-linkbutton l-btn l-btn-small" id="uploadImg4" style="width:100px">上传图片</button></td>
+                <td><span id="t_file4" class="file-name"></span></td>
+            </tr>
+            <tr>
+                <td><input type="file" id="file5" name="file5" /></td>
+                <td><button type="button" name="submitName" class="easyui-linkbutton l-btn l-btn-small" id="uploadImg5" style="width:100px">上传图片</button></td>
+                <td><span id="t_file5" class="file-name"></span></td>
             </tr>
         </table>
     </div>

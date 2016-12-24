@@ -24,13 +24,6 @@ namespace eUI.DAL
                 StringBuilder sbSIOne = new StringBuilder();
                 sbSIOne.AppendFormat("INSERT INTO userrecord  (UserId,Email,Name,Password,Flag) VALUES('{0}','{1}','{2}','{3}',0)", userId, email, name, password);
                 int result = DBHelper.ExcuteNoQuerySql(sbSIOne.ToString());
-                if (result == 1)
-                {
-                    if (!SendActivationEmail(userId, email))
-                    {
-                        result = 2;
-                    }
-                }
                 return result;
             }
             else
@@ -57,9 +50,25 @@ namespace eUI.DAL
         public DataTable UserLogin(string password, string email)
         {
             StringBuilder sbSI = new StringBuilder();
-            sbSI.AppendFormat("select * from userrecord  where email='{0}' and password='{1}' and flag=1", email, password);
+            sbSI.AppendFormat("select * from userrecord  where email='{0}' and password='{1}'", email, password);
             DataTable dt = DBHelper.SearchSql(sbSI.ToString());
             return dt;
+        }
+
+        public int AdminLogin(string name, string password)
+        {
+            StringBuilder sbSI = new StringBuilder();
+            sbSI.AppendFormat("select * from adminLogin  where user='{0}' and password='{1}'", name, password);
+            DataTable dt = DBHelper.SearchSql(sbSI.ToString());
+            return dt.Rows.Count;
+        }
+
+        public int AdminResetPsw(string name, string Opassword, string Npassword, string ReNadminName)
+        {
+            StringBuilder sbSI = new StringBuilder();
+            sbSI.AppendFormat("update  adminLogin set password='{0}', user='{1}'  where user='{2}' and password='{3}'", Npassword,ReNadminName, name, Opassword);
+            int result = DBHelper.ExcuteNoQuerySql(sbSI.ToString());
+            return result;
         }
 
         private bool SendActivationEmail(string userId, string email)

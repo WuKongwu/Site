@@ -249,7 +249,7 @@
                             <div class="form-box">
                                 <form name="login" style="" autocomplete="off" novalidate="novalidate">
                                     <dl>
-                                        <dt>用户账号</dt>
+                                        <dt>邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱</dt>
                                         <dd>
                                             <input type="text" class="ipt" name="username" placeholder="邮箱/手机号码" value="">
                                         </dd>
@@ -276,35 +276,42 @@
                     <div id="reg_content" class="modal-content">
                         <div class="login-box ">
                             <div class="form-box">
-                                <form name="register" autocomplete="off" novalidate="novalidate">
+                                <form id="register_fom" method="post" action="/Login/UserRegist">
                                     <dl>
-                                        <dt>注册邮箱</dt>
+                                        <dt>用 户 名</dt>
                                         <dd>
-                                            <input name="password" type="password" placeholder="请输入邮箱">
+                                            <input id="reg_name" name="name" type="text" placeholder="请输入用户名" maxlength="8" autocomplete="off">
+                                            <label class="reg-error name-error"></label>
                                         </dd>
                                     </dl>
                                     <dl>
                                         <dt>用户密码</dt>
                                         <dd>
-                                            <input name="password" type="password" placeholder="请输入登录密码">
+
+                                            <input id="password" name="Onepassword" type="password" placeholder="请输入登录密码" maxlength="12" autocomplete="off">
+                                            <label class="reg-error password-error"></label>
                                         </dd>
                                     </dl>
                                     <dl>
                                         <dt>确认密码</dt>
                                         <dd>
-                                            <input name="repassword" type="password" placeholder="请再次输入登录密码">
+                                            <input id="reg_password" name="password" type="password" placeholder="请再次输入登录密码" maxlength="12" autocomplete="off">
+                                            <label class="reg-error reg-password-error"></label>
                                         </dd>
                                     </dl>
+
                                     <dl>
-                                        <dt>用户昵称</dt>
+                                        <dt>注册邮箱</dt>
                                         <dd>
-                                            <input name="nickname" type="text" placeholder="请输入用户昵称">
+                                            <input id="reg_mail" name="email" type="email" placeholder="请输入邮箱" autocomplete="off">
+                                            <label class="reg-error mail-error"></label>
                                         </dd>
                                     </dl>
                                     <dl>
                                         <dt>&nbsp;</dt>
                                         <dd>
-                                            <button>注册</button>
+                                            <button id="reg_btn" type="button">注册</button>
+                                            <label class="reg-error back-error"></label>
                                         </dd>
                                     </dl>
                                 </form>

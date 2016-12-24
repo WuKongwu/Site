@@ -21,5 +21,9 @@ namespace eUI.BLL
             user.total = userInfoDAL.getCount(userInfo);
             return user;
         }
+        public bool DeteleUserRecord(int id)
+        {
+            return userInfoDAL.DeteleUserRecord(id);
+        }
     }
 }

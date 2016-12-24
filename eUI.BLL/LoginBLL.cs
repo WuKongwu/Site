@@ -31,5 +31,17 @@ namespace eUI.BLL
           userRecordList.rows = dt.toList<UserRecord>();
           return userRecordList;
       }
+
+      public int AdminLogin(string name,string password)
+      {
+          int result = loginDAL.AdminLogin(name, password);
+          return result;
+      }
+      public int AdminResetPws(string name, string Opassword, string Npassword, string ReNadminName)
+      {
+          int result = loginDAL.AdminResetPsw(name, Opassword, Npassword, ReNadminName);
+          return result;
+      }
+
     }
 }

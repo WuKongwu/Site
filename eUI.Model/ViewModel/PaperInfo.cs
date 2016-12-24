@@ -20,11 +20,17 @@ namespace eUI.Model.ViewModel
         public string ImgA { get; set; }
         public string ImgB { get; set; }
         public string ImgC { get; set; }
+        public string ImgD { get; set; }
+        public string ImgE { get; set; }
         public string imgPath { get; set; }
         public int ReadCount { get; set; }
         public int BuyCount { get; set; }
         public string FileUrl { get; set; }
         public string Code { get; set; }
+        public string VideoZip { get; set; }
+        public string Version { get; set; }
+        public int PayNum { get; set; }
+        public int ReadNum { get; set; }
 
     }
 }

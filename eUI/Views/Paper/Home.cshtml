@@ -444,7 +444,7 @@
                         </ul>
                     </div>
                     <div class="cont-title">
-                        <h3>随机作品</h3>
+                        <h3>热点作品</h3>
                     </div>
                     <div class="job-task-list">
                         <ul class="job-task-list-img">
@@ -552,7 +552,7 @@
                             <div class="form-box">
                                 <form name="login" id="login_fom" autocomplete="off" novalidate="novalidate" method="post">
                                     <dl>
-                                        <dt>用户账号</dt>
+                                        <dt>邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱</dt>
                                         <dd>
                                             <input id="login_mail" type="text" class="ipt" name="email" placeholder="邮箱地址" value="">
                                             <label class="reg-error mail-login-error"></label>
@@ -585,10 +585,10 @@
                             <div class="form-box">
                                 <form id="register_fom" method="post" action="/Login/UserRegist">
                                     <dl>
-                                        <dt>注册邮箱</dt>
+                                        <dt>用 户 名</dt>
                                         <dd>
-                                            <input id="reg_mail" name="email" type="email" placeholder="请输入邮箱" autocomplete="off">
-                                            <label class="reg-error mail-error"></label>
+                                            <input id="reg_name" name="name" type="text" placeholder="请输入用户名" maxlength="8" autocomplete="off">
+                                            <label class="reg-error name-error"></label>
                                         </dd>
                                     </dl>
                                     <dl>
@@ -606,11 +606,12 @@
                                             <label class="reg-error reg-password-error"></label>
                                         </dd>
                                     </dl>
+                                   
                                     <dl>
-                                        <dt>用户昵称</dt>
+                                        <dt>注册邮箱</dt>
                                         <dd>
-                                            <input id="reg_name" name="name" type="text" placeholder="请输入用户昵称" maxlength="8" autocomplete="off">
-                                            <label class="reg-error name-error"></label>
+                                            <input id="reg_mail" name="email" type="email" placeholder="请输入邮箱" autocomplete="off">
+                                            <label class="reg-error mail-error"></label>
                                         </dd>
                                     </dl>
                                     <dl>

@@ -25,7 +25,7 @@ namespace eUI.BLL
             paperInit.newList = dtSearchNewList.toList<PaperList>();
             paperInit.newListCount = dtSearchNewList.Rows.Count;
 
-            DataTable dtSearchRandomList = paperDAL.SearchRandomList(null);
+            DataTable dtSearchRandomList = paperDAL.SearchPaperHotListBytype(null);
             paperInit.randomList = dtSearchRandomList.toList<PaperList>();
             paperInit.randomListCount = dtSearchRandomList.Rows.Count;
 
@@ -48,11 +48,11 @@ namespace eUI.BLL
             return paperListViewModel;
         }
 
-        public PaperListViewModel PaperSearchList(string key)
+        public PaperListViewModel PaperSearchList(string key, string type)
         {
 
             PaperListViewModel paperListViewModel = new PaperListViewModel();
-            DataTable dtTypeList = paperDAL.SearchPaperList(key);
+            DataTable dtTypeList = paperDAL.SearchPaperList(key,type);
 
             DataTable dtSearchRandomList = paperDAL.SearchRandomList(null);
 
@@ -81,6 +81,10 @@ namespace eUI.BLL
                 if (!string.IsNullOrEmpty(ImgB)) { imgList.Add(ImgB); }
                 string ImgC = dtPaperDetail.Rows[0]["ImgC"].ToString() ?? "";
                 if (!string.IsNullOrEmpty(ImgC)) { imgList.Add(ImgC); }
+                string ImgD = dtPaperDetail.Rows[0]["ImgD"].ToString() ?? "";
+                if (!string.IsNullOrEmpty(ImgD)) { imgList.Add(ImgD); }
+                string ImgE = dtPaperDetail.Rows[0]["ImgE"].ToString() ?? "";
+                if (!string.IsNullOrEmpty(ImgE)) { imgList.Add(ImgE); }
             }
             paperDetailViewModel.detail = dtPaperDetail.toList<PaperInfo>();
             DataTable dtSearchPaperHotListBytype = paperDAL.SearchPaperHotListBytype(paperDetailViewModel.detail[0].Type.ToString());

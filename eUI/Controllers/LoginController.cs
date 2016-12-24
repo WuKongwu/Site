@@ -66,13 +66,9 @@ namespace easyUITest.Controllers
             {
                 return Json(JsonResult("false", "注册失败，请重新注册！"));
             }
-            else if (result == 2)
-            {
-                return Json(JsonResult("false", "发送注册邮箱激活信息失败！"));
-            }
             else
             {
-                return Json(JsonResult("true", "注册成功,请到注册邮箱激活后登陆！"));
+                return Json(JsonResult("true", "注册成功！"));
             }
 
         }

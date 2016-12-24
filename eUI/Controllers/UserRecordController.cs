@@ -28,5 +28,13 @@ namespace easyUITest.Controllers
             UserRecordList userRecordList = bll.getUserList(userRecord);
             return Json(userRecordList,JsonRequestBehavior.AllowGet);
         }
+
+         [Authentication]
+         public ActionResult Detele(int id)
+         {
+             UserRecordBLL bll = new UserRecordBLL();
+             bool b = bll.DeteleUserRecord(id);
+             return Json(new { success = b }, JsonRequestBehavior.AllowGet);
+         }
     }
 }

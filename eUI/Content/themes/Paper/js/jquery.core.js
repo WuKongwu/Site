@@ -203,7 +203,27 @@ $(function () {
         });
     });
 
+    //$(".type-search").off("click").on("click", function () {
+    //    var type = $("body").data("type");
+    //    var url = $("body").data("website") + "Paper/SearchTitleByType";
+    //    var key = $(".search-input").val();
+       
+    //    $.ajax({
+    //        url: url,
+    //        type: "POST",
+    //        dataType: "html",
+    //        cache: false,
+    //        headers: { "Cache-Control": "no-cache" },
+    //        data: { key: key ,type:type},
+    //        success: function (data) {
+    //            $(".paper-detail.box3").html(data);
+    //        },
+    //        error: function (e) {
 
+    //        }
+    //    });
+
+    //});
 
     $("#WxPay").off("click").on("click", function () {
         var stats = $(".user-log-info").css("display");
@@ -321,6 +341,8 @@ $(function () {
         }
         return result;
     }
+
+
 
 
     var flagLog = "true";

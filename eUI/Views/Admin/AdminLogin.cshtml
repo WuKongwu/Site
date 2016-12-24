@@ -12,13 +12,24 @@
 </head>
 <body>
     <div>
-    <div class="login-bg-img">
-        <div class="login-bg-name">账号：<input type="text" id="adminName" /></div>
-        <div class="login-bg-pws">密码：<input type="password" id="adminPaw" /></div>
-        <button id="admin_login" class="login-bg-btn">登录</button>
-        <label class="login-bg-message"></label>
-    </div>
+        <div class="login-bg-img">
+            <div class="login-bg-name">账号：<input type="text" id="adminName" /></div>
+            <div class="login-bg-pws">密码：<input type="password" id="adminPaw" /></div>
+            <button id="admin_login" class="login-bg-btn">登录</button>
+            <div style=" position: absolute; top: 200px;right: 31px;"><a id="resetPw">修改密码</a></div>
+            <label class="login-bg-message"></label>
+            <div class="admin-popup">
+                <a class="close-pop" >关闭</a>
+                <div class="login-bg-name">旧账号：<input type="text" id="ReadminName" /></div>
+                <div class="login-bg-pws">旧密码：<input type="password" id="ReadminOPaw" /></div>
+                <hr style="position: absolute;top: 130px;width: 100%;border: none; border-top: 1px solid #e2e2e2;">
+                <div class="login-bg-opws">新账号：<input type="text" id="ReNadminName" /></div>
+                <div class="login-bg-opws1">新密码：<input type="password" id="ReadminNPaw" /></div>
+                <button id="admin_reset" class="login-bg-obtn">设置</button>
+            </div>
+        </div>
         <div class="login-bg-info">启源科技论文管理应用程序 V1.0</div>
     </div>
+    
 </body>
 </html>

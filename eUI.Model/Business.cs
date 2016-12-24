@@ -15,5 +15,7 @@ namespace eUI.Model
         public virtual string Name { get; set; }
         public virtual decimal Price { get; set; }
         public virtual string Title { get; set; }
+        public virtual decimal Total { get; set; }
+        public virtual string  Version { get; set; }
     }
 }

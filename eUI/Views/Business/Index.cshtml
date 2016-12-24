@@ -13,12 +13,24 @@
         查询条件：<div style="padding: 5px;border: 1px solid #95B8E7;margin: 5px 0;">
             姓名：<input class="textbox-value easyui-textbox" id="txtSearchUserName" type="text" />
             订单号：<input class="textbox-value easyui-textbox" id="txtSearchOrderNumber" type="text" />
-            论文标题：<input class="textbox-value easyui-textbox" id="txtSearchTitle" type="text" /><br /><br />
+            论文标题：<input class="textbox-value easyui-textbox" id="txtSearchTitle" type="text" />
+                 论文编号：<input class="textbox-value easyui-textbox" id="txtSearchVersion" type="text" />
+        <br /><br />
             <div>
-            交易起止时间：<input id="txtSearchPayDateStart" type="date" class="easyui-textbox" />——<input id="txtSearchPayDateEnd" class="easyui-textbox" type="date" /></div>
+                交易起止时间：<input id="txtSearchPayDateStart" type="date" class="easyui-textbox" />——<input id="txtSearchPayDateEnd" class="easyui-textbox" type="date" />
+            </div>
         </div>
 
         <button id="btnSearch" class="easyui-linkbutton" style="width:80px;">查询</button>
     </div>
 </div>
 <div id="usergrid"></div>
+<div class="total" style="
+    margin-top: 20px;
+">
+    当前总价：<sapn id="business_total" style="
+    color: red;
+    font-weight: bolder;
+">250</sapn>元
+</div>
+
