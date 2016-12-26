@@ -20,5 +20,26 @@ namespace eUI.BLL
             footLinkList.total = footLinkDAL.getCount(model);
             return footLinkList;
         }
+        public bool DeteleFootLink(int id)
+        {
+            return footLinkDAL.DeteleFootLink(id);
+        }
+        public bool SaveFootLink(FootLinkViewModel mode)
+        {
+            bool b = false;
+            if (mode.Id > 0)
+            {
+                b = footLinkDAL.UpdateFootLink(mode);
+            }
+            else
+            {
+                b = footLinkDAL.InsertFootLink(mode);
+            }
+            return b;
+        }
+        public FootLinkViewModel GetFootLinkById(int id)
+        {
+            return footLinkDAL.GetFootLinkId(id).toList<FootLinkViewModel>().FirstOrDefault();
+        }
     }
 }
