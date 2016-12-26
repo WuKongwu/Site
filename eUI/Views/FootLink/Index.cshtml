@@ -1,0 +1,38 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Scripts.Render(eUI.Common.JsFiles.FootLink)
+<script src="~/Js/ajaxfileupload.js"></script>
+<script src="~/Style/jquery.uploadify-v2.1.4/jquery.uploadify.v2.1.4.js" type="text/javascript"></script>
+<script src="~/Style/jquery.uploadify-v2.1.4/swfobject.js" type="text/javascript"></script>
+<script src="~/Style/jquery.uploadify-v2.1.4/jquery.uploadify.v2.1.4.min.js" type="text/javascript"></script>
+<link href="~/Style/jquery.uploadify-v2.1.4/uploadify.css" rel="stylesheet" type="text/css" />
+<div style="font-size: 12px;padding: 10px 0;">
+    <div>
+        <button id="btnAdd" class="easyui-linkbutton" style="width:80px;" onclick="Add()">添加</button>
+    </div>
+</div>
+<div id="papergrid"></div>
+<div id="dlg" class="easyui-window" title="页脚图片" data-options="iconCls:'icon-save'" style="width:700px;height:350px;padding:10px;position: relative;">
+    <div><input type="hidden" id="Id" /></div>
+    <div>
+        <table class="upload-table">
+            <thead>
+            </thead>
+            <tr><td>图片连接地址</td><td><input type="text" /></td></tr>
+            <tr>
+                <td>图片地址</td>
+                <td><input type="file" id="Cfile" name="Cfile" /><button type="button" name="submitName" class="easyui-linkbutton l-btn l-btn-small" id="uploadCode" style="width:100px">上传图片</button></td>
+                <td><span id="t_Cfile" class="file-name"></span><input type="hidden" id="t_guid" /></td>
+            </tr>
+        </table>
+    </div>
+ 
+    <div><button type="button" name="submitName" class="upload-button" id="submit" style=" top: 100px;right: inherit;">提交</button></div>
+
+</div>
+<script>
+    function Add() {
+        $('#dlg').window('open');
+    }
+</script>

@@ -147,6 +147,7 @@
     <Compile Include="Controllers\Authentication.cs" />
     <Compile Include="Controllers\BusinessController.cs" />
     <Compile Include="Controllers\ExportController.cs" />
+    <Compile Include="Controllers\FootLinkController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HttpPost.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -657,6 +658,7 @@
     <Content Include="Js\common.js" />
     <Content Include="Js\EUIIndex.js" />
     <Content Include="easyUI\Extension\GridToExport.js" />
+    <Content Include="Js\Footlink\Index.js" />
     <Content Include="Js\jquery.fileupload.js" />
     <Content Include="Js\jquery.iframe-transport.js" />
     <Content Include="Js\jquery.ui.widget.js" />
@@ -1111,6 +1113,7 @@
     <Content Include="Views\SubPage\TwoPage.cshtml" />
     <Content Include="Views\SubPage\ThreePage.cshtml" />
     <Content Include="Views\ToolDownload\ToolDownload.cshtml" />
+    <Content Include="Views\FootLink\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1123,10 +1126,6 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\下载\WxPayAPI_CS_v3\WxPayAPI_CS_v3\WxPayAPI_CS_v3\WxPayAPI\WxPayAPI\WxPayAPI.csproj">
-      <Project>{25911370-f06a-4956-8ee3-659a7ba14961}</Project>
-      <Name>WxPayAPI</Name>
-    </ProjectReference>
     <ProjectReference Include="..\eUI.BLL\eUI.BLL.csproj">
       <Project>{8b17ff98-f958-415e-8893-499afc73923d}</Project>
       <Name>eUI.BLL</Name>
@@ -1138,6 +1137,10 @@
     <ProjectReference Include="..\eUI.Model\eUI.Model.csproj">
       <Project>{8d1b7785-acf7-47ce-8fd0-1c7efe4ebab2}</Project>
       <Name>eUI.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WxPayAPI\WxPayAPI\WxPayAPI.csproj">
+      <Project>{25911370-f06a-4956-8ee3-659a7ba14961}</Project>
+      <Name>WxPayAPI</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
