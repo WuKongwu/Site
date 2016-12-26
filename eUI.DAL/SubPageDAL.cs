@@ -13,14 +13,14 @@ namespace eUI.DAL
     {
         public DataTable SearchSubPageDAL()
         {
-            string str = string.Format("select * from subpage");
+            string str = string.Format("select * from subpageone");
 
             return DBHelper.SearchSql(str);
         }
 
         public DataTable SearchSubPageByIdDAL(string id)
         {
-            string str = string.Format("select * from subpage where id="+id);
+            string str = string.Format("select * from subpageone");
 
             return DBHelper.SearchSql(str);
         }
@@ -29,26 +29,26 @@ namespace eUI.DAL
         public bool UpdateTemplate(PaperSubPage paperSubPage)
         {
             StringBuilder sbAddUser = new StringBuilder();
-            string GetSessionWithDsmId = string.Format(@"update subpage set DevelopmentToolPage='{0}',TemplatePage ='{1}' where Id ='{2}'",
-                paperSubPage.DevelopmentToolPage, paperSubPage.TemplatePage, paperSubPage.Id);
-            int iResult = DBHelper.ExcuteNoQuerySql(GetSessionWithDsmId);
+            sbAddUser =sbAddUser.Append("update subpageone set ");
+            if (!string.IsNullOrEmpty(paperSubPage.payguide)) {
+                sbAddUser = sbAddUser.Append("payguide='" + paperSubPage.payguide + "'");
+            }
+            else if (!string.IsNullOrEmpty(paperSubPage.creditguarantee)) {
+                sbAddUser = sbAddUser.Append("creditguarantee='" + paperSubPage.creditguarantee + "'");
+            }
+            else if (!string.IsNullOrEmpty(paperSubPage.aboutus))
+            {
+                sbAddUser = sbAddUser.Append("aboutus='" + paperSubPage.aboutus + "'");
+            }
+            sbAddUser = sbAddUser.Append(" where id ="+paperSubPage.id);
+
+            int iResult = DBHelper.ExcuteNoQuerySql(sbAddUser.ToString());
             if (iResult == 1)
                 return true;
             else
                 return false;
         }
 
-        public bool Input(PaperSubPage paperSubPage)
-        {
-            StringBuilder sbAddUser = new StringBuilder();
-            string GetSessionWithDsmId = string.Format(@"INSERT INTO subpage 
-                (DevelopmentToolPage,TemplatePage) 
-                VALUES('{0}','{1}')", paperSubPage.DevelopmentToolPage, paperSubPage.TemplatePage);
-            int iResult = DBHelper.ExcuteNoQuerySql(GetSessionWithDsmId);
-            if (iResult == 1)
-                return true;
-            else
-                return false;
-        }
+        
     }
 }

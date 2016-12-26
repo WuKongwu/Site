@@ -1,0 +1,25 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model eUI.Model.ViewModel.PaperSubPageList
+@Scripts.Render(eUI.Common.JsFiles.SubPage)
+<link href="~/Style/kindeditor-4.1.7/themes/default/default.css" rel="stylesheet" />
+<script src="~/Style/kindeditor-4.1.7/kindeditor-min.js"></script>
+<script src="~/Style/kindeditor-4.1.7/lang/zh_CN.js"></script>
+
+
+<form action="/SubPage/SaveTwo">
+
+    <div id="edit_sub" class="" title="模板编辑页面">
+        <input type="hidden" name="id" value="@Model.rows[0].id" />
+        <div>
+            <h3>信誉保证</h3><textarea id="creditguarantee" name="creditguarantee">@Model.rows[0].creditguarantee</textarea>
+
+        </div>
+        <br />
+        <button type="submit" name="submitName" class="easyui-linkbutton l-btn l-btn-large">保存</button>
+
+    </div>
+</form>
+

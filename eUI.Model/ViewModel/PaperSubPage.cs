@@ -8,8 +8,9 @@ namespace eUI.Model.ViewModel
 {
     public class PaperSubPage
     {
-        public int Id { get; set; }
-        public string DevelopmentToolPage { get; set; }
-        public string TemplatePage { get; set; }
+        public int id { get; set; }
+        public string payguide { get; set; }
+        public string creditguarantee { get; set; }
+        public string aboutus { get; set; }
     }
 }

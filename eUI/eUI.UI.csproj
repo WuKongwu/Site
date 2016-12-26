@@ -154,6 +154,7 @@
     <Compile Include="Controllers\PayController.cs" />
     <Compile Include="Controllers\PermissionSetController.cs" />
     <Compile Include="Controllers\SubPageController.cs" />
+    <Compile Include="Controllers\ToolDownloadController.cs" />
     <Compile Include="Controllers\UploadController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\UserRecordController.cs" />
@@ -660,6 +661,7 @@
     <Content Include="Js\jquery.iframe-transport.js" />
     <Content Include="Js\jquery.ui.widget.js" />
     <Content Include="Js\Report\UserColumnReport.js" />
+    <Content Include="Js\ToolDownload\tooldownload.js" />
     <Content Include="Js\upload.js" />
     <Content Include="Js\UserInfo.js" />
     <Content Include="Content\themes\Paper\js\jquery.core.js" />
@@ -1104,8 +1106,11 @@
     <Content Include="Style\jquery.uploadify-v2.1.4\com\adobe\webapis\URLLoaderBase.as" />
     <Content Include="Style\jquery.uploadify-v2.1.4\uploadify.fla" />
     <Content Include="Style\jquery.uploadify-v2.1.4\uploadify.php" />
-    <Content Include="Views\SubPage\Index.cshtml" />
+    <Content Include="Views\SubPage\OnePage.cshtml" />
     <Content Include="Views\Admin\AdminLogin.cshtml" />
+    <Content Include="Views\SubPage\TwoPage.cshtml" />
+    <Content Include="Views\SubPage\ThreePage.cshtml" />
+    <Content Include="Views\ToolDownload\ToolDownload.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

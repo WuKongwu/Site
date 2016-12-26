@@ -19,32 +19,60 @@ namespace easyUITest.Controllers
         //    var model = subPageBLL.SearchTemplate();
         //    return Json(new { success = true, models = model }, JsonRequestBehavior.AllowGet);
         //}
-         [Authentication] 
+        [Authentication]
         public ActionResult Index()
         {
             return View();
         }
-         [Authentication] 
-        public ActionResult SearchTemplate()
+        [Authentication]
+
+        public ActionResult OnePage()
         {
             SubPageBLL subPageBLL = new SubPageBLL();
             PaperSubPageList list = subPageBLL.SearchTemplate();
-            return Json(list, JsonRequestBehavior.AllowGet);
+            return View(list);
         }
-         [Authentication] 
-        public ActionResult GetSubPageById(string id)
+        [Authentication]
+        public ActionResult TwoPage()
         {
             SubPageBLL subPageBLL = new SubPageBLL();
-            PaperSubPageList list = subPageBLL.SearchTemplateById(id);
-            return Json(new { success = true, models = list }, JsonRequestBehavior.AllowGet);
+            PaperSubPageList list = subPageBLL.SearchTemplate();
+            return View(list);
         }
-         [Authentication] 
-        public ActionResult Save(PaperSubPage param)
+        public ActionResult ThreePage()
+        {
+            SubPageBLL subPageBLL = new SubPageBLL();
+            PaperSubPageList list = subPageBLL.SearchTemplate();
+            return View(list);
+        }
+
+
+        [Authentication]
+        [ValidateInput(false)]
+        public ActionResult SaveOne(PaperSubPage param)
         {
             SubPageBLL subPageBLL = new SubPageBLL();
 
             bool b = subPageBLL.SaveTemplate(param);
-            return Json(new { success = b }, JsonRequestBehavior.AllowGet);
+            return RedirectToAction("OnePage");
+        }
+        [Authentication]
+        [ValidateInput(false)]
+        public ActionResult SaveTwo(PaperSubPage param)
+        {
+            SubPageBLL subPageBLL = new SubPageBLL();
+
+            bool b = subPageBLL.SaveTemplate(param);
+            return RedirectToAction("TwoPage");
+        }
+        [Authentication]
+        [ValidateInput(false)]
+        public ActionResult SaveThree(PaperSubPage param)
+        {
+            SubPageBLL subPageBLL = new SubPageBLL();
+
+            bool b = subPageBLL.SaveTemplate(param);
+            return RedirectToAction("ThreePage");
         }
     }
 }

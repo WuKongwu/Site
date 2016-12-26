@@ -35,17 +35,12 @@ namespace eUI.BLL
         }
         public bool SaveTemplate(PaperSubPage paperSubPage)
         {
-            paperSubPage.TemplatePage = ReplaceTheHtmlTag(paperSubPage.TemplatePage);
-            paperSubPage.DevelopmentToolPage = ReplaceTheHtmlTag(paperSubPage.DevelopmentToolPage);
+           
             bool b = false;
             SubPageDAL subPageDAL = new SubPageDAL();
-            if (paperSubPage.Id > 0)
+            if (paperSubPage.id > 0)
             {
                 b = subPageDAL.UpdateTemplate(paperSubPage);
-            }
-            else
-            {
-                b = subPageDAL.Input(paperSubPage);
             }
             return b;
         }
