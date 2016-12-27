@@ -36,6 +36,7 @@ namespace eUI.Common
         public static string eUIMaskMsg = "/Js/EasyUIPlug/eUIMaskMsg.js?ver=" + ver;
         public static string UserRecord = "/Js/UserRecord/userRecord.js?ver=" + ver;
         public static string AdminInput = "/Js/Admin/admin.js?ver=" + ver;
+        public static string ToolDownload = "/Js/ToolDownload/tooldownload.js?ver=" + ver;
         public static string Business = "/Js/Business/business.js?ver=" + ver;
         public static string SubPage = "/Js/Business/subpage.js?ver=" + ver;
         public static string AdminLogin = "/Js/Admin/admin.login.js?ver=" + ver;

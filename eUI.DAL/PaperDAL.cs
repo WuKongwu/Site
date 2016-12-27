@@ -83,7 +83,7 @@ namespace eUI.DAL
         {
 
             StringBuilder sbSI = new StringBuilder();
-            sbSI.Append("select * from subpage");
+            sbSI.Append("select * from tooldownload");
 
             DataTable dtTypeList = DBHelper.SearchSql(sbSI.ToString());
 

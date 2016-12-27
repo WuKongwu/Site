@@ -1110,7 +1110,7 @@
     <Content Include="Views\Admin\AdminLogin.cshtml" />
     <Content Include="Views\SubPage\TwoPage.cshtml" />
     <Content Include="Views\SubPage\ThreePage.cshtml" />
-    <Content Include="Views\ToolDownload\ToolDownload.cshtml" />
+    <Content Include="Views\ToolDownload\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -35,7 +35,39 @@ function InitMenu() {
     });
 }
 
+function AddDownloadNum(url) {
+    var url = $("body").data("website") + "ToolDownload/AddDownloadNum";
+   
+    $.ajax({
+        url: url,
+        type: "POST",
+        dataType: "json",
+        cache: false,
+        headers: { "Cache-Control": "no-cache" },
+        data: data,
+        success: function (data) {
+            if (data.success == true) {
+                var codeUrl = data.data;
 
+                $("#wxPayCode").qrcode({
+                    width: 200,
+                    height: 200,
+                    text: codeUrl
+                });
+                $(".modal-content").css("display", "block");
+                $(".modal-backdrop").css("display", "block");
+                $("#wx_pay_pop").css("display", "block");
+
+
+            } else {
+                alert("微信生成订单时出现错误，请您重新支付！");
+            }
+        },
+        error: function (e) {
+
+        }
+    });
+}
 
 function InitTopMenu() {
 
@@ -224,6 +256,8 @@ $(function () {
     //    });
 
     //});
+
+ 
 
     $("#WxPay").off("click").on("click", function () {
         var stats = $(".user-log-info").css("display");

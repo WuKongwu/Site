@@ -44,7 +44,7 @@ namespace eUI.BLL
             paperListViewModel.paperInfoList.rows = dtTypeList.toList<PaperInfo>();
             paperListViewModel.randomList = dtSearchRandomList.toList<PaperList>();
             paperListViewModel.HotList = dtSearchPaperHotListBytype.toList<PaperList>();
-            paperListViewModel.paperSubPage = dtSubPage.toList<PaperSubPage>();
+            paperListViewModel.paperSubPage = dtSubPage.toList<ToolDownloadInfo>();
             return paperListViewModel;
         }
 
