@@ -81,16 +81,19 @@ namespace eUI.DAL
 
         public DataTable SearchPaperSubPage()
         {
-
             StringBuilder sbSI = new StringBuilder();
-            sbSI.Append("select * from subpage");
-
+            sbSI.Append("select * from tooldownload");
             DataTable dtTypeList = DBHelper.SearchSql(sbSI.ToString());
-
             return dtTypeList;
         }
 
-
+        public DataTable SearchFootLink()
+        {
+            StringBuilder sbSI = new StringBuilder();
+            sbSI.Append("select * from footlink");
+            DataTable dtTypeList = DBHelper.SearchSql(sbSI.ToString());
+            return dtTypeList;
+        }
 
         public DataTable SearchPaperList(string key,string type)
         {

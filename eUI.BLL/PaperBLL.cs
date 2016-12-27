@@ -28,6 +28,8 @@ namespace eUI.BLL
             DataTable dtSearchRandomList = paperDAL.SearchPaperHotListBytype(null);
             paperInit.randomList = dtSearchRandomList.toList<PaperList>();
             paperInit.randomListCount = dtSearchRandomList.Rows.Count;
+            DataTable dtFootLink = paperDAL.SearchFootLink();
+            paperInit.footLinkList = dtFootLink.toList<FootLinkViewModel>();
 
             return paperInit;
         }
@@ -39,12 +41,14 @@ namespace eUI.BLL
             DataTable dtSearchRandomList = paperDAL.SearchRandomList(type);
             DataTable dtSearchPaperHotListBytype = paperDAL.SearchPaperHotListBytype(type);
             DataTable dtSubPage = paperDAL.SearchPaperSubPage();
+         
             PaperInfoList PaperInfoList = new PaperInfoList();
             paperListViewModel.paperInfoList = PaperInfoList;
             paperListViewModel.paperInfoList.rows = dtTypeList.toList<PaperInfo>();
             paperListViewModel.randomList = dtSearchRandomList.toList<PaperList>();
             paperListViewModel.HotList = dtSearchPaperHotListBytype.toList<PaperList>();
-            paperListViewModel.paperSubPage = dtSubPage.toList<PaperSubPage>();
+            paperListViewModel.paperSubPage = dtSubPage.toList<ToolDownloadInfo>();
+           
             return paperListViewModel;
         }
 

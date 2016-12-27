@@ -34,8 +34,39 @@ function InitMenu() {
 
     });
 }
+function getRootPath() {
+    var strFullPath = window.document.location.href;
+    var strPath = window.document.location.pathname;
+    var pos = strFullPath.indexOf(strPath);
+    var prePath = strFullPath.substring(0, pos);
+    var postPath = strPath.substring(0, strPath.substr(1).indexOf('/') + 1);
 
+    return prePath;
+}
+function AddDownloadNum(downloadUrl, id) {
+    var url = $("body").data("website") + "ToolDownload/AddDownloadNum";
 
+    $.ajax({
+        url: url,
+        type: "POST",
+        dataType: "json",
+        cache: false,
+        headers: { "Cache-Control": "no-cache" },
+        data: { id: id },
+        success: function (data) {
+            if (data.success == true) {
+                $(".badge").html(data.num);
+
+                var newWin = window.open('', '_blank');
+
+                newWin.location.href = getRootPath() + downloadUrl;
+            }
+        },
+        error: function (e) {
+
+        }
+    });
+}
 
 function InitTopMenu() {
 
@@ -207,7 +238,7 @@ $(function () {
     //    var type = $("body").data("type");
     //    var url = $("body").data("website") + "Paper/SearchTitleByType";
     //    var key = $(".search-input").val();
-       
+
     //    $.ajax({
     //        url: url,
     //        type: "POST",
@@ -225,9 +256,11 @@ $(function () {
 
     //});
 
+
+
     $("#WxPay").off("click").on("click", function () {
         var stats = $(".user-log-info").css("display");
-      
+
         if (stats != "none") {
             var url = $("body").data("website") + "Paper/WXPayUrl";
             var data = $("#paperData").serialize();

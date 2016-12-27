@@ -67,6 +67,18 @@
         <member name="P:eUI.Model.Fakes.ShimBusiness.TitleSetString">
             <summary>设置 Business.set_Title(String value) 的 填充码</summary>
         </member>
+        <member name="P:eUI.Model.Fakes.ShimBusiness.TotalGet">
+            <summary>设置 Business.get_Total() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimBusiness.TotalSetDecimal">
+            <summary>设置 Business.set_Total(Decimal value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimBusiness.VersionGet">
+            <summary>设置 Business.get_Version() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimBusiness.VersionSetString">
+            <summary>设置 Business.set_Version(String value) 的 填充码</summary>
+        </member>
         <member name="T:eUI.Model.Fakes.ShimBusiness.AllInstances">
             <summary>为所有实例成员定义填充码</summary>
         </member>
@@ -111,6 +123,18 @@
         </member>
         <member name="P:eUI.Model.Fakes.ShimBusiness.AllInstances.TitleSetString">
             <summary>设置 Business.set_Title(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimBusiness.AllInstances.TotalGet">
+            <summary>设置 Business.get_Total() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimBusiness.AllInstances.TotalSetDecimal">
+            <summary>设置 Business.set_Total(Decimal value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimBusiness.AllInstances.VersionGet">
+            <summary>设置 Business.get_Version() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimBusiness.AllInstances.VersionSetString">
+            <summary>设置 Business.set_Version(String value) 的 填充码</summary>
         </member>
         <member name="T:eUI.Model.Fakes.ShimCountRecord">
             <summary>eUI.Model.CountRecord 的填充码类型</summary>
@@ -171,6 +195,78 @@
         </member>
         <member name="P:eUI.Model.Fakes.ShimCountRecord.AllInstances.TypeSetInt32">
             <summary>设置 CountRecord.set_Type(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="T:eUI.Model.Fakes.ShimFootLinkModel">
+            <summary>eUI.Model.FootLinkModel 的填充码类型</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.ShimFootLinkModel.#ctor">
+            <summary>初始化新的填充码实例</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.ShimFootLinkModel.#ctor(eUI.Model.FootLinkModel)">
+            <summary>初始化给定实例的新填充码</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.ShimFootLinkModel.BehaveAsCurrent">
+            <summary>为已填充的类型的所有方法分配“Current”行为</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.ShimFootLinkModel.BehaveAsNotImplemented">
+            <summary>为已填充的类型的所有方法分配“NotImplemented”行为</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimFootLinkModel.Behavior">
+            <summary>为已填充的类型的所有方法分配行为</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimFootLinkModel.Constructor">
+            <summary>设置 FootLinkModel.FootLinkModel() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimFootLinkModel.IdGet">
+            <summary>设置 FootLinkModel.get_Id() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimFootLinkModel.IdSetInt32">
+            <summary>设置 FootLinkModel.set_Id(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimFootLinkModel.ImageURLGet">
+            <summary>设置 FootLinkModel.get_ImageURL() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimFootLinkModel.ImageURLSetString">
+            <summary>设置 FootLinkModel.set_ImageURL(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimFootLinkModel.NameGet">
+            <summary>设置 FootLinkModel.get_Name() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimFootLinkModel.NameSetString">
+            <summary>设置 FootLinkModel.set_Name(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimFootLinkModel.SiteURLGet">
+            <summary>设置 FootLinkModel.get_SiteURL() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimFootLinkModel.SiteURLSetString">
+            <summary>设置 FootLinkModel.set_SiteURL(String value) 的 填充码</summary>
+        </member>
+        <member name="T:eUI.Model.Fakes.ShimFootLinkModel.AllInstances">
+            <summary>为所有实例成员定义填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimFootLinkModel.AllInstances.IdGet">
+            <summary>设置 FootLinkModel.get_Id() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimFootLinkModel.AllInstances.IdSetInt32">
+            <summary>设置 FootLinkModel.set_Id(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimFootLinkModel.AllInstances.ImageURLGet">
+            <summary>设置 FootLinkModel.get_ImageURL() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimFootLinkModel.AllInstances.ImageURLSetString">
+            <summary>设置 FootLinkModel.set_ImageURL(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimFootLinkModel.AllInstances.NameGet">
+            <summary>设置 FootLinkModel.get_Name() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimFootLinkModel.AllInstances.NameSetString">
+            <summary>设置 FootLinkModel.set_Name(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimFootLinkModel.AllInstances.SiteURLGet">
+            <summary>设置 FootLinkModel.get_SiteURL() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.ShimFootLinkModel.AllInstances.SiteURLSetString">
+            <summary>设置 FootLinkModel.set_SiteURL(String value) 的 填充码</summary>
         </member>
         <member name="T:eUI.Model.Fakes.ShimPaper">
             <summary>eUI.Model.Paper 的填充码类型</summary>
@@ -580,6 +676,12 @@
         <member name="M:eUI.Model.Fakes.StubBusiness.AttachBackingFieldToTitle">
             <summary>附加委托以将 StubBusiness.Title 作为具有支持字段的属性进行模拟。</summary>
         </member>
+        <member name="M:eUI.Model.Fakes.StubBusiness.AttachBackingFieldToTotal">
+            <summary>附加委托以将 StubBusiness.Total 作为具有支持字段的属性进行模拟。</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubBusiness.AttachBackingFieldToVersion">
+            <summary>附加委托以将 StubBusiness.Version 作为具有支持字段的属性进行模拟。</summary>
+        </member>
         <member name="F:eUI.Model.Fakes.StubBusiness.CreateDateGet">
             <summary>设置 baseModel.get_CreateDate() 的 stub</summary>
         </member>
@@ -643,6 +745,18 @@
         <member name="F:eUI.Model.Fakes.StubBusiness.TitleSetString">
             <summary>设置 Business.set_Title(String value) 的 stub</summary>
         </member>
+        <member name="F:eUI.Model.Fakes.StubBusiness.TotalGet">
+            <summary>设置 Business.get_Total() 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubBusiness.TotalSetDecimal">
+            <summary>设置 Business.set_Total(Decimal value) 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubBusiness.VersionGet">
+            <summary>设置 Business.get_Version() 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.Fakes.StubBusiness.VersionSetString">
+            <summary>设置 Business.set_Version(String value) 的 stub</summary>
+        </member>
         <member name="P:eUI.Model.Fakes.StubBusiness.CallBase">
             <summary>获取或设置一个值，该值指示是否应调用基方法而不调用回退行为</summary>
         </member>
@@ -681,6 +795,12 @@
         </member>
         <member name="P:eUI.Model.Fakes.StubBusiness.Title">
             <summary>设置 Business.get_Title() 的 stub</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubBusiness.Total">
+            <summary>设置 Business.get_Total() 的 stub</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubBusiness.Version">
+            <summary>设置 Business.get_Version() 的 stub</summary>
         </member>
         <member name="T:eUI.Model.Fakes.StubCountRecord">
             <summary>eUI.Model.CountRecord 的存根类型</summary>
@@ -771,6 +891,24 @@
         </member>
         <member name="P:eUI.Model.Fakes.StubCountRecord.Type">
             <summary>设置 CountRecord.get_Type() 的 stub</summary>
+        </member>
+        <member name="T:eUI.Model.Fakes.StubFootLinkModel">
+            <summary>eUI.Model.FootLinkModel 的存根类型</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubFootLinkModel.#ctor">
+            <summary>初始化新实例</summary>
+        </member>
+        <member name="M:eUI.Model.Fakes.StubFootLinkModel.InitializeStub">
+            <summary>初始化 type StubFootLinkModel 的新实例</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubFootLinkModel.CallBase">
+            <summary>获取或设置一个值，该值指示是否应调用基方法而不调用回退行为</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubFootLinkModel.InstanceBehavior">
+            <summary>获取或设置实例行为。</summary>
+        </member>
+        <member name="P:eUI.Model.Fakes.StubFootLinkModel.InstanceObserver">
+            <summary>获取或设置实例观察者。</summary>
         </member>
         <member name="T:eUI.Model.Fakes.StubPaper">
             <summary>eUI.Model.Paper 的存根类型</summary>
@@ -1282,6 +1420,114 @@
         <member name="P:eUI.Model.ViewModel.Fakes.ShimBusinessList.AllInstances.totalSetInt32">
             <summary>设置 BusinessList.set_total(Int32 value) 的 填充码</summary>
         </member>
+        <member name="T:eUI.Model.ViewModel.Fakes.ShimFootLinkList">
+            <summary>eUI.Model.ViewModel.FootLinkList 的填充码类型</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimFootLinkList.#ctor">
+            <summary>初始化新的填充码实例</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimFootLinkList.#ctor(eUI.Model.ViewModel.FootLinkList)">
+            <summary>初始化给定实例的新填充码</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimFootLinkList.BehaveAsCurrent">
+            <summary>为已填充的类型的所有方法分配“Current”行为</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimFootLinkList.BehaveAsNotImplemented">
+            <summary>为已填充的类型的所有方法分配“NotImplemented”行为</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimFootLinkList.Behavior">
+            <summary>为已填充的类型的所有方法分配行为</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimFootLinkList.Constructor">
+            <summary>设置 FootLinkList.FootLinkList() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimFootLinkList.rowsGet">
+            <summary>设置 FootLinkList.get_rows() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimFootLinkList.rowsSetListOfFootLinkModel">
+            <summary>设置 FootLinkList.set_rows(List`1&lt;FootLinkModel&gt; value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimFootLinkList.totalGet">
+            <summary>设置 FootLinkList.get_total() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimFootLinkList.totalSetInt32">
+            <summary>设置 FootLinkList.set_total(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="T:eUI.Model.ViewModel.Fakes.ShimFootLinkList.AllInstances">
+            <summary>为所有实例成员定义填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimFootLinkList.AllInstances.rowsGet">
+            <summary>设置 FootLinkList.get_rows() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimFootLinkList.AllInstances.rowsSetListOfFootLinkModel">
+            <summary>设置 FootLinkList.set_rows(List`1&lt;FootLinkModel&gt; value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimFootLinkList.AllInstances.totalGet">
+            <summary>设置 FootLinkList.get_total() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimFootLinkList.AllInstances.totalSetInt32">
+            <summary>设置 FootLinkList.set_total(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="T:eUI.Model.ViewModel.Fakes.ShimFootLinkViewModel">
+            <summary>eUI.Model.ViewModel.FootLinkViewModel 的填充码类型</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimFootLinkViewModel.#ctor">
+            <summary>初始化新的填充码实例</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimFootLinkViewModel.#ctor(eUI.Model.ViewModel.FootLinkViewModel)">
+            <summary>初始化给定实例的新填充码</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimFootLinkViewModel.BehaveAsCurrent">
+            <summary>为已填充的类型的所有方法分配“Current”行为</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimFootLinkViewModel.BehaveAsNotImplemented">
+            <summary>为已填充的类型的所有方法分配“NotImplemented”行为</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimFootLinkViewModel.Behavior">
+            <summary>为已填充的类型的所有方法分配行为</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimFootLinkViewModel.Constructor">
+            <summary>设置 FootLinkViewModel.FootLinkViewModel() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimFootLinkViewModel.ImageURLGet">
+            <summary>设置 FootLinkViewModel.get_ImageURL() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimFootLinkViewModel.ImageURLSetString">
+            <summary>设置 FootLinkViewModel.set_ImageURL(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimFootLinkViewModel.NameGet">
+            <summary>设置 FootLinkViewModel.get_Name() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimFootLinkViewModel.NameSetString">
+            <summary>设置 FootLinkViewModel.set_Name(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimFootLinkViewModel.SiteURLGet">
+            <summary>设置 FootLinkViewModel.get_SiteURL() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimFootLinkViewModel.SiteURLSetString">
+            <summary>设置 FootLinkViewModel.set_SiteURL(String value) 的 填充码</summary>
+        </member>
+        <member name="T:eUI.Model.ViewModel.Fakes.ShimFootLinkViewModel.AllInstances">
+            <summary>为所有实例成员定义填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimFootLinkViewModel.AllInstances.ImageURLGet">
+            <summary>设置 FootLinkViewModel.get_ImageURL() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimFootLinkViewModel.AllInstances.ImageURLSetString">
+            <summary>设置 FootLinkViewModel.set_ImageURL(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimFootLinkViewModel.AllInstances.NameGet">
+            <summary>设置 FootLinkViewModel.get_Name() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimFootLinkViewModel.AllInstances.NameSetString">
+            <summary>设置 FootLinkViewModel.set_Name(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimFootLinkViewModel.AllInstances.SiteURLGet">
+            <summary>设置 FootLinkViewModel.get_SiteURL() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimFootLinkViewModel.AllInstances.SiteURLSetString">
+            <summary>设置 FootLinkViewModel.set_SiteURL(String value) 的 填充码</summary>
+        </member>
         <member name="T:eUI.Model.ViewModel.Fakes.ShimImg">
             <summary>eUI.Model.ViewModel.Img 的填充码类型</summary>
         </member>
@@ -1501,11 +1747,29 @@
         <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.ImgCSetString">
             <summary>设置 PaperInfo.set_ImgC(String value) 的 填充码</summary>
         </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.ImgDGet">
+            <summary>设置 PaperInfo.get_ImgD() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.ImgDSetString">
+            <summary>设置 PaperInfo.set_ImgD(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.ImgEGet">
+            <summary>设置 PaperInfo.get_ImgE() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.ImgESetString">
+            <summary>设置 PaperInfo.set_ImgE(String value) 的 填充码</summary>
+        </member>
         <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.InfoGet">
             <summary>设置 PaperInfo.get_Info() 的 填充码</summary>
         </member>
         <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.InfoSetString">
             <summary>设置 PaperInfo.set_Info(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.PayNumGet">
+            <summary>设置 PaperInfo.get_PayNum() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.PayNumSetInt32">
+            <summary>设置 PaperInfo.set_PayNum(Int32 value) 的 填充码</summary>
         </member>
         <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.PriceGet">
             <summary>设置 PaperInfo.get_Price() 的 填充码</summary>
@@ -1519,6 +1783,12 @@
         <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.ReadCountSetInt32">
             <summary>设置 PaperInfo.set_ReadCount(Int32 value) 的 填充码</summary>
         </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.ReadNumGet">
+            <summary>设置 PaperInfo.get_ReadNum() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.ReadNumSetInt32">
+            <summary>设置 PaperInfo.set_ReadNum(Int32 value) 的 填充码</summary>
+        </member>
         <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.TitleGet">
             <summary>设置 PaperInfo.get_Title() 的 填充码</summary>
         </member>
@@ -1531,11 +1801,23 @@
         <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.TypeSetInt32">
             <summary>设置 PaperInfo.set_Type(Int32 value) 的 填充码</summary>
         </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.VersionGet">
+            <summary>设置 PaperInfo.get_Version() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.VersionSetString">
+            <summary>设置 PaperInfo.set_Version(String value) 的 填充码</summary>
+        </member>
         <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.VideoGet">
             <summary>设置 PaperInfo.get_Video() 的 填充码</summary>
         </member>
         <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.VideoSetString">
             <summary>设置 PaperInfo.set_Video(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.VideoZipGet">
+            <summary>设置 PaperInfo.get_VideoZip() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.VideoZipSetString">
+            <summary>设置 PaperInfo.set_VideoZip(String value) 的 填充码</summary>
         </member>
         <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.imgPathGet">
             <summary>设置 PaperInfo.get_imgPath() 的 填充码</summary>
@@ -1600,11 +1882,29 @@
         <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.AllInstances.ImgCSetString">
             <summary>设置 PaperInfo.set_ImgC(String value) 的 填充码</summary>
         </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.AllInstances.ImgDGet">
+            <summary>设置 PaperInfo.get_ImgD() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.AllInstances.ImgDSetString">
+            <summary>设置 PaperInfo.set_ImgD(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.AllInstances.ImgEGet">
+            <summary>设置 PaperInfo.get_ImgE() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.AllInstances.ImgESetString">
+            <summary>设置 PaperInfo.set_ImgE(String value) 的 填充码</summary>
+        </member>
         <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.AllInstances.InfoGet">
             <summary>设置 PaperInfo.get_Info() 的 填充码</summary>
         </member>
         <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.AllInstances.InfoSetString">
             <summary>设置 PaperInfo.set_Info(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.AllInstances.PayNumGet">
+            <summary>设置 PaperInfo.get_PayNum() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.AllInstances.PayNumSetInt32">
+            <summary>设置 PaperInfo.set_PayNum(Int32 value) 的 填充码</summary>
         </member>
         <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.AllInstances.PriceGet">
             <summary>设置 PaperInfo.get_Price() 的 填充码</summary>
@@ -1618,6 +1918,12 @@
         <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.AllInstances.ReadCountSetInt32">
             <summary>设置 PaperInfo.set_ReadCount(Int32 value) 的 填充码</summary>
         </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.AllInstances.ReadNumGet">
+            <summary>设置 PaperInfo.get_ReadNum() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.AllInstances.ReadNumSetInt32">
+            <summary>设置 PaperInfo.set_ReadNum(Int32 value) 的 填充码</summary>
+        </member>
         <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.AllInstances.TitleGet">
             <summary>设置 PaperInfo.get_Title() 的 填充码</summary>
         </member>
@@ -1630,11 +1936,23 @@
         <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.AllInstances.TypeSetInt32">
             <summary>设置 PaperInfo.set_Type(Int32 value) 的 填充码</summary>
         </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.AllInstances.VersionGet">
+            <summary>设置 PaperInfo.get_Version() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.AllInstances.VersionSetString">
+            <summary>设置 PaperInfo.set_Version(String value) 的 填充码</summary>
+        </member>
         <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.AllInstances.VideoGet">
             <summary>设置 PaperInfo.get_Video() 的 填充码</summary>
         </member>
         <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.AllInstances.VideoSetString">
             <summary>设置 PaperInfo.set_Video(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.AllInstances.VideoZipGet">
+            <summary>设置 PaperInfo.get_VideoZip() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.AllInstances.VideoZipSetString">
+            <summary>设置 PaperInfo.set_VideoZip(String value) 的 填充码</summary>
         </member>
         <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInfo.AllInstances.imgPathGet">
             <summary>设置 PaperInfo.get_imgPath() 的 填充码</summary>
@@ -1723,6 +2041,12 @@
         <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInit.allTypeListSetListOfPaperList">
             <summary>设置 PaperInit.set_allTypeList(List`1&lt;PaperList&gt; value) 的 填充码</summary>
         </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInit.footLinkListGet">
+            <summary>设置 PaperInit.get_footLinkList() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInit.footLinkListSetListOfFootLinkViewModel">
+            <summary>设置 PaperInit.set_footLinkList(List`1&lt;FootLinkViewModel&gt; value) 的 填充码</summary>
+        </member>
         <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInit.newListCountGet">
             <summary>设置 PaperInit.get_newListCount() 的 填充码</summary>
         </member>
@@ -1761,6 +2085,12 @@
         </member>
         <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInit.AllInstances.allTypeListSetListOfPaperList">
             <summary>设置 PaperInit.set_allTypeList(List`1&lt;PaperList&gt; value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInit.AllInstances.footLinkListGet">
+            <summary>设置 PaperInit.get_footLinkList() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInit.AllInstances.footLinkListSetListOfFootLinkViewModel">
+            <summary>设置 PaperInit.set_footLinkList(List`1&lt;FootLinkViewModel&gt; value) 的 填充码</summary>
         </member>
         <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperInit.AllInstances.newListCountGet">
             <summary>设置 PaperInit.get_newListCount() 的 填充码</summary>
@@ -1819,6 +2149,12 @@
         <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperList.DetailInfoSetString">
             <summary>设置 PaperList.set_DetailInfo(String value) 的 填充码</summary>
         </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperList.EdTimeGet">
+            <summary>设置 PaperList.get_EdTime() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperList.EdTimeSetDateTime">
+            <summary>设置 PaperList.set_EdTime(DateTime value) 的 填充码</summary>
+        </member>
         <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperList.IdGet">
             <summary>设置 PaperList.get_Id() 的 填充码</summary>
         </member>
@@ -1831,11 +2167,23 @@
         <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperList.InfoSetString">
             <summary>设置 PaperList.set_Info(String value) 的 填充码</summary>
         </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperList.NumberGet">
+            <summary>设置 PaperList.get_Number() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperList.NumberSetString">
+            <summary>设置 PaperList.set_Number(String value) 的 填充码</summary>
+        </member>
         <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperList.PriceGet">
             <summary>设置 PaperList.get_Price() 的 填充码</summary>
         </member>
         <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperList.PriceSetDecimal">
             <summary>设置 PaperList.set_Price(Decimal value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperList.StTimeGet">
+            <summary>设置 PaperList.get_StTime() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperList.StTimeSetDateTime">
+            <summary>设置 PaperList.set_StTime(DateTime value) 的 填充码</summary>
         </member>
         <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperList.TitleGet">
             <summary>设置 PaperList.get_Title() 的 填充码</summary>
@@ -1864,6 +2212,12 @@
         <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperList.AllInstances.DetailInfoSetString">
             <summary>设置 PaperList.set_DetailInfo(String value) 的 填充码</summary>
         </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperList.AllInstances.EdTimeGet">
+            <summary>设置 PaperList.get_EdTime() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperList.AllInstances.EdTimeSetDateTime">
+            <summary>设置 PaperList.set_EdTime(DateTime value) 的 填充码</summary>
+        </member>
         <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperList.AllInstances.IdGet">
             <summary>设置 PaperList.get_Id() 的 填充码</summary>
         </member>
@@ -1876,11 +2230,23 @@
         <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperList.AllInstances.InfoSetString">
             <summary>设置 PaperList.set_Info(String value) 的 填充码</summary>
         </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperList.AllInstances.NumberGet">
+            <summary>设置 PaperList.get_Number() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperList.AllInstances.NumberSetString">
+            <summary>设置 PaperList.set_Number(String value) 的 填充码</summary>
+        </member>
         <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperList.AllInstances.PriceGet">
             <summary>设置 PaperList.get_Price() 的 填充码</summary>
         </member>
         <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperList.AllInstances.PriceSetDecimal">
             <summary>设置 PaperList.set_Price(Decimal value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperList.AllInstances.StTimeGet">
+            <summary>设置 PaperList.get_StTime() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperList.AllInstances.StTimeSetDateTime">
+            <summary>设置 PaperList.set_StTime(DateTime value) 的 填充码</summary>
         </member>
         <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperList.AllInstances.TitleGet">
             <summary>设置 PaperList.get_Title() 的 填充码</summary>
@@ -1930,8 +2296,8 @@
         <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperListViewModel.paperSubPageGet">
             <summary>设置 PaperListViewModel.get_paperSubPage() 的 填充码</summary>
         </member>
-        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperListViewModel.paperSubPageSetListOfPaperSubPage">
-            <summary>设置 PaperListViewModel.set_paperSubPage(List`1&lt;PaperSubPage&gt; value) 的 填充码</summary>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperListViewModel.paperSubPageSetListOfToolDownloadInfo">
+            <summary>设置 PaperListViewModel.set_paperSubPage(List`1&lt;ToolDownloadInfo&gt; value) 的 填充码</summary>
         </member>
         <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperListViewModel.randomListGet">
             <summary>设置 PaperListViewModel.get_randomList() 的 填充码</summary>
@@ -1957,8 +2323,8 @@
         <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperListViewModel.AllInstances.paperSubPageGet">
             <summary>设置 PaperListViewModel.get_paperSubPage() 的 填充码</summary>
         </member>
-        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperListViewModel.AllInstances.paperSubPageSetListOfPaperSubPage">
-            <summary>设置 PaperListViewModel.set_paperSubPage(List`1&lt;PaperSubPage&gt; value) 的 填充码</summary>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperListViewModel.AllInstances.paperSubPageSetListOfToolDownloadInfo">
+            <summary>设置 PaperListViewModel.set_paperSubPage(List`1&lt;ToolDownloadInfo&gt; value) 的 填充码</summary>
         </member>
         <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperListViewModel.AllInstances.randomListGet">
             <summary>设置 PaperListViewModel.get_randomList() 的 填充码</summary>
@@ -1987,44 +2353,56 @@
         <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperSubPage.Constructor">
             <summary>设置 PaperSubPage.PaperSubPage() 的 填充码</summary>
         </member>
-        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperSubPage.DevelopmentToolPageGet">
-            <summary>设置 PaperSubPage.get_DevelopmentToolPage() 的 填充码</summary>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperSubPage.aboutusGet">
+            <summary>设置 PaperSubPage.get_aboutus() 的 填充码</summary>
         </member>
-        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperSubPage.DevelopmentToolPageSetString">
-            <summary>设置 PaperSubPage.set_DevelopmentToolPage(String value) 的 填充码</summary>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperSubPage.aboutusSetString">
+            <summary>设置 PaperSubPage.set_aboutus(String value) 的 填充码</summary>
         </member>
-        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperSubPage.IdGet">
-            <summary>设置 PaperSubPage.get_Id() 的 填充码</summary>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperSubPage.creditguaranteeGet">
+            <summary>设置 PaperSubPage.get_creditguarantee() 的 填充码</summary>
         </member>
-        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperSubPage.IdSetInt32">
-            <summary>设置 PaperSubPage.set_Id(Int32 value) 的 填充码</summary>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperSubPage.creditguaranteeSetString">
+            <summary>设置 PaperSubPage.set_creditguarantee(String value) 的 填充码</summary>
         </member>
-        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperSubPage.TemplatePageGet">
-            <summary>设置 PaperSubPage.get_TemplatePage() 的 填充码</summary>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperSubPage.idGet">
+            <summary>设置 PaperSubPage.get_id() 的 填充码</summary>
         </member>
-        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperSubPage.TemplatePageSetString">
-            <summary>设置 PaperSubPage.set_TemplatePage(String value) 的 填充码</summary>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperSubPage.idSetInt32">
+            <summary>设置 PaperSubPage.set_id(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperSubPage.payguideGet">
+            <summary>设置 PaperSubPage.get_payguide() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperSubPage.payguideSetString">
+            <summary>设置 PaperSubPage.set_payguide(String value) 的 填充码</summary>
         </member>
         <member name="T:eUI.Model.ViewModel.Fakes.ShimPaperSubPage.AllInstances">
             <summary>为所有实例成员定义填充码</summary>
         </member>
-        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperSubPage.AllInstances.DevelopmentToolPageGet">
-            <summary>设置 PaperSubPage.get_DevelopmentToolPage() 的 填充码</summary>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperSubPage.AllInstances.aboutusGet">
+            <summary>设置 PaperSubPage.get_aboutus() 的 填充码</summary>
         </member>
-        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperSubPage.AllInstances.DevelopmentToolPageSetString">
-            <summary>设置 PaperSubPage.set_DevelopmentToolPage(String value) 的 填充码</summary>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperSubPage.AllInstances.aboutusSetString">
+            <summary>设置 PaperSubPage.set_aboutus(String value) 的 填充码</summary>
         </member>
-        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperSubPage.AllInstances.IdGet">
-            <summary>设置 PaperSubPage.get_Id() 的 填充码</summary>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperSubPage.AllInstances.creditguaranteeGet">
+            <summary>设置 PaperSubPage.get_creditguarantee() 的 填充码</summary>
         </member>
-        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperSubPage.AllInstances.IdSetInt32">
-            <summary>设置 PaperSubPage.set_Id(Int32 value) 的 填充码</summary>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperSubPage.AllInstances.creditguaranteeSetString">
+            <summary>设置 PaperSubPage.set_creditguarantee(String value) 的 填充码</summary>
         </member>
-        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperSubPage.AllInstances.TemplatePageGet">
-            <summary>设置 PaperSubPage.get_TemplatePage() 的 填充码</summary>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperSubPage.AllInstances.idGet">
+            <summary>设置 PaperSubPage.get_id() 的 填充码</summary>
         </member>
-        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperSubPage.AllInstances.TemplatePageSetString">
-            <summary>设置 PaperSubPage.set_TemplatePage(String value) 的 填充码</summary>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperSubPage.AllInstances.idSetInt32">
+            <summary>设置 PaperSubPage.set_id(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperSubPage.AllInstances.payguideGet">
+            <summary>设置 PaperSubPage.get_payguide() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperSubPage.AllInstances.payguideSetString">
+            <summary>设置 PaperSubPage.set_payguide(String value) 的 填充码</summary>
         </member>
         <member name="T:eUI.Model.ViewModel.Fakes.ShimPaperSubPageList">
             <summary>eUI.Model.ViewModel.PaperSubPageList 的填充码类型</summary>
@@ -2073,6 +2451,138 @@
         </member>
         <member name="P:eUI.Model.ViewModel.Fakes.ShimPaperSubPageList.AllInstances.totalSetInt32">
             <summary>设置 PaperSubPageList.set_total(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="T:eUI.Model.ViewModel.Fakes.ShimToolDownloadInfo">
+            <summary>eUI.Model.ViewModel.ToolDownloadInfo 的填充码类型</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimToolDownloadInfo.#ctor">
+            <summary>初始化新的填充码实例</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimToolDownloadInfo.#ctor(eUI.Model.ViewModel.ToolDownloadInfo)">
+            <summary>初始化给定实例的新填充码</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimToolDownloadInfo.BehaveAsCurrent">
+            <summary>为已填充的类型的所有方法分配“Current”行为</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimToolDownloadInfo.BehaveAsNotImplemented">
+            <summary>为已填充的类型的所有方法分配“NotImplemented”行为</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimToolDownloadInfo.Behavior">
+            <summary>为已填充的类型的所有方法分配行为</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimToolDownloadInfo.Constructor">
+            <summary>设置 ToolDownloadInfo.ToolDownloadInfo() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimToolDownloadInfo.contentGet">
+            <summary>设置 ToolDownloadInfo.get_content() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimToolDownloadInfo.contentSetString">
+            <summary>设置 ToolDownloadInfo.set_content(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimToolDownloadInfo.downloadNumGet">
+            <summary>设置 ToolDownloadInfo.get_downloadNum() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimToolDownloadInfo.downloadNumSetInt32">
+            <summary>设置 ToolDownloadInfo.set_downloadNum(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimToolDownloadInfo.pictureGet">
+            <summary>设置 ToolDownloadInfo.get_picture() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimToolDownloadInfo.pictureSetString">
+            <summary>设置 ToolDownloadInfo.set_picture(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimToolDownloadInfo.titleGet">
+            <summary>设置 ToolDownloadInfo.get_title() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimToolDownloadInfo.titleSetString">
+            <summary>设置 ToolDownloadInfo.set_title(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimToolDownloadInfo.urlGet">
+            <summary>设置 ToolDownloadInfo.get_url() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimToolDownloadInfo.urlSetString">
+            <summary>设置 ToolDownloadInfo.set_url(String value) 的 填充码</summary>
+        </member>
+        <member name="T:eUI.Model.ViewModel.Fakes.ShimToolDownloadInfo.AllInstances">
+            <summary>为所有实例成员定义填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimToolDownloadInfo.AllInstances.contentGet">
+            <summary>设置 ToolDownloadInfo.get_content() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimToolDownloadInfo.AllInstances.contentSetString">
+            <summary>设置 ToolDownloadInfo.set_content(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimToolDownloadInfo.AllInstances.downloadNumGet">
+            <summary>设置 ToolDownloadInfo.get_downloadNum() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimToolDownloadInfo.AllInstances.downloadNumSetInt32">
+            <summary>设置 ToolDownloadInfo.set_downloadNum(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimToolDownloadInfo.AllInstances.pictureGet">
+            <summary>设置 ToolDownloadInfo.get_picture() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimToolDownloadInfo.AllInstances.pictureSetString">
+            <summary>设置 ToolDownloadInfo.set_picture(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimToolDownloadInfo.AllInstances.titleGet">
+            <summary>设置 ToolDownloadInfo.get_title() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimToolDownloadInfo.AllInstances.titleSetString">
+            <summary>设置 ToolDownloadInfo.set_title(String value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimToolDownloadInfo.AllInstances.urlGet">
+            <summary>设置 ToolDownloadInfo.get_url() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimToolDownloadInfo.AllInstances.urlSetString">
+            <summary>设置 ToolDownloadInfo.set_url(String value) 的 填充码</summary>
+        </member>
+        <member name="T:eUI.Model.ViewModel.Fakes.ShimToolDownloadList">
+            <summary>eUI.Model.ViewModel.ToolDownloadList 的填充码类型</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimToolDownloadList.#ctor">
+            <summary>初始化新的填充码实例</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimToolDownloadList.#ctor(eUI.Model.ViewModel.ToolDownloadList)">
+            <summary>初始化给定实例的新填充码</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimToolDownloadList.BehaveAsCurrent">
+            <summary>为已填充的类型的所有方法分配“Current”行为</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.ShimToolDownloadList.BehaveAsNotImplemented">
+            <summary>为已填充的类型的所有方法分配“NotImplemented”行为</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimToolDownloadList.Behavior">
+            <summary>为已填充的类型的所有方法分配行为</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimToolDownloadList.Constructor">
+            <summary>设置 ToolDownloadList.ToolDownloadList() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimToolDownloadList.rowsGet">
+            <summary>设置 ToolDownloadList.get_rows() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimToolDownloadList.rowsSetListOfToolDownloadInfo">
+            <summary>设置 ToolDownloadList.set_rows(List`1&lt;ToolDownloadInfo&gt; value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimToolDownloadList.totalGet">
+            <summary>设置 ToolDownloadList.get_total() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimToolDownloadList.totalSetInt32">
+            <summary>设置 ToolDownloadList.set_total(Int32 value) 的 填充码</summary>
+        </member>
+        <member name="T:eUI.Model.ViewModel.Fakes.ShimToolDownloadList.AllInstances">
+            <summary>为所有实例成员定义填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimToolDownloadList.AllInstances.rowsGet">
+            <summary>设置 ToolDownloadList.get_rows() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimToolDownloadList.AllInstances.rowsSetListOfToolDownloadInfo">
+            <summary>设置 ToolDownloadList.set_rows(List`1&lt;ToolDownloadInfo&gt; value) 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimToolDownloadList.AllInstances.totalGet">
+            <summary>设置 ToolDownloadList.get_total() 的 填充码</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.ShimToolDownloadList.AllInstances.totalSetInt32">
+            <summary>设置 ToolDownloadList.set_total(Int32 value) 的 填充码</summary>
         </member>
         <member name="T:eUI.Model.ViewModel.Fakes.ShimUserRecordList">
             <summary>eUI.Model.ViewModel.UserRecordList 的填充码类型</summary>
@@ -2138,6 +2648,78 @@
             <summary>获取或设置实例行为。</summary>
         </member>
         <member name="P:eUI.Model.ViewModel.Fakes.StubBusinessList.InstanceObserver">
+            <summary>获取或设置实例观察者。</summary>
+        </member>
+        <member name="T:eUI.Model.ViewModel.Fakes.StubFootLinkList">
+            <summary>eUI.Model.ViewModel.FootLinkList 的存根类型</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.StubFootLinkList.#ctor">
+            <summary>初始化新实例</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.StubFootLinkList.InitializeStub">
+            <summary>初始化 type StubFootLinkList 的新实例</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.StubFootLinkList.CallBase">
+            <summary>获取或设置一个值，该值指示是否应调用基方法而不调用回退行为</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.StubFootLinkList.InstanceBehavior">
+            <summary>获取或设置实例行为。</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.StubFootLinkList.InstanceObserver">
+            <summary>获取或设置实例观察者。</summary>
+        </member>
+        <member name="T:eUI.Model.ViewModel.Fakes.StubFootLinkViewModel">
+            <summary>eUI.Model.ViewModel.FootLinkViewModel 的存根类型</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.StubFootLinkViewModel.#ctor">
+            <summary>初始化新实例</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.StubFootLinkViewModel.AttachBackingFieldToCreateDate">
+            <summary>附加委托以将 StubFootLinkViewModel.CreateDate 作为具有支持字段的属性进行模拟。</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.StubFootLinkViewModel.AttachBackingFieldToCreateUserId">
+            <summary>附加委托以将 StubFootLinkViewModel.CreateUserId 作为具有支持字段的属性进行模拟。</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.StubFootLinkViewModel.AttachBackingFieldToId">
+            <summary>附加委托以将 StubFootLinkViewModel.Id 作为具有支持字段的属性进行模拟。</summary>
+        </member>
+        <member name="F:eUI.Model.ViewModel.Fakes.StubFootLinkViewModel.CreateDateGet">
+            <summary>设置 baseModel.get_CreateDate() 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.ViewModel.Fakes.StubFootLinkViewModel.CreateDateSetDateTime">
+            <summary>设置 baseModel.set_CreateDate(DateTime value) 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.ViewModel.Fakes.StubFootLinkViewModel.CreateUserIdGet">
+            <summary>设置 baseModel.get_CreateUserId() 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.ViewModel.Fakes.StubFootLinkViewModel.CreateUserIdSetString">
+            <summary>设置 baseModel.set_CreateUserId(String value) 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.ViewModel.Fakes.StubFootLinkViewModel.IdGet">
+            <summary>设置 baseModel.get_Id() 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.ViewModel.Fakes.StubFootLinkViewModel.IdSetInt32">
+            <summary>设置 baseModel.set_Id(Int32 value) 的 stub</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.StubFootLinkViewModel.InitializeStub">
+            <summary>初始化 type StubFootLinkViewModel 的新实例</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.StubFootLinkViewModel.CallBase">
+            <summary>获取或设置一个值，该值指示是否应调用基方法而不调用回退行为</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.StubFootLinkViewModel.CreateDate">
+            <summary>设置 baseModel.get_CreateDate() 的 stub</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.StubFootLinkViewModel.CreateUserId">
+            <summary>设置 baseModel.get_CreateUserId() 的 stub</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.StubFootLinkViewModel.Id">
+            <summary>设置 baseModel.get_Id() 的 stub</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.StubFootLinkViewModel.InstanceBehavior">
+            <summary>获取或设置实例行为。</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.StubFootLinkViewModel.InstanceObserver">
             <summary>获取或设置实例观察者。</summary>
         </member>
         <member name="T:eUI.Model.ViewModel.Fakes.StubImg">
@@ -2330,6 +2912,78 @@
             <summary>获取或设置实例行为。</summary>
         </member>
         <member name="P:eUI.Model.ViewModel.Fakes.StubPaperSubPageList.InstanceObserver">
+            <summary>获取或设置实例观察者。</summary>
+        </member>
+        <member name="T:eUI.Model.ViewModel.Fakes.StubToolDownloadInfo">
+            <summary>eUI.Model.ViewModel.ToolDownloadInfo 的存根类型</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.StubToolDownloadInfo.#ctor">
+            <summary>初始化新实例</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.StubToolDownloadInfo.AttachBackingFieldToCreateDate">
+            <summary>附加委托以将 StubToolDownloadInfo.CreateDate 作为具有支持字段的属性进行模拟。</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.StubToolDownloadInfo.AttachBackingFieldToCreateUserId">
+            <summary>附加委托以将 StubToolDownloadInfo.CreateUserId 作为具有支持字段的属性进行模拟。</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.StubToolDownloadInfo.AttachBackingFieldToId">
+            <summary>附加委托以将 StubToolDownloadInfo.Id 作为具有支持字段的属性进行模拟。</summary>
+        </member>
+        <member name="F:eUI.Model.ViewModel.Fakes.StubToolDownloadInfo.CreateDateGet">
+            <summary>设置 baseModel.get_CreateDate() 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.ViewModel.Fakes.StubToolDownloadInfo.CreateDateSetDateTime">
+            <summary>设置 baseModel.set_CreateDate(DateTime value) 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.ViewModel.Fakes.StubToolDownloadInfo.CreateUserIdGet">
+            <summary>设置 baseModel.get_CreateUserId() 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.ViewModel.Fakes.StubToolDownloadInfo.CreateUserIdSetString">
+            <summary>设置 baseModel.set_CreateUserId(String value) 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.ViewModel.Fakes.StubToolDownloadInfo.IdGet">
+            <summary>设置 baseModel.get_Id() 的 stub</summary>
+        </member>
+        <member name="F:eUI.Model.ViewModel.Fakes.StubToolDownloadInfo.IdSetInt32">
+            <summary>设置 baseModel.set_Id(Int32 value) 的 stub</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.StubToolDownloadInfo.InitializeStub">
+            <summary>初始化 type StubToolDownloadInfo 的新实例</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.StubToolDownloadInfo.CallBase">
+            <summary>获取或设置一个值，该值指示是否应调用基方法而不调用回退行为</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.StubToolDownloadInfo.CreateDate">
+            <summary>设置 baseModel.get_CreateDate() 的 stub</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.StubToolDownloadInfo.CreateUserId">
+            <summary>设置 baseModel.get_CreateUserId() 的 stub</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.StubToolDownloadInfo.Id">
+            <summary>设置 baseModel.get_Id() 的 stub</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.StubToolDownloadInfo.InstanceBehavior">
+            <summary>获取或设置实例行为。</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.StubToolDownloadInfo.InstanceObserver">
+            <summary>获取或设置实例观察者。</summary>
+        </member>
+        <member name="T:eUI.Model.ViewModel.Fakes.StubToolDownloadList">
+            <summary>eUI.Model.ViewModel.ToolDownloadList 的存根类型</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.StubToolDownloadList.#ctor">
+            <summary>初始化新实例</summary>
+        </member>
+        <member name="M:eUI.Model.ViewModel.Fakes.StubToolDownloadList.InitializeStub">
+            <summary>初始化 type StubToolDownloadList 的新实例</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.StubToolDownloadList.CallBase">
+            <summary>获取或设置一个值，该值指示是否应调用基方法而不调用回退行为</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.StubToolDownloadList.InstanceBehavior">
+            <summary>获取或设置实例行为。</summary>
+        </member>
+        <member name="P:eUI.Model.ViewModel.Fakes.StubToolDownloadList.InstanceObserver">
             <summary>获取或设置实例观察者。</summary>
         </member>
         <member name="T:eUI.Model.ViewModel.Fakes.StubUserRecordList">

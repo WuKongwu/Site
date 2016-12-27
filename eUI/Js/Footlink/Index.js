@@ -13,14 +13,14 @@
         pageSize: 20,//每页显示的记录条数，默认为10 
         pageList: [20, 50, 100],//可以设置每页记录条数的列表 
         columns: [[
-             { field: 'Name', title: '图片名称', width: '20%', align: 'left' },
+             { field: 'Name', title: '合作企业名称', width: '20%', align: 'left' },
              { field: 'ImageURL', title: '图片地址', width: '20%', align: 'left' },
             { field: 'SiteURL', title: '图片连接地址', width: '30%', align: 'left' },
             {
                 field: 'action', title: '操作', width: '10%', align: 'center',
                 formatter: function (value, row, index) {
                     var e = '<a href="#" onclick="editrow(' + row.Id + ')">修改</a> ';
-                    var d = '<a href="#" onclick="deleterow(' + row.Id + ')">删除</a>';
+                    var d = '<a href="#" onclick="deleterow(' + '\'' + row.Id + '\'' + ',' + '\'' + row.ImageURL + '\'' + ')">删除</a>';
                     return e + d;
                 }
             }
@@ -153,13 +153,13 @@
 
 });
 function ajaxFileUpload(val) {
-    //var guid = $("#t_guid").text();
+    var oldFileName = $("#t_Cfile").html();
     $.ajaxFileUpload
     (
         {
             url: '/FootLink/UploadImg', //用于文件上传的服务器端请求地址
             type: 'post',
-            data: {  }, //此参数非常严谨，写错一个引号都不行
+            data: { oldFileName: oldFileName }, //此参数非常严谨，写错一个引号都不行
             secureuri: false, //一般设置为false
             fileElementId: [val], //文件上传空间的id属性  <input type="file" id="file" name="file" />
             dataType: 'HTML', //返回值类型 一般设置为json
@@ -194,12 +194,12 @@ function editrow(target) {
     });
     $('#dlg').window('open');
 }
-function deleterow(target) {
+function deleterow(id,fileName) {
     $.messager.confirm('确认', '您确认想要删除记录吗？', function (r) {
         if (r) {
             $.ajax({
                 url: '/FootLink/Delete',
-                data: { id: target },
+                data: { id: id, fileName: fileName },
                 type: 'Post',
                 success: function (data) {
                     if (data.success == true || data == true) {
