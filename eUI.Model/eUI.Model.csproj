@@ -53,12 +53,15 @@
     <Compile Include="baseModel.cs" />
     <Compile Include="Business.cs" />
     <Compile Include="CountRecord.cs" />
+    <Compile Include="FootLinkModel.cs" />
     <Compile Include="Paper.cs" />
     <Compile Include="PaperImg.cs" />
     <Compile Include="PaperVideo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserRecord.cs" />
     <Compile Include="ViewModel\BusinessList.cs" />
+    <Compile Include="ViewModel\FootLinkList.cs" />
+    <Compile Include="ViewModel\FootLinkViewModel.cs" />
     <Compile Include="ViewModel\Img.cs" />
     <Compile Include="ViewModel\ImgPath.cs" />
     <Compile Include="ViewModel\PaperDetailViewModel.cs" />
