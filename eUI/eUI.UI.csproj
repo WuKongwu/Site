@@ -150,6 +150,7 @@
     <Compile Include="Controllers\FootLinkController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HttpPost.cs" />
+    <Compile Include="Controllers\ImageManageController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PaperController.cs" />
     <Compile Include="Controllers\PayController.cs" />
@@ -659,6 +660,7 @@
     <Content Include="Js\EUIIndex.js" />
     <Content Include="easyUI\Extension\GridToExport.js" />
     <Content Include="Js\Footlink\Index.js" />
+    <Content Include="Js\ImageManage\Index.js" />
     <Content Include="Js\jquery.fileupload.js" />
     <Content Include="Js\jquery.iframe-transport.js" />
     <Content Include="Js\jquery.ui.widget.js" />
@@ -1114,6 +1116,7 @@
     <Content Include="Views\SubPage\ThreePage.cshtml" />
     <Content Include="Views\ToolDownload\ToolDownload.cshtml" />
     <Content Include="Views\FootLink\Index.cshtml" />
+    <Content Include="Views\ImageManage\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
