@@ -1,4 +1,5 @@
 ﻿using eUI.BLL;
+using eUI.Model.Enums;
 using eUI.Model.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace easyUITest.Controllers
     {
         public ActionResult Index()
         {
+            ViewBag.ImagePosition = Enum.GetValues(typeof(ImagePosition)).Cast<ImagePosition>();
             return View();
         }
         public ActionResult SearchImage(ImageManageViewModel model)

@@ -25,7 +25,19 @@
             <thead>
             </thead>
             <tr><td>图片名称</td><td><input type="text" class="textbox-value upload-input" id="image-Name" /></td></tr>
-            <tr><td>图片位置</td><td><input type="text" class="textbox-value upload-input" id="site-url" /></td></tr>
+            <tr>
+            <td>图片位置</td>
+                 <td>
+                     <select id="image-Position" class = "easyui-combobox" style="width:177px">
+                         @foreach (var item in ViewBag.ImagePosition)
+                         {
+                            <option value="@item">@item</option>
+                         }
+                        
+                     </select>
+                     @*@Html.DropDownList("image-Position", new SelectList(ViewBag.ImagePosition), new { @class = "easyui-combobox",@style="width:177px" })*@
+                </td>
+            </tr>
             <tr>
                 <td>图片地址</td>
                 <td style="width: 340px;"><input type="file" id="Cfile" name="Cfile" /><button type="button" name="submitName" class="easyui-linkbutton l-btn l-btn-small" id="uploadCode" style="width:100px">上传图片</button></td>

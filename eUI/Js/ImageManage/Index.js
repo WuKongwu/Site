@@ -16,7 +16,11 @@
              { field: 'ImageName', title: '图片名称', width: '20%', align: 'left' },
              { field: 'ImagePosition', title: '图片地址', width: '20%', align: 'left' },
             { field: 'ImageURL', title: '图片连接地址', width: '20%', align: 'left' },
-            { field: 'CreateDate', title: '创建时间', width: '20%', align: 'left' },
+            {
+                field: 'CreateDate', title: '创建时间', width: '20%', align: 'left', formatter: function (value, row, index) {
+                    return DateFormat(row.CreateDate);
+                }
+            },
             {
                 field: 'action', title: '操作', width: '10%', align: 'center',
                 formatter: function (value, row, index) {
@@ -71,7 +75,7 @@
         //刷新grid
         $('#papergrid').datagrid('load',
             {
-                Name: $("#txtSearchName").val(),
+                ImageName: $("#txtSearchName").val(),
             });
     });
     $('#dlg').window('close');
@@ -79,8 +83,8 @@
         debugger
         var param = {
             Id: $("#Id").val(),
-            Name: $("#image-Name").val(),
-            SiteURL: $("#site-url").val(),
+            ImageName: $("#image-Name").val(),
+            ImagePosition: $("#image-Position").val(),
             ImageURL: $("#t_Cfile").text()
         };
         $.ajax({
@@ -186,8 +190,8 @@ function editrow(target) {
         data: { id: target },
         success: function (data) {
             if (data.success) {
-                $('#image-Name').val(data.models.Name),
-                $('#site-url').val(data.models.SiteURL),
+                $('#image-Name').val(data.models.ImageName),
+                $('#image-Position').val(data.models.ImagePosition),
                 $("#Id").val(data.models.Id);
                 $("#t_Cfile").text(data.models.ImageURL);
             }
@@ -217,4 +221,11 @@ function deleterow(target) {
             })
         }
     });
+}
+function DateFormat(val) {
+    var date = new Date(parseInt(val.replace("/Date(", "").replace(")/", ""), 10));
+    //月份为0-11，所以+1，月份小于10时补个0
+    var month = date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1;
+    var currentDate = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
+    return date.getFullYear() + "-" + month + "-" + currentDate;
 }

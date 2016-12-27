@@ -53,6 +53,7 @@
     <Compile Include="baseModel.cs" />
     <Compile Include="Business.cs" />
     <Compile Include="CountRecord.cs" />
+    <Compile Include="Enum\ImagePosition.cs" />
     <Compile Include="ImageManageModel.cs" />
     <Compile Include="FootLinkModel.cs" />
     <Compile Include="Paper.cs" />

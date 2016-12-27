@@ -8,6 +8,7 @@ namespace eUI.Model
 {
     public class ImageManageModel
     {
+        public int Id { get; set; }
         public string ImageName { get; set; }
         public string ImagePosition { get; set; }
         public string ImageURL { get; set; }
