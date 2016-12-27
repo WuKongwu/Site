@@ -9,6 +9,11 @@
 <link href="~/Style/jquery.uploadify-v2.1.4/uploadify.css" rel="stylesheet" type="text/css" />
 <div style="font-size: 12px;padding: 10px 0;">
     <div>
+        查询条件：
+        <div style="padding: 5px;border: 1px solid #95B8E7;margin: 5px 0;">
+            图片名称：<input class="textbox-value easyui-textbox" id="txtSearchName" type="text" />
+        </div>
+        <button id="btnSearch" class="easyui-linkbutton" style="width:80px;">查询</button>
         <button id="btnAdd" class="easyui-linkbutton" style="width:80px;" onclick="Add()">添加</button>
     </div>
 </div>
@@ -34,6 +39,10 @@
 </div>
 <script>
     function Add() {
+        debugger
+        $("#image-Name").val('');
+        $("#site-url").val('');
+        $("#t_Cfile").text('');
         $('#dlg').window('open');
     }
 </script>

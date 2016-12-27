@@ -15,6 +15,10 @@ namespace eUI.DAL
         {
             StringBuilder sbSI = new StringBuilder();
             sbSI.AppendFormat("select * from  FootLink  Where 1=1 ");
+            if (!string.IsNullOrEmpty(model.Name))
+            {
+                sbSI.AppendFormat(" and Name like '%{0}%'", model.Name);
+            }
             sbSI.AppendFormat(" limit {0},{1};", (model.page - 1) * model.rows, model.rows);
             DataTable dtFootLink = DBHelper.SearchSql(sbSI.ToString());
             return dtFootLink;
@@ -23,6 +27,10 @@ namespace eUI.DAL
         {
             StringBuilder sbSI = new StringBuilder();
             sbSI.AppendFormat("select * from FootLink  Where 1=1 ");
+            if (!string.IsNullOrEmpty(model.Name))
+            {
+                sbSI.AppendFormat(" and Name like '%{0}%'", model.Name);
+            }
             DataTable dtBusiness = DBHelper.SearchSql(sbSI.ToString());
             return dtBusiness.Rows.Count;
         }

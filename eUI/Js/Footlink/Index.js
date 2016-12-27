@@ -66,7 +66,13 @@
             $(this).pagination('loaded');
         }
     });
-
+    $("#btnSearch").click(function () {
+        //刷新grid
+        $('#papergrid').datagrid('load',
+            {
+                Name: $("#txtSearchName").val(),
+            });
+    });
     $('#dlg').window('close');
     $('#submit').click(function (e) {
         debugger
