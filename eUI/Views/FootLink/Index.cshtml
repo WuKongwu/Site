@@ -11,7 +11,7 @@
     <div>
         查询条件：
         <div style="padding: 5px;border: 1px solid #95B8E7;margin: 5px 0;">
-            图片名称：<input class="textbox-value easyui-textbox" id="txtSearchName" type="text" />
+            合作企业名称：<input class="textbox-value easyui-textbox" id="txtSearchName" type="text" />
         </div>
         <button id="btnSearch" class="easyui-linkbutton" style="width:80px;">查询</button>
         <button id="btnAdd" class="easyui-linkbutton" style="width:80px;" onclick="Add()">添加</button>
@@ -24,12 +24,12 @@
         <table class="upload-table">
             <thead>
             </thead>
-            <tr><td>图片名称</td><td><input type="text" class="textbox-value upload-input" id="image-Name"/></td></tr>
-            <tr><td>图片连接地址</td><td><input type="text"  class="textbox-value upload-input" id="site-url"/></td></tr>
+            <tr><td>合作企业名称</td><td><input type="text" class="textbox-value upload-input" id="image-Name"/></td></tr>
+            <tr><td>合作企业地址</td><td><input type="text"  class="textbox-value upload-input" id="site-url"/></td></tr>
             <tr >
                 <td>图片地址</td>
                 <td style="width: 340px;"><input type="file" id="Cfile" name="Cfile" /><button type="button" name="submitName" class="easyui-linkbutton l-btn l-btn-small" id="uploadCode" style="width:100px">上传图片</button></td>
-                <td><span id="t_Cfile" class="file-name"></span><input type="hidden" id="t_guid" /></td>
+                <td><span id="t_Cfile" class="file-name"></span></td>
             </tr>
         </table>
     </div>
@@ -43,6 +43,7 @@
         $("#image-Name").val('');
         $("#site-url").val('');
         $("#t_Cfile").text('');
+        $("#Id").val('');
         $('#dlg').window('open');
     }
 </script>

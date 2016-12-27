@@ -21,8 +21,8 @@ namespace easyUITest.Controllers
             model.page = int.Parse(Request["page"]);
             model.rows = int.Parse(Request["rows"]);
             FootLinkBLL footbll = new FootLinkBLL();
-           FootLinkList list =  footbll.getList(model);
-           return Json(list,JsonRequestBehavior.AllowGet);
+            FootLinkList list = footbll.getList(model);
+            return Json(list, JsonRequestBehavior.AllowGet);
         }
         public ActionResult Save(FootLinkViewModel mode)
         {
@@ -30,17 +30,13 @@ namespace easyUITest.Controllers
             bool b = bll.SaveFootLink(mode);
             return Json(new { success = b }, JsonRequestBehavior.AllowGet);
         }
-        public ActionResult UploadImg()
+        public ActionResult UploadImg(string oldFileName)
         {
             NameValueCollection nvc = System.Web.HttpContext.Current.Request.Form;
             HttpFileCollection hfc = System.Web.HttpContext.Current.Request.Files;
             string fileName = string.Empty;
             string imgPath = "";
-            string strGuid = Guid.NewGuid().ToString("D");
-            //if (!string.IsNullOrEmpty(guid))
-            //{
-            //    strGuid = guid;
-            //}
+
             if (hfc.Count > 0)
             {
                 for (int i = 0; i < hfc.Count; i++)
@@ -50,36 +46,33 @@ namespace easyUITest.Controllers
                     {
 
                         imgPath = hfc[0].FileName;
-                        string PhysicalPath = Server.MapPath("/FootLink/" + strGuid + "/");
+                        string PhysicalPath = Server.MapPath("/FootLink/");
                         fileName = imgPath;
-                        var url = PhysicalPath + imgPath;
+
                         if (!Directory.Exists(PhysicalPath))
                         {
                             Directory.CreateDirectory(PhysicalPath);
                         }
-                        hfc[0].SaveAs(url);
-                    }
-                    else
-                    {
-                        imgPath = DateTime.Now.ToString("yyyyMMddHHmmssff") + hfc[0].FileName;
-                        string PhysicalPath = Server.MapPath("/FootLink/" + strGuid + "/");
-                        fileName = imgPath;
                         var url = PhysicalPath + imgPath;
-                        if (!Directory.Exists(PhysicalPath))
+                        if (System.IO.File.Exists(url))
                         {
-                            Directory.CreateDirectory(PhysicalPath);
+                            fileName = GetNewPathForDupes(url);
                         }
-                        hfc[0].SaveAs(url);
+                        hfc[0].SaveAs(PhysicalPath + fileName);
+                        deleteFile(PhysicalPath + oldFileName);
                     }
                 }
             }
-            return Json(new { Id = nvc.Get("Id"), name = nvc.Get("name"), imgPath1 = fileName, guid = strGuid }, "text/html", JsonRequestBehavior.AllowGet);
+
+            return Json(new { Id = nvc.Get("Id"), name = nvc.Get("name"), imgPath1 = fileName }, "text/html", JsonRequestBehavior.AllowGet);
 
         }
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int id, string fileName)
         {
             FootLinkBLL bll = new FootLinkBLL();
             bool b = bll.DeteleFootLink(id);
+            string PhysicalPath = Server.MapPath("/FootLink/");
+            deleteFile(PhysicalPath + fileName);
             return Json(new { success = b }, JsonRequestBehavior.AllowGet);
         }
         public ActionResult GetFootLinkById(int id)
@@ -87,6 +80,30 @@ namespace easyUITest.Controllers
             FootLinkBLL bll = new FootLinkBLL();
             var model = bll.GetFootLinkById(id);
             return Json(new { success = true, models = model }, JsonRequestBehavior.AllowGet);
+        }
+        private string GetNewPathForDupes(string path)
+        {
+            string directory = Path.GetDirectoryName(path);
+            string filename = Path.GetFileNameWithoutExtension(path);
+            string extension = Path.GetExtension(path);
+            int counter = 1;
+            string newFullPath;
+            string newFilename;
+            do
+            {
+                //string newFilename = "{0}({1}).{2}".FormatWith(filename, counter, extension);
+                newFilename = string.Format("{0}({1}){2}", filename, counter, extension);
+                newFullPath = Path.Combine(directory, newFilename);
+                counter++;
+            } while (System.IO.File.Exists(newFullPath));
+            return newFilename;
+        }
+        private void deleteFile(string path)
+        {
+            if (System.IO.File.Exists(path))
+            {
+                System.IO.File.Delete(path);
+            }
         }
     }
 }

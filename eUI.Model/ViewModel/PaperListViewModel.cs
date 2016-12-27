@@ -14,5 +14,6 @@ namespace eUI.Model.ViewModel
         public List<PaperList> HotList { get; set; }
 
         public List<ToolDownloadInfo> paperSubPage { get; set; }
+
     }
 }

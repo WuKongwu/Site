@@ -103,12 +103,12 @@ function editrow(target) {
     });
     $('#dlg').window('open');
 }
-function deleterow(target) {
+function deleterow(id, fileName) {
     $.messager.confirm('确认', '您确认想要删除记录吗？', function (r) {
         if (r) {
             $.ajax({
                 url: '/ToolDownload/Detele',
-                data: { id: target },
+                data: { id: id, fileName: fileName },
                 type: 'Post',
                 success: function (data) {
                     if (data.success == true || data == true) {

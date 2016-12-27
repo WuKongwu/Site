@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace eUI.DAL
 {
-   public class ToolDownloadDAL
+    public class ToolDownloadDAL
     {
 
         public DataTable getToolList(ToolDownloadInfo toolDownloadInfo)
@@ -74,9 +74,9 @@ namespace eUI.DAL
         {
             StringBuilder sbAddUser = new StringBuilder();
             string GetSessionWithDsmId = string.Format(@"update tooldownload set Title='{0}',url ='{1}',
-                content ='{2}',picture='{3}',downloadNum ='{4}' where id='{5}'" ,
+                content ='{2}',picture='{3}',downloadNum ='{4}' where id='{5}'",
                 toolDownloadInfo.title, toolDownloadInfo.url, toolDownloadInfo.content, toolDownloadInfo.picture,
-                toolDownloadInfo.downloadNum,toolDownloadInfo.Id);
+                toolDownloadInfo.downloadNum, toolDownloadInfo.Id);
 
 
             int iResult = DBHelper.ExcuteNoQuerySql(GetSessionWithDsmId);
@@ -92,7 +92,30 @@ namespace eUI.DAL
 
             return DBHelper.SearchSql(str);
         }
-
+        public int AddDownloadNum(int id)
+        {
+            int result = 0;
+            try
+            {
+                StringBuilder sbSI = new StringBuilder();
+                sbSI.Append("select downloadNum from tooldownload where 1=1 ");
+                sbSI.AppendFormat("and  id={0}", id);
+                DataTable dt = DBHelper.SearchSql(sbSI.ToString());
+                int num = 0;
+                if (dt.Rows[0]["downloadNum"] != null && !string.IsNullOrEmpty(dt.Rows[0]["downloadNum"].ToString()))
+                {
+                    num = int.Parse(dt.Rows[0]["downloadNum"].ToString());
+                }
+                result = num;
+                StringBuilder sbSITwo = new StringBuilder();
+                sbSITwo.AppendFormat("update tooldownload set downloadNum={0} where id={1}", num + 1, id);
+                DBHelper.ExcuteNoQuerySql(sbSITwo.ToString());
+                return result + 1;
+            }
+            catch {
+                return result + 1;
+            }
+        }
 
     }
 }

@@ -475,10 +475,15 @@
 
             </div>
             <div class="link-box">
-                <a href="#" title="" target="_blank">
-                    <img class="thumbs" src="~/Content/themes/Paper/css/images/show2.jpg" width="180" height="90" alt="" />
-                </a>
-                <a href="#" title="" target="_blank">
+                @foreach (var item in Model.footLinkList)
+                {
+                    <a href="@item.SiteURL" title="@item.Name" target="_blank">
+                        <img class="thumbs" src="@Url.Content("~/FootLink/" + item.ImageURL)" width="180" height="90" alt="" />
+                    </a>
+
+                }
+                
+                @*<a href="#" title="" target="_blank">
                     <img class="thumbs" src="~/Content/themes/Paper/css/images/show2.jpg" width="180" height="90" alt="" />
                 </a>
                 <a href="#" title="" target="_blank">
@@ -492,7 +497,7 @@
                 </a>
                 <a href="#" title="" target="_blank">
                     <img class="thumbs" src="~/Content/themes/Paper/css/images/show2.jpg" width="180" height="90" alt="" />
-                </a>
+                </a>*@
             </div>
         </div>
     </div>

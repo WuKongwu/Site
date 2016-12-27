@@ -46,6 +46,9 @@ namespace eUI.BLL
         {
             return toolDownloadDAL.DeteleTool(id);
         }
-
+        public int AddDownloadNum(int id)
+        {
+          return  toolDownloadDAL.AddDownloadNum(id);
+        }
     }
 }

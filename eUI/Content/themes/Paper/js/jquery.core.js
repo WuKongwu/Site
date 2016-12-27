@@ -34,33 +34,32 @@ function InitMenu() {
 
     });
 }
+function getRootPath() {
+    var strFullPath = window.document.location.href;
+    var strPath = window.document.location.pathname;
+    var pos = strFullPath.indexOf(strPath);
+    var prePath = strFullPath.substring(0, pos);
+    var postPath = strPath.substring(0, strPath.substr(1).indexOf('/') + 1);
 
-function AddDownloadNum(url) {
+    return prePath;
+}
+function AddDownloadNum(downloadUrl, id) {
     var url = $("body").data("website") + "ToolDownload/AddDownloadNum";
-   
+
     $.ajax({
         url: url,
         type: "POST",
         dataType: "json",
         cache: false,
         headers: { "Cache-Control": "no-cache" },
-        data: data,
+        data: { id: id },
         success: function (data) {
             if (data.success == true) {
-                var codeUrl = data.data;
+                $(".badge").html(data.num);
 
-                $("#wxPayCode").qrcode({
-                    width: 200,
-                    height: 200,
-                    text: codeUrl
-                });
-                $(".modal-content").css("display", "block");
-                $(".modal-backdrop").css("display", "block");
-                $("#wx_pay_pop").css("display", "block");
+                var newWin = window.open('', '_blank');
 
-
-            } else {
-                alert("微信生成订单时出现错误，请您重新支付！");
+                newWin.location.href = getRootPath() + downloadUrl;
             }
         },
         error: function (e) {
@@ -239,7 +238,7 @@ $(function () {
     //    var type = $("body").data("type");
     //    var url = $("body").data("website") + "Paper/SearchTitleByType";
     //    var key = $(".search-input").val();
-       
+
     //    $.ajax({
     //        url: url,
     //        type: "POST",
@@ -257,11 +256,11 @@ $(function () {
 
     //});
 
- 
+
 
     $("#WxPay").off("click").on("click", function () {
         var stats = $(".user-log-info").css("display");
-      
+
         if (stats != "none") {
             var url = $("body").data("website") + "Paper/WXPayUrl";
             var data = $("#paperData").serialize();

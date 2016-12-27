@@ -164,7 +164,7 @@
                     <div class="clearfix"></div>
                 </div>
                 <div class="paper-detail box3">
-                    
+
 
                     <div class="opuslist bd">
                         <ul class="clearfix detail-ul" data-count="@Model.paperInfoList.total">
@@ -172,22 +172,26 @@
                             @foreach (var item in Model.paperSubPage)
                             {
                                 string path = @Url.Content("~/" + item.url).ToString(); ;
-                                <li>
+                                <li style="height:350px">
                                     <div class="imgbox">
 
-                                        <a title="@item.title" onclick='AddDownloadNum("@path")' >
+                                        <a title="@item.title" onclick='AddDownloadNum("@path","@item.Id")'>
                                             <img class="thumbs" src="@Url.Content("~/ToolImgData/" + item.picture)" width="232" height="186" alt="@item.title" onerror="javascript:this.src='@Url.Content("~/TemImg/default.png")';">
                                         </a>
                                     </div>
                                     <div class="infobox">
-                                        <p class="vtitle">
-                                            <a title="@item.title" onclick='AddDownloadNum("@path")'>
+                                        <p class="vtitle" style="height: 23px; -webkit-line-clamp: 1;">
+                                            <a title="@item.title" onclick='AddDownloadNum("@path","@item.Id")'>
                                                 @item.title
                                             </a>
                                         </p>
+                                       
+                                        <p class="vtitle" style="height: 97px;font-size: 12px;font-weight: normal; -webkit-line-clamp: 6;">
+                                            @item.content
+                                        </p>
                                         <div class="info clearfix">
                                             <span class="hpw_love">价格：</span>
-                                            <span class="hpw_pl"> <em class="tm-yen">&#165;</em>免费</span>
+                                            <span class="hpw_pl">免费</span>
                                         </div>
                                         <div class="userinfo">
 

@@ -13,6 +13,9 @@ namespace eUI.Model.ViewModel
         public List<PaperList> newList { get; set; }
         public List<PaperList> randomList { get; set; }
 
+
+        public List<FootLinkViewModel> footLinkList { get; set; }
+
         public int allTypeListCount { get; set; }
         public int newListCount { get; set; }
         public int randomListCount { get; set; }
