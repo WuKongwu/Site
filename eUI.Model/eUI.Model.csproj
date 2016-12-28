@@ -76,8 +76,6 @@
     <Compile Include="ViewModel\PaperListViewModel.cs" />
     <Compile Include="ViewModel\PaperSubPage.cs" />
     <Compile Include="ViewModel\PaperSubPageList.cs" />
-    <Compile Include="ViewModel\ToolDownloadInfo.cs" />
-    <Compile Include="ViewModel\ToolDownloadList.cs" />
     <Compile Include="ViewModel\UserRecordList.cs" />
   </ItemGroup>
   <ItemGroup>

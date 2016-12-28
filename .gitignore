@@ -10,3 +10,5 @@ obj
 bin
 eUI.v12.suo
 eUI/Web.config
+eUI/Web.config
+WxPayAPI/WxPayAPI/FakesAssemblies/eUI.Model.Fakes.fakesconfig
