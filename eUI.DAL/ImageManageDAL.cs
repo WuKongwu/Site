@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using eUI.Model.ViewModel;
+using eUI.Model.Enums;
 
 namespace eUI.DAL
 {
@@ -70,7 +71,7 @@ namespace eUI.DAL
             string GetSessionWithDsmId = string.Format(@"INSERT INTO ImageManage 
                 (ImageName,ImagePosition,ImageURL,CreateDate) 
                 VALUES('{0}','{1}','{2}','{3}')",
-                 mode.ImageName,mode.ImagePosition,mode.ImageURL,DateTime.Now);
+                 mode.ImageName, mode.ImagePosition, mode.ImageURL, DateTime.Now);
             int iResult = DBHelper.ExcuteNoQuerySql(GetSessionWithDsmId);
 
             if (iResult == 1)
@@ -78,5 +79,38 @@ namespace eUI.DAL
             else
                 return false;
         }
+        public bool IsVaildtion(string imagePostion)
+        {
+            StringBuilder strSQL = new StringBuilder();
+            strSQL.Append("select count(1) from ImageManage where 1=1");
+            switch (imagePostion)
+            {
+                case "main":
+                    strSQL.AppendFormat(" and ImagePosition ='{0}'", imagePostion);
+                   DataTable dt =  DBHelper.SearchSql(strSQL.ToString());
+                   if (dt!=null)
+                   {
+                       int num = int.Parse(dt.Rows[0][0].ToString());
+                       if (num>3)
+                       {
+                           return false;
+                       }
+                   }
+                    break;
+                case "news":
+                    break;
+                case "hots":
+                    break;
+                case "child":
+                    break;
+                case "logo":
+                    break;
+                default:
+                    break;
+            }
+            return true;
+        }
+
+
     }
 }

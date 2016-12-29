@@ -28,12 +28,12 @@
             <tr>
             <td>图片位置</td>
                  <td>
-                     <select id="image-Position" class = "easyui-combobox" style="width:177px">
+                     <select id="image-Position" class="selected" style="width:177px">
                          @foreach (var item in ViewBag.ImagePosition)
                          {
-                            <option value="@item">@item</option>
+                             <option value="@item">@item</option>
                          }
-                        
+
                      </select>
                      @*@Html.DropDownList("image-Position", new SelectList(ViewBag.ImagePosition), new { @class = "easyui-combobox",@style="width:177px" })*@
                 </td>

@@ -30,8 +30,9 @@ namespace easyUITest.Controllers
         public ActionResult Save(ImageManageViewModel mode)
         {
             ImageManageBLL bll = new ImageManageBLL();
-            bool b = bll.Save(mode);
-            return Json(new { success = b }, JsonRequestBehavior.AllowGet);
+            string msg = string.Empty;
+            bool b = bll.Save(mode, out msg);
+            return Json(new { success = b,message = msg }, JsonRequestBehavior.AllowGet);
         }
         public ActionResult UploadImg()
         {

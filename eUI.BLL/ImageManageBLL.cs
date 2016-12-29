@@ -7,6 +7,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using eUI.Common;
+using eUI.Model.Enums;
 namespace eUI.BLL
 {
     public class ImageManageBLL
@@ -24,16 +25,72 @@ namespace eUI.BLL
         {
             return dal.Detele(id);
         }
-        public bool Save(ImageManageViewModel mode)
+        public bool Save(ImageManageViewModel mode, out string msg)
         {
             bool b = false;
+            msg = string.Empty;
+            bool isvail = dal.IsVaildtion(mode.ImagePosition);
             if (mode.Id > 0)
             {
-                b = dal.Update(mode);
+                if (isvail)
+                {
+                    b = dal.Update(mode);
+                }
+                else
+                {
+                    switch (mode.ImagePosition)
+                    {
+                        case "main":
+                            msg = "轮播已存在3张图片!";
+                            break;
+                        case "news":
+                            msg = "最新已存在1张图片!";
+                            break;
+                        case "hots":
+                            msg = "热点已存在1张图片!";
+                            break;
+                        case "child":
+                            msg = "已存在1张图片!";
+                            break;
+                        case "logo":
+                            msg = "Logo已存在1张图片!";
+                            break;
+                        default:
+                            msg = string.Empty;
+                            break;
+                    }
+                }
             }
             else
             {
-                b = dal.Insert(mode);
+                if (isvail)
+                {
+                    b = dal.Insert(mode);
+                }
+                else
+                {
+                    switch (mode.ImagePosition)
+                    {
+                        case "main":
+                            msg = "轮播已存在3张图片,只能进行修改";
+                            break;
+                        case "news":
+                            msg =  "最新已存在1张图片,只能进行修改";
+                            break;
+                        case "hots":
+                            msg = "热点已存在1张图片,只能进行修改";
+                            break;
+                        case "child":
+                            msg =  "已存在1张图片,只能进行修改";
+                            break;
+                        case "logo":
+                            msg =  "Logo已存在1张图片,只能进行修改";
+                            break;
+                        default:
+                            msg = string.Empty;
+                            break;
+                    }
+                }
             }
             return b;
         }

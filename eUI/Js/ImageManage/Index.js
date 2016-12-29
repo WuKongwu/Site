@@ -95,6 +95,10 @@
                 if (data.success) {
                     $("#papergrid").datagrid('reload');
                     $('#dlg').window('close');
+                } else {
+                    if (data.message!=null) {
+                        $.messager.alert('警告', data.message);
+                    }
                 }
             }
         });
