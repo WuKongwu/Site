@@ -53,6 +53,8 @@
     <Compile Include="baseModel.cs" />
     <Compile Include="Business.cs" />
     <Compile Include="CountRecord.cs" />
+    <Compile Include="Enum\ImagePosition.cs" />
+    <Compile Include="ImageManageModel.cs" />
     <Compile Include="FootLinkModel.cs" />
     <Compile Include="Paper.cs" />
     <Compile Include="PaperImg.cs" />
@@ -62,8 +64,10 @@
     <Compile Include="TemplateTypeList.cs" />
     <Compile Include="UserRecord.cs" />
     <Compile Include="ViewModel\BusinessList.cs" />
+    <Compile Include="ViewModel\ImageManageList.cs" />
     <Compile Include="ViewModel\FootLinkList.cs" />
     <Compile Include="ViewModel\FootLinkViewModel.cs" />
+    <Compile Include="ViewModel\ImageManageViewModel.cs" />
     <Compile Include="ViewModel\Img.cs" />
     <Compile Include="ViewModel\ImgPath.cs" />
     <Compile Include="ViewModel\PaperDetailViewModel.cs" />

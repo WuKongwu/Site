@@ -43,5 +43,6 @@ namespace eUI.Common
         public static string SubPage = "/Js/Business/subpage.js?ver=" + ver;
         public static string AdminLogin = "/Js/Admin/admin.login.js?ver=" + ver;
         public static string FootLink = "/Js/FootLink/Index.js?ver=" + ver;
+        public static string ImageManage = "/Js/ImageManage/Index.js?ver=" + ver;
     }
 }

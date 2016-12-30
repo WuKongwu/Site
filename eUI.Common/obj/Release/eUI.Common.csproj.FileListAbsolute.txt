@@ -1,0 +1,12 @@
+E:\GitFile\TestSite\TestSite\eUI.Common\bin\Release\eUI.Common.dll
+E:\GitFile\TestSite\TestSite\eUI.Common\bin\Release\eUI.Common.pdb
+E:\GitFile\TestSite\TestSite\eUI.Common\bin\Release\Aspose.Cells.dll
+E:\GitFile\TestSite\TestSite\eUI.Common\bin\Release\eUI.Model.dll
+E:\GitFile\TestSite\TestSite\eUI.Common\bin\Release\NuGet.PackageManagement.dll
+E:\GitFile\TestSite\TestSite\eUI.Common\bin\Release\NuGet.PackageManagement.UI.dll
+E:\GitFile\TestSite\TestSite\eUI.Common\bin\Release\NuGet.ProjectManagement.dll
+E:\GitFile\TestSite\TestSite\eUI.Common\bin\Release\eUI.Model.pdb
+E:\GitFile\TestSite\TestSite\eUI.Common\bin\Release\NuGet.ProjectManagement.xml
+E:\GitFile\TestSite\TestSite\eUI.Common\obj\Release\eUI.Common.csprojResolveAssemblyReference.cache
+E:\GitFile\TestSite\TestSite\eUI.Common\obj\Release\eUI.Common.dll
+E:\GitFile\TestSite\TestSite\eUI.Common\obj\Release\eUI.Common.pdb
