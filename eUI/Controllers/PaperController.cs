@@ -32,7 +32,7 @@ namespace easyUITest.Controllers
         }
 
 
-        public ViewResult List(string type)
+        public ViewResult List(string type,string flag)
         {
             if (Session["user"] != null)
             {
@@ -44,7 +44,7 @@ namespace easyUITest.Controllers
                 ViewData["login"] = string.Empty;
             }
             PaperBLL paperBLL = new PaperBLL();
-            PaperListViewModel paperListViewModel = paperBLL.PaperTypeList(type);
+            PaperListViewModel paperListViewModel = paperBLL.PaperTypeList(type, flag);
             paperListViewModel.paperInfoList.total = paperListViewModel.paperInfoList.rows.Count();
             paperListViewModel.paperInfoList.rows = paperListViewModel.paperInfoList.rows.Take(9).ToList<PaperInfo>();
             ViewData["type"] = type;
@@ -92,7 +92,7 @@ namespace easyUITest.Controllers
             }
             PaperBLL paperBLL = new PaperBLL();
 
-            PaperListViewModel paperListViewModel = paperBLL.PaperTypeList(type);
+            PaperListViewModel paperListViewModel = paperBLL.PaperTypeList(type,null);
             paperListViewModel.paperInfoList.total = paperListViewModel.paperInfoList.rows.Count();
             paperListViewModel.paperInfoList.rows = paperListViewModel.paperInfoList.rows.Skip((pageNo - 1) * 9).Take(9).ToList<PaperInfo>();
 
@@ -147,6 +147,30 @@ namespace easyUITest.Controllers
             return View("PaperDetail", paperDetailViewModel);
         }
 
+        public ViewResult TmpDetail(string id,string type)
+        {
+            if (Session["user"] != null)
+            {
+                List<UserRecord> list = (List<UserRecord>)Session["user"];
+                ViewData["login"] = list[0].Name;
+            }
+            else
+            {
+                ViewData["login"] = string.Empty;
+            }
+            PaperBLL paperBLL = new PaperBLL();
+            PaperDetailViewModel paperDetailViewModel=new PaperDetailViewModel();
+            if (string.IsNullOrEmpty(type))
+            {
+                paperDetailViewModel = paperBLL.PaperDetailById(id);
+            }
+            else {
+                paperDetailViewModel = paperBLL.TmpDetailById(id);
+            }
+
+            return View("TemplateDetail", paperDetailViewModel);
+        }
+
 
         public ViewResult PayGuide()
         {
@@ -160,7 +184,7 @@ namespace easyUITest.Controllers
                 ViewData["login"] = string.Empty;
             }
             PaperBLL paperBLL = new PaperBLL();
-            PaperListViewModel paperListViewModel = paperBLL.PaperTypeList(null);
+            PaperListViewModel paperListViewModel = paperBLL.PaperTypeList(null,null);
             return View("PayGuide", paperListViewModel);
         }
 
@@ -176,7 +200,7 @@ namespace easyUITest.Controllers
                 ViewData["login"] = string.Empty;
             }
             PaperBLL paperBLL = new PaperBLL();
-            PaperListViewModel paperListViewModel = paperBLL.PaperTypeList(null);
+            PaperListViewModel paperListViewModel = paperBLL.PaperTypeList(null,null);
             return View("CreditGuarantee", paperListViewModel);
         }
 
@@ -192,11 +216,12 @@ namespace easyUITest.Controllers
                 ViewData["login"] = string.Empty;
             }
             PaperBLL paperBLL = new PaperBLL();
-            PaperListViewModel paperListViewModel = paperBLL.PaperTypeList(null);
+            PaperListViewModel paperListViewModel = paperBLL.PaperTypeList(null,null);
+            paperListViewModel.paperToolPage.total = paperListViewModel.paperToolPage.rows.Count();
+            paperListViewModel.paperToolPage.rows = paperListViewModel.paperToolPage.rows.Take(6).ToList<ToolDownloadInfo>();
             return View("ToolDownload", paperListViewModel);
         }
-
-        public ViewResult TemplateDownload()
+        public ViewResult ToolListPaging(int pageNo)
         {
             if (Session["user"] != null)
             {
@@ -208,9 +233,93 @@ namespace easyUITest.Controllers
                 ViewData["login"] = string.Empty;
             }
             PaperBLL paperBLL = new PaperBLL();
-            PaperListViewModel paperListViewModel = paperBLL.PaperTypeList(null);
+
+            PaperListViewModel paperListViewModel = paperBLL.PaperTypeList(null, null);
+            paperListViewModel.paperToolPage.total = paperListViewModel.paperToolPage.rows.Count();
+            paperListViewModel.paperToolPage.rows = paperListViewModel.paperToolPage.rows.Skip((pageNo - 1) * 6).Take(6).ToList<ToolDownloadInfo>();
+
+            return View("_toolDownloadPaging", paperListViewModel);
+        }
+
+
+        public ViewResult TemplateDownload(string flag)
+        {
+            if (Session["user"] != null)
+            {
+                List<UserRecord> list = (List<UserRecord>)Session["user"];
+                ViewData["login"] = list[0].Name;
+            }
+            else
+            {
+                ViewData["login"] = string.Empty;
+            }
+            PaperBLL paperBLL = new PaperBLL();
+            PaperListViewModel paperListViewModel = paperBLL.PaperTypeList(null, flag);
+            paperListViewModel.paperTmpPage.total = paperListViewModel.paperTmpPage.rows.Count();
+            paperListViewModel.paperTmpPage.rows = paperListViewModel.paperTmpPage.rows.Take(6).ToList<TemplateDownloadInfo>();
+          
+            TemplateDownloadBLL templateDownloadBLL = new TemplateDownloadBLL();
+            TemplateTypeList templateTypeList = new TemplateTypeList();
+            templateTypeList = templateDownloadBLL.getTemplateTypeData();
+            List<SelectListItem> select = new List<SelectListItem>();
+            select.Add(new SelectListItem
+            {
+                Text = "全部分类",
+                Value = "0"
+            });
+
+            for (int i = 0; i < templateTypeList.rows.Count; i++)
+            {
+                select.Add(new SelectListItem
+                {
+                    Text = templateTypeList.rows[i].TemplateType.ToString(),
+                    Value = templateTypeList.rows[i].Id.ToString()
+                });
+            }
+            if (string.IsNullOrEmpty(flag))
+            {
+                ViewData["Tmptype"] = "0";
+            }
+            else
+            {
+                ViewData["Tmptype"] = flag;
+
+            }
+            ViewData["selTmpType"] = new SelectList(select, "Value", "Text", "");
             return View("TemplateDownload", paperListViewModel);
         }
+
+
+        public ViewResult TmpListPaging(int pageNo,string type,string flag)
+        {
+            if (Session["user"] != null)
+            {
+                List<UserRecord> list = (List<UserRecord>)Session["user"];
+                ViewData["login"] = list[0].Name;
+            }
+            else
+            {
+                ViewData["login"] = string.Empty;
+            }
+            PaperBLL paperBLL = new PaperBLL();
+
+            PaperListViewModel paperListViewModel = paperBLL.PaperTypeList(null, flag);
+            paperListViewModel.paperTmpPage.total = paperListViewModel.paperTmpPage.rows.Count();
+            paperListViewModel.paperTmpPage.rows = paperListViewModel.paperTmpPage.rows.Skip((pageNo - 1) * 6).Take(6).ToList<TemplateDownloadInfo>();
+            if (string.IsNullOrEmpty(flag))
+            {
+                ViewData["Tmptype"] = "0";
+            }
+            else
+            {
+                ViewData["Tmptype"] = flag;
+
+            }
+            return View("_tmplateDownloadPaging", paperListViewModel);
+        }
+
+
+
 
         public ViewResult About()
         {
@@ -224,7 +333,7 @@ namespace easyUITest.Controllers
                 ViewData["login"] = string.Empty;
             }
             PaperBLL paperBLL = new PaperBLL();
-            PaperListViewModel paperListViewModel = paperBLL.PaperTypeList(null);
+            PaperListViewModel paperListViewModel = paperBLL.PaperTypeList(null,null);
             return View("About", paperListViewModel);
         }
 

@@ -1,0 +1,65 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Scripts.Render(eUI.Common.JsFiles.TmpDownloadType)
+
+<script src="~/Js/ajaxfileupload.js"></script>
+<script src="~/Style/jquery.uploadify-v2.1.4/jquery.uploadify.v2.1.4.js" type="text/javascript"></script>
+<script src="~/Style/jquery.uploadify-v2.1.4/swfobject.js" type="text/javascript"></script>
+<script src="~/Style/jquery.uploadify-v2.1.4/jquery.uploadify.v2.1.4.min.js" type="text/javascript"></script>
+<link href="~/Style/jquery.uploadify-v2.1.4/uploadify.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript">
+
+    function initPop() {
+        $('[name="txtAddTypeTitle"]').val(''),
+        $('[name="txtAddTypeTitle"]').prev().val('');
+        $("#Id").val(0);
+    }
+    function Add() {
+        initPop();
+        $('#dlg').window('open');
+    }
+
+    $(function () {
+        $('#dlg').window('close');
+        $('#submit').click(function (e) {
+            debugger
+            var param = {
+                Id: $("#Id").val(),
+                TemplateType: $('[name="txtAddTypeTitle"]').val(),
+            };
+            $.ajax({
+                url: "../TemplateDownload/SaveTmpType",
+                type: 'POST',
+                data: param,
+                success: function (data) {
+                    if (data.success) {
+                        $("#templatetypegrid").datagrid('reload');
+                        $('#dlg').window('close');
+                    }
+                }
+            });
+        });
+    });
+</script>
+
+<div style="font-size: 12px;padding: 10px 0;">
+    <div>
+        查询条件：<div style="padding: 5px;border: 1px solid #95B8E7;margin: 5px 0;">
+
+            模板类别：<input class="textbox-value easyui-textbox" id="txtSearchType" type="text" />
+        </div>
+        <button id="btnSearchType" class="easyui-linkbutton" style="width:80px;">查询</button>
+        <button id="btnAdd" class="easyui-linkbutton" style="width:80px;" onclick="Add()">添加</button>
+    </div>
+</div>
+<div id="templatetypegrid"></div>
+<div id="dlg" class="easyui-window" title="模板分类编辑" data-options="iconCls:'icon-save'" style="width:500px;height:150px;padding:10px;position: relative;">
+    <div><input type="hidden" id="Id" /></div>
+    <div>
+        模板类别：<input class="textbox-value upload-input" id="txtAddTypeTitle" name="txtAddTypeTitle" type="text" style="width:85%" />
+    </div>
+    <br />
+    <div><button type="button" name="submitName" class="upload-button" id="submit" style="top: 55px; right: 195px;">提交</button></div>
+</div>

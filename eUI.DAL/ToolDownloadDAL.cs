@@ -20,7 +20,7 @@ namespace eUI.DAL
             {
                 sbSI.AppendFormat("AND TITLE LIKE '%{0}%'", toolDownloadInfo.title);
             }
-
+            sbSI.Append(" ORDER BY CreateDate DESC");
             sbSI.AppendFormat(" limit {0},{1};", (toolDownloadInfo.page - 1) * toolDownloadInfo.rows, toolDownloadInfo.rows);
             DataTable dtBusiness = DBHelper.SearchSql(sbSI.ToString());
 
@@ -45,10 +45,10 @@ namespace eUI.DAL
             StringBuilder sbAddUser = new StringBuilder();
 
             string GetSessionWithDsmId = string.Format(@"INSERT INTO tooldownload 
-                (title,url,content,picture,downloadNum) 
-                VALUES('{0}','{1}','{2}','{3}','{4}')",
+                (title,url,content,picture,downloadNum,CreateDate) 
+                VALUES('{0}','{1}','{2}','{3}','{4}','{5}')",
                 toolDownloadInfo.title, toolDownloadInfo.url, toolDownloadInfo.content, toolDownloadInfo.picture,
-                toolDownloadInfo.downloadNum);
+                toolDownloadInfo.downloadNum,toolDownloadInfo.CreateDate);
 
 
             int iResult = DBHelper.ExcuteNoQuerySql(GetSessionWithDsmId);
@@ -74,9 +74,9 @@ namespace eUI.DAL
         {
             StringBuilder sbAddUser = new StringBuilder();
             string GetSessionWithDsmId = string.Format(@"update tooldownload set Title='{0}',url ='{1}',
-                content ='{2}',picture='{3}',downloadNum ='{4}' where id='{5}'",
+                content ='{2}',picture='{3}',downloadNum ='{4}',CreateDate ='{5}' where id='{6}'",
                 toolDownloadInfo.title, toolDownloadInfo.url, toolDownloadInfo.content, toolDownloadInfo.picture,
-                toolDownloadInfo.downloadNum, toolDownloadInfo.Id);
+                toolDownloadInfo.downloadNum,toolDownloadInfo.CreateDate, toolDownloadInfo.Id);
 
 
             int iResult = DBHelper.ExcuteNoQuerySql(GetSessionWithDsmId);

@@ -79,13 +79,28 @@ namespace eUI.DAL
             return dtTypeList;
         }
 
-        public DataTable SearchPaperSubPage()
+        public DataTable SearchPaperToolPage()
         {
             StringBuilder sbSI = new StringBuilder();
             sbSI.Append("select * from tooldownload");
+            sbSI.Append(" ORDER BY CreateDate DESC");
             DataTable dtTypeList = DBHelper.SearchSql(sbSI.ToString());
             return dtTypeList;
         }
+
+        public DataTable SearchPaperTmpPage(string flag)
+        {
+            StringBuilder sbSI = new StringBuilder();
+            sbSI.Append("select A.*,B.TemplateType as Type from  templatedownload as A LEFT JOIN templatetype as B ON A.TypeId=B.Id WHERE 1=1 ");
+            if (!string.IsNullOrEmpty(flag) && flag != "0")
+            {
+                sbSI.Append("AND A.TypeId=" + flag);
+            }
+            sbSI.Append(" ORDER BY CreateDate DESC");
+            DataTable dtTypeList = DBHelper.SearchSql(sbSI.ToString());
+            return dtTypeList;
+        }
+
 
         public DataTable SearchFootLink()
         {
@@ -95,12 +110,13 @@ namespace eUI.DAL
             return dtTypeList;
         }
 
-        public DataTable SearchPaperList(string key,string type)
+        public DataTable SearchPaperList(string key, string type)
         {
 
             StringBuilder sbSI = new StringBuilder();
             sbSI.Append("SELECT * FROM paper WHERE title  LIKE '%" + key + "%' ");
-            if (!string.IsNullOrEmpty(type)) {
+            if (!string.IsNullOrEmpty(type))
+            {
                 sbSI.Append("AND type=" + type);
             }
             DataTable dtTypeList = DBHelper.SearchSql(sbSI.ToString());
@@ -115,12 +131,24 @@ namespace eUI.DAL
         {
 
             StringBuilder sbSI = new StringBuilder();
-            sbSI.Append("SELECT * FROM  paper WHERE id = " + Id );
+            sbSI.Append("SELECT * FROM  paper WHERE id = " + Id);
 
             DataTable dtPaperDetail = DBHelper.SearchSql(sbSI.ToString());
 
             return dtPaperDetail;
         }
+
+        public DataTable SearchTmpDetailById(string Id)
+        {
+
+            StringBuilder sbSI = new StringBuilder();
+            sbSI.Append("SELECT * FROM  templatedownload WHERE id = " + Id);
+
+            DataTable dtPaperDetail = DBHelper.SearchSql(sbSI.ToString());
+
+            return dtPaperDetail;
+        }
+
         public DataTable SearchPaperImgListById(string Id)
         {
             StringBuilder sbSI = new StringBuilder();
@@ -137,8 +165,8 @@ namespace eUI.DAL
             DataTable dt = DBHelper.SearchSql(sbSI.ToString());
             int num = 0;
             if (dt.Rows[0]["ReadNum"] != null && !string.IsNullOrEmpty(dt.Rows[0]["ReadNum"].ToString()))
-            { 
-                num = int.Parse(dt.Rows[0]["ReadNum"].ToString()); 
+            {
+                num = int.Parse(dt.Rows[0]["ReadNum"].ToString());
             }
 
             StringBuilder sbSITwo = new StringBuilder();

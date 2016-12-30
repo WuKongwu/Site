@@ -1,0 +1,41 @@
+﻿@model eUI.Model.ViewModel.PaperListViewModel
+<style>
+    .selected {
+    float: right;
+    margin: 7px 37px;
+    height: 35px;
+    padding: 0 5px;
+}
+</style>
+@foreach (var item in Model.paperTmpPage.rows)
+{
+
+    <li style="height:350px">
+        <div class="imgbox">
+
+            <a title="@item.Title" href="/paper/TmpDetail?id=@item.Id&type=0">
+                <img class="thumbs" src="@Url.Content("~/ToolImgData/" + item.Picture)" width="232" height="186" alt="@item.Title" onerror="javascript:this.src='@Url.Content("~/TemImg/default.png")';">
+            </a>
+        </div>
+        <div class="infobox">
+            <p class="vtitle" style="height: 23px; -webkit-line-clamp: 1;">
+                <a title="@item.Title" href="/paper/TmpDetail?id=@item.Id&type=0">
+                    @item.Title
+                </a>
+            </p>
+
+            <p class="vtitle" style="height: 97px;font-size: 12px;font-weight: normal; -webkit-line-clamp: 6;">
+                @item.Content
+            </p>
+            <div class="info clearfix">
+                <span class="hpw_love">价格：</span>
+                <span class="hpw_pl">免费</span>
+            </div>
+            <div class="userinfo">
+
+                <span class="badge-pat">下载数<span class="badge">@item.DownloadNum</span></span>
+
+            </div>
+        </div>
+    </li>
+}

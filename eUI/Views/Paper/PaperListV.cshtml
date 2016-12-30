@@ -79,7 +79,7 @@
             </a>
             <div class="nav-list">
                 <ul>
-                    <li class="active"><a href="/paper" target="_self" title="首页">首页</a></li>
+                    <li><a href="/paper" target="_self" title="首页">首页</a></li>
                     <li><a href="/paper/PayGuide" target="_self" title="购买指南">购买指南</a></li>
                     <li><a href="/paper/CreditGuarantee" target="_self" title="信誉保证">信誉保证</a></li>
                     <li><a href="/paper/ToolDownload" target="_self" title="开发工具下载">开发工具下载</a></li>
@@ -201,42 +201,32 @@
                             }
                         </ul>
                     </div>
-                    <nav style="text-align: center;margin: 10px 0;">
-                        <ul id="pagination-demo" class="pagination-sm"></ul>
-                    </nav>
+                    <div class="paging-div">
+                        <nav style="text-align: center;margin: 10px 0;">
+                            <ul id="pagination-demo" class="pagination-sm"></ul>
+                        </nav>
+                    </div>
+
+            </div>
+        </div>
+    </div>
+        <div class="bg">
+            <div class="container" style="padding-top: 20px;">
+                <div class="cont-title">
+                    <h3>合作企业</h3>
+
                 </div>
+                <div class="link-box">
+                    @foreach (var item in Model.footLinkList)
+                    {
+                        <a href="@item.SiteURL" title="@item.Name" target="_blank">
+                            <img class="thumbs" src="@Url.Content("~/FootLink/" + item.ImageURL)" width="180" height="90" alt="" />
+                        </a>
 
+                    }
+                </div>
             </div>
         </div>
-    </div>
-    <div class="bg">
-        <div class="container" style="padding-top: 20px;">
-            <div class="cont-title">
-                <h3>合作企业</h3>
-
-            </div>
-            <div class="link-box">
-                <a href="#" title="" target="_blank">
-                    <img class="thumbs" src="~/Content/themes/Paper/css/images/show2.jpg" width="180" height="90" alt="" />
-                </a>
-                <a href="#" title="" target="_blank">
-                    <img class="thumbs" src="~/Content/themes/Paper/css/images/show2.jpg" width="180" height="90" alt="" />
-                </a>
-                <a href="#" title="" target="_blank">
-                    <img class="thumbs" src="~/Content/themes/Paper/css/images/show2.jpg" width="180" height="90" alt="" />
-                </a>
-                <a href="#" title="" target="_blank">
-                    <img class="thumbs" src="~/Content/themes/Paper/css/images/show2.jpg" width="180" height="90" alt="" />
-                </a>
-                <a href="#" title="站酷" target="_blank">
-                    <img class="thumbs" src="~/Content/themes/Paper/css/images/show2.jpg" width="180" height="90" alt="" />
-                </a>
-                <a href="#" title="" target="_blank">
-                    <img class="thumbs" src="~/Content/themes/Paper/css/images/show2.jpg" width="180" height="90" alt="" />
-                </a>
-            </div>
-        </div>
-    </div>
 
     <!--页脚开始-->
     <div class="footer">

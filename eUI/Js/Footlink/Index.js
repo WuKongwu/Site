@@ -13,9 +13,14 @@
         pageSize: 20,//每页显示的记录条数，默认为10 
         pageList: [20, 50, 100],//可以设置每页记录条数的列表 
         columns: [[
-             { field: 'Name', title: '合作企业名称', width: '20%', align: 'left' },
-             { field: 'ImageURL', title: '图片地址', width: '20%', align: 'left' },
-            { field: 'SiteURL', title: '图片连接地址', width: '30%', align: 'left' },
+             { field: 'Name', title: '合作企业名称', width: '20%', align: 'center' },
+             { field: 'ImageURL', title: '图片地址', width: '20%', align: 'center' },
+            { field: 'SiteURL', title: '图片连接地址', width: '30%', align: 'center' },
+            {
+                field: 'CreateDate', title: '上传时间', width: '10%', align: 'center', formatter: function (value, row, index) {
+                    return DateFormat(row.CreateDate);
+                }
+            },
             {
                 field: 'action', title: '操作', width: '10%', align: 'center',
                 formatter: function (value, row, index) {
@@ -188,7 +193,8 @@ function editrow(target) {
                 $('#image-Name').val(data.models.Name),
                 $('#site-url').val(data.models.SiteURL),
                 $("#Id").val(data.models.Id);
-                $("#t_Cfile").text(data.models.ImageURL);
+                $("#t_Cfile").text(data.models.ImageURL),
+                $("#txtDate").val(DateFormat(data.models.CreateDate))
             }
         },
     });
@@ -216,4 +222,11 @@ function deleterow(id,fileName) {
             })
         }
     });
+}
+function DateFormat(val) {
+    var date = new Date(parseInt(val.replace("/Date(", "").replace(")/", ""), 10));
+    //月份为0-11，所以+1，月份小于10时补个0
+    var month = date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1;
+    var currentDate = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
+    return date.getFullYear() + "-" + month + "-" + currentDate;
 }

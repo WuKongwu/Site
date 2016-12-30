@@ -3,9 +3,9 @@
     $("#userInfoForm>div ").css("height", 35);
     //加载表格 
     debugger
-    $('#toolgrid').datagrid({
+    $('#Templategrid').datagrid({
 
-        url: '/ToolDownload/SearchTool',
+        url: '/TemplateDownload/SearchTemplate',
         singleSelect: true,
         queryParams: { title: '' },
         pagination: true,
@@ -15,27 +15,22 @@
         pageList: [20, 50, 100],//可以设置每页记录条数的列表 
         columns: [[
 
-            { field: 'title', title: '工具标题', width: '20%', align: 'center' },
-
-            { field: 'content', title: '工具简介', width: '20%', align: 'center' },
-
-            { field: 'url', title: '下载链接', width: '10%', align: 'center' },
+            { field: 'Title', title: '模板标题', width: '25%', align: 'center' },
+            { field: 'Type', title: '模板类别', width: '20%', align: 'center' },
             {
-                field: 'CreateDate', title: '上传时间', width: '10%', align: 'center', formatter: function (value, row, index) {
-                    return DateFormat(row.CreateDate);
-                }
+                 field: 'CreateDate', title: '上传时间', width: '20%', align: 'center', formatter: function (value, row, index) {
+                     return DateFormat(row.CreateDate);
+                 }
             },
-
-            { field: 'downloadNum', title: '下载数量', width: '5%', align: 'center' },
-            {
-                field: 'action', title: '操作', width: '15%', align: 'center',
+           { field: 'DownloadNum', title: '下载数量', width: '15%', align: 'center' },
+           {
+                field: 'action', title: '操作', width: '20%', align: 'center',
                 formatter: function (value, row, index) {
                     var e = '<a href="#" onclick="editrow(' + row.Id + ')">修改</a> ';
                     var d = '<a href="#" onclick="deleterow(' + row.Id + ')">删除</a>';
                     return e + d;
                 }
             }
-
         ]],
 
         onBeforeRefresh: function () {
@@ -64,7 +59,7 @@
     });
 
     //设置分页控件 
-    var p = $('#toolgrid').datagrid('getPager');
+    var p = $('#Templategrid').datagrid('getPager');
 
     $(p).pagination({
         pageSize: 20,//每页显示的记录条数，默认为10 
@@ -79,48 +74,54 @@
     });
 
     //查询
-    $("#btnSearch").click(function () {
+    $("#btnSearchType").click(function () {
 
         //刷新grid
-        $('#toolgrid').datagrid('load',
+        $('#Templategrid').datagrid('load',
             {
-                title: $("#txtSearchTitle").val(),
+                TemplateType: $("#txtSearchType").val(),
             });
     });
+
+    if ($("#selTmpType").find("option").length <= 1) {
+        $.messager.alert("提示", '您还没有添加任何模板的类别，请您先去模板分类去添加模板类别');
+    }
+
 });
 
 function editrow(target) {
 
     $.ajax({
-        url: "/ToolDownload/GetToolById",
+        url: "/TemplateDownload/GetTemplateById",
         type: 'POST',
         data: { id: target },
         success: function (data) {
             if (data.success) {
                 initPop();
-                $('#txtAddTitle').val(data.models.title),
-                $('#txtAddUrl').val(data.models.url),
-                $('#txtAddNum').val(data.models.downloadNum),
-                $("#t_file1").html(data.models.picture),
+                $('#txtAddTitle').val(data.models.Title),
+                $('#popType').val(data.models.TypeId);
+                $('#txtAddNum').val(data.models.DownloadNum),
+                $('#txtAddShow').val(data.models.Content),
                 $("#Id").val(data.models.Id),
-                $("#txtAddShow").val(data.models.content),
+                $("#t_file1").html(data.models.TemplateFile),
+                $("#t_file2").html(data.models.Picture),
                 $("#txtDate").val(DateFormat(data.models.CreateDate))
             }
         },
     });
     $('#dlg').window('open');
 }
-function deleterow(id, fileName) {
+function deleterow(id) {
     $.messager.confirm('确认', '您确认想要删除记录吗？', function (r) {
         if (r) {
             $.ajax({
-                url: '/ToolDownload/Detele',
-                data: { id: id, fileName: fileName },
+                url: '/TemplateDownload/DeteleTemplateDownload',
+                data: { id: id },
                 type: 'Post',
                 success: function (data) {
                     if (data.success == true || data == true) {
 
-                        $('#toolgrid').datagrid('reload');
+                        $('#Templategrid').datagrid('reload');
                     }
                     else {
                         $.messager.alert("错误提示", '删除失败');

@@ -34,21 +34,30 @@ namespace eUI.BLL
             return paperInit;
         }
 
-        public PaperListViewModel PaperTypeList(string type)
+        public PaperListViewModel PaperTypeList(string type,string flag)
         {
             PaperListViewModel paperListViewModel = new PaperListViewModel();
             DataTable dtTypeList = paperDAL.SearchPaperListByType(type);
             DataTable dtSearchRandomList = paperDAL.SearchRandomList(type);
             DataTable dtSearchPaperHotListBytype = paperDAL.SearchPaperHotListBytype(type);
-            DataTable dtSubPage = paperDAL.SearchPaperSubPage();
+            DataTable dtSubPage = paperDAL.SearchPaperToolPage();
+            DataTable dtTmpPage = paperDAL.SearchPaperTmpPage(flag);
+
          
             PaperInfoList PaperInfoList = new PaperInfoList();
+            TemplateDownload templateDownload = new TemplateDownload();
+            ToolDownloadList toolDownloadList = new ToolDownloadList();
             paperListViewModel.paperInfoList = PaperInfoList;
+            paperListViewModel.paperTmpPage = templateDownload;
+            paperListViewModel.paperToolPage = toolDownloadList;
             paperListViewModel.paperInfoList.rows = dtTypeList.toList<PaperInfo>();
             paperListViewModel.randomList = dtSearchRandomList.toList<PaperList>();
             paperListViewModel.HotList = dtSearchPaperHotListBytype.toList<PaperList>();
-            paperListViewModel.paperSubPage = dtSubPage.toList<ToolDownloadInfo>();
-           
+            paperListViewModel.paperToolPage.rows = dtSubPage.toList<ToolDownloadInfo>();
+            paperListViewModel.paperTmpPage.rows = dtTmpPage.toList<TemplateDownloadInfo>();
+            DataTable dtFootLink = paperDAL.SearchFootLink();
+            paperListViewModel.footLinkList = dtFootLink.toList<FootLinkViewModel>();
+
             return paperListViewModel;
         }
 
@@ -96,8 +105,28 @@ namespace eUI.BLL
             paperDetailViewModel.HotList = dtSearchPaperHotListBytype.toList<PaperList>();
             paperDetailViewModel.NewList = dtSearchNewList.toList<PaperList>();
             paperDetailViewModel.imgList = imgList;
+            DataTable dtFootLink = paperDAL.SearchFootLink();
+            paperDetailViewModel.footLinkList = dtFootLink.toList<FootLinkViewModel>();
             return paperDetailViewModel;
         }
+
+        public PaperDetailViewModel TmpDetailById(string Id) {
+
+            PaperDetailViewModel paperDetailViewModel = new PaperDetailViewModel();
+            DataTable dtPaperDetail = paperDAL.SearchTmpDetailById(Id);
+            // DataTable dtImgList = paperDAL.SearchPaperImgListById(Id);
+
+
+            paperDetailViewModel.paperTmpPage = dtPaperDetail.toList<TemplateDownloadInfo>();
+            DataTable dtSearchPaperHotListBytype = paperDAL.SearchPaperHotListBytype(null);
+            DataTable dtSearchNewList = paperDAL.SearchNewList();
+            paperDetailViewModel.HotList = dtSearchPaperHotListBytype.toList<PaperList>();
+            paperDetailViewModel.NewList = dtSearchNewList.toList<PaperList>();
+            DataTable dtFootLink = paperDAL.SearchFootLink();
+            paperDetailViewModel.footLinkList = dtFootLink.toList<FootLinkViewModel>();
+            return paperDetailViewModel;
+        }
+
         public void AddReadCount(string id)
         {
             paperDAL.AddReadCount(id);

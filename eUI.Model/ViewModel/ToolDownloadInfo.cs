@@ -12,5 +12,6 @@ namespace eUI.Model.ViewModel
         public string url { get; set; }
         public string picture { get; set; }
         public int downloadNum { get; set; }
+        public virtual List<TemplateTypeInfo> templateTypeList { get; set; }
     }
 }

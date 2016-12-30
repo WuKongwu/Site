@@ -13,7 +13,10 @@ namespace eUI.Model.ViewModel
         public List<PaperList> randomList { get; set; }
         public List<PaperList> HotList { get; set; }
 
-        public List<ToolDownloadInfo> paperSubPage { get; set; }
+        public ToolDownloadList paperToolPage { get; set; }
+        public TemplateDownload paperTmpPage { get; set; }
+
+        public List<FootLinkViewModel> footLinkList { get; set; }
 
     }
 }

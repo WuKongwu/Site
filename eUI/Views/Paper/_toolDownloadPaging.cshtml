@@ -1,0 +1,34 @@
+﻿@model eUI.Model.ViewModel.PaperListViewModel
+
+@foreach (var item in Model.paperToolPage.rows)
+{
+    string path = @Url.Content("~/" + item.url).ToString(); ;
+    <li style="height:350px">
+        <div class="imgbox">
+
+            <a title="@item.title" onclick='AddDownloadNum("@path","@item.Id")'>
+                <img class="thumbs" src="@Url.Content("~/ToolImgData/" + item.picture)" width="232" height="186" alt="@item.title" onerror="javascript:this.src='@Url.Content("~/TemImg/default.png")';">
+            </a>
+        </div>
+        <div class="infobox">
+            <p class="vtitle" style="height: 23px; -webkit-line-clamp: 1;">
+                <a title="@item.title" onclick='AddDownloadNum("@path","@item.Id")'>
+                    @item.title
+                </a>
+            </p>
+
+            <p class="vtitle" style="height: 97px;font-size: 12px;font-weight: normal; -webkit-line-clamp: 6;">
+                @item.content
+            </p>
+            <div class="info clearfix">
+                <span class="hpw_love">价格：</span>
+                <span class="hpw_pl">免费</span>
+            </div>
+            <div class="userinfo">
+
+                <span class="badge-pat">下载数<span class="badge">@item.downloadNum</span></span>
+
+            </div>
+        </div>
+    </li>
+}

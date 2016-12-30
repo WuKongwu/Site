@@ -1,7 +1,5 @@
-﻿@model eUI.Model.ViewModel.PaperListViewModel
-
-@{string log = ViewData["login"].ToString();}
-
+﻿@model eUI.Model.ViewModel.PaperDetailViewModel
+@{ string log = ViewData["login"].ToString();}
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -11,19 +9,18 @@
     <meta name="renderer" content="webkit">
     <meta name="keywords" content="" />
     <meta name="description" content="" />
-    <title>启源科技|关于我们</title>
+    <title>论文下载</title>
     <link href="~/Content/themes/Paper/css/paper01.css" rel="stylesheet" />
     <link href="~/Content/themes/Paper/css/paper.css" rel="stylesheet" />
     <link href="~/Content/themes/Paper/css/paper-main.css" rel="stylesheet" />
     <link href="~/Content/themes/Paper/css/flexslider.css" rel="stylesheet" />
     <link href="~/Content/themes/Paper/css/qqfixd.css" rel="stylesheet" />
 
-
     <script src="~/Content/themes/Paper/js/jquery.min.js"></script>
     <script src="~/Content/themes/Paper/js/jquery.flexslider-min.js"></script>
     <script src="~/Content/themes/Paper/js/jquery.flip.min.js"></script>
     <script src="~/Content/themes/Paper/js/jquery.core.js"></script>
-
+    <script src="~/Content/themes/Paper/js/jquery.qrcode.min.js"></script>
     <style>
         .socialwrapper .modal-content {
             padding: 10px 20px 20px 20px;
@@ -72,7 +69,7 @@
         </script>
     <![endif]-->
 </head>
-<body data-type="@ViewData["type"]" data-website="@Url.Content("~/")" data-loguser="@log">
+<body data-type="@ViewData["type"]" data-loguser="@log" data-website="@Url.Content("~/")">
     <div class="header">
         <div class="nav clearfix">
             <a class="logo" href="/paper">
@@ -98,12 +95,12 @@
                     </li>
                 </ul>
             </div>
+
             <div class="user-log-info">Hi! <span style="margin:0 10px;">@log</span><a href="/login/logout" style="text-decoration: underline;">退出</a></div>
 
             <div class="top-search">
                 <form class="sform" method="get" action="/Paper/SearchList">
                     <input id="search_ipt" type="text" name='key' placeholder="" />
-                    <input id="key_val" type="hidden" value="@ViewData["key"]" />
                     <button id="search_btn" type="submit"><i class="iconfont">&#xe627;</i></button>
                 </form>
             </div>
@@ -112,7 +109,63 @@
     <div class="bg">
         <div class="container">
             <div class="clearfix">
-                <img src="~/Content/themes/Paper/css/images/sub-bar.jpg" width="100%" height="150px" />
+                <div class="paper-img-list">
+                    <div class="flexslider">
+                        <ul class="slides" style="height: 350px">
+                            <li>
+                                <img class="thumbs" src="@Url.Content("~/TemplateData/" + Model.paperTmpPage[0].Picture)" width="500" height="350" onerror="javascript:this.src='@Url.Content("~/TemImg/default.png")';" />
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="paper-info">
+                    <div class="tb-detail-hd">
+                        <h1>
+                            @Model.paperTmpPage[0].Title
+                        </h1>
+                        <p class="date-info">日期：@Model.paperTmpPage[0].CreateDate.ToString("yyyy-MM-dd")</p>
+                    </div>
+                    <div class="paper-note">@Model.paperTmpPage[0].Content</div>
+
+                    <div class="tm-fcs-panel">
+                        <dl class="tm-promo-panel tm-promo-cur" data-label="价格">
+                            <dt class="tb-metatit">价格</dt>
+                            <dd>
+                                <div class="tm-promo-price">
+                                    <span class="tm-price">免费</span>
+                                    <em class="tm-promo-type "><s></s>火速购买</em>&nbsp;&nbsp;
+                                </div>
+                                <p></p>
+                            </dd>
+                        </dl>
+                        <dl class="tm-phoneprice">
+                            <dt class="tb-metatit">&nbsp;</dt>
+                            <dd>
+                                <div class="wraper">
+                                    <div class="read-div">下载数量&nbsp;<span>@Model.paperTmpPage[0].DownloadNum</span></div>
+
+                                </div>
+                                <div class="clearfix"></div>
+                            </dd>
+                        </dl>
+                    </div>
+
+                    @if (!string.IsNullOrEmpty(Model.paperTmpPage[0].TemplateFile))
+                    {
+                        string path = "/TemplateData/" + Model.paperTmpPage[0].TemplateFile;
+                        <div class="download-div">
+                            <a onclick='AddTmpDownloadNum("@path","@Model.paperTmpPage[0].Id")'>
+                                <div class="download-num">
+                                    共计下载次数<span>@Model.paperTmpPage[0].DownloadNum</span>次
+                                </div>
+                                <div class="download-info">
+                                    免费下载
+                                </div>
+                            </a>
+                        </div>
+                    }
+                </div>
+
             </div>
         </div>
     </div>
@@ -134,19 +187,22 @@
         </div>
     </div>
 
+
     <div class="bg bg-gray">
         <div class="container">
             <div class="clearfix">
                 <div class="paper-left-list box3">
                     <div class="cont-title dtl-list-title">
-                        <h3>随机作品</h3>
+                        <h3>最新作品</h3>
                     </div>
                     <div class="job-task-list dtl-list">
                         <ul>
-                            @foreach (var item in Model.randomList)
+                            @foreach (var item in Model.NewList)
                             {
                                 <li><a href="/paper/Detail?id=@item.Id"><font class="date-font">@item.CreateDate.ToString("yyyy-MM-dd")</font>@item.Title</a></li>
+
                             }
+
                         </ul>
                     </div>
                     <div class="dtl-dashed">&nbsp;</div>
@@ -158,13 +214,22 @@
                             @foreach (var item in Model.HotList)
                             {
                                 <li><a href="/paper/Detail?id=@item.Id"><font class="date-font">@item.CreateDate.ToString("yyyy-MM-dd")</font>@item.Title</a></li>
+
                             }
+
                         </ul>
                     </div>
                     <div class="clearfix"></div>
                 </div>
                 <div class="paper-detail box3">
-                    关于我们内容.....
+                    <div class="detail-text">
+                        <h1 class="dtl-h1">
+                            @Model.paperTmpPage[0].Title
+                        </h1>
+
+
+                        <pre>@Model.paperTmpPage[0].Content</pre>
+                    </div>
                 </div>
 
             </div>
@@ -216,6 +281,9 @@
                         <span class="register">注册</span>
                     </h1>
                 </div>
+
+
+
                 <div class="socialwrapper">
                     <div id="login_content" class="modal-content">
                         <div class="login-box ">
@@ -314,6 +382,26 @@
             </div>
         </div>
     </div>
+
+
+    <div class="modal fade in" id="wx_pay_pop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static" aria-hidden="false" style="display: none;">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button><h4 class="modal-title" id="myModalLabel">微信支付</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-left">
+                        <p><span>请使用</span><span class="orange">微信</span><span class="orange">扫一扫</span><br>扫描二维码支付</p>
+                        <div id="wxPayCode">
+                            <div class="modal-info"><span>二维码有效时长为2小时, 请尽快支付</span></div>
+                        </div>
+                    </div>
+                    <div class="modal-right"><img src="~/Img/weixin-qrcode.jpg" alt="微信扫码"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-backdrop fade in" style="display: none;"></div>
 </body>
 </html>
-

@@ -32,6 +32,7 @@ namespace eUI.DAL
             {
                 sbSI.AppendFormat("AND CreateDate BETWEEN '{0}' AND '{1}'", paperList.StTime, paperList.EdTime);
             }
+            sbSI.Append(" ORDER BY CreateDate DESC");
             sbSI.AppendFormat(" limit {0},{1};", (paperList.page - 1) * paperList.rows, paperList.rows);
             DataTable dtBusiness = DBHelper.SearchSql(sbSI.ToString());
 
@@ -115,10 +116,11 @@ namespace eUI.DAL
             string GetSessionWithDsmId = string.Format(@"update PAPER set Title='{0}',Info ='{1}',
                 DetailInfo ='{2}',Price='{3}',Type ='{4}',ImgA='{5}',ImgB='{6}',ImgC='{7}',ImgD='{8}',
                 ImgE='{9}',Video='{10}',VideoZip='{11}',Version='{12}',FileUrl='{13}',Code='{14}',
-                ReadNum='{15}',PayNum='{16}' where Id ='{17}'
+                ReadNum='{15}',PayNum='{16}',CreateDate='{17}' where Id ='{18}'
                ", paperInfo.Title, paperInfo.Info, paperInfo.DetailInfo, paperInfo.Price, paperInfo.Type
                , paperInfo.ImgA, paperInfo.ImgB, paperInfo.ImgC, paperInfo.ImgD, paperInfo.ImgE, paperInfo.Video,
-               paperInfo.VideoZip, paperInfo.Version, paperInfo.FileUrl, paperInfo.Code, paperInfo.ReadNum,paperInfo.PayNum,paperInfo.Id);
+               paperInfo.VideoZip, paperInfo.Version, paperInfo.FileUrl, paperInfo.Code, paperInfo.ReadNum,
+               paperInfo.PayNum,paperInfo.CreateDate,paperInfo.Id);
             
          
             int iResult = DBHelper.ExcuteNoQuerySql(GetSessionWithDsmId);

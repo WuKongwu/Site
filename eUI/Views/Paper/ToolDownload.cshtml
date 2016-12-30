@@ -11,7 +11,7 @@
     <meta name="renderer" content="webkit">
     <meta name="keywords" content="" />
     <meta name="description" content="" />
-    <title>启源科技|开发工具下载</title>
+    <title>启源科技|毕设模板下载</title>
     <link href="~/Content/themes/Paper/css/paper01.css" rel="stylesheet" />
     <link href="~/Content/themes/Paper/css/paper.css" rel="stylesheet" />
     <link href="~/Content/themes/Paper/css/paper-main.css" rel="stylesheet" />
@@ -22,10 +22,11 @@
     <script src="~/Content/themes/Paper/js/jquery.min.js"></script>
     <script src="~/Content/themes/Paper/js/jquery.flexslider-min.js"></script>
     <script src="~/Content/themes/Paper/js/jquery.flip.min.js"></script>
+    <script type="text/javascript" src="~/Content/themes/Paper/js/jquery.twbsPagination.min.js"></script>
     <script src="~/Content/themes/Paper/js/jquery.core.js"></script>
 
     <style>
-         .socialwrapper .modal-content {
+        .socialwrapper .modal-content {
             padding: 10px 20px 20px 20px;
             background-color: #f9f9f9;
             border: 0;
@@ -65,6 +66,9 @@
                 color: #aaa;
                 outline: none;
             }
+            .paging-div {
+        bottom:30px;
+        }
     </style>
     <!--[if lt IE 9]>
         <script type="text/javascript">
@@ -80,7 +84,7 @@
             </a>
             <div class="nav-list">
                 <ul>
-                    <li class="active"><a href="/paper" target="_self" title="首页">首页</a></li>
+                    <li><a href="/paper" target="_self" title="首页">首页</a></li>
                     <li><a href="/paper/PayGuide" target="_self" title="购买指南">购买指南</a></li>
                     <li><a href="/paper/CreditGuarantee" target="_self" title="信誉保证">信誉保证</a></li>
                     <li><a href="/paper/ToolDownload" target="_self" title="开发工具下载">开发工具下载</a></li>
@@ -164,7 +168,50 @@
                     <div class="clearfix"></div>
                 </div>
                 <div class="paper-detail box3">
-                    <div class="text-area-content">@Html.Raw(Model.paperSubPage[0].DevelopmentToolPage)</div>
+
+
+                    <div class="opuslist bd">
+                        <ul class="clearfix detail-ul" data-count="@Model.paperToolPage.total">
+
+                            @foreach (var item in Model.paperToolPage.rows)
+                            {
+                                string path = @Url.Content("~/" + item.url).ToString();
+                                <li style="height:350px">
+                                    <div class="imgbox">
+
+                                        <a title="@item.title" onclick='AddDownloadNum("@path","@item.Id")'>
+                                            <img class="thumbs" src="@Url.Content("~/ToolImgData/" + item.picture)" width="232" height="186" alt="@item.title" onerror="javascript:this.src='@Url.Content("~/TemImg/default.png")';">
+                                        </a>
+                                    </div>
+                                    <div class="infobox">
+                                        <p class="vtitle" style="height: 23px; -webkit-line-clamp: 1;">
+                                            <a title="@item.title" onclick='AddDownloadNum("@path","@item.Id")'>
+                                                @item.title
+                                            </a>
+                                        </p>
+
+                                        <p class="vtitle" style="height: 97px;font-size: 12px;font-weight: normal; -webkit-line-clamp: 6;">
+                                            @item.content
+                                        </p>
+                                        <div class="info clearfix">
+                                            <span class="hpw_love">价格：</span>
+                                            <span class="hpw_pl">免费</span>
+                                        </div>
+                                        <div class="userinfo">
+
+                                            <span class="badge-pat">下载数<span class="badge">@item.downloadNum</span></span>
+
+                                        </div>
+                                    </div>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                    <div class="paging-div">
+                        <nav style="text-align: center;margin: 10px 0;margin-top:90px">
+                            <ul id="pagination-demo" class="pagination-sm"></ul>
+                        </nav>
+                    </div>
                 </div>
 
             </div>
@@ -177,24 +224,12 @@
 
             </div>
             <div class="link-box">
-                <a href="#" title="" target="_blank">
-                    <img class="thumbs" src="~/Content/themes/Paper/css/images/show2.jpg" width="180" height="90" alt="" />
-                </a>
-                <a href="#" title="" target="_blank">
-                    <img class="thumbs" src="~/Content/themes/Paper/css/images/show2.jpg" width="180" height="90" alt="" />
-                </a>
-                <a href="#" title="" target="_blank">
-                    <img class="thumbs" src="~/Content/themes/Paper/css/images/show2.jpg" width="180" height="90" alt="" />
-                </a>
-                <a href="#" title="" target="_blank">
-                    <img class="thumbs" src="~/Content/themes/Paper/css/images/show2.jpg" width="180" height="90" alt="" />
-                </a>
-                <a href="#" title="站酷" target="_blank">
-                    <img class="thumbs" src="~/Content/themes/Paper/css/images/show2.jpg" width="180" height="90" alt="" />
-                </a>
-                <a href="#" title="" target="_blank">
-                    <img class="thumbs" src="~/Content/themes/Paper/css/images/show2.jpg" width="180" height="90" alt="" />
-                </a>
+                @foreach (var item in Model.footLinkList)
+                {
+                    <a href="@item.SiteURL" title="@item.Name" target="_blank">
+                        <img class="thumbs" src="@Url.Content("~/FootLink/" + item.ImageURL)" width="180" height="90" alt="" />
+                    </a>
+                }
             </div>
         </div>
     </div>
@@ -325,6 +360,51 @@
             </div>
         </div>
     </div>
+    <script>
+
+
+    var flag = "true";
+    function Paging(pageNo) {
+       
+        var url = $("body").data("website") + "paper/ToolListPaging";
+        if (flag == "true") {
+            flag = "false";
+            $.ajax({
+                url: url,
+                type: "POST",
+                dataType: "html",
+                cache: false,
+                headers: { "CaChe-Control": "no-cache" },
+                data: { pageNo: pageNo },
+                success: function (data) {
+                    flag = "true";
+                    $(".paper-detail ul.detail-ul").html(data);
+                },
+                error: function (e) { flag = "true"; }
+            })
+        }
+    }
+
+    var count = $(".paper-detail ul.detail-ul").data("count");
+
+    if (count > 0) {
+        var pageCount = Math.ceil(count / 6);
+        $('#pagination-demo').twbsPagination({
+            totalPages: pageCount,
+            visiblePages: 5,
+            first: "首页",
+            last: "末页",
+            prev: "上一页",
+            next: "下一页",
+            initiateStartPageClick: false,
+            onPageClick: function (event, page) {
+                Paging(page);
+            }
+        });
+    }
+
+    </script>
+
 </body>
 </html>
 

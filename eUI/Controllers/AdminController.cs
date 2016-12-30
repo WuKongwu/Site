@@ -174,10 +174,6 @@ namespace easyUITest.Controllers
             
         }
 
-        //public ActionResult DownLoad(string code)
-        //{
-        //    return File(new byte);
-        //}
     }
 
     public class uploadpic : IHttpHandler

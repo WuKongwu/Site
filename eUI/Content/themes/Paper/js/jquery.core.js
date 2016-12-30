@@ -22,6 +22,12 @@ function scrollFixed() {
         })
     }
 }
+function SearchTemplateByType() {
+    var flag = $("#selTmpType").val();
+    var url = $("body").data("website") + "Paper/TemplateDownload?flag=" + flag;
+    window.location.href = url;
+}
+
 
 function InitMenu() {
     var type = $("body").data("type");
@@ -45,7 +51,6 @@ function getRootPath() {
 }
 function AddDownloadNum(downloadUrl, id) {
     var url = $("body").data("website") + "ToolDownload/AddDownloadNum";
-
     $.ajax({
         url: url,
         type: "POST",
@@ -56,17 +61,37 @@ function AddDownloadNum(downloadUrl, id) {
         success: function (data) {
             if (data.success == true) {
                 $(".badge").html(data.num);
-
                 var newWin = window.open('', '_blank');
-
                 newWin.location.href = getRootPath() + downloadUrl;
             }
         },
         error: function (e) {
-
         }
     });
 }
+
+function AddTmpDownloadNum(downloadUrl, id) {
+    var url = $("body").data("website") + "TemplateDownload/AddDownloadNum";
+    $.ajax({
+        url: url,
+        type: "POST",
+        dataType: "json",
+        cache: false,
+        headers: { "Cache-Control": "no-cache" },
+        data: { id: id },
+        success: function (data) {
+            if (data.success == true) {
+                $(".read-div span").html(data.num);
+                $(".download-num span").html(data.num);
+                var newWin = window.open('', '_blank');
+                newWin.location.href = getRootPath() + downloadUrl;
+            }
+        },
+        error: function (e) {
+        }
+    });
+}
+
 
 function InitTopMenu() {
 
@@ -80,6 +105,8 @@ function InitTopMenu() {
     } else if (url.indexOf("ToolDownload") >= 0) {
         $item.eq(3).addClass("active");
     } else if (url.indexOf("TemplateDownload") >= 0) {
+        $item.eq(4).addClass("active");
+    } else if (url.indexOf("TmpDetail") >= 0) {
         $item.eq(4).addClass("active");
     } else if (url.indexOf("About") >= 0) {
         $item.eq(5).addClass("active");
@@ -233,29 +260,6 @@ $(function () {
             }
         });
     });
-
-    //$(".type-search").off("click").on("click", function () {
-    //    var type = $("body").data("type");
-    //    var url = $("body").data("website") + "Paper/SearchTitleByType";
-    //    var key = $(".search-input").val();
-
-    //    $.ajax({
-    //        url: url,
-    //        type: "POST",
-    //        dataType: "html",
-    //        cache: false,
-    //        headers: { "Cache-Control": "no-cache" },
-    //        data: { key: key ,type:type},
-    //        success: function (data) {
-    //            $(".paper-detail.box3").html(data);
-    //        },
-    //        error: function (e) {
-
-    //        }
-    //    });
-
-    //});
-
 
 
     $("#WxPay").off("click").on("click", function () {
