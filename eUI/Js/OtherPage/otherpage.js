@@ -4,7 +4,7 @@
     debugger
     $('#papergrid').datagrid({
 
-        url: '/ImageManage/SearchImage',
+        url: '/OtherPage/SearchOtherPage',
         singleSelect: true,
         queryParams: { name: '' },
         pagination: true,
@@ -13,23 +13,19 @@
         pageSize: 20,//每页显示的记录条数，默认为10 
         pageList: [20, 50, 100],//可以设置每页记录条数的列表 
         columns: [[
-             { field: 'ImageName', title: '图片名称', width: '20%', align: 'left' },
-
-
+             { field: 'Name', title: '名称', width: '20%', align: 'center' },
+             { field: 'Url', title: '链接地址', width: '20%', align: 'center' },
+              { field: 'ImgFile', title: '图片名称', width: '20%', align: 'center' },
              {
-                 field: 'ImagePosition', title: '图片位置', width: '20%', align: 'left', formatter: function (value, row, index) {
-                     return Display(row.ImagePosition);
+                 field: 'CreateDate', title: '上传时间', width: '10%', align: 'center', formatter: function (value, row, index) {
+                     return DateFormat(row.CreateDate);
                  }
              },
-
-
-            { field: 'ImageURL', title: '图片连接地址', width: '20%', align: 'left' },
-
-            {
+             {
                 field: 'action', title: '操作', width: '10%', align: 'center',
                 formatter: function (value, row, index) {
                     var e = '<a href="#" onclick="editrow(' + row.Id + ')">修改</a> ';
-                    var d = '<a href="#" onclick="deleterow(' + '\'' + row.Id + '\'' + ',' + '\'' + row.ImageURL + '\'' + ')">删除</a>';
+                    var d = '<a href="#" onclick="deleterow(' + '\'' + row.Id + '\'' + ',' + '\'' + row.ImgFile + '\'' + ')">删除</a>';
                     return e + d;
                 }
             }
@@ -79,7 +75,7 @@
         //刷新grid
         $('#papergrid').datagrid('load',
             {
-                ImageName: $("#txtSearchName").val(),
+                Name: $("#txtSearchName").val(),
             });
     });
     $('#dlg').window('close');
@@ -87,12 +83,13 @@
         debugger
         var param = {
             Id: $("#Id").val(),
-            ImageName: $("#image-Name").val(),
-            ImagePosition: $("#image-Position").val(),
-            ImageURL: $("#t_Cfile").text()
+            Name: $("#otherName").val(),
+            Url: $("#otherUrl").val(),
+            ImgFile: $("#t_Cfile").text(),
+            CreateDate: $("#otherDate").val()
         };
         $.ajax({
-            url: "../ImageManage/Save",
+            url: "../OtherPage/Save",
             type: 'POST',
             data: param,
             success: function (data) {
@@ -175,7 +172,7 @@ function ajaxFileUpload(val, oldFileName) {
     $.ajaxFileUpload
     (
         {
-            url: '/ImageManage/UploadImg', //用于文件上传的服务器端请求地址
+            url: '/OtherPage/UploadImg', //用于文件上传的服务器端请求地址
             type: 'post',
             data: { oldFileName: oldFileName }, //此参数非常严谨，写错一个引号都不行
             secureuri: false, //一般设置为false
@@ -198,15 +195,16 @@ function ajaxFileUpload(val, oldFileName) {
 }
 function editrow(target) {
     $.ajax({
-        url: "../ImageManage/GetById",
+        url: "../OtherPage/GetOtherPageById",
         type: 'POST',
         data: { id: target },
         success: function (data) {
             if (data.success) {
-                $('#image-Name').val(data.models.ImageName),
-                $('#image-Position').val(data.models.ImagePosition),
+                $('#otherName').val(data.models.Name),
+                $('#otherUrl').val(data.models.Url),
                 $("#Id").val(data.models.Id);
-                $("#t_Cfile").text(data.models.ImageURL);
+                $("#t_Cfile").text(data.models.ImgFile),
+                $("#otherDate").val(DateFormat(data.models.CreateDate));
             }
         },
     });
@@ -216,7 +214,7 @@ function deleterow(target, fileName) {
     $.messager.confirm('确认', '您确认想要删除记录吗？', function (r) {
         if (r) {
             $.ajax({
-                url: '/ImageManage/Delete',
+                url: '/OtherPage/Delete',
                 data: { id: target, fileName: fileName },
                 type: 'Post',
                 success: function (data) {
@@ -241,30 +239,4 @@ function DateFormat(val) {
     var month = date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1;
     var currentDate = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
     return date.getFullYear() + "-" + month + "-" + currentDate;
-}
-
-
-function Display(num) {
-    var showText = "";
-    switch (num) {
-        case "0":
-            showText = "首页轮播";
-            break;
-        case "1":
-            showText = "最新作品";
-            break;
-        case "2":
-            showText = "热点作品";
-            break;
-        case "3":
-            showText = "子页横幅";
-            break;
-        case "4":
-            showText = "注册商标";
-            break;
-        default:
-            showText = "";
-            break;
-    }
-    return showText;
 }

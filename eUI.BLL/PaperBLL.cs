@@ -30,7 +30,9 @@ namespace eUI.BLL
             paperInit.randomListCount = dtSearchRandomList.Rows.Count;
             DataTable dtFootLink = paperDAL.SearchFootLink();
             paperInit.footLinkList = dtFootLink.toList<FootLinkViewModel>();
-
+            DataTable dtOtherPage = paperDAL.SearchOtherPage();
+            paperInit.otherPageList = dtOtherPage.toList<OtherPageInfo>();
+            paperInit.otherPageList = paperInit.otherPageList.Take(4).ToList<OtherPageInfo>();
             return paperInit;
         }
 
@@ -130,6 +132,34 @@ namespace eUI.BLL
         public void AddReadCount(string id)
         {
             paperDAL.AddReadCount(id);
+        }
+
+        public ImageManageList SearchImgManage()
+        {
+            ImageManageList imageManageList = new ImageManageList();
+            DataTable dtSearchImgManage = paperDAL.SearchImgManage();
+            imageManageList.rows = dtSearchImgManage.toList<ImageManageModel>();
+            return imageManageList;
+
+        }
+
+        public string SearchPayGuide()
+        {
+            DataTable dtSearchImgManage = paperDAL.SearchSubPage();
+            string contentStr = dtSearchImgManage.Rows[0]["payguide"].ToString(); ;
+            return contentStr;
+        }
+        public string SearchCreditGuarantee()
+        {
+            DataTable dtSearchImgManage = paperDAL.SearchSubPage();
+            string contentStr = dtSearchImgManage.Rows[0]["creditguarantee"].ToString(); ;
+            return contentStr;
+        }
+        public string SearchAboutUs()
+        {
+            DataTable dtSearchImgManage = paperDAL.SearchSubPage();
+            string contentStr = dtSearchImgManage.Rows[0]["aboutus"].ToString(); ;
+            return contentStr;
         }
     }
 }

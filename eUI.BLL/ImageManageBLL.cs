@@ -40,19 +40,19 @@ namespace eUI.BLL
                 {
                     switch (mode.ImagePosition)
                     {
-                        case "main":
+                        case "0":
                             msg = "轮播已存在3张图片!";
                             break;
-                        case "news":
+                        case "1":
                             msg = "最新已存在1张图片!";
                             break;
-                        case "hots":
+                        case "2":
                             msg = "热点已存在1张图片!";
                             break;
-                        case "child":
+                        case "3":
                             msg = "已存在1张图片!";
                             break;
-                        case "logo":
+                        case "4":
                             msg = "Logo已存在1张图片!";
                             break;
                         default:
@@ -71,19 +71,19 @@ namespace eUI.BLL
                 {
                     switch (mode.ImagePosition)
                     {
-                        case "main":
+                        case "0":
                             msg = "轮播已存在3张图片,只能进行修改";
                             break;
-                        case "news":
+                        case "1":
                             msg =  "最新已存在1张图片,只能进行修改";
                             break;
-                        case "hots":
+                        case "2":
                             msg = "热点已存在1张图片,只能进行修改";
                             break;
-                        case "child":
+                        case "3":
                             msg =  "已存在1张图片,只能进行修改";
                             break;
-                        case "logo":
+                        case "4":
                             msg =  "Logo已存在1张图片,只能进行修改";
                             break;
                         default:

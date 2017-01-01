@@ -76,7 +76,13 @@
     <div class="header">
         <div class="nav clearfix">
             <a class="logo" href="/paper">
-                <img src="~/Content/themes/Paper/css/images/SiteLogo.JPG" alt="启源科技" />
+                @foreach (var item in ViewBag.ImageModel)
+                {
+                    if (item.ImagePosition == "4")
+                    {
+                        <img src="@Url.Content("~/ImageManage/" + item.ImageURL)" alt="@item.ImageName" style="width:112px;height:64px">
+                    }
+                }
             </a>
             <div class="nav-list">
                 <ul>
@@ -112,7 +118,13 @@
     <div class="bg">
         <div class="container">
             <div class="clearfix">
-                <img src="~/Content/themes/Paper/css/images/sub-bar.jpg" width="100%" height="150px" />
+                @foreach (var item in ViewBag.ImageModel)
+                {
+                    if (item.ImagePosition == "3")
+                    {
+                        <img src="@Url.Content("~/ImageManage/" + item.ImageURL)" style="width:100%;height:150px" alt="@item.ImageName" />
+                    }
+                }
             </div>
         </div>
     </div>
@@ -164,7 +176,7 @@
                     <div class="clearfix"></div>
                 </div>
                 <div class="paper-detail box3">
-                  购买指南内容.....
+                    <div style="padding:20px;">@Html.Raw(ViewBag.PayGuide)</div> 
                 </div>
 
             </div>
@@ -180,7 +192,7 @@
                 @foreach (var item in Model.footLinkList)
                 {
                     <a href="@item.SiteURL" title="@item.Name" target="_blank">
-                        <img class="thumbs" src="@Url.Content("~/FootLink/" + item.ImageURL)" width="180" height="90" alt="" />
+                        <img class="thumbs" src="@Url.Content("~/FootLink/" + item.ImageURL)" width="180" height="90" alt="item.Name" />
                     </a>
 
                 }

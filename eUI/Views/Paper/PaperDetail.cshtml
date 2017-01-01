@@ -73,7 +73,13 @@
     <div class="header">
         <div class="nav clearfix">
             <a class="logo" href="/paper">
-                <img src="~/Content/themes/Paper/css/images/SiteLogo.JPG" alt="ÆôÔ´¿Æ¼¼" />
+                @foreach (var item in ViewBag.ImageModel)
+                {
+                    if (item.ImagePosition == "4")
+                    {
+                        <img src="@Url.Content("~/ImageManage/" + item.ImageURL)" alt="@item.ImageName" style="width:112px;height:64px">
+                    }
+                }
             </a>
             <div class="nav-list">
                 <ul>
@@ -271,7 +277,7 @@
                 @foreach (var item in Model.footLinkList)
                 {
                     <a href="@item.SiteURL" title="@item.Name" target="_blank">
-                        <img class="thumbs" src="@Url.Content("~/FootLink/" + item.ImageURL)" width="180" height="90" alt="" />
+                        <img class="thumbs" src="@Url.Content("~/FootLink/" + item.ImageURL)" width="180" height="90" alt="item.Name" />
                     </a>
 
                 }

@@ -53,6 +53,7 @@
     <Compile Include="ImageManageBLL.cs" />
     <Compile Include="FootLinkBLL.cs" />
     <Compile Include="LoginBLL.cs" />
+    <Compile Include="OtherPageBLL.cs" />
     <Compile Include="PaperBLL.cs" />
     <Compile Include="PayPaperBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

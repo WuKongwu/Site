@@ -85,7 +85,7 @@ namespace eUI.DAL
                 VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}',
                 '{11}','{12}','{13}','{14}','{15}','{16}','{17}')",
                 paperInfo.Title, paperInfo.Info, paperInfo.DetailInfo, paperInfo.Price,
-                DateTime.Now, paperInfo.Type, paperInfo.ImgA, paperInfo.ImgB,
+                paperInfo.CreateDate, paperInfo.Type, paperInfo.ImgA, paperInfo.ImgB,
                 paperInfo.ImgC, paperInfo.ImgD, paperInfo.ImgE, paperInfo.Video, 
                 paperInfo.VideoZip, paperInfo.Version, paperInfo.FileUrl, paperInfo.Code,
                 paperInfo.ReadNum,paperInfo.PayNum);

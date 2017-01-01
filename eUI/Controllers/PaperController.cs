@@ -28,6 +28,7 @@ namespace easyUITest.Controllers
             }
             PaperBLL paperBLL = new PaperBLL();
             PaperInit paperInit = paperBLL.PaperInit();
+            ViewBag.ImageModel = paperBLL.SearchImgManage().rows;
             return View("Home", paperInit);
         }
 
@@ -48,6 +49,7 @@ namespace easyUITest.Controllers
             paperListViewModel.paperInfoList.total = paperListViewModel.paperInfoList.rows.Count();
             paperListViewModel.paperInfoList.rows = paperListViewModel.paperInfoList.rows.Take(9).ToList<PaperInfo>();
             ViewData["type"] = type;
+            ViewBag.ImageModel = paperBLL.SearchImgManage().rows;
             return View("PaperListV", paperListViewModel);
         }
 
@@ -74,6 +76,7 @@ namespace easyUITest.Controllers
             
             }
             ViewData["key"] = key;
+            ViewBag.ImageModel = paperBLL.SearchImgManage().rows;
             return View("SearchList", paperListViewModel);
         }
         
@@ -144,6 +147,7 @@ namespace easyUITest.Controllers
             PaperBLL paperBLL = new PaperBLL();
             paperBLL.AddReadCount(id);
             PaperDetailViewModel paperDetailViewModel = paperBLL.PaperDetailById(id);
+            ViewBag.ImageModel = paperBLL.SearchImgManage().rows;
             return View("PaperDetail", paperDetailViewModel);
         }
 
@@ -167,7 +171,7 @@ namespace easyUITest.Controllers
             else {
                 paperDetailViewModel = paperBLL.TmpDetailById(id);
             }
-
+            ViewBag.ImageModel = paperBLL.SearchImgManage().rows;
             return View("TemplateDetail", paperDetailViewModel);
         }
 
@@ -185,6 +189,8 @@ namespace easyUITest.Controllers
             }
             PaperBLL paperBLL = new PaperBLL();
             PaperListViewModel paperListViewModel = paperBLL.PaperTypeList(null,null);
+            ViewBag.ImageModel = paperBLL.SearchImgManage().rows;
+            ViewBag.PayGuide = paperBLL.SearchPayGuide();
             return View("PayGuide", paperListViewModel);
         }
 
@@ -201,6 +207,8 @@ namespace easyUITest.Controllers
             }
             PaperBLL paperBLL = new PaperBLL();
             PaperListViewModel paperListViewModel = paperBLL.PaperTypeList(null,null);
+            ViewBag.ImageModel = paperBLL.SearchImgManage().rows;
+            ViewBag.CreditGuarantee = paperBLL.SearchCreditGuarantee();
             return View("CreditGuarantee", paperListViewModel);
         }
 
@@ -219,6 +227,7 @@ namespace easyUITest.Controllers
             PaperListViewModel paperListViewModel = paperBLL.PaperTypeList(null,null);
             paperListViewModel.paperToolPage.total = paperListViewModel.paperToolPage.rows.Count();
             paperListViewModel.paperToolPage.rows = paperListViewModel.paperToolPage.rows.Take(6).ToList<ToolDownloadInfo>();
+            ViewBag.ImageModel = paperBLL.SearchImgManage().rows;
             return View("ToolDownload", paperListViewModel);
         }
         public ViewResult ToolListPaging(int pageNo)
@@ -286,6 +295,7 @@ namespace easyUITest.Controllers
 
             }
             ViewData["selTmpType"] = new SelectList(select, "Value", "Text", "");
+            ViewBag.ImageModel = paperBLL.SearchImgManage().rows;
             return View("TemplateDownload", paperListViewModel);
         }
 
@@ -334,6 +344,8 @@ namespace easyUITest.Controllers
             }
             PaperBLL paperBLL = new PaperBLL();
             PaperListViewModel paperListViewModel = paperBLL.PaperTypeList(null,null);
+            ViewBag.ImageModel = paperBLL.SearchImgManage().rows;
+            ViewBag.About = paperBLL.SearchAboutUs();
             return View("About", paperListViewModel);
         }
 

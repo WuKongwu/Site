@@ -32,7 +32,7 @@
         $(".file-name").html("");
         $("input[type='file']").val("");
         $('#dlg').window('open');
-        $("#t_guid").text("");
+        $("#t_guid").val("");
         $('[name="txtAddReadNum"]').val(''),
         $('[name="txtAddPayNum"]').val(''),
         $('[name="txtAddVersion"]').val('')
@@ -45,10 +45,10 @@
     }
     $(function () {
         function CheckFileType(file, type) {
-            var reg = /[^\\\/]*[\\\/]+/g; //匹配文件的名称和后缀的正则表达式
-            var name = $(file).val().replace(reg, '');
-            var postfix = /\.[^\.]+/.exec(name);//获取文件的后缀
-            postfix = postfix + "";
+            var name = $(file).val();
+            var point = name.lastIndexOf(".");
+          
+            var postfix = name.substr(point);
             postfix = postfix.toLowerCase();
             if (type == "img") {
                 if (postfix == ".jpeg") {
@@ -203,7 +203,7 @@
     });
 
     function ajaxFileUpload(val) {
-        var guid = $("#t_guid").text();
+        var guid = $("#t_guid").val();
         $.ajaxFileUpload
         (
             {
@@ -218,7 +218,7 @@
                     var ext = JSON.parse(data)
 
                     $("#t_" + val).text(ext.imgPath1);
-                    $("#t_guid").text(ext.guid);
+                    $("#t_guid").val(ext.guid);
                 },
                 error: function (data, status, e)//服务器响应失败处理函数
                 {
@@ -250,7 +250,8 @@
                 PayNum: $("#txtAddPayNum").val(),
                 Version: $("#txtAddVersion").val(),
                 FileUrl: $("#t_Cfile").text(),
-                CreateDate: $("#txtAddDate").val()
+                CreateDate: $("#txtAddDate").val(),
+                Code: $("#t_guid").val()
             };
             $.ajax({
                 url: "../Admin/Save",

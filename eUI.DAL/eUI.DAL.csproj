@@ -59,6 +59,7 @@
     <Compile Include="ImageManageDAL.cs" />
     <Compile Include="FootLinkDAL.cs" />
     <Compile Include="LoginDAL.cs" />
+    <Compile Include="OtherPageDAL.cs" />
     <Compile Include="PaperDAL.cs" />
     <Compile Include="PayPaperDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

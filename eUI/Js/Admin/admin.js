@@ -35,7 +35,7 @@
                 field: 'action', title: '操作', width: '10%', align: 'center',
                 formatter: function (value, row, index) {
                     var e = '<a href="#" onclick="editrow(' + row.Id + ')">修改</a> ';
-                    var d = '<a href="#" onclick="deleterow(' + row.Id + ')">删除</a>';
+                    var d = '<a href="#" onclick="deleterow(' + '\'' + row.Id + '\'' + ',' + '\'' + row.Code + '\'' + ')">删除</a>';
                     return e + d;
                 }
             }

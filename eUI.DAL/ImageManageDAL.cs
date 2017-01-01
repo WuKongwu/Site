@@ -85,7 +85,7 @@ namespace eUI.DAL
             strSQL.Append("select count(1) from ImageManage where 1=1");
             switch (imagePostion)
             {
-                case "main":
+                case "0":
                     strSQL.AppendFormat(" and ImagePosition ='{0}'", imagePostion);
                    DataTable dt =  DBHelper.SearchSql(strSQL.ToString());
                    if (dt!=null)
@@ -97,13 +97,13 @@ namespace eUI.DAL
                        }
                    }
                     break;
-                case "news":
+                case "1":
                     break;
-                case "hots":
+                case "2":
                     break;
-                case "child":
+                case "3":
                     break;
-                case "logo":
+                case "4":
                     break;
                 default:
                     break;

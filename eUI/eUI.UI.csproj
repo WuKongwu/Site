@@ -150,7 +150,9 @@
     <Compile Include="Controllers\FootLinkController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HttpPost.cs" />
+    <Compile Include="Controllers\ImageManageController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\OtherPageController.cs" />
     <Compile Include="Controllers\PaperController.cs" />
     <Compile Include="Controllers\PayController.cs" />
     <Compile Include="Controllers\PermissionSetController.cs" />
@@ -661,9 +663,11 @@
     <Content Include="Js\EUIIndex.js" />
     <Content Include="easyUI\Extension\GridToExport.js" />
     <Content Include="Js\Footlink\Index.js" />
+    <Content Include="Js\ImageManage\Index.js" />
     <Content Include="Js\jquery.fileupload.js" />
     <Content Include="Js\jquery.iframe-transport.js" />
     <Content Include="Js\jquery.ui.widget.js" />
+    <Content Include="Js\OtherPage\otherpage.js" />
     <Content Include="Js\Report\UserColumnReport.js" />
     <Content Include="Js\TemplateDownload\templatedownload.js" />
     <Content Include="Js\TemplateDownload\templatedtype.js" />
@@ -1123,6 +1127,8 @@
     <Content Include="Views\Paper\TemplateDetail.cshtml" />
     <Content Include="Views\Paper\_toolDownloadPaging.cshtml" />
     <Content Include="Views\Paper\_tmplateDownloadPaging.cshtml" />
+    <Content Include="Views\ImageManage\Index.cshtml" />
+    <Content Include="Views\OtherPage\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

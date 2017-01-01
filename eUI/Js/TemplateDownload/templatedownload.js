@@ -27,7 +27,7 @@
                 field: 'action', title: '操作', width: '20%', align: 'center',
                 formatter: function (value, row, index) {
                     var e = '<a href="#" onclick="editrow(' + row.Id + ')">修改</a> ';
-                    var d = '<a href="#" onclick="deleterow(' + row.Id + ')">删除</a>';
+                    var d = '<a href="#" onclick="deleterow(' + '\'' + row.Id + '\'' + ',' + '\'' + row.TemplateFile + '\'' + ')">删除</a>';
                     return e + d;
                 }
             }
@@ -111,12 +111,12 @@ function editrow(target) {
     });
     $('#dlg').window('open');
 }
-function deleterow(id) {
+function deleterow(id, fileName) {
     $.messager.confirm('确认', '您确认想要删除记录吗？', function (r) {
         if (r) {
             $.ajax({
                 url: '/TemplateDownload/DeteleTemplateDownload',
-                data: { id: id },
+                data: { id: id ,fileName: fileName},
                 type: 'Post',
                 success: function (data) {
                     if (data.success == true || data == true) {

@@ -70,6 +70,8 @@
     <Compile Include="ViewModel\ImageManageViewModel.cs" />
     <Compile Include="ViewModel\Img.cs" />
     <Compile Include="ViewModel\ImgPath.cs" />
+    <Compile Include="ViewModel\OtherPageInfo.cs" />
+    <Compile Include="ViewModel\OtherPageList.cs" />
     <Compile Include="ViewModel\PaperDetailViewModel.cs" />
     <Compile Include="ViewModel\PaperInfo.cs" />
     <Compile Include="ViewModel\PaperInfoList.cs" />

@@ -105,10 +105,12 @@ namespace easyUITest.Controllers
         }
 
         [Authentication]
-        public ActionResult DeteleTemplateDownload(int id)
+        public ActionResult DeteleTemplateDownload(int id, string fileName)
         {
             TemplateDownloadBLL templateDownloadBLL = new TemplateDownloadBLL();
             bool b = templateDownloadBLL.DeteleTemplate(id);
+            string PhysicalPath = Server.MapPath("/TemplateData/");
+            deleteFile(PhysicalPath + fileName);
             return Json(new { success = b }, JsonRequestBehavior.AllowGet);
         }
         public ActionResult DeteleTemplateType(int id)

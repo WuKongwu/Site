@@ -1,33 +1,32 @@
 ﻿using eUI.DAL.DBUtility;
+using eUI.Model.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using eUI.Model.ViewModel;
-
 namespace eUI.DAL
 {
-   public class FootLinkDAL
+    public class OtherPageDAL
     {
-        public System.Data.DataTable getList(Model.ViewModel.FootLinkViewModel model)
+        public System.Data.DataTable getList(Model.ViewModel.OtherPageInfo model)
         {
             StringBuilder sbSI = new StringBuilder();
-            sbSI.AppendFormat("select * from  FootLink  Where 1=1 ");
+            sbSI.AppendFormat("select * from  otherpage  Where 1=1 ");
             if (!string.IsNullOrEmpty(model.Name))
             {
                 sbSI.AppendFormat(" and Name like '%{0}%'", model.Name);
             }
             sbSI.Append(" ORDER BY CreateDate DESC");
             sbSI.AppendFormat(" limit {0},{1};", (model.page - 1) * model.rows, model.rows);
-            DataTable dtFootLink = DBHelper.SearchSql(sbSI.ToString());
-            return dtFootLink;
+            DataTable dtOtherPage = DBHelper.SearchSql(sbSI.ToString());
+            return dtOtherPage;
         }
-        public int getCount(Model.ViewModel.FootLinkViewModel model)
+        public int getCount(Model.ViewModel.OtherPageInfo model)
         {
             StringBuilder sbSI = new StringBuilder();
-            sbSI.AppendFormat("select * from FootLink  Where 1=1 ");
+            sbSI.AppendFormat("select * from otherpage  Where 1=1 ");
             if (!string.IsNullOrEmpty(model.Name))
             {
                 sbSI.AppendFormat(" and Name like '%{0}%'", model.Name);
@@ -35,22 +34,22 @@ namespace eUI.DAL
             DataTable dtBusiness = DBHelper.SearchSql(sbSI.ToString());
             return dtBusiness.Rows.Count;
         }
-        public bool DeteleFootLink(int id)
+        public bool DeteleOtherPage(int id)
         {
             StringBuilder sbAddUser = new StringBuilder();
-            string GetSessionWithDsmId = string.Format(@"delete from FootLink where Id='{0}' ", id);
+            string GetSessionWithDsmId = string.Format(@"delete from otherpage where Id='{0}' ", id);
             int iResult = DBHelper.ExcuteNoQuerySql(GetSessionWithDsmId);
             if (iResult == 1)
                 return true;
             else
                 return false;
         }
-        public bool UpdateFootLink(FootLinkViewModel mode)
+        public bool UpdateOtherPage(OtherPageInfo mode)
         {
             StringBuilder sbAddUser = new StringBuilder();
-            string GetSessionWithDsmId = string.Format(@"update FootLink set ImageURL='{0}',SiteURL ='{1}',CreateDate ='{2}',
+            string GetSessionWithDsmId = string.Format(@"update otherpage set ImgFile='{0}',Url ='{1}',CreateDate ='{2}',
                 Name ='{3}'  where Id ='{4}'
-               ", mode.ImageURL,mode.SiteURL,mode.CreateDate,mode.Name, mode.Id);
+               ", mode.ImgFile, mode.Url, mode.CreateDate, mode.Name, mode.Id);
             int iResult = DBHelper.ExcuteNoQuerySql(GetSessionWithDsmId);
             if (iResult == 1)
                 return true;
@@ -58,20 +57,20 @@ namespace eUI.DAL
                 return false;
         }
 
-        public DataTable GetFootLinkId(int id)
+        public DataTable GetOtherPageById(int id)
         {
-            string str = string.Format("select * from  FootLink  where Id ={0}", id);
+            string str = string.Format("select * from  otherpage  where Id ={0}", id);
             return DBHelper.SearchSql(str);
         }
 
-        public bool InsertFootLink(FootLinkViewModel mode)
+        public bool InsertOtherPage(OtherPageInfo mode)
         {
             StringBuilder sbAddUser = new StringBuilder();
-          
-            string GetSessionWithDsmId = string.Format(@"INSERT INTO FootLink 
-                (ImageURL,SiteURL,Name,CreateDate) 
+
+            string GetSessionWithDsmId = string.Format(@"INSERT INTO otherpage 
+                (ImgFile,Url,Name,CreateDate) 
                 VALUES('{0}','{1}','{2}','{3}')",
-                 mode.ImageURL,mode.SiteURL,mode.Name,mode.CreateDate);
+                 mode.ImgFile, mode.Url, mode.Name, mode.CreateDate);
             int iResult = DBHelper.ExcuteNoQuerySql(GetSessionWithDsmId);
 
             if (iResult == 1)

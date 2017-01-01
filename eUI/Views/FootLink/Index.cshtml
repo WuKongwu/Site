@@ -18,24 +18,28 @@
     </div>
 </div>
 <div id="papergrid"></div>
-<div id="dlg" class="easyui-window" title="页脚图片" data-options="iconCls:'icon-save'" style="width:700px;height:350px;padding:10px;position: relative;">
+<div id="dlg" class="easyui-window" title="合作企业" data-options="iconCls:'icon-save'" style="width:700px;height:350px;padding:10px;position: relative;">
     <div><input type="hidden" id="Id" /></div>
     <div>
+        <div>合作企业名称：<input type="text" class="textbox-value upload-input" id="image-Name" />
+             上传时间：<input type="date" class="textbox-value upload-input" id="txtDate" /></div><br />
+        <div>合作企业地址：<input type="text" class="textbox-value upload-input" id="site-url" /></div><br />
         <table class="upload-table">
-            <thead>
-            </thead>
-            <tr><td>合作企业名称</td><td><input type="text" class="textbox-value upload-input" id="image-Name"/></td></tr>
-            <tr><td>合作企业地址</td><td><input type="text"  class="textbox-value upload-input" id="site-url"/></td></tr>
-            <tr><td>上传时间</td><td><input type="date" class="textbox-value upload-input" id="txtDate" /></td></tr>
-            <tr >
-                <td>图片地址</td>
-                <td style="width: 340px;"><input type="file" id="Cfile" name="Cfile" /><button type="button" name="submitName" class="easyui-linkbutton l-btn l-btn-small" id="uploadCode" style="width:100px">上传图片</button></td>
+            <tr>
+                <th width="32%" style="text-align:center">附件选择</th>
+                <th width="18%" style="text-align:center">点击上传</th>
+                <th width="50%" style="text-align:center">文件名称</th>
+            </tr>
+     
+            <tr>
+                <td><input type="file" id="Cfile" name="Cfile" /></td>
+                <td><button type="button" name="submitName" class="easyui-linkbutton l-btn l-btn-small" id="uploadCode" style="width:100px">上传图片</button></td>
                 <td><span id="t_Cfile" class="file-name"></span></td>
             </tr>
         </table>
     </div>
- 
-    <div><button type="button" name="submitName" class="upload-button" id="submit" style="top: 145px;right: inherit;">提交</button></div>
+
+    <div><button type="button" name="submitName" class="upload-button" id="submit">提交</button></div>
 
 </div>
 <script>

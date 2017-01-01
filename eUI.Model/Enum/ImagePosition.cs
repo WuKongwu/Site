@@ -9,10 +9,10 @@ namespace eUI.Model.Enums
 {
     public enum ImagePosition
     {
-        main = 0,
-        news = 1,
-        hots = 2,
-        child = 3,
-        logo = 4
+        首页轮播 = 0,
+        最新作品 = 1,
+        热点作品 = 2,
+        子页横幅 = 3,
+        注册商标 = 4
     }
 }

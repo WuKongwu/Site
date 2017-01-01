@@ -61,13 +61,25 @@ namespace easyUITest.Controllers
             var model = admin.GetPaperById(id);
             return Json(new { success = true, models = model }, JsonRequestBehavior.AllowGet);
         }
-         [Authentication] 
-        public ActionResult Detele(int id)
+         [Authentication]
+        public ActionResult Detele(int id, string guid)
         {
             AdminBLL admin = new AdminBLL();
             bool b = admin.DetelePaper(id);
+            string PhysicalPath = Server.MapPath("/fileData/");
+            deleteFile(PhysicalPath + guid);
             return Json(new { success = b }, JsonRequestBehavior.AllowGet);
         }
+
+         private void deleteFile(string path)
+         {
+             DirectoryInfo directory = new DirectoryInfo(path);
+             if (directory.Exists)
+             {
+                 directory.Delete(true);
+             }
+         }
+
          [Authentication] 
         public ActionResult Uploadfile(string guid)//HttpContext context
         {
@@ -243,5 +255,7 @@ namespace easyUITest.Controllers
             }
             return strHTML;
         }
+       
     }
+
 }

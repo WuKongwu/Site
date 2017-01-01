@@ -106,6 +106,16 @@ namespace eUI.DAL
         {
             StringBuilder sbSI = new StringBuilder();
             sbSI.Append("select * from footlink");
+            sbSI.Append(" ORDER BY CreateDate DESC");
+            DataTable dtTypeList = DBHelper.SearchSql(sbSI.ToString());
+            return dtTypeList;
+        }
+
+        public DataTable SearchOtherPage()
+        {
+            StringBuilder sbSI = new StringBuilder();
+            sbSI.Append("select * from otherpage");
+            sbSI.Append(" ORDER BY CreateDate DESC");
             DataTable dtTypeList = DBHelper.SearchSql(sbSI.ToString());
             return dtTypeList;
         }
@@ -174,6 +184,22 @@ namespace eUI.DAL
             DBHelper.ExcuteNoQuerySql(sbSITwo.ToString());
 
         }
+        public DataTable SearchImgManage()
+        {
+            StringBuilder sbSI = new StringBuilder();
+            sbSI.Append("select * from imagemanage order by CreateDate desc");
+            DataTable dtImgList = DBHelper.SearchSql(sbSI.ToString());
+            return dtImgList;
+        }
+
+        public DataTable SearchSubPage()
+        {
+            StringBuilder sbSI = new StringBuilder();
+            sbSI.Append("select * from subpageone");
+            DataTable dtSearchSubPage = DBHelper.SearchSql(sbSI.ToString());
+            return dtSearchSubPage;
+        }
+       
 
     }
 }

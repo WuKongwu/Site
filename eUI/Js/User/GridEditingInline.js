@@ -28,19 +28,19 @@ function editrow(target) {
                 $("#Id").val(data.models.Id);
                 $("#textarea_id").val(data.models.DetailInfo),
                 $("#t_Cfile").text(data.models.FileUrl),
-                $("#t_guid").text(data.models.Code),
+                $("#t_guid").val(data.models.Code),
                 $("#txtAddDate").val(DateFormat(data.models.CreateDate))
             }
         },
     });
     $('#dlg').window('open');
 }
-function deleterow(target) {
+function deleterow(target, fileName) {
     $.messager.confirm('确认', '您确认想要删除记录吗？', function (r) {
         if (r) {
             $.ajax({
                 url: '/Admin/Detele',
-                data: { id: target },
+                data: { id: target, guid: fileName },
                 type: 'Post',
                 success: function (data) {
                     if (data.success == true || data == true) {

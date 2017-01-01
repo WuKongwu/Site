@@ -42,25 +42,23 @@ namespace easyUITest.Controllers
                 for (int i = 0; i < hfc.Count; i++)
                 {
                     var _strfileName = hfc[0].FileName.Substring(hfc[0].FileName.LastIndexOf(".") + 1);
-                    if (_strfileName.ToLower() == "jpg" || _strfileName.ToLower() == "png")
+
+                    imgPath = hfc[0].FileName;
+                    string PhysicalPath = Server.MapPath("/FootLink/");
+                    fileName = imgPath;
+
+                    if (!Directory.Exists(PhysicalPath))
                     {
-
-                        imgPath = hfc[0].FileName;
-                        string PhysicalPath = Server.MapPath("/FootLink/");
-                        fileName = imgPath;
-
-                        if (!Directory.Exists(PhysicalPath))
-                        {
-                            Directory.CreateDirectory(PhysicalPath);
-                        }
-                        var url = PhysicalPath + imgPath;
-                        if (System.IO.File.Exists(url))
-                        {
-                            fileName = GetNewPathForDupes(url);
-                        }
-                        hfc[0].SaveAs(PhysicalPath + fileName);
-                        deleteFile(PhysicalPath + oldFileName);
+                        Directory.CreateDirectory(PhysicalPath);
                     }
+                    var url = PhysicalPath + imgPath;
+                    if (System.IO.File.Exists(url))
+                    {
+                        fileName = GetNewPathForDupes(url);
+                    }
+                    hfc[0].SaveAs(PhysicalPath + fileName);
+                    deleteFile(PhysicalPath + oldFileName);
+
                 }
             }
 
