@@ -1141,7 +1141,7 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\下载\WxPayAPI_CS_v3\WxPayAPI_CS_v3\WxPayAPI_CS_v3\WxPayAPI\WxPayAPI\WxPayAPI.csproj">
+    <ProjectReference Include="..\WxPayAPI\WxPayAPI\WxPayAPI.csproj">
       <Project>{25911370-f06a-4956-8ee3-659a7ba14961}</Project>
       <Name>WxPayAPI</Name>
     </ProjectReference>
