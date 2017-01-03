@@ -140,7 +140,13 @@ namespace eUI.BLL
             DataTable dtSearchImgManage = paperDAL.SearchImgManage();
             imageManageList.rows = dtSearchImgManage.toList<ImageManageModel>();
             return imageManageList;
+        }
 
+
+        public bool CreateBusiness(Business business)
+        {
+            bool result = paperDAL.CreateBusiness(business);
+            return result;
         }
 
         public string SearchPayGuide()

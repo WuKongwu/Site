@@ -1,4 +1,5 @@
 ﻿using eUI.DAL.DBUtility;
+using eUI.Model;
 using eUI.Model.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -192,6 +193,19 @@ namespace eUI.DAL
             return dtImgList;
         }
 
+        public bool CreateBusiness(Business business)
+        {
+            StringBuilder sbSI = new StringBuilder();
+            sbSI.AppendFormat("INSERT INTO business (OrderNumber,Name,Price,PaperId,UserId,CreateTime,PayState) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", business.OrderNumber, business.Name, business.Price, business.PaperId, business.UserId, business.CreateTime, business.PayState);
+            int result = DBHelper.ExcuteNoQuerySql(sbSI.ToString());
+            if (result == 1)
+            {
+                return true;
+            }
+            else { return false; }
+        }
+
+
         public DataTable SearchSubPage()
         {
             StringBuilder sbSI = new StringBuilder();
@@ -199,7 +213,7 @@ namespace eUI.DAL
             DataTable dtSearchSubPage = DBHelper.SearchSql(sbSI.ToString());
             return dtSearchSubPage;
         }
-       
+
 
     }
 }
