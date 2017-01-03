@@ -1,9 +1,0 @@
-E:\GitFile\TestSite\TestSite\eUI.Model\bin\Release\eUI.Model.dll
-E:\GitFile\TestSite\TestSite\eUI.Model\bin\Release\eUI.Model.pdb
-E:\GitFile\TestSite\TestSite\eUI.Model\bin\Release\NuGet.PackageManagement.dll
-E:\GitFile\TestSite\TestSite\eUI.Model\bin\Release\NuGet.PackageManagement.UI.dll
-E:\GitFile\TestSite\TestSite\eUI.Model\bin\Release\NuGet.ProjectManagement.dll
-E:\GitFile\TestSite\TestSite\eUI.Model\bin\Release\NuGet.ProjectManagement.xml
-E:\GitFile\TestSite\TestSite\eUI.Model\obj\Release\eUI.Model.csprojResolveAssemblyReference.cache
-E:\GitFile\TestSite\TestSite\eUI.Model\obj\Release\eUI.Model.dll
-E:\GitFile\TestSite\TestSite\eUI.Model\obj\Release\eUI.Model.pdb
