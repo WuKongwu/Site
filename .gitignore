@@ -11,3 +11,5 @@ obj
 bin
 eUI.v12.suo
 eUI/Web.config
+WxPayAPI/WxPayAPI/FakesAssemblies/.messages
+WxPayAPI
