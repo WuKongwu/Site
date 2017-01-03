@@ -1,0 +1,14 @@
+@@ -1,12 +0,0 @@
+# compiled files
+obj
+bin
+#����gitignore�ļ�
+
+#���Ժ�׺��Ϊ.o��.a���ļ�
+*.dll
+#��ʾָ����������Ϊmain���ļ�
+obj
+bin
+eUI.v12.suo
+eUI/Web.config
+eUI.v12.suo
