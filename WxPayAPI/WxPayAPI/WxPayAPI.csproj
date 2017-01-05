@@ -99,7 +99,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="cert\apiclient_cert.p12" />
-    <Fakes Include="Fakes\eUI.Model.fakes" />
     <None Include="Properties\PublishProfiles\WxPayWebConfig.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
