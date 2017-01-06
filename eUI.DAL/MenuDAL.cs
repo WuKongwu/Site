@@ -17,7 +17,7 @@ namespace eUI.DAL
             sbSI.AppendFormat("select * from  Menu  Where 1=1 ");
             if (!string.IsNullOrEmpty(model.MenuName))
             {
-                sbSI.AppendFormat(" and Name like '%{0}%'", model.MenuName);
+                sbSI.AppendFormat(" and MenuName like '%{0}%'", model.MenuName);
             }
             sbSI.AppendFormat(" limit {0},{1};", (model.page - 1) * model.rows, model.rows);
             DataTable dtMenu = DBHelper.SearchSql(sbSI.ToString());
