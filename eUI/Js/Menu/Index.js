@@ -24,7 +24,7 @@
                 field: 'action', title: '操作', width: '20%', align: 'center',
                 formatter: function (value, row, index) {
                     var e = '<a href="#" onclick="editrow(' + row.Id + ')">修改</a> ';
-                    var d = '<a href="#" onclick="deleterow(' + '\'' + row.Id + '\'' + ',' + '\'' + row.ImageURL + '\'' + ')">删除</a>';
+                    var d = '<a href="#" onclick="deleterow(' + '\'' + row.Id + '\'' + ',' + '\'' + row.ChildImageURL + '\'' + ')">删除</a>';
                     return e + d;
                 }
             }
@@ -73,7 +73,7 @@
         //刷新grid
         $('#papergrid').datagrid('load',
             {
-                Name: $("#txtSearchName").val(),
+                MenuName: $("#txtSearchName").val(),
             });
     });
     $("#menu-Type").change(function () {
