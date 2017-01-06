@@ -56,6 +56,7 @@
     <Compile Include="adminDAL.cs" />
     <Compile Include="BusinessDAL.cs" />
     <Compile Include="DBUtility\DBHelper.cs" />
+    <Compile Include="MenuDAL.cs" />
     <Compile Include="ImageManageDAL.cs" />
     <Compile Include="FootLinkDAL.cs" />
     <Compile Include="LoginDAL.cs" />
