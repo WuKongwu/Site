@@ -1,4 +1,5 @@
-﻿using System;
+﻿using eUI.BLL;
+using System;
 using System.Collections.Generic;
 using System.Web;
 using System.Web.UI;
@@ -10,9 +11,10 @@ namespace WxPayAPI
     /// 支付结果通知回调处理类
     /// 负责接收微信支付后台发送的支付结果并对订单有效性进行验证，将验证结果反馈给微信支付后台
     /// </summary>
-    public class ResultNotify:Notify
+    public class ResultNotify : Notify
     {
-        public ResultNotify(Page page):base(page)
+        public ResultNotify(Page page)
+            : base(page)
         {
         }
 
@@ -33,7 +35,7 @@ namespace WxPayAPI
             }
 
             string transaction_id = notifyData.GetValue("transaction_id").ToString();
-
+            string out_trade_no = notifyData.GetValue("out_trade_no").ToString();
             //查询订单，判断订单真实性
             if (!QueryOrder(transaction_id))
             {
@@ -48,14 +50,43 @@ namespace WxPayAPI
             //查询订单成功
             else
             {
-                WxPayData res = new WxPayData();
-                res.SetValue("return_code", "SUCCESS");
-                res.SetValue("return_msg", "OK");
-                Log.Info(this.GetType().ToString(), "order query success : " + res.ToXml());
-                page.Response.Write(res.ToXml());
-                page.Response.End();
+
+                // to do for update buisness table
+
+                if (BusinessFunction(transaction_id, out_trade_no) == true)
+                {
+                    WxPayData res = new WxPayData();
+                    res.SetValue("return_code", "SUCCESS");
+                    res.SetValue("return_msg", "OK");
+                    Log.Info(this.GetType().ToString(), "order query success : " + res.ToXml());
+                    page.Response.Write(res.ToXml());
+                    page.Response.End();
+                }
             }
         }
+        private bool BusinessFunction(string transaction_id, string out_trade_no)
+        {
+            PayPaperBLL payPaperBLL = new PayPaperBLL();
+            bool result = payPaperBLL.UpdateBusiness(transaction_id, out_trade_no);
+            if (result == true)
+            {
+                result = payPaperBLL.AddPayCountNum(transaction_id, out_trade_no);
+                if (result == true)
+                {
+                    result = payPaperBLL.DeleteTimeOutNoPayData();
+                    return result;
+                }
+                else
+                {
+                    return result;
+                }
+            }
+            else
+            {
+                return result;
+            }
+        }
+
 
         //查询订单
         private bool QueryOrder(string transaction_id)

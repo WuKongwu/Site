@@ -31,6 +31,7 @@ namespace eUI.Model.ViewModel
         public string Version { get; set; }
         public int PayNum { get; set; }
         public int ReadNum { get; set; }
-
+        public int PayState { get; set; }
+        public string OrderNumber { get; set; }
     }
 }

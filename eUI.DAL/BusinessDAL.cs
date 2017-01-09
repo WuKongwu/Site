@@ -14,7 +14,7 @@ namespace eUI.DAL
         public DataTable getList(Business business)
         {
             StringBuilder sbSI = new StringBuilder();
-            sbSI.Append("(select SUM(business.price) from business left join paper on business.PaperId=paper.Id Where 1=1 ");
+            sbSI.Append("(select SUM(business.price) from business left join paper on business.PaperId=paper.Id Where business.PayState=1 ");
             if (!string.IsNullOrEmpty(business.Name))
             {
                 sbSI.AppendFormat("AND NAME LIKE '%{0}%'", business.Name);
@@ -38,7 +38,7 @@ namespace eUI.DAL
             }
             sbSI.AppendFormat(" limit {0},{1}) as Total", (business.page - 1) * business.rows, business.rows);
             StringBuilder sbSII = new StringBuilder();
-            sbSII.AppendFormat("select *,{0} from business left join paper on business.PaperId=paper.Id Where 1=1 ", sbSI.ToString());
+            sbSII.AppendFormat("select *,{0} from business left join paper on business.PaperId=paper.Id Where business.PayState=1 ", sbSI.ToString());
             if (!string.IsNullOrEmpty(business.Name))
             {
                 sbSII.AppendFormat("AND NAME LIKE '%{0}%'", business.Name);
@@ -69,7 +69,7 @@ namespace eUI.DAL
         public int getCount(Business business)
         {
             StringBuilder sbSI = new StringBuilder();
-            sbSI.Append("select * from business left join paper on business.PaperId=paper.Id Where 1=1 ");
+            sbSI.Append("select * from business left join paper on business.PaperId=paper.Id Where business.PayState=1 ");
             if (!string.IsNullOrEmpty(business.Name))
             {
                 sbSI.AppendFormat("AND NAME LIKE '%{0}%'", business.Name);

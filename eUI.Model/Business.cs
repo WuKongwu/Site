@@ -18,7 +18,8 @@ namespace eUI.Model
         public virtual string Title { get; set; }
         public virtual decimal Total { get; set; }
         public virtual string Version { get; set; }
-        public virtual int UserId { get; set; }
+        public virtual string UserId { get; set; }
+        public virtual string PaperCode { get; set; }
         public virtual long PaperId { get; set; }
         public virtual int PayState { get; set; }
     }

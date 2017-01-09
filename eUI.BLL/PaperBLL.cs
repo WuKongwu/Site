@@ -82,10 +82,10 @@ namespace eUI.BLL
         }
 
 
-        public PaperDetailViewModel PaperDetailById(string Id)
+        public PaperDetailViewModel PaperDetailById(string Id,string userId)
         {
             PaperDetailViewModel paperDetailViewModel = new PaperDetailViewModel();
-            DataTable dtPaperDetail = paperDAL.SearchPaperDetailById(Id);
+            DataTable dtPaperDetail = paperDAL.SearchPaperDetailById(Id, userId);
             // DataTable dtImgList = paperDAL.SearchPaperImgListById(Id);
             List<string> imgList = new List<string>();
             if (dtPaperDetail.Rows.Count > 0)

@@ -10,25 +10,54 @@ namespace eUI.DAL
 {
     public class PayPaperDAL
     {
-        public int CheckPayInfoForBusiness(string Code, string UserGuid)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="transaction_id">订单号</param>
+        /// <param name="out_trade_no">商品ID</param>
+        /// <returns></returns>
+        public int UpdateBusiness(string transaction_id, string out_trade_no)
         {
             StringBuilder sbSI = new StringBuilder();
-            sbSI.AppendFormat("select * from business  Where OrderNumber='{0}' and userid='{1}'", Code, UserGuid);
-            DataTable dtBusiness = DBHelper.SearchSql(sbSI.ToString());
-
-            return dtBusiness.Rows.Count;
+            sbSI.AppendFormat("Update  business set PayState='1'  Where OrderNumber='{0}' and PaperId='{1}'", transaction_id, out_trade_no);
+            int result = DBHelper.ExcuteNoQuerySql(sbSI.ToString());
+            return result;
         }
 
-        public string SearchPaperPath(string Code)
+        public DataTable SearchPaperPath(string orderNumber, string UserGuid)
         {
             StringBuilder sbSI = new StringBuilder();
-            sbSI.AppendFormat("select * from paper  Where code='{0}'", Code);
+            sbSI.AppendFormat("SELECT A.* FROM paper AS A LEFT JOIN business AS B ON A.Code`=B.PaperCode WHERE B.OrderNumber='{0}' AND B.UserId='{1}' AND B.PayState=1", orderNumber, UserGuid);
             DataTable dtBusiness = DBHelper.SearchSql(sbSI.ToString());
-            string fileName = string.Empty;
-            if (dtBusiness.Rows.Count > 0) {
-                fileName = dtBusiness.Rows[0]["FileUrl"].ToString();
+            return dtBusiness;
+        }
+
+        public int AddPayCountNum(string transaction_id, string out_trade_no)
+        {
+            StringBuilder sbSI = new StringBuilder();
+            sbSI.AppendFormat("SELECT A.* FROM paper AS A LEFT JOIN business AS B ON A.Code`=B.PaperCode WHERE B.OrderNumber='{0}' AND B.PaperCode='{1}' ", transaction_id, out_trade_no);
+            DataTable dtBusiness = DBHelper.SearchSql(sbSI.ToString());
+            int PayNum = 0;
+            int Id = 0;
+            if (dtBusiness.Rows[0]["PayNum"] != null && !string.IsNullOrEmpty(dtBusiness.Rows[0]["PayNum"].ToString()))
+            {
+                PayNum = int.Parse(dtBusiness.Rows[0]["PayNum"].ToString());
+                Id = int.Parse(dtBusiness.Rows[0]["Id"].ToString());
             }
-            return fileName;
+            StringBuilder sbStr = new StringBuilder();
+            sbStr.AppendFormat("Update paper SET PayNum='{0}' WHERE ID='{1}'", PayNum + 1, Id);
+            int result = DBHelper.ExcuteNoQuerySql(sbStr.ToString());
+            return result;
         }
+        public int DeleteTimeOutNoPayData()
+        {
+            DateTime dte = DateTime.Now.AddHours(2);
+            
+            StringBuilder sbSI = new StringBuilder();
+            sbSI.AppendFormat("DELETE business WHERE PayState=0 AND  CreateTime > '{0}'", dte);
+            int result = DBHelper.ExcuteNoQuerySql(sbSI.ToString());
+            return result;
+        }
+
     }
 }

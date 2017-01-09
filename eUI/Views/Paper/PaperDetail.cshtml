@@ -21,8 +21,9 @@
     <script src="~/Content/themes/Paper/js/jquery.flip.min.js"></script>
     <script src="~/Content/themes/Paper/js/jquery.core.js"></script>
     <script src="~/Content/themes/Paper/js/jquery.qrcode.min.js"></script>
+    <script src="~/Content/themes/Paper/js/pollingStates.js"></script>
     <style>
-         .socialwrapper .modal-content {
+        .socialwrapper .modal-content {
             padding: 10px 20px 20px 20px;
             background-color: #f9f9f9;
             border: 0;
@@ -169,21 +170,47 @@
                             </dd>
                         </dl>
                     </div>
+                    @if (Model.detail[0].PayState == null || Model.detail[0].PayState == 0)
+                    {
+                        <div class="paper-pay">
+                            <form id="paperData" action="/Paper/WXPayUrl" method="post">
+                                <input type="hidden" name="Id" value="@Model.detail[0].Id" />
+                                <input type="hidden" name="Code" value="@Model.detail[0].Code" />
+                                <input type="hidden" name="Price" value="@Model.detail[0].Price" />
+                                <input type="hidden" name="Title" value="@Model.detail[0].Title" />
+                                <input type="hidden" name="FileUrl" value="@Model.detail[0].FileUrl" />
+                            </form>
+                            <div class="wx-pay"><a id="WxPay"></a></div>
+                            <div class="tb-pay"><a id="AliPay"></a></div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div id="paperdownload_div" class="download-div" style="display:none">
+                            <input type="hidden" id="orderNumber" />
+                            <a onclick="DownloadPaperSource()">
+                                <div class="download-num">
+                                    共计购买次数<span>@Model.detail[0].PayNum</span>次
+                                </div>
+                                <div class="download-info">
+                                    点击下载
+                                </div>
+                            </a>
+                        </div>
+                    }
+                    else if (Model.detail[0].PayState == 1)
+                    {
+                        <div id="paperdownload_div" class="download-div">
+                            <input type="hidden" id="orderNumber" value="@Model.detail[0].OrderNumber" />
+                            <a onclick="DownloadPaperSource()">
+                                <div class="download-num">
+                                    共计购买次数<span>@Model.detail[0].PayNum</span>次
+                                </div>
+                                <div class="download-info">
+                                    点击下载
+                                </div>
+                            </a>
+                        </div>
+                    }
 
-                    <div class="paper-pay">
-                        <form id="paperData" action="/Paper/WXPayUrl" method="post">
-                            <input type="hidden" name="Id" value="@Model.detail[0].Id" />
-                            <input type="hidden" name="Code" value="@Model.detail[0].Code" />
-                            <input type="hidden" name="Price" value="@Model.detail[0].Price" />
-                            <input type="hidden" name="Title" value="@Model.detail[0].Title" />
-                            <input type="hidden" name="FileUrl" value="@Model.detail[0].FileUrl" />
-                            @*<input type="hidden" name="Code" value="@Model.detail[0].Code" />*@
-                        </form>
-                        <div class="wx-pay"><a id="WxPay"></a></div>
-                        <div class="tb-pay"><a id="AliPay"></a></div>
-                        <div class="clearfix"></div>
-
-                    </div>
                 </div>
 
             </div>
@@ -418,6 +445,7 @@
 
     <div class="modal fade in" id="wx_pay_pop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static" aria-hidden="false" style="display: none;">
         <div class="modal-dialog" role="document">
+
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button><h4 class="modal-title" id="myModalLabel">微信支付</h4>

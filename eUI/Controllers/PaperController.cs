@@ -138,10 +138,12 @@ namespace easyUITest.Controllers
 
         public ViewResult Detail(string id)
         {
+            string userId = string.Empty;
             if (Session["user"] != null)
             {
                 List<UserRecord> list = (List<UserRecord>)Session["user"];
                 ViewData["login"] = list[0].Name;
+                userId = list[0].UserId;
             }
             else
             {
@@ -149,17 +151,19 @@ namespace easyUITest.Controllers
             }
             PaperBLL paperBLL = new PaperBLL();
             paperBLL.AddReadCount(id);
-            PaperDetailViewModel paperDetailViewModel = paperBLL.PaperDetailById(id);
+            PaperDetailViewModel paperDetailViewModel = paperBLL.PaperDetailById(id, userId);
             ViewBag.ImageModel = paperBLL.SearchImgManage().rows;
             return View("PaperDetail", paperDetailViewModel);
         }
 
         public ViewResult TmpDetail(string id, string type)
         {
+            string userId = string.Empty;
             if (Session["user"] != null)
             {
                 List<UserRecord> list = (List<UserRecord>)Session["user"];
                 ViewData["login"] = list[0].Name;
+                userId = list[0].UserId;
             }
             else
             {
@@ -169,7 +173,7 @@ namespace easyUITest.Controllers
             PaperDetailViewModel paperDetailViewModel = new PaperDetailViewModel();
             if (string.IsNullOrEmpty(type))
             {
-                paperDetailViewModel = paperBLL.PaperDetailById(id);
+                paperDetailViewModel = paperBLL.PaperDetailById(id, userId);
             }
             else
             {
@@ -362,11 +366,15 @@ namespace easyUITest.Controllers
             }
             else
             {
+                string userId = string.Empty;
+                List<UserRecord> list = (List<UserRecord>)Session["user"];
+                userId = list[0].UserId;
+
                 NativePay nativePay = new NativePay();
                 PaperBLL paperBLL = new PaperBLL();
-                PaperDetailViewModel paperDetailViewModel = paperBLL.PaperDetailById(paperInfo.Id.ToString());
-                string _orderNumber=string.Empty;
-                string url = nativePay.GetPayUrl(paperDetailViewModel.detail[0],out _orderNumber);
+                PaperDetailViewModel paperDetailViewModel = paperBLL.PaperDetailById(paperInfo.Id.ToString(), userId);
+                string _orderNumber = string.Empty;
+                string url = nativePay.GetPayUrl(paperDetailViewModel.detail[0], out _orderNumber);
                 if (string.IsNullOrEmpty(url))
                 {
                     return Json(new { success = false, data = "微信生成订单时出现错误，请您重新支付！" }, JsonRequestBehavior.AllowGet);
@@ -376,19 +384,23 @@ namespace easyUITest.Controllers
 
                     Business business = new Business();
                     List<UserRecord> rows = (List<UserRecord>)Session["user"];
-                    business.UserId = rows[0].Id;
+                    business.UserId = rows[0].UserId;
+                    business.Name = rows[0].Name;
                     business.CreateTime = DateTime.Now;
                     business.OrderNumber = _orderNumber;
+                    business.PaperCode = paperDetailViewModel.detail[0].Code;
                     business.PaperId = paperDetailViewModel.detail[0].Id;
-                    business.Name = paperDetailViewModel.detail[0].Title;
+                    business.Title = paperDetailViewModel.detail[0].Title;
+                    business.Version = paperDetailViewModel.detail[0].Version;
                     business.Price = paperDetailViewModel.detail[0].Price;
                     business.PayState = 0;
                     bool result = paperBLL.CreateBusiness(business);
                     if (result == true)
                     {
-                        return Json(new { success = true, data = url }, JsonRequestBehavior.AllowGet);
+                        return Json(new { success = true, data = url, orderNumber = _orderNumber }, JsonRequestBehavior.AllowGet);
                     }
-                    else {
+                    else
+                    {
                         return Json(new { success = false, data = "微信生成订单时出现错误，请您重新支付！" }, JsonRequestBehavior.AllowGet);
                     }
                 }

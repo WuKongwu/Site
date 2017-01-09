@@ -138,11 +138,16 @@ namespace eUI.DAL
 
 
 
-        public DataTable SearchPaperDetailById(string Id)
+        public DataTable SearchPaperDetailById(string Id,string userId)
         {
 
             StringBuilder sbSI = new StringBuilder();
-            sbSI.Append("SELECT * FROM  paper WHERE id = " + Id);
+            if (string.IsNullOrEmpty(userId)) {
+                sbSI.AppendFormat("SELECT * FROM paper WHERE  Id = '{0}'", Id);
+            
+            } else {
+                sbSI.AppendFormat("SELECT A.*,B.PayState,B.OrderNumber FROM( SELECT * FROM paper WHERE Id = '{0}')AS A  LEFT JOIN (SELECT * FROM business WHERE UserId= '{1}') AS B ON A.`Code`=B.PaperCode  ", Id, userId);
+            }
 
             DataTable dtPaperDetail = DBHelper.SearchSql(sbSI.ToString());
 
@@ -196,7 +201,7 @@ namespace eUI.DAL
         public bool CreateBusiness(Business business)
         {
             StringBuilder sbSI = new StringBuilder();
-            sbSI.AppendFormat("INSERT INTO business (OrderNumber,Name,Price,PaperId,UserId,CreateTime,PayState) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", business.OrderNumber, business.Name, business.Price, business.PaperId, business.UserId, business.CreateTime, business.PayState);
+            sbSI.AppendFormat("INSERT INTO business (OrderNumber,Name,Price,PaperId,PaperCode,UserId,CreateTime,PayState) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}')", business.OrderNumber, business.Name, business.Price, business.PaperId, business.PaperCode, business.UserId, business.CreateTime, business.PayState);
             int result = DBHelper.ExcuteNoQuerySql(sbSI.ToString());
             if (result == 1)
             {

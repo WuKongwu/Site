@@ -287,7 +287,9 @@ $(function () {
                         $(".modal-content").css("display", "block");
                         $(".modal-backdrop").css("display", "block");
                         $("#wx_pay_pop").css("display", "block");
-
+                      
+                        $("#orderNumber").val(data.orderNumber);
+                        pollingStates();
 
                     } else {
                         alert("微信生成订单时出现错误，请您重新支付！");
@@ -469,5 +471,5 @@ $(function () {
         }
     });
 
-
+    clearInterval(timeFunction);
 })
