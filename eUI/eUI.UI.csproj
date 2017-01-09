@@ -157,6 +157,7 @@
     <Compile Include="Controllers\PaperController.cs" />
     <Compile Include="Controllers\PayController.cs" />
     <Compile Include="Controllers\PermissionSetController.cs" />
+    <Compile Include="Controllers\ResultNotifyController.cs" />
     <Compile Include="Controllers\SubPageController.cs" />
     <Compile Include="Controllers\TemplateDownloadController.cs" />
     <Compile Include="Controllers\ToolDownloadController.cs" />
