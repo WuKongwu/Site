@@ -18,5 +18,7 @@ namespace eUI.Model.ViewModel
 
         public List<FootLinkViewModel> footLinkList { get; set; }
 
+        public List<MenuModel> menuModelList { get; set; }
+
     }
 }

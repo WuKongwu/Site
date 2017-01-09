@@ -15,7 +15,7 @@ namespace eUI.DAL
         public DataTable getPaperList(PaperList paperList)
         {
             StringBuilder sbSI = new StringBuilder();
-            sbSI.AppendFormat("select * from  paper  Where 1=1 ");
+            sbSI.AppendFormat("select paper.* ,menu.MenuName from  paper  LEFT JOIN menu ON paper.Type=menu.Id  Where 1=1 ");
             if (!string.IsNullOrEmpty(paperList.Number))
             {
                 sbSI.AppendFormat("AND CODE LIKE '%{0}%'", paperList.Number);
@@ -41,7 +41,7 @@ namespace eUI.DAL
         public int getPaperCount(PaperList paperList)
         {
             StringBuilder sbSI = new StringBuilder();
-            sbSI.AppendFormat("select * from paper  Where 1=1 ");
+            sbSI.AppendFormat("select paper.* ,menu.MenuName from  paper  LEFT JOIN menu ON paper.Type=menu.Id  Where 1=1 ");
             if (!string.IsNullOrEmpty(paperList.Number))
             {
                 sbSI.AppendFormat("AND CODE LIKE '%{0}%'", paperList.Number);
@@ -110,6 +110,13 @@ namespace eUI.DAL
                 return false;
         }
 
+
+        public DataTable getMenuData()
+        {
+            string menuStr = "SELECT * from menu order by OrderIndex  limit 0, 8";
+            DataTable dtMenuInfo = DBHelper.SearchSql(menuStr);
+            return dtMenuInfo;
+        }
         public bool UpdatePaper(PaperInfo paperInfo)
         {
             StringBuilder sbAddUser = new StringBuilder();

@@ -271,7 +271,8 @@
 <div style="font-size: 12px;padding: 10px 0;">
     <div>
         查询条件：<div style="padding: 5px;border: 1px solid #95B8E7;margin: 5px 0;">
-            论文类别：<select name="Type" class="selected" id="txtType">
+        论文类别：@Html.DropDownList("txtType", ViewData["menuData"] as SelectList, new { @class = "selected" })
+            @*论文类别：<select name="Type" class="selected" id="txtType">
                 <option value="0">----</option>
                 <option value="1">asp作品</option>
                 <option value="2">jsp/java作品</option>
@@ -281,7 +282,7 @@
                 <option value="6">安卓作品</option>
                 <option value="7">ios作品</option>
                 <option value="8">游戏作品</option>
-            </select>
+            </select>*@
             论文编号：<input class="textbox-value upload-input" id="txtSearchOrderNumber" type="text" />
             论文标题：<input class="textbox-value upload-input" id="txtSearchTitle" type="text" /><br /><br />
             <div>
@@ -305,7 +306,8 @@
     </div><br />
     <div>
         论文价格：<input class="textbox-value upload-input" name="txtAddPrice" id="txtAddPrice" type="number" />
-        论文类别：<select name="Type" class="selected" id="txtAddType">
+        论文类别：@Html.DropDownList("txtAddType", ViewData["menuData"] as SelectList, new { @class = "selected" })
+        @*<select name="Type" class="selected" id="txtAddType">
             <option value="0">----</option>
             <option value="1">asp作品</option>
             <option value="2">jsp/java作品</option>
@@ -315,7 +317,7 @@
             <option value="6">安卓作品</option>
             <option value="7">ios作品</option>
             <option value="8">游戏作品</option>
-        </select>
+        </select>*@
     </div>
     <br />
     <div>

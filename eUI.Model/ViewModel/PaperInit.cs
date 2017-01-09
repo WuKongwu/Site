@@ -18,6 +18,8 @@ namespace eUI.Model.ViewModel
 
         public List<OtherPageInfo> otherPageList { get; set; }
 
+        public List<MenuModel> menuModelList { get; set; }
+
         public int allTypeListCount { get; set; }
         public int newListCount { get; set; }
         public int randomListCount { get; set; }

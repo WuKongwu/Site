@@ -1146,8 +1146,7 @@ a .extend {
 }
 
 .menu-bar-fixd li {
-    display: block;
-    float: left;
+    display: inline-block;
     position: relative;
 }
 
@@ -1179,6 +1178,8 @@ a .extend {
 
 .menu-bg {
     background-color: #fff;
+    width: 100%;
+    text-align: center;
 }
 
     .menu-bg .container {

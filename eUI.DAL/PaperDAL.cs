@@ -111,7 +111,16 @@ namespace eUI.DAL
             DataTable dtTypeList = DBHelper.SearchSql(sbSI.ToString());
             return dtTypeList;
         }
+        public DataTable SearchMenuList()
+        {
+            StringBuilder sbSI = new StringBuilder();
+            sbSI.Append("select * from menu");
+            sbSI.Append(" ORDER BY OrderIndex");
+            DataTable dtTypeList = DBHelper.SearchSql(sbSI.ToString());
+            return dtTypeList;
+        }
 
+        
         public DataTable SearchOtherPage()
         {
             StringBuilder sbSI = new StringBuilder();

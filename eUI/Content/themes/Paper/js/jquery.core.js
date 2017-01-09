@@ -9,7 +9,7 @@ function backToTop() {
 function scrollFixed() {
     if ($(".cont-box").length > 0) {
         var obMenu = $(".cont-box").offset().top + 90;
-
+        alert("0000");
         var win = $(window); //得到窗口对象
         var sc = $(document);//得到document文档对象。
         win.scroll(function () {

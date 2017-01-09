@@ -19,6 +19,29 @@ namespace easyUITest.Controllers
          [Authentication] 
         public ActionResult Index()
         {
+            AdminBLL adminBLL = new AdminBLL();
+            MenuList list = new MenuList();
+
+            list = adminBLL.getMenuData();
+            List<SelectListItem> select = new List<SelectListItem>();
+            select.Add(new SelectListItem
+            {
+                Text = "--",
+                Value = "0"
+            });
+
+            for (int i = 0; i < list.rows.Count; i++)
+            {
+                select.Add(new SelectListItem
+                {
+                    Text = list.rows[i].MenuName.ToString(),
+                    Value = list.rows[i].Id.ToString()
+                });
+            }
+
+            ViewData["menuData"] = new SelectList(select, "Value", "Text", "");
+
+
             return View();
         }
          [Authentication] 

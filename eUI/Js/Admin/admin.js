@@ -23,12 +23,7 @@
                     return DateFormat(row.CreateDate);
                 }
             },
-            {
-                field: 'Type', title: '论文类别', width: '10%', align: 'left', formatter: function (value, row, index) {
-
-                return ShowType(row.Type);
-                }
-            },
+             { field: 'MenuName', title: '论文类别', width: '10%', align: 'left' },
               { field: 'ReadNum', title: '阅读数', width: '5%', align: 'left' },
                 { field: 'PayNum', title: '购买数', width: '5%', align: 'left' },
             {

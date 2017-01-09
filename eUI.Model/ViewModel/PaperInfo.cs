@@ -33,5 +33,6 @@ namespace eUI.Model.ViewModel
         public int ReadNum { get; set; }
         public int PayState { get; set; }
         public string OrderNumber { get; set; }
+        public string MenuName { get; set; }
     }
 }

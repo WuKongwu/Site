@@ -26,15 +26,15 @@ namespace eUI.BLL
         public bool SavePaper(PaperInfo paperInfo)
         {
             bool b = false;
-            if (paperInfo.Id>0)
+            if (paperInfo.Id > 0)
             {
                 b = adminDAL.UpdatePaper(paperInfo);
             }
             else
             {
-                b = adminDAL.Input(paperInfo); 
+                b = adminDAL.Input(paperInfo);
             }
-            return b ;
+            return b;
         }
         public PaperInfo GetPaperById(int id)
         {
@@ -43,7 +43,14 @@ namespace eUI.BLL
 
         public bool DetelePaper(int id)
         {
-           return adminDAL.DetelePaper(id);
+            return adminDAL.DetelePaper(id);
+        }
+
+        public MenuList getMenuData()
+        {
+            MenuList menuList = new MenuList();
+            menuList.rows = adminDAL.getMenuData().toList<MenuModel>();
+            return menuList;
         }
     }
 }

@@ -30,6 +30,9 @@ namespace eUI.BLL
             paperInit.randomListCount = dtSearchRandomList.Rows.Count;
             DataTable dtFootLink = paperDAL.SearchFootLink();
             paperInit.footLinkList = dtFootLink.toList<FootLinkViewModel>();
+            DataTable dtMenu = paperDAL.SearchMenuList();
+            paperInit.menuModelList = dtMenu.toList<MenuModel>();
+
             DataTable dtOtherPage = paperDAL.SearchOtherPage();
             paperInit.otherPageList = dtOtherPage.toList<OtherPageInfo>();
             paperInit.otherPageList = paperInit.otherPageList.Take(4).ToList<OtherPageInfo>();
@@ -57,6 +60,9 @@ namespace eUI.BLL
             paperListViewModel.HotList = dtSearchPaperHotListBytype.toList<PaperList>();
             paperListViewModel.paperToolPage.rows = dtSubPage.toList<ToolDownloadInfo>();
             paperListViewModel.paperTmpPage.rows = dtTmpPage.toList<TemplateDownloadInfo>();
+
+            DataTable dtMenu = paperDAL.SearchMenuList();
+            paperListViewModel.menuModelList = dtMenu.toList<MenuModel>();
             DataTable dtFootLink = paperDAL.SearchFootLink();
             paperListViewModel.footLinkList = dtFootLink.toList<FootLinkViewModel>();
 
@@ -77,6 +83,10 @@ namespace eUI.BLL
             paperListViewModel.paperInfoList.rows = dtTypeList.toList<PaperInfo>();
             paperListViewModel.randomList = dtSearchRandomList.toList<PaperList>();
             paperListViewModel.HotList = dtSearchPaperHotListBytype.toList<PaperList>();
+            DataTable dtFootLink = paperDAL.SearchFootLink();
+            paperListViewModel.footLinkList = dtFootLink.toList<FootLinkViewModel>();
+            DataTable dtMenu = paperDAL.SearchMenuList();
+            paperListViewModel.menuModelList = dtMenu.toList<MenuModel>();
 
             return paperListViewModel;
         }
@@ -109,6 +119,8 @@ namespace eUI.BLL
             paperDetailViewModel.imgList = imgList;
             DataTable dtFootLink = paperDAL.SearchFootLink();
             paperDetailViewModel.footLinkList = dtFootLink.toList<FootLinkViewModel>();
+            DataTable dtMenu = paperDAL.SearchMenuList();
+            paperDetailViewModel.menuModelList = dtMenu.toList<MenuModel>();
             return paperDetailViewModel;
         }
 
@@ -126,6 +138,8 @@ namespace eUI.BLL
             paperDetailViewModel.NewList = dtSearchNewList.toList<PaperList>();
             DataTable dtFootLink = paperDAL.SearchFootLink();
             paperDetailViewModel.footLinkList = dtFootLink.toList<FootLinkViewModel>();
+            DataTable dtMenu = paperDAL.SearchMenuList();
+            paperDetailViewModel.menuModelList = dtMenu.toList<MenuModel>();
             return paperDetailViewModel;
         }
 

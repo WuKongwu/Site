@@ -83,12 +83,33 @@
             </a>
             <div class="nav-list">
                 <ul>
-                    <li><a href="/paper" target="_self" title="首页">首页</a></li>
-                    <li><a href="/paper/PayGuide" target="_self" title="购买指南">购买指南</a></li>
-                    <li><a href="/paper/CreditGuarantee" target="_self" title="信誉保证">信誉保证</a></li>
-                    <li><a href="/paper/ToolDownload" target="_self" title="开发工具下载">开发工具下载</a></li>
-                    <li><a href="/paper/TemplateDownload" target="_self" title="毕设模板下载">毕设模板下载</a></li>
-                    <li><a href="/paper/About" target="_self" title="关于我们">关于我们</a></li>
+                    @foreach (var item in Model.menuModelList.Where(a => a.Type == 0).Take(6))
+                    {
+
+                        switch (item.OrderIndex.ToString())
+                        {
+                            case "1":
+                                <li><a href="/paper" target="_self" title="@item.MenuName">@item.MenuName</a></li>
+                                break;
+                            case "2":
+                            <li><a href="/paper/PayGuide" target="_self" title="@item.MenuName">@item.MenuName</a></li>
+                                break;
+                            case "3":
+                            <li><a href="/paper/CreditGuarantee" target="_self" title="@item.MenuName">@item.MenuName</a></li>
+                                break;
+
+                            case "4":
+                            <li><a href="/paper/ToolDownload" target="_self" title="@item.MenuName">@item.MenuName</a></li>
+                                break;
+
+                            case "5":
+                            <li><a href="/paper/TemplateDownload" target="_self" title="@item.MenuName">@item.MenuName</a></li>
+                                break;
+                            case "6":
+                            <li><a href="/paper/About" target="_self" title="@item.MenuName">@item.MenuName</a></li>
+                                break;
+                        }
+                    }
                 </ul>
             </div>
             <div class="nav-list top-user">
@@ -180,14 +201,10 @@
         <div class="container">
             <div class="clearfix">
                 <ul class="menu-bar-fixd">
-                    <li><a href="/paper/List?type=1">asp作品</a></li>
-                    <li><a href="/paper/List?type=2">jsp/java作品</a></li>
-                    <li><a href="/paper/List?type=3">asp.net/c#作品</a></li>
-                    <li><a href="/paper/List?type=4">php作品</a></li>
-                    <li><a href="/paper/List?type=5">vc++作品</a></li>
-                    <li><a href="/paper/List?type=6">安卓作品</a></li>
-                    <li><a href="/paper/List?type=7">ios作品</a></li>
-                    <li><a href="/paper/List?type=8">游戏作品</a></li>
+                    @foreach (var item in Model.menuModelList.Where(a => a.Type == 1).Take(8))
+                    {
+                        <li><a href="/paper/List?type=@item.Id">@item.MenuName</a></li>
+                    }
                 </ul>
             </div>
         </div>
