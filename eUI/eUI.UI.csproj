@@ -152,11 +152,11 @@
     <Compile Include="Controllers\HttpPost.cs" />
     <Compile Include="Controllers\ImageManageController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\OtherPageController.cs" />
     <Compile Include="Controllers\PaperController.cs" />
     <Compile Include="Controllers\PayController.cs" />
     <Compile Include="Controllers\PermissionSetController.cs" />
-    <Compile Include="Controllers\ResultNotifyController.cs" />
     <Compile Include="Controllers\SubPageController.cs" />
     <Compile Include="Controllers\TemplateDownloadController.cs" />
     <Compile Include="Controllers\ToolDownloadController.cs" />
@@ -268,7 +268,6 @@
     <Content Include="Content\themes\Paper\js\jquery.min.js" />
     <Content Include="Content\themes\Paper\js\jquery.qrcode.min.js" />
     <Content Include="Content\themes\Paper\js\jquery.twbsPagination.min.js" />
-    <Content Include="Content\themes\Paper\js\pollingStates.js" />
     <Content Include="easyUI\1.5\jquery.easyui.min.js" />
     <Content Include="easyUI\1.5\themes\black\accordion.css" />
     <Content Include="easyUI\1.5\themes\black\calendar.css" />
@@ -669,6 +668,7 @@
     <Content Include="Js\jquery.fileupload.js" />
     <Content Include="Js\jquery.iframe-transport.js" />
     <Content Include="Js\jquery.ui.widget.js" />
+    <Content Include="Js\Menu\Index.js" />
     <Content Include="Js\OtherPage\otherpage.js" />
     <Content Include="Js\Report\UserColumnReport.js" />
     <Content Include="Js\TemplateDownload\templatedownload.js" />
@@ -1131,7 +1131,7 @@
     <Content Include="Views\Paper\_tmplateDownloadPaging.cshtml" />
     <Content Include="Views\ImageManage\Index.cshtml" />
     <Content Include="Views\OtherPage\Index.cshtml" />
-    <Content Include="Views\ResultNotify\Index.cshtml" />
+    <Content Include="Views\Menu\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1144,14 +1144,6 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\eUI.Model\eUI.Model.csproj">
-      <Project>{8d1b7785-acf7-47ce-8fd0-1c7efe4ebab2}</Project>
-      <Name>eUI.Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WxPayAPI\WxPayAPI\WxPayAPI.csproj">
-      <Project>{25911370-f06a-4956-8ee3-659a7ba14961}</Project>
-      <Name>WxPayAPI</Name>
-    </ProjectReference>
     <ProjectReference Include="..\eUI.BLL\eUI.BLL.csproj">
       <Project>{8b17ff98-f958-415e-8893-499afc73923d}</Project>
       <Name>eUI.BLL</Name>
@@ -1159,6 +1151,14 @@
     <ProjectReference Include="..\eUI.Common\eUI.Common.csproj">
       <Project>{5622f96f-87c3-47a9-b6c7-a82e37f59441}</Project>
       <Name>eUI.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\eUI.Model\eUI.Model.csproj">
+      <Project>{8d1b7785-acf7-47ce-8fd0-1c7efe4ebab2}</Project>
+      <Name>eUI.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WxPayAPI\WxPayAPI\WxPayAPI.csproj">
+      <Project>{25911370-f06a-4956-8ee3-659a7ba14961}</Project>
+      <Name>WxPayAPI</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
