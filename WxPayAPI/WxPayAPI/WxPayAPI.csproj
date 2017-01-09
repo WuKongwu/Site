@@ -41,14 +41,11 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="LitJson">
-      <HintPath>D:\software\litjson_dll\litjson_dll\LitJson.dll</HintPath>
+    <Reference Include="LitJSON">
+      <HintPath>C:\Users\lifei\Desktop\EUIPB\bin\LitJSON.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-    </Reference>
-    <Reference Include="QuickMark">
-      <HintPath>..\..\WxPayDemo\WxPayDemo\bin\QuickMark.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -100,6 +97,7 @@
   <ItemGroup>
     <Content Include="cert\apiclient_cert.p12" />
     <Fakes Include="Fakes\eUI.Model.fakes" />
+    <Fakes Include="Fakes\LitJson.fakes" />
     <None Include="Properties\PublishProfiles\WxPayWebConfig.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -111,10 +109,17 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\eUI.BLL\eUI.BLL.csproj">
+      <Project>{8b17ff98-f958-415e-8893-499afc73923d}</Project>
+      <Name>eUI.BLL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\eUI.Model\eUI.Model.csproj">
       <Project>{8d1b7785-acf7-47ce-8fd0-1c7efe4ebab2}</Project>
       <Name>eUI.Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
