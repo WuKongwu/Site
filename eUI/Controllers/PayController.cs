@@ -1,4 +1,5 @@
-﻿using eUI.BLL;
+﻿using easyUITest.common;
+using eUI.BLL;
 using eUI.Model;
 using eUI.Model.ViewModel;
 using System;
@@ -26,6 +27,7 @@ namespace easyUITest.Controllers
 
         public ActionResult GetPaperDownloadUrl(string orderNumber)
         {
+            LogInfo.WriteLog("9999");
             try
             {
                 if (Session["user"] == null)
@@ -37,8 +39,10 @@ namespace easyUITest.Controllers
                 PayPaperBLL payPaperBLL = new PayPaperBLL();
 
                 PaperDetailViewModel paperDetailViewModel = payPaperBLL.GetPaperDownloadUrl(orderNumber, userGuid);
+                LogInfo.WriteLog("0000");
                 if (paperDetailViewModel.detail.Count > 0)
                 {
+                    LogInfo.WriteLog("1111");
                     string fileName = paperDetailViewModel.detail[0].FileUrl;
                     string code = paperDetailViewModel.detail[0].Code;
                     if (string.IsNullOrEmpty(fileName) || string.IsNullOrEmpty(code))
@@ -47,6 +51,7 @@ namespace easyUITest.Controllers
                     }
                     else
                     {
+                        LogInfo.WriteLog("22222");
                         return Json(new { success = true, fileName = fileName, code = code }, JsonRequestBehavior.AllowGet);
                     }
                 }
@@ -99,5 +104,40 @@ namespace easyUITest.Controllers
                 
             }
         }
+
+        public FilePathResult GetDownLoadPaperUrl(string orderNumber)
+        {
+            if (Session["user"] != null)
+            {
+                List<UserRecord> rows = (List<UserRecord>)Session["user"];
+                string userGuid = rows[0].UserId;
+                PayPaperBLL payPaperBLL = new PayPaperBLL();
+
+                PaperDetailViewModel paperDetailViewModel = payPaperBLL.GetPaperDownloadUrl(orderNumber, userGuid);
+                if (paperDetailViewModel.detail.Count > 0)
+                {
+                    string fileName = paperDetailViewModel.detail[0].FileUrl;
+                    string code = paperDetailViewModel.detail[0].Code;
+                    if (!string.IsNullOrEmpty(fileName) && !string.IsNullOrEmpty(code))
+                    {
+                        string filePath = Server.MapPath("/fileData/" + code + "/" + fileName);
+                        return File(filePath, "text/plain", fileName);
+                    }
+                    else {
+                        return null;
+                    }
+                }
+                else {
+                    return null;
+                }
+
+            }
+            else {
+                return null;
+            }
+
+
+        }
+
     }
 }

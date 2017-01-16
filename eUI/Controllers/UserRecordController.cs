@@ -36,5 +36,21 @@ namespace easyUITest.Controllers
              bool b = bll.DeteleUserRecord(id);
              return Json(new { success = b }, JsonRequestBehavior.AllowGet);
          }
+
+         public ActionResult GetUsersById(int id)
+         {
+             UserRecordBLL bll = new UserRecordBLL();
+             var model = bll.GetUserRecordById(id);
+             return Json(new { success = true, models = model }, JsonRequestBehavior.AllowGet);
+         }
+
+         [Authentication]
+         public ActionResult Update(UserRecord userRecord)
+         {
+             UserRecordBLL bll = new UserRecordBLL();
+             bool b = bll.Update(userRecord);
+             return Json(new { success = b }, JsonRequestBehavior.AllowGet);
+         }
+
     }
 }

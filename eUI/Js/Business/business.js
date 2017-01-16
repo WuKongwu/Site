@@ -81,13 +81,13 @@
 
         if ($("#txtSearchPayDateStart").val() != "" || $("#txtSearchPayDateEnd").val() != "") {
             if ($("#txtSearchPayDateStart").val() == "") {
-                alert("起始时间不能为空！");
+                $.messager.alert("起始时间不能为空！");
                 return false;
             } else if ($("#txtSearchPayDateEnd").val() == "") {
-                alert("截止时间不能为空！");
+                $.messager.alert("截止时间不能为空！");
                 return false;
             } else if ($("#txtSearchPayDateEnd").val() < $("#txtSearchPayDateStart").val()) {
-                alert("截止时间不能小于起始时间！");
+                $.messager.alert("截止时间不能小于起始时间！");
                 return false;
             }
         }

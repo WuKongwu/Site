@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminRecordDAL.cs" />
     <Compile Include="adminDAL.cs" />
     <Compile Include="BusinessDAL.cs" />
     <Compile Include="DBUtility\DBHelper.cs" />

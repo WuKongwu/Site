@@ -1,5 +1,7 @@
 @model eUI.Model.ViewModel.PaperDetailViewModel
-@{ string log = ViewData["login"].ToString();}
+@{ string log = ViewData["login"].ToString();
+ string admin = ViewData["admin"].ToString();
+}
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -9,7 +11,7 @@
     <meta name="renderer" content="webkit">
     <meta name="keywords" content="" />
     <meta name="description" content="" />
-    <title>论文下载</title>
+    <title>毕业僧</title>
     <link href="~/Content/themes/Paper/css/paper01.css" rel="stylesheet" />
     <link href="~/Content/themes/Paper/css/paper.css" rel="stylesheet" />
     <link href="~/Content/themes/Paper/css/paper-main.css" rel="stylesheet" />
@@ -78,7 +80,7 @@
                 {
                     if (item.ImagePosition == "4")
                     {
-                        <img src="@Url.Content("~/ImageManage/" + item.ImageURL)" alt="@item.ImageName" style="width:112px;height:64px">
+                        <img src="@Url.Content("~/ImageManage/" + item.ImageURL)" alt="@item.ImageName" style="width:220px;height:72px">
                     }
                 }
             </a>
@@ -191,47 +193,65 @@
                             </dd>
                         </dl>
                     </div>
-                    @if (Model.detail[0].PayState == null || Model.detail[0].PayState == 0)
-                    {
-                        <div class="paper-pay">
-                            <form id="paperData" action="/Paper/WXPayUrl" method="post">
-                                <input type="hidden" name="Id" value="@Model.detail[0].Id" />
-                                <input type="hidden" name="Code" value="@Model.detail[0].Code" />
-                                <input type="hidden" name="Price" value="@Model.detail[0].Price" />
-                                <input type="hidden" name="Title" value="@Model.detail[0].Title" />
-                                <input type="hidden" name="FileUrl" value="@Model.detail[0].FileUrl" />
-                            </form>
-                            <div class="wx-pay"><a id="WxPay"></a></div>
-                            <div class="tb-pay"><a id="AliPay"></a></div>
-                            <div class="clearfix"></div>
-                        </div>
-                        <div id="paperdownload_div" class="download-div" style="display:none">
-                            <input type="hidden" id="orderNumber" />
-                            <a onclick="DownloadPaperSource()">
-                                <div class="download-num">
-                                    共计购买次数<span>@Model.detail[0].PayNum</span>次
-                                </div>
-                                <div class="download-info">
-                                    点击下载
-                                </div>
-                            </a>
-                        </div>
-                    }
-                    else if (Model.detail[0].PayState == 1)
-                    {
-                        <div id="paperdownload_div" class="download-div">
-                            <input type="hidden" id="orderNumber" value="@Model.detail[0].OrderNumber" />
-                            <a onclick="DownloadPaperSource()">
-                                <div class="download-num">
-                                    共计购买次数<span>@Model.detail[0].PayNum</span>次
-                                </div>
-                                <div class="download-info">
-                                    点击下载
-                                </div>
-                            </a>
-                        </div>
-                    }
 
+                    @if (admin == "1")
+                    {
+                        <div id="paperdownload_div" class="download-div" >
+                            <input type="hidden" id="orderNumber" />
+                            <a href="@Url.Content("~/fileData/" + Model.detail[0].Code + "/" + Model.detail[0].FileUrl)" target="_blank">
+                                <div class="download-num">
+                                    共计购买次数<span>@Model.detail[0].PayNum</span>次
+                                </div>
+                                <div class="download-info">
+                                    点击下载
+                                </div>
+                            </a>
+                        </div>
+                    }
+                    else
+                    {
+
+                        if (Model.detail[0].PayState == null || Model.detail[0].PayState == 0)
+                        {
+                            <div class="paper-pay">
+                                <form id="paperData" action="/Paper/WXPayUrl" method="post">
+                                    <input type="hidden" name="Id" value="@Model.detail[0].Id" />
+                                    <input type="hidden" name="Code" value="@Model.detail[0].Code" />
+                                    <input type="hidden" name="Price" value="@Model.detail[0].Price" />
+                                    <input type="hidden" name="Title" value="@Model.detail[0].Title" />
+                                    <input type="hidden" name="FileUrl" value="@Model.detail[0].FileUrl" />
+                                </form>
+                                <div class="wx-pay"><a id="WxPay"></a></div>
+                                <div class="tb-pay"><a id="AliPay"></a></div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div id="paperdownload_div" class="download-div" style="display:none">
+                                <input type="hidden" id="orderNumber" />
+                                <a onclick="DownloadPaperSource()">
+                                    <div class="download-num">
+                                        共计购买次数<span>@Model.detail[0].PayNum</span>次
+                                    </div>
+                                    <div class="download-info">
+                                        点击下载
+                                    </div>
+                                </a>
+                            </div>
+                        }
+                        else if (Model.detail[0].PayState == 1)
+                        {
+                            <div id="paperdownload_div" class="download-div">
+                                <input type="hidden" id="orderNumber" value="@Model.detail[0].OrderNumber" />
+                                <a onclick="DownloadPaperSource()">
+                                    <div class="download-num">
+                                        共计购买次数<span>@Model.detail[0].PayNum</span>次
+                                    </div>
+                                    <div class="download-info">
+                                        点击下载
+                                    </div>
+                                </a>
+                            </div>
+                        }
+                    }
                 </div>
 
             </div>
@@ -244,7 +264,7 @@
                 <ul class="menu-bar-fixd">
                     @foreach (var item in Model.menuModelList.Where(a => a.Type == 1).Take(8))
                     {
-                        <li><a href="/paper/List?type=@item.Id">@item.MenuName</a></li>
+                        <li><a data-active="@item.Id" href="/paper/List?type=@item.Id">@item.MenuName</a></li>
                     }
                 </ul>
             </div>
@@ -311,7 +331,7 @@
             </div>
         </div>
     </div>
-    <div class="bg">
+    <div class="bg friend-div">
         <div class="container" style="padding-top: 20px;">
             <div class="cont-title">
                 <h3>合作企业</h3>
@@ -357,18 +377,15 @@
                         <span class="register">注册</span>
                     </h1>
                 </div>
-
-
-
                 <div class="socialwrapper">
                     <div id="login_content" class="modal-content">
                         <div class="login-box ">
                             <div class="form-box">
                                 <form name="login" id="login_fom" autocomplete="off" novalidate="novalidate" method="post">
                                     <dl>
-                                        <dt>邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱</dt>
+                                        <dt>用 户 名</dt>
                                         <dd>
-                                            <input id="login_mail" type="text" class="ipt" name="email" placeholder="邮箱地址" value="">
+                                            <input id="login_mail" type="text" class="ipt" name="email" placeholder="用户名" value="">
                                             <label class="reg-error mail-login-error"></label>
                                         </dd>
                                     </dl>

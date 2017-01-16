@@ -1,0 +1,45 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Scripts.Render(eUI.Common.JsFiles.AdminRecord)
+
+
+
+<div style="
+    font-size: 12px;
+    padding: 10px 0;
+">
+    <div>
+        查询条件：<div style="padding: 5px;border: 1px solid #95B8E7;margin: 5px 0;">
+            用户名：<input class="textbox-value easyui-textbox" id="txtSearchUserName" type="text" />
+            邮箱：<input class="textbox-value easyui-textbox" id="txtSearchEmail" type="text" />
+        </div>
+        <button id="btnSearch" class="easyui-linkbutton" style="width:80px;">查询</button>
+        <button id="btnAdd" class="easyui-linkbutton" style="width:80px;" onclick="Add()">添加</button>
+    </div>
+</div>
+<div id="usergrid"></div>
+
+<div id="dlg" class="easyui-window" title="权限管理" data-options="iconCls:'icon-save'" style="width:500px;height:350px;padding:10px;position: relative;">
+    <div><input type="hidden" id="Id" /></div>
+    <div>
+        <div>
+            用户名：<input type="text" class="textbox-value upload-input" id="admin_name" /><br /><br />
+            邮      箱：<input type="text" class="textbox-value upload-input" id="admin_mail" /><br /><br />
+            密      码：<input type="text" class="textbox-value upload-input" id="admin_paswd" />
+        </div>
+    </div>
+
+    <div><button type="button" name="submitName" class="upload-button" id="submit">提交</button></div>
+
+</div>
+<script>
+    function Add() {
+        debugger
+        $("#admin_name").val('');
+        $("#admin_mail").val('');
+        $("#admin_paswd").val('');
+        $("#Id").val('');
+        $('#dlg').window('open');
+    }
+</script>

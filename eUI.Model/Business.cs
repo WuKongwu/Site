@@ -13,6 +13,7 @@ namespace eUI.Model
         public virtual DateTime PayDateStart { get; set; }
         public virtual DateTime PayDateEnd { get; set; }
         public virtual string OrderNumber { get; set; }
+        public virtual string OutTradeNo { get; set; }
         public virtual string Name { get; set; }
         public virtual decimal Price { get; set; }
         public virtual string Title { get; set; }

@@ -39,12 +39,12 @@ namespace WxPayAPI
         {
             _orderNumber =WxPayApi.GenerateOutTradeNo();
             Log.Info(this.GetType().ToString(), "Native pay mode 2 url is producing...");
-            int price = Convert.ToInt32(paperInfo.Price);
+            int price =Convert.ToInt32(paperInfo.Price*100);
             WxPayData data = new WxPayData();
             data.SetValue("body", "启源论文网");//商品描述
             data.SetValue("attach", "QYLW");//附加数据
             data.SetValue("out_trade_no", _orderNumber);//随机字符串
-            data.SetValue("total_fee", price*100);//总金额
+            data.SetValue("total_fee", price);//总金额
             data.SetValue("time_start", DateTime.Now.ToString("yyyyMMddHHmmss"));//交易起始时间
             data.SetValue("time_expire", DateTime.Now.AddMinutes(10).ToString("yyyyMMddHHmmss"));//交易结束时间
             data.SetValue("goods_tag", "QY");//商品标记

@@ -113,7 +113,7 @@ namespace eUI.DAL
 
         public DataTable getMenuData()
         {
-            string menuStr = "SELECT * from menu order by OrderIndex  limit 0, 8";
+            string menuStr = "SELECT * from menu where type='1' order by OrderIndex  limit 0, 8";
             DataTable dtMenuInfo = DBHelper.SearchSql(menuStr);
             return dtMenuInfo;
         }

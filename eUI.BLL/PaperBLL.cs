@@ -39,14 +39,14 @@ namespace eUI.BLL
             return paperInit;
         }
 
-        public PaperListViewModel PaperTypeList(string type,string flag)
+        public PaperListViewModel PaperTypeList(string type,string flag,string key)
         {
             PaperListViewModel paperListViewModel = new PaperListViewModel();
             DataTable dtTypeList = paperDAL.SearchPaperListByType(type);
             DataTable dtSearchRandomList = paperDAL.SearchRandomList(type);
             DataTable dtSearchPaperHotListBytype = paperDAL.SearchPaperHotListBytype(type);
             DataTable dtSubPage = paperDAL.SearchPaperToolPage();
-            DataTable dtTmpPage = paperDAL.SearchPaperTmpPage(flag);
+            DataTable dtTmpPage = paperDAL.SearchPaperTmpPage(flag,key);
 
          
             PaperInfoList PaperInfoList = new PaperInfoList();

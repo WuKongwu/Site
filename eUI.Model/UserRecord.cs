@@ -13,6 +13,7 @@ namespace eUI.Model
         public virtual string Name { get; set; }
         public virtual string Password { get; set; }
         public virtual int Flag { get; set; }
+        public virtual int AdminState { get; set; }
 
     }
 }

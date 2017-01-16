@@ -45,7 +45,7 @@ namespace easyUITest.Controllers
                 ViewData["login"] = string.Empty;
             }
             PaperBLL paperBLL = new PaperBLL();
-            PaperListViewModel paperListViewModel = paperBLL.PaperTypeList(type, flag);
+            PaperListViewModel paperListViewModel = paperBLL.PaperTypeList(type, flag,null);
             paperListViewModel.paperInfoList.total = paperListViewModel.paperInfoList.rows.Count();
             paperListViewModel.paperInfoList.rows = paperListViewModel.paperInfoList.rows.Take(9).ToList<PaperInfo>();
             ViewData["type"] = type;
@@ -98,7 +98,7 @@ namespace easyUITest.Controllers
             }
             PaperBLL paperBLL = new PaperBLL();
 
-            PaperListViewModel paperListViewModel = paperBLL.PaperTypeList(type, null);
+            PaperListViewModel paperListViewModel = paperBLL.PaperTypeList(type, null, null);
             paperListViewModel.paperInfoList.total = paperListViewModel.paperInfoList.rows.Count();
             paperListViewModel.paperInfoList.rows = paperListViewModel.paperInfoList.rows.Skip((pageNo - 1) * 9).Take(9).ToList<PaperInfo>();
 
@@ -143,11 +143,13 @@ namespace easyUITest.Controllers
             {
                 List<UserRecord> list = (List<UserRecord>)Session["user"];
                 ViewData["login"] = list[0].Name;
+                ViewData["admin"] = list[0].AdminState;
                 userId = list[0].UserId;
             }
             else
             {
                 ViewData["login"] = string.Empty;
+                ViewData["admin"] = string.Empty;
             }
             PaperBLL paperBLL = new PaperBLL();
             paperBLL.AddReadCount(id);
@@ -196,7 +198,7 @@ namespace easyUITest.Controllers
                 ViewData["login"] = string.Empty;
             }
             PaperBLL paperBLL = new PaperBLL();
-            PaperListViewModel paperListViewModel = paperBLL.PaperTypeList(null, null);
+            PaperListViewModel paperListViewModel = paperBLL.PaperTypeList(null, null,null);
             ViewBag.ImageModel = paperBLL.SearchImgManage().rows;
             ViewBag.PayGuide = paperBLL.SearchPayGuide();
             return View("PayGuide", paperListViewModel);
@@ -214,7 +216,7 @@ namespace easyUITest.Controllers
                 ViewData["login"] = string.Empty;
             }
             PaperBLL paperBLL = new PaperBLL();
-            PaperListViewModel paperListViewModel = paperBLL.PaperTypeList(null, null);
+            PaperListViewModel paperListViewModel = paperBLL.PaperTypeList(null, null,null);
             ViewBag.ImageModel = paperBLL.SearchImgManage().rows;
             ViewBag.CreditGuarantee = paperBLL.SearchCreditGuarantee();
             return View("CreditGuarantee", paperListViewModel);
@@ -232,7 +234,7 @@ namespace easyUITest.Controllers
                 ViewData["login"] = string.Empty;
             }
             PaperBLL paperBLL = new PaperBLL();
-            PaperListViewModel paperListViewModel = paperBLL.PaperTypeList(null, null);
+            PaperListViewModel paperListViewModel = paperBLL.PaperTypeList(null, null, null);
             paperListViewModel.paperToolPage.total = paperListViewModel.paperToolPage.rows.Count();
             paperListViewModel.paperToolPage.rows = paperListViewModel.paperToolPage.rows.Take(6).ToList<ToolDownloadInfo>();
             ViewBag.ImageModel = paperBLL.SearchImgManage().rows;
@@ -251,7 +253,7 @@ namespace easyUITest.Controllers
             }
             PaperBLL paperBLL = new PaperBLL();
 
-            PaperListViewModel paperListViewModel = paperBLL.PaperTypeList(null, null);
+            PaperListViewModel paperListViewModel = paperBLL.PaperTypeList(null, null,null);
             paperListViewModel.paperToolPage.total = paperListViewModel.paperToolPage.rows.Count();
             paperListViewModel.paperToolPage.rows = paperListViewModel.paperToolPage.rows.Skip((pageNo - 1) * 6).Take(6).ToList<ToolDownloadInfo>();
 
@@ -259,7 +261,7 @@ namespace easyUITest.Controllers
         }
 
 
-        public ViewResult TemplateDownload(string flag)
+        public ViewResult TemplateDownload(string flag,string key)
         {
             if (Session["user"] != null)
             {
@@ -271,7 +273,7 @@ namespace easyUITest.Controllers
                 ViewData["login"] = string.Empty;
             }
             PaperBLL paperBLL = new PaperBLL();
-            PaperListViewModel paperListViewModel = paperBLL.PaperTypeList(null, flag);
+            PaperListViewModel paperListViewModel = paperBLL.PaperTypeList(null, flag,key);
             paperListViewModel.paperTmpPage.total = paperListViewModel.paperTmpPage.rows.Count();
             paperListViewModel.paperTmpPage.rows = paperListViewModel.paperTmpPage.rows.Take(6).ToList<TemplateDownloadInfo>();
 
@@ -321,7 +323,7 @@ namespace easyUITest.Controllers
             }
             PaperBLL paperBLL = new PaperBLL();
 
-            PaperListViewModel paperListViewModel = paperBLL.PaperTypeList(null, flag);
+            PaperListViewModel paperListViewModel = paperBLL.PaperTypeList(null, flag, null);
             paperListViewModel.paperTmpPage.total = paperListViewModel.paperTmpPage.rows.Count();
             paperListViewModel.paperTmpPage.rows = paperListViewModel.paperTmpPage.rows.Skip((pageNo - 1) * 6).Take(6).ToList<TemplateDownloadInfo>();
             if (string.IsNullOrEmpty(flag))
@@ -351,7 +353,7 @@ namespace easyUITest.Controllers
                 ViewData["login"] = string.Empty;
             }
             PaperBLL paperBLL = new PaperBLL();
-            PaperListViewModel paperListViewModel = paperBLL.PaperTypeList(null, null);
+            PaperListViewModel paperListViewModel = paperBLL.PaperTypeList(null, null, null);
             ViewBag.ImageModel = paperBLL.SearchImgManage().rows;
             ViewBag.About = paperBLL.SearchAboutUs();
             return View("About", paperListViewModel);
@@ -373,8 +375,8 @@ namespace easyUITest.Controllers
                 NativePay nativePay = new NativePay();
                 PaperBLL paperBLL = new PaperBLL();
                 PaperDetailViewModel paperDetailViewModel = paperBLL.PaperDetailById(paperInfo.Id.ToString(), userId);
-                string _orderNumber = string.Empty;
-                string url = nativePay.GetPayUrl(paperDetailViewModel.detail[0], out _orderNumber);
+                string _outTradeNo = string.Empty;
+                string url = nativePay.GetPayUrl(paperDetailViewModel.detail[0], out _outTradeNo);
                 if (string.IsNullOrEmpty(url))
                 {
                     return Json(new { success = false, data = "微信生成订单时出现错误，请您重新支付！" }, JsonRequestBehavior.AllowGet);
@@ -387,7 +389,7 @@ namespace easyUITest.Controllers
                     business.UserId = rows[0].UserId;
                     business.Name = rows[0].Name;
                     business.CreateTime = DateTime.Now;
-                    business.OrderNumber = _orderNumber;
+                    business.OutTradeNo = _outTradeNo;
                     business.PaperCode = paperDetailViewModel.detail[0].Code;
                     business.PaperId = paperDetailViewModel.detail[0].Id;
                     business.Title = paperDetailViewModel.detail[0].Title;
@@ -397,7 +399,7 @@ namespace easyUITest.Controllers
                     bool result = paperBLL.CreateBusiness(business);
                     if (result == true)
                     {
-                        return Json(new { success = true, data = url, orderNumber = _orderNumber }, JsonRequestBehavior.AllowGet);
+                        return Json(new { success = true, data = url, orderNumber = _outTradeNo }, JsonRequestBehavior.AllowGet);
                     }
                     else
                     {

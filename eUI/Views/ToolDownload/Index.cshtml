@@ -62,14 +62,14 @@
             if ($("#file1").val().length > 0) {
                 var size = $("#file1")[0].files[0].size;
                 if (CheckFileType($("#file1"), "img")) {
-                    if (size > 5242880) { alert("图片大小不能超过5M！"); } else { var img = ajaxFileUpload("file1"); }
+                    if (size > 5242880) { $.messager.alert("图片大小不能超过5M！"); } else { var img = ajaxFileUpload("file1"); }
 
                 } else {
-                    alert("图片格式支持jpeg、jpg、png、bmp、gif");
+                    $.messager.alert("图片格式支持jpeg、jpg、png、bmp、gif");
                 }
             }
             else {
-                alert("请选择图片");
+                $.messager.alert("请选择图片");
             }
         });
     });
@@ -93,7 +93,7 @@
                 },
                 error: function (data, status, e)//服务器响应失败处理函数
                 {
-                    alert(e);
+                    $.messager.alert(e);
                 }
             }
         )

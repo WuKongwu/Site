@@ -9,7 +9,7 @@ function backToTop() {
 function scrollFixed() {
     if ($(".cont-box").length > 0) {
         var obMenu = $(".cont-box").offset().top + 90;
-        alert("0000");
+
         var win = $(window); //得到窗口对象
         var sc = $(document);//得到document文档对象。
         win.scroll(function () {
@@ -22,24 +22,44 @@ function scrollFixed() {
         })
     }
 }
-function SearchTemplateByType() {
-    var flag = $("#selTmpType").val();
-    var url = $("body").data("website") + "Paper/TemplateDownload?flag=" + flag;
-    window.location.href = url;
-}
+//function SearchTemplateByType() {
+//    var flag = $("#selTmpType").val();
+//    var url = $("body").data("website") + "Paper/TemplateDownload?flag=" + flag;
+//    window.location.href = url;
+//}
 
 
 function InitMenu() {
     var type = $("body").data("type");
-    $(".menu-bar-fixd li a").removeClass("active");
-    $(".menu-bar-fixd li").each(function (index, element) {
-
-        if (type == (index + 1)) {
-            $(element).find("a").addClass("active");
-        }
-
-    });
+   
+    if (type != null && type != "undefined") {
+        
+        $(".menu-bar-fixd li a").removeClass("active");
+        $(".menu-bar-fixd li").each(function (index, element) {
+            var atagType = $(element).find("a").attr("data-active");
+            if (type == atagType) {
+                $(element).find("a").addClass("active");
+            }
+        });
+    }
 }
+
+function InitTemMenu() {
+    var type = $("body").data("tmptype");
+   
+    if (type != null && type != "undefined") {
+
+        $(".tem-ul li a").removeClass("active");
+        $(".tem-ul li").each(function (index, element) {
+            var atagType = $(element).find("a").attr("data-TemType");
+          
+            if (type == atagType) {
+                $(element).find("a").addClass("active");
+            }
+        });
+    }
+}
+
 function getRootPath() {
     var strFullPath = window.document.location.href;
     var strPath = window.document.location.pathname;
@@ -136,6 +156,7 @@ $(function () {
     scrollFixed();
     loginState();
     InitMenu();
+    InitTemMenu();
     $(".flexslider").flexslider();
     var nav = $(".menu-bar"); //得到导航对象
     var win = $(window); //得到窗口对象
@@ -260,47 +281,55 @@ $(function () {
             }
         });
     });
-
-
+    $("#AliPay").off("click").on("click", function () {
+        alert("支付宝支付暂未开通，敬请谅解！");
+    });
+    var WXPayFlag = true;
     $("#WxPay").off("click").on("click", function () {
         var stats = $(".user-log-info").css("display");
 
         if (stats != "none") {
-            var url = $("body").data("website") + "Paper/WXPayUrl";
-            var data = $("#paperData").serialize();
-            $.ajax({
-                url: url,
-                type: "POST",
-                dataType: "json",
-                cache: false,
-                headers: { "Cache-Control": "no-cache" },
-                data: data,
-                success: function (data) {
-                    if (data.success == true) {
-                        var codeUrl = data.data;
+            if (WXPayFlag == true) {
+                WXPayFlag = false;
+                var url = $("body").data("website") + "Paper/WXPayUrl";
+                var data = $("#paperData").serialize();
+                $.ajax({
+                    url: url,
+                    type: "POST",
+                    dataType: "json",
+                    cache: false,
+                    headers: { "Cache-Control": "no-cache" },
+                    data: data,
+                    success: function (data) {
+                        if (data.success == true) {
+                            var codeUrl = data.data;
 
-                        $("#wxPayCode").qrcode({
-                            width: 200,
-                            height: 200,
-                            text: codeUrl
-                        });
-                        $(".modal-content").css("display", "block");
-                        $(".modal-backdrop").css("display", "block");
-                        $("#wx_pay_pop").css("display", "block");
-                      
-                        $("#orderNumber").val(data.orderNumber);
-                        pollingStates();
+                            $("#wxPayCode").qrcode({
+                                width: 200,
+                                height: 200,
+                                text: codeUrl
+                            });
+                            $(".modal-content").css("display", "block");
+                            $(".modal-backdrop").css("display", "block");
+                            $("#wx_pay_pop").css("display", "block");
 
-                    } else {
-                        alert("微信生成订单时出现错误，请您重新支付！");
+                            $("#orderNumber").val(data.orderNumber);
+                            clearInterval(timeFunction);
+                            pollingStates();
+                            WXPayFlag = true;
+                        } else {
+                            alert("微信生成订单时出现错误，请您重新支付！");
+                            WXPayFlag = true;
+                        }
+                    },
+                    error: function (e) {
+                        WXPayFlag = true;
                     }
-                },
-                error: function (e) {
-
-                }
-            });
+                });
+            }
         } else {
-            alert("请您先登录，才能购买商品哦！");
+           
+            $(".top-user .btn-open-login").click();
         }
 
     });
@@ -310,7 +339,6 @@ $(function () {
         $(".modal-content").css("display", "none");
         $("#wx_pay_pop").css("display", "none");
         $("canvas").remove();
-
     });
 
     function checkReg() {
@@ -339,7 +367,7 @@ $(function () {
             $password_error.html("密码不能为空！");
             result = false;
         }
-        if (password.length > 6 && password.length < 12) {
+        if (password.length < 6 || password.length > 12) {
             $password_error.html("密码长度为6-12位字符！");
             result = false;
         }
@@ -362,19 +390,14 @@ $(function () {
         $password_error = $(".pwd-login-error");
 
         if (email == "") {
-            $emailLeb.html("邮箱地址不能为空！");
+            $emailLeb.html("用户名不能为空！");
             result = false;
-        } else {
-            if (!reg.test(email)) {
-                $emailLeb.html("邮箱地址格式不正确！");
-                result = false;
-            }
         }
         if (password == "") {
             $password_error.html("密码不能为空！");
             result = false;
         }
-        if (password.length > 6 && password.length < 12) {
+        if (password.length < 6 || password.length > 12) {
             $password_error.html("密码长度为6-12位字符！");
             result = false;
         }
@@ -456,7 +479,7 @@ $(function () {
                                 $(".nav-list.top-user").css("display", "none");
                                 $(".user-log-info span").html(nameText);
                                 $(".user-log-info").css("display", "flex")
-
+                                window.location.reload();
 
                             });
 

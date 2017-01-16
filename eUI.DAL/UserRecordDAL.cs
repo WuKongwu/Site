@@ -14,7 +14,7 @@ namespace eUI.DAL
         public DataTable getList(UserRecord userRecord)
         {
             StringBuilder sbSI = new StringBuilder();
-            sbSI.Append("select * from userrecord where 1=1 ");
+            sbSI.Append("select * from userrecord where AdminState='0' ");
             if (!string.IsNullOrEmpty(userRecord.Email))
             {
                 sbSI.AppendFormat("AND Email like '%{0}%' ",userRecord.Email);
@@ -32,7 +32,7 @@ namespace eUI.DAL
         public int getCount(UserRecord userRecord)
         {
             StringBuilder sbSI = new StringBuilder();
-            sbSI.Append("select * from userrecord");
+            sbSI.Append("select * from userrecord where AdminState='0' ");
             if (!string.IsNullOrEmpty(userRecord.Email))
             {
                 sbSI.AppendFormat("  where Email like '%{0}%'", userRecord.Email);
@@ -52,6 +52,24 @@ namespace eUI.DAL
                 return true;
             else
                 return false;
+        }
+
+        public bool UpdateUserRecord(UserRecord userRecord)
+        {
+            StringBuilder sbAddUser = new StringBuilder();
+            string GetSessionWithDsmId = string.Format(@"update userrecord set Email ='{0}',Password='{1}'
+                 where AdminState='0' AND Id ='{2}'", userRecord.Email, userRecord.Password, userRecord.Id);
+
+            int iResult = DBHelper.ExcuteNoQuerySql(GetSessionWithDsmId);
+            if (iResult == 1)
+                return true;
+            else
+                return false;
+        }
+        public DataTable GetUserRecordById(int id)
+        {
+            string str = string.Format("select * from  userrecord  where AdminState='0' AND  Id ={0}", id);
+            return DBHelper.SearchSql(str);
         }
     }
 }

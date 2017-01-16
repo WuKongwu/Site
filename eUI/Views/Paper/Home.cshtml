@@ -20,7 +20,7 @@
     <meta name="renderer" content="webkit">
     <meta name="keywords" content="" />
     <meta name="description" content="" />
-    <title>论文下载</title>
+    <title>毕业僧</title>
 
     <link href="~/Content/themes/Paper/css/paper01.css" rel="stylesheet" />
     <link href="~/Content/themes/Paper/css/paper.css" rel="stylesheet" />
@@ -57,7 +57,7 @@
                 {
                     if (item.ImagePosition == "4")
                     {
-                        <img src="@Url.Content("~/ImageManage/" + item.ImageURL)" alt="@item.ImageName" style="width:112px;height:64px">
+                        <img src="@Url.Content("~/ImageManage/" + item.ImageURL)" alt="@item.ImageName" style="width:220px;height:72px">
                     }
                 }
 
@@ -275,214 +275,8 @@
                                     <a href="/paper/List?type=@items.Id">更多作品</a>
                                 </div>
                             </li>
-
                         }
-
-
-
-                        @*<li>
-                                <div class="cover">
-                                    <a href="/paper/List?type=1">
-                                        <div class="extend">asp作品</div>
-                                    </a>
-                                </div>
-                                <div class="extend">
-                                    <ul class="paper-type">
-                                        @foreach (var item in Model.allTypeList)
-                                        {
-                                            if (item.Type == 1)
-                                            {
-                                                countOne += 1;
-                                                if (countOne <= 10)
-                                                {
-                                                    <li><a href="/paper/Detail?id=@item.Id"><font class="date-font">@item.CreateDate.ToString("yyyy-MM-dd")</font>@item.Title</a></li>
-                                                }
-                                            }
-                                        }
-                                    </ul>
-                                </div>
-                                <div class="data">
-                                    <span><i class="iconfont">&#xe60d;</i>@countOne 作品</span>
-                                    <a href="/paper/List?type=1">更多作品</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="cover">
-                                    <a href="/paper/List?type=2">
-                                        <div class="extend">jsp/java作品</div>
-                                    </a>
-                                </div>
-                                <div class="extend">
-                                    <ul class="paper-type">
-
-                                        @foreach (var item in Model.allTypeList)
-                                        {
-
-                                            if (item.Type == 2)
-                                            {
-                                                countTwo += 1;
-                                                if (countTwo <= 10)
-                                                {
-                                                    <li><a href="/paper/Detail?id=@item.Id"><font class="date-font">@item.CreateDate.ToString("yyyy-MM-dd")</font>@item.Title</a></li>}
-                                            }
-                                        }
-                                    </ul>
-                                </div>
-                                <div class="data">
-                                    <span><i class="iconfont">&#xe60d;</i>@countTwo 作品</span>
-                                    <a href="/paper/List?type=2">更多作品</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="cover">
-                                    <a href="/paper/List?type=3">
-                                        <div class="extend">asp.net/c#作品</div>
-                                    </a>
-                                </div>
-                                <div class="extend">
-                                    <ul class="paper-type">
-                                        @foreach (var item in Model.allTypeList)
-                                        {
-                                            if (item.Type == 3)
-                                            {
-                                                countThree += 1;
-                                                if (countThree <= 10)
-                                                {
-                                                    <li><a href="/paper/Detail?id=@item.Id"><font class="date-font">@item.CreateDate.ToString("yyyy-MM-dd")</font>@item.Title</a></li> }
-                                            }
-                                        }
-                                    </ul>
-                                </div>
-                                <div class="data">
-                                    <span><i class="iconfont">&#xe60d;</i>@countThree 作品</span>
-                                    <a href="/paper/List?type=3">更多作品</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="cover">
-                                    <a href="/paper/List?type=4">
-                                        <div class="extend">php作品</div>
-                                    </a>
-                                </div>
-                                <div class="extend">
-                                    <ul class="paper-type">
-                                        @foreach (var item in Model.allTypeList)
-                                        {
-                                            if (item.Type == 4)
-                                            {
-                                                countFour += 1;
-                                                if (countFour <= 10)
-                                                {
-                                                    <li><a href="/paper/Detail?id=@item.Id"><font class="date-font">@item.CreateDate.ToString("yyyy-MM-dd")</font>@item.Title</a></li>}
-                                            }
-                                        }
-                                    </ul>
-                                </div>
-                                <div class="data">
-                                    <span><i class="iconfont">&#xe60d;</i>@countFour 作品</span>
-                                    <a href="/paper/List?type=4">更多作品</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="cover">
-                                    <a href="/paper/List?type=5">
-                                        <div class="extend">vc++作品</div>
-                                    </a>
-                                </div>
-                                <div class="extend">
-                                    <ul class="paper-type">
-                                        @foreach (var item in Model.allTypeList)
-                                        {
-                                            if (item.Type == 5)
-                                            {
-                                                countFive += 1;
-                                                if (countFive <= 10)
-                                                {
-                                                    <li><a href="/paper/Detail?id=@item.Id"><font class="date-font">@item.CreateDate.ToString("yyyy-MM-dd")</font>@item.Title</a></li>}
-                                            }
-                                        }
-                                    </ul>
-                                </div>
-                                <div class="data">
-                                    <span><i class="iconfont">&#xe60d;</i>@countFive 作品</span>
-                                    <a href="/paper/List?type=5">更多作品</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="cover">
-                                    <a href="/paper/List?type=6">
-                                        <div class="extend">安卓作品</div>
-                                    </a>
-                                </div>
-                                <div class="extend">
-                                    <ul class="paper-type">
-                                        @foreach (var item in Model.allTypeList)
-                                        {
-                                            if (item.Type == 6)
-                                            {
-                                                countSix += 1;
-                                                if (countSix <= 10)
-                                                {
-                                                    <li><a href="/paper/Detail?id=@item.Id"><font class="date-font">@item.CreateDate.ToString("yyyy-MM-dd")</font>@item.Title</a></li>}
-                                            }
-                                        }
-                                    </ul>
-                                </div>
-                                <div class="data">
-                                    <span><i class="iconfont">&#xe60d;</i>@countSix 作品</span>
-                                    <a href="/paper/List?type=6">更多作品</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="cover">
-                                    <a href="/paper/List?type=7">
-                                        <div class="extend">ios作品</div>
-                                    </a>
-                                </div>
-                                <div class="extend">
-                                    <ul class="paper-type">
-                                        @foreach (var item in Model.allTypeList)
-                                        {
-                                            if (item.Type == 7)
-                                            {
-                                                countSeven += 1;
-                                                if (countSeven <= 10)
-                                                {
-                                                    <li><a href="/paper/Detail?id=@item.Id"><font class="date-font">@item.CreateDate.ToString("yyyy-MM-dd")</font>@item.Title</a></li>}
-                                            }
-                                        }
-                                    </ul>
-                                </div>
-                                <div class="data">
-                                    <span><i class="iconfont">&#xe60d;</i>@countSeven 作品</span>
-                                    <a href="/paper/List?type=7">更多作品</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="cover">
-                                    <a href="/paper/List?type=8">
-                                        <div class="extend">游戏作品</div>
-                                    </a>
-                                </div>
-                                <div class="extend">
-                                    <ul class="paper-type">
-                                        @foreach (var item in Model.allTypeList)
-                                        {
-                                            if (item.Type == 8)
-                                            {
-                                                countEight += 1;
-                                                if (countEight <= 10)
-                                                {
-                                                    <li><a href="/paper/Detail?id=@item.Id"><font class="date-font">@item.CreateDate.ToString("yyyy-MM-dd")</font>@item.Title</a></li>}
-                                            }
-                                        }
-                                    </ul>
-                                </div>
-                                <div class="data">
-                                    <span><i class="iconfont">&#xe60d;</i>@countEight 作品</span>
-                                    <a href="/paper/List?type=8">更多作品</a>
-                                </div>
-                            </li>*@
+                      
                     </ul>
                 </div>
                 <div class="job-task fr">
@@ -542,7 +336,7 @@
         </div>
     </div>
     <!--社区推荐结束-->
-    <div class="bg">
+    <div class="bg friend-div">
         <div class="container" style="padding-top: 20px;">
             <div class="cont-title">
                 <h3>合作企业</h3>
@@ -583,15 +377,6 @@
                     {
                         <li><a href="/paper/List?type=@item.Id">@item.MenuName</a></li>
                     }
-
-                    @*<li><a href="/paper/List?type=1">asp作品</a></li>
-                    <li><a href="/paper/List?type=2">jsp/java作品</a></li>
-                    <li><a href="/paper/List?type=3">asp.net/c#作品</a></li>
-                    <li><a href="/paper/List?type=4">php作品</a></li>
-                    <li><a href="/paper/List?type=5">vc++作品</a></li>
-                    <li><a href="/paper/List?type=6">安卓作品</a></li>
-                    <li><a href="/paper/List?type=7">ios作品</a></li>
-                    <li><a href="/paper/List?type=8">游戏作品</a></li>*@
                 </ul>
             </div>
         </div>
@@ -611,18 +396,15 @@
                         <span class="register">注册</span>
                     </h1>
                 </div>
-
-
-
                 <div class="socialwrapper">
                     <div id="login_content" class="modal-content">
                         <div class="login-box ">
                             <div class="form-box">
                                 <form name="login" id="login_fom" autocomplete="off" novalidate="novalidate" method="post">
                                     <dl>
-                                        <dt>邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱</dt>
+                                        <dt>用 户 名</dt>
                                         <dd>
-                                            <input id="login_mail" type="text" class="ipt" name="email" placeholder="邮箱地址" value="">
+                                            <input id="login_mail" type="text" class="ipt" name="email" placeholder="用户名" value="">
                                             <label class="reg-error mail-login-error"></label>
                                         </dd>
                                     </dl>

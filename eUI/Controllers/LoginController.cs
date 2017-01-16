@@ -20,14 +20,14 @@ namespace easyUITest.Controllers
     {
         public JsonResult UserLogin(string email, string password)
         {
-            password = Encrypt(password);
+            
             LoginBLL loginBLL = new LoginBLL();
             UserRecordList UserRecordList=new UserRecordList();
             UserRecordList = loginBLL.UserLogin(password, email);
             
             if (UserRecordList == null || UserRecordList.rows.Count <= 0)
             {
-                return Json(JsonResult("false", "登录邮箱或密码不正确！"));
+                return Json(JsonResult("false", "登录的用户名或密码不正确！"));
             }
             else {
                 Session["user"] = UserRecordList.rows;
@@ -51,16 +51,16 @@ namespace easyUITest.Controllers
             {
                 return Json(JsonResult("false", "昵称不能为空！"));
             }
-            else if (string.IsNullOrEmpty(email) || !checkEmail(email))
+            else if (string.IsNullOrEmpty(email))
             {
-                return Json(JsonResult("false", "邮箱格式不正确！"));
+                return Json(JsonResult("false", "邮箱不能为空！"));
             }
-            password = Encrypt(password);
+         
             LoginBLL loginBLL = new LoginBLL();
             int result = loginBLL.RegistUser(password, name, email);
             if (result == -1)
             {
-                return Json(JsonResult("false", "邮箱已注册！"));
+                return Json(JsonResult("false", "该用户已注册！"));
             }
             else if (result == 0)
             {
@@ -79,7 +79,6 @@ namespace easyUITest.Controllers
             if (loginBLL.Activation(userId))
             {
                 return View("success");
-
             }
             else {
                 return View("error");

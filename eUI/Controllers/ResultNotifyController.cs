@@ -1,4 +1,5 @@
 ﻿
+using easyUITest.common;
 using eUI.BLL;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ namespace easyUITest.Controllers
 {
     public class ResultNotifyController : Controller
     {
+       
         // GET: ResultNotify
         public ActionResult Index()
         {
@@ -21,6 +23,7 @@ namespace easyUITest.Controllers
         }
         public string ProcessNotify()
         {
+           
             WxPayData notifyData = GetNotifyData();
             //检查支付结果中transaction_id是否存在
             if (!notifyData.IsSet("transaction_id"))
@@ -45,13 +48,15 @@ namespace easyUITest.Controllers
             //查询订单成功
             else
             {
+               
                 if (BusinessFunction(transaction_id, out_trade_no) == true)
                 {
                     WxPayData res = new WxPayData();
                     res.SetValue("return_code", "SUCCESS");
                     res.SetValue("return_msg", "OK");
-                    Log.Info(this.GetType().ToString(), "order query success : " + res.ToXml());
+                    //Log.Info(this.GetType().ToString(), "order query success : " + res.ToXml());
                     string strXml = res.ToXml();
+
                     return res.ToXml();//如果我们走到这一步了，那就代表，用户已经支付成功了，所以，该干嘛干嘛了。
                 }
                 else {

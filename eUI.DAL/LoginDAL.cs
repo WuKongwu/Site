@@ -16,7 +16,7 @@ namespace eUI.DAL
         public int RegistUser(string password, string name, string email)
         {
             StringBuilder sbSI = new StringBuilder();
-            sbSI.AppendFormat("select * from userrecord where Email='{0}'", email);
+            sbSI.AppendFormat("select * from userrecord where Name='{0}'", name);
             DataTable dt = DBHelper.SearchSql(sbSI.ToString());
             if (dt.Rows.Count == 0)
             {
@@ -50,7 +50,7 @@ namespace eUI.DAL
         public DataTable UserLogin(string password, string email)
         {
             StringBuilder sbSI = new StringBuilder();
-            sbSI.AppendFormat("select * from userrecord  where email='{0}' and password='{1}'", email, password);
+            sbSI.AppendFormat("select * from userrecord  where Name='{0}' and password='{1}'", email, password);
             DataTable dt = DBHelper.SearchSql(sbSI.ToString());
             return dt;
         }

@@ -15,6 +15,7 @@ function CheckPayStates() {
         headers: { "Cache-Control": "no-cache" },
         data: { orderNumber: orderNumber },
         success: function (data) {
+           
             if (data.success == true) {
                 clearInterval(timeFunction);
                 $(".modal-content").css("display", "none");
@@ -36,6 +37,6 @@ function CheckPayStates() {
 function DownloadPaperSource() {
     var orderNumber = $("#orderNumber").val();
     var newWin = window.open('', '_blank');
-    alert(getRootPath() + "Pay/DownLoadPaper?orderNumber=" + orderNumber)
-    newWin.location.href = getRootPath() + "/Pay/DownLoadPaper?orderNumber=" + orderNumber;
+ 
+    newWin.location.href = getRootPath() + "/Pay/GetDownLoadPaperUrl?orderNumber=" + orderNumber;
 }

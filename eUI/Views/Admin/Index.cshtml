@@ -92,67 +92,67 @@
             if ($("#file1").val().length > 0) {
                 var size = $("#file1")[0].files[0].size;
                 if (CheckFileType($("#file1"), "img")) {
-                    if (size > 5242880) { alert("图片大小不能超过5M！"); } else { var img = ajaxFileUpload("file1"); }
+                    if (size > 5242880) { $.messager.alert("图片大小不能超过5M！"); } else { var img = ajaxFileUpload("file1"); }
 
                 } else {
-                    alert("图片格式支持jpeg、jpg、png、bmp、gif");
+                    $.messager.alert("图片格式支持jpeg、jpg、png、bmp、gif");
                 }
 
             }
             else {
-                alert("请选择图片");
+                $.messager.alert("请选择图片");
             }
         });
         $("#uploadImg2").click(function () {
             if ($("#file2").val().length > 0) {
                 var size = $("#file2")[0].files[0].size;
                 if (CheckFileType($("#file2"), "img")) {
-                    if (size > 5242880) { alert("图片大小不能超过5M！"); } else { var img = ajaxFileUpload("file2"); }
+                    if (size > 5242880) { $.messager.alert("图片大小不能超过5M！"); } else { var img = ajaxFileUpload("file2"); }
                 } else {
-                    alert("图片格式支持jpeg、jpg、png、bmp、gif");
+                    $.messager.alert("图片格式支持jpeg、jpg、png、bmp、gif");
                 }
             }
             else {
-                alert("请选择图片");
+                $.messager.alert("请选择图片");
             }
         });
         $("#uploadImg3").click(function () {
             if ($("#file3").val().length > 0) {
                 var size = $("#file3")[0].files[0].size;
                 if (CheckFileType($("#file3"), "img")) {
-                    if (size > 5242880) { alert("图片大小不能超过5M！"); } else { var img = ajaxFileUpload("file3"); }
+                    if (size > 5242880) { $.messager.alert("图片大小不能超过5M！"); } else { var img = ajaxFileUpload("file3"); }
                 } else {
-                    alert("图片格式支持jpeg、jpg、png、bmp、gif");
+                    $.messager.alert("图片格式支持jpeg、jpg、png、bmp、gif");
                 }
             }
             else {
-                alert("请选择图片");
+                $.messager.alert("请选择图片");
             }
         });
         $("#uploadImg4").click(function () {
             if ($("#file4").val().length > 0) {
                 var size = $("#file4")[0].files[0].size;
                 if (CheckFileType($("#file4"), "img")) {
-                    if (size > 5242880) { alert("图片大小不能超过5M！"); } else { var img = ajaxFileUpload("file4"); }
+                    if (size > 5242880) { $.messager.alert("图片大小不能超过5M！"); } else { var img = ajaxFileUpload("file4"); }
                 } else {
-                    alert("图片格式支持jpeg、jpg、png、bmp、gif");
+                    $.messager.alert("图片格式支持jpeg、jpg、png、bmp、gif");
                 }
             }
             else {
-                alert("请选择图片");
+                $.messager.alert("请选择图片");
             }
         });
         $("#uploadImg5").click(function () {
             if ($("#file5").val().length > 0) {
                 var size = $("#file5")[0].files[0].size;
                 if (CheckFileType($("#file5"), "img")) {
-                    if (size > 5242880) { alert("图片大小不能超过5M！"); } else { var img = ajaxFileUpload("file5"); }
+                    if (size > 5242880) { $.messager.alert("图片大小不能超过5M！"); } else { var img = ajaxFileUpload("file5"); }
                 } else {
-                    alert("图片格式支持jpeg、jpg、png、bmp、gif");
+                    $.messager.alert("图片格式支持jpeg、jpg、png、bmp、gif");
                 }
             }
             else {
-                alert("请选择图片");
+                $.messager.alert("请选择图片");
             }
         });
 
@@ -162,26 +162,26 @@
                 var size = $("#Vfile")[0].files[0].size;
                 if (CheckFileType($("#Vfile"), "video")) {
 
-                    if (size > 104857600) { alert("视频大小不能超过100M！"); } else { var img = ajaxFileUpload("Vfile"); }
+                    if (size > 104857600) { $.messager.alert("视频大小不能超过100M！"); } else { var img = ajaxFileUpload("Vfile"); }
                 } else {
-                    alert("视频格式支持mp4、webm、ogg");
+                    $.messager.alert("视频格式支持mp4、webm、ogg");
                 }
             }
             else {
-                alert("请选择视频");
+                $.messager.alert("请选择视频");
             }
         });
         $("#uploadCode").click(function () {
             if ($("#Cfile").val().length > 0) {
                 var size = $("#Cfile")[0].files[0].size;
                 if (CheckFileType($("#Cfile"), "file")) {
-                    if (size > 104857600) { alert("文件大小不能超过100M！"); } else { var img = ajaxFileUpload("Cfile"); }
+                    if (size > 104857600) { $.messager.alert("文件大小不能超过100M！"); } else { var img = ajaxFileUpload("Cfile"); }
                 } else {
-                    alert("代码附件格式支持zip、rar");
+                    $.messager.alert("代码附件格式支持zip、rar");
                 }
             }
             else {
-                alert("请选择代码附件");
+                $.messager.alert("请选择代码附件");
             }
         });
 
@@ -189,13 +189,13 @@
             if ($("#VfileZip").val().length > 0) {
                 var size = $("#VfileZip")[0].files[0].size;
                 if (CheckFileType($("#VfileZip"), "file")) {
-                    if (size > 104857600) { alert("文件大小不能超过100M！"); } else { var img = ajaxFileUpload("VfileZip"); }
+                    if (size > 104857600) { $.messager.alert("文件大小不能超过100M！"); } else { var img = ajaxFileUpload("VfileZip"); }
                 } else {
-                    alert("代码附件格式支持zip、rar");
+                    $.messager.alert("代码附件格式支持zip、rar");
                 }
             }
             else {
-                alert("请选择代码附件");
+                $.messager.alert("请选择代码附件");
             }
         });
 
@@ -222,48 +222,70 @@
                 },
                 error: function (data, status, e)//服务器响应失败处理函数
                 {
-                    alert(e);
+                    $.messager.alert(e);
                 }
             }
         )
 
     }
+    function checkForm() {
+
+        var FileUrl = $("#t_Cfile").text();
+        var Price = $('[name="txtAddPrice"]').val();
+        var Title = $('[name="txtAddTitle"]').val();
+        if (Title == "") {
+            $.messager.alert("温馨提示", "论文标题不能为空！");
+            return false;
+        }
+        if (Price == "") {
+            $.messager.alert("温馨提示", "论文价格不能为空，最小值为0.01 ！");
+            return false;
+        }
+        if (FileUrl == "") {
+            $.messager.alert("温馨提示", "论文源码不能为空,为空不能生成有效的微信支付订单，请先上传论文！");
+            return false;
+        }
+        return true;
+    }
+
     $(function () {
         $('#dlg').window('close');
         $('#submit').click(function (e) {
             debugger
-            var param = {
-                Id: $("#Id").val(),
-                Title: $('[name="txtAddTitle"]').val(),
-                Info: $('[name="txtAddShow"]').val(),
-                Price: $('[name="txtAddPrice"]').val(),
-                Type: $("#txtAddType").val(),
-                DetailInfo: $("#textarea_id").val(),
-                ImgA: $("#t_file1").html(),
-                ImgB: $("#t_file2").html(),
-                ImgC: $("#t_file3").html(),
-                ImgD: $("#t_file4").html(),
-                ImgE: $("#t_file5").html(),
-                Video: $("#t_Vfile").html(),
-                VideoZip: $("#t_VfileZip").html(),
-                ReadNum: $("#txtAddReadNum").val(),
-                PayNum: $("#txtAddPayNum").val(),
-                Version: $("#txtAddVersion").val(),
-                FileUrl: $("#t_Cfile").text(),
-                CreateDate: $("#txtAddDate").val(),
-                Code: $("#t_guid").val()
-            };
-            $.ajax({
-                url: "../Admin/Save",
-                type: 'POST',
-                data: param,
-                success: function (data) {
-                    if (data.success) {
-                        $("#papergrid").datagrid('reload');
-                        $('#dlg').window('close');
+            if (checkForm() == true) {
+                var param = {
+                    Id: $("#Id").val(),
+                    Title: $('[name="txtAddTitle"]').val(),
+                    Info: $('[name="txtAddShow"]').val(),
+                    Price: $('[name="txtAddPrice"]').val(),
+                    Type: $("#txtAddType").val(),
+                    DetailInfo: $("#textarea_id").val(),
+                    ImgA: $("#t_file1").html(),
+                    ImgB: $("#t_file2").html(),
+                    ImgC: $("#t_file3").html(),
+                    ImgD: $("#t_file4").html(),
+                    ImgE: $("#t_file5").html(),
+                    Video: $("#t_Vfile").html(),
+                    VideoZip: $("#t_VfileZip").html(),
+                    ReadNum: $("#txtAddReadNum").val(),
+                    PayNum: $("#txtAddPayNum").val(),
+                    Version: $("#txtAddVersion").val(),
+                    FileUrl: $("#t_Cfile").text(),
+                    CreateDate: $("#txtAddDate").val(),
+                    Code: $("#t_guid").val()
+                };
+                $.ajax({
+                    url: "../Admin/Save",
+                    type: 'POST',
+                    data: param,
+                    success: function (data) {
+                        if (data.success) {
+                            $("#papergrid").datagrid('reload');
+                            $('#dlg').window('close');
+                        }
                     }
-                }
-            });
+                });
+            }
         });
 
     });

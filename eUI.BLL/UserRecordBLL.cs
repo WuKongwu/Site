@@ -25,5 +25,13 @@ namespace eUI.BLL
         {
             return userInfoDAL.DeteleUserRecord(id);
         }
+        public bool Update(UserRecord userRecord)
+        {
+            return userInfoDAL.UpdateUserRecord(userRecord);
+        }
+        public UserRecord GetUserRecordById(int id)
+        {
+            return userInfoDAL.GetUserRecordById(id).toList<UserRecord>().FirstOrDefault();
+        }
     }
 }

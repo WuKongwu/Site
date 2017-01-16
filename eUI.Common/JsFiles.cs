@@ -46,5 +46,6 @@ namespace eUI.Common
         public static string ImageManage = "/Js/ImageManage/Index.js?ver=" + ver;
         public static string OtherPage = "/Js/OtherPage/otherpage.js?ver=" + ver;
         public static string Menu = "/Js/Menu/Index.js?ver=" + ver;
+        public static string AdminRecord = "/Js/AdminRecord/adminRecord.js?ver=" + ver;
     }
 }

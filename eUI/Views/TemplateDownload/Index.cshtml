@@ -92,7 +92,7 @@
                 if (CheckFileType($("#file2"), "img")) {
                     if (size > 5242880)
                     {
-                        alert("图片大小不能超过5M！");
+                        $.messager.alert("图片大小不能超过5M！");
                     } else
                     {
                         var oldFileName = $("#t_file2").html();
@@ -100,11 +100,11 @@
                     }
 
                 } else {
-                    alert("图片格式支持jpeg、jpg、png、bmp、gif");
+                    $.messager.alert("图片格式支持jpeg、jpg、png、bmp、gif");
                 }
             }
             else {
-                alert("请选择图片");
+                $.messager.alert("请选择图片");
             }
         });
 
@@ -114,7 +114,7 @@
                 if (CheckFileType($("#file1"), "file")) {
                     if (size > 104857600)
                     {
-                        alert("文件大小不能超过100M！");
+                        $.messager.alert("文件大小不能超过100M！");
                     }
                     else
                     {
@@ -122,11 +122,11 @@
                         var img = ajaxFileUpload("file1", oldFileName);
                     }
                 } else {
-                    alert("代码附件格式支持zip、rar");
+                    $.messager.alert("代码附件格式支持zip、rar");
                 }
             }
             else {
-                alert("请选择代码附件");
+                $.messager.alert("请选择代码附件");
             }
         });
 
@@ -151,7 +151,7 @@
                 },
                 error: function (data, status, e)//服务器响应失败处理函数
                 {
-                    alert(e);
+                    $.messager.alert(e);
                 }
             }
         )

@@ -11,7 +11,7 @@
     <meta name="renderer" content="webkit">
     <meta name="keywords" content="" />
     <meta name="description" content="" />
-    <title>启源科技|毕设模板下载</title>
+    <title>毕业僧</title>
     <link href="~/Content/themes/Paper/css/paper01.css" rel="stylesheet" />
     <link href="~/Content/themes/Paper/css/paper.css" rel="stylesheet" />
     <link href="~/Content/themes/Paper/css/paper-main.css" rel="stylesheet" />
@@ -91,7 +91,7 @@
                 {
                     if (item.ImagePosition == "4")
                     {
-                        <img src="@Url.Content("~/ImageManage/" + item.ImageURL)" alt="@item.ImageName" style="width:112px;height:64px">
+                        <img src="@Url.Content("~/ImageManage/" + item.ImageURL)" alt="@item.ImageName" style="width:220px;height:72px">
                     }
                 }
             </a>
@@ -204,7 +204,20 @@
                     <div class="clearfix"></div>
                 </div>
                 <div class="paper-detail box3">
-                    @Html.DropDownList("selTmpType", ViewData["selTmpType"] as SelectList, new { @class = "selected", @onchange="SearchTemplateByType()"})
+                    <ul class="tem-ul">
+                        @foreach (var item in ViewData["selTmpType"] as SelectList)
+                        {
+                            <li><a data-temtype="@item.Value" href="@Url.Content("~/paper/TemplateDownload?flag=" + @item.Value)">@item.Text</a></li>
+                        }
+
+                    </ul>
+                    <div class="search-div">
+                        <form class="sform" method="get" action="/Paper/TemplateDownload">
+                            <input class="search-input" type="text" name="key" placeholder="标题查询" /><button class="type-search">当前类别查询</button>
+                            <input type="hidden" name="flag" value="@ViewData["Tmptype"]" />
+                        </form>
+                    </div>
+                    @*@Html.DropDownList("selTmpType", ViewData["selTmpType"] as SelectList, new { @class = "selected", @onchange="SearchTemplateByType()"})*@
 
                     <div class="opuslist bd">
                         <ul class="clearfix detail-ul" data-count="@Model.paperTmpPage.total">
@@ -254,7 +267,7 @@
             </div>
         </div>
     </div>
-    <div class="bg">
+    <div class="bg friend-div">
         <div class="container" style="padding-top: 20px;">
             <div class="cont-title">
                 <h3>合作企业</h3>
@@ -306,9 +319,9 @@
                             <div class="form-box">
                                 <form name="login" id="login_fom" autocomplete="off" novalidate="novalidate" method="post">
                                     <dl>
-                                        <dt>邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱</dt>
+                                        <dt>用 户 名</dt>
                                         <dd>
-                                            <input id="login_mail" type="text" class="ipt" name="email" placeholder="邮箱地址" value="">
+                                            <input id="login_mail" type="text" class="ipt" name="email" placeholder="用户名" value="">
                                             <label class="reg-error mail-login-error"></label>
                                         </dd>
                                     </dl>

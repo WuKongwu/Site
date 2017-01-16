@@ -8,7 +8,7 @@ body, button, textarea, select, input, pre {
 }
 
 body {
-    background: #f7f7f7;
+    background: #ffffff;
     -webkit-text-size-adjust: none;
 }
 
@@ -107,7 +107,7 @@ a {
 }
 
 .bg-gray {
-    background: #ededed;
+    background: #ffffff;
 }
 
 .bg-white {

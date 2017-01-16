@@ -142,8 +142,10 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="common\LogInfo.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AdminLoginController.cs" />
+    <Compile Include="Controllers\AdminRecordController.cs" />
     <Compile Include="Controllers\Authentication.cs" />
     <Compile Include="Controllers\BusinessController.cs" />
     <Compile Include="Controllers\ExportController.cs" />
@@ -269,6 +271,7 @@
     <Content Include="Content\themes\Paper\js\jquery.min.js" />
     <Content Include="Content\themes\Paper\js\jquery.qrcode.min.js" />
     <Content Include="Content\themes\Paper\js\jquery.twbsPagination.min.js" />
+    <Content Include="Content\themes\Paper\js\pollingStates.js" />
     <Content Include="easyUI\1.5\jquery.easyui.min.js" />
     <Content Include="easyUI\1.5\themes\black\accordion.css" />
     <Content Include="easyUI\1.5\themes\black\calendar.css" />
@@ -656,6 +659,7 @@
     <Content Include="Img\TableDrawTable.png" />
     <Content Include="Img\tools-sprites-trans.gif" />
     <Content Include="Img\weixin-qrcode.jpg" />
+    <Content Include="Js\AdminRecord\adminRecord.js" />
     <Content Include="Js\Admin\admin.js" />
     <Content Include="Js\Admin\admin.login.js" />
     <Content Include="Js\ajaxfileupload.js" />
@@ -680,6 +684,7 @@
     <Content Include="Content\themes\Paper\js\jquery.core.js" />
     <Content Include="Style\handler\UplodHandler.ashx" />
     <Content Include="Controllers\UplodHandler.ashx" />
+    <Content Include="DEVToolData\NavicatforMySQL.zip" />
     <None Include="Properties\PublishProfiles\easyUITestRelease.pubxml" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Img\banner.jpg" />
@@ -1132,10 +1137,11 @@
     <Content Include="Views\ImageManage\Index.cshtml" />
     <Content Include="Views\OtherPage\Index.cshtml" />
     <Content Include="Views\Menu\Index.cshtml" />
+    <Content Include="Views\ResultNotify\Index.cshtml" />
+    <Content Include="Views\AdminRecord\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="common\" />
     <Folder Include="Models\" />
     <Folder Include="Style\kindeditor-4.1.7\attached\" />
     <Folder Include="Views\PaperSite\" />

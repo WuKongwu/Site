@@ -2,24 +2,24 @@
 
 .header {
     width: 100%;
-    height: 65px;
+    height: 72px;
     background-color: #fff;
     position: relative;
     z-index: 1000;
-    box-shadow: 0 0 5px rgba(0,0,0,.2);
+    margin-top: 10px;
 }
 
     .header .nav {
         padding: 0;
-        height: 65px;
+        height: 72px;
         margin-left: auto;
         margin-right: auto;
         color: #fff;
     }
 
 .logo {
-    width: 145px;
-    height: 65px;
+    width: 220px;
+    height: 72px;
     display: block;
     float: left;
 }
@@ -37,11 +37,11 @@
         }
 
         .header > .nav > .nav-list > ul > li:hover, .header .nav > .nav-list > ul > li.active {
-            background: #f9f9f9;
+            background: #fff;
         }
 
-            .header > .nav > .nav-list > ul > li:hover, .header .nav > .nav-list > ul > li.active a {
-                color: #51b7ec;
+            .header > .nav > .nav-list > ul > li:hover, .header .nav > .nav-list > ul > li.active  {
+                border-bottom:3px solid #ea562e;
             }
 
         .header > .nav > .nav-list > ul > li > ul {
@@ -121,8 +121,18 @@
                 color: #999;
             }
 
+.friend-div {
+    background-color: #323232;
+    border-top: 5px solid #ea562e;
+    opacity: .9;
+}
+
+    .friend-div .cont-title h3 {
+        color: #999;
+    }
+
 .footer {
-    background-color: #fff;
+    background-color: #323232;
     filter: alpha(opacity=90);
     opacity: .9;
     font-size: 12px;
@@ -130,6 +140,7 @@
     width: 100%;
     float: left;
     box-shadow: 0 0 5px rgba(0,0,0,.2);
+    border-top: 1px solid #999;
 }
 
 .footer-info a {
@@ -436,32 +447,45 @@
             line-height: 35px;
         }
 
-        .job-task .job-task-list li > p {
-            position: absolute;
-            top: 155px;
-            left: 0;
-            right: 0;
-            height: 30px;
-            font-size: 12px;
-            color: #fff;
-            background: rgba(0,0,0,0.7);
-            line-height: 30px;
-            overflow: hidden;
-            padding: 0;
-            -webkit-transition: all 0.3s ease;
-            -moz-transition: all 0.3s ease;
-            -o-transition: all 0.3s ease;
-            transition: all 0.3s ease;
-            text-align: center;
+        .job-task .job-task-list li a:hover {
+            color: #ea562e;
+            text-decoration: underline;
         }
 
-            .job-task .job-task-list li > p a {
-                color: #fff;
-            }
+.dtl-list li a:hover {
+    color: #ea562e;
+    text-decoration: underline;
+}
+/*.job-task .job-task-list li > a:hover {
+             text-decoration: none;
+            border-bottom:1px solid #ea562e
+            }*/
+.job-task .job-task-list li > p {
+    position: absolute;
+    top: 155px;
+    left: 0;
+    right: 0;
+    height: 30px;
+    font-size: 12px;
+    color: #fff;
+    background: rgba(0,0,0,0.7);
+    line-height: 30px;
+    overflow: hidden;
+    padding: 0;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    text-align: center;
+}
 
-        .job-task .job-task-list li:hover p {
-            top: 125px;
-        }
+    .job-task .job-task-list li > p a {
+        color: #fff;
+    }
+
+.job-task .job-task-list li:hover p {
+    top: 125px;
+}
 /*star-list*/
 .star {
     width: 540px;
@@ -589,16 +613,14 @@
     }
 
     .main-box > ul > li > .cover {
-        width: 280px;
-        height: 40px;
-        position: relative;
-        overflow: hidden;
-        background-color: #B0E0E6;
-        border-radius: 10px;
-        padding: 0px 0;
-        border-bottom-right-radius: 0;
-        border-bottom-left-radius: 0;
-        font-family: cursive;
+        border-radius: 20px;
+        width: 282px;
+        font-size: 20px;
+        height: 36px;
+        line-height: 36px;
+        color: #ea562e;
+        border: 1px solid;
+        margin-bottom: 10px;
     }
 
 .extend ul.paper-type li a {
@@ -614,8 +636,8 @@
 
 .main-box > ul > li > .cover > a {
     display: block;
-    padding: 8px 10px;
     text-align: center;
+    color: #ea562e;
 }
 
 .main-box > ul > li > .cover > .extend {
@@ -671,7 +693,7 @@
     }
 
     .main-box > ul > li > .data > span {
-        margin-right: 130px;
+        margin-right: 150px;
     }
 
         .main-box > ul > li > .data > span > i {
@@ -998,53 +1020,12 @@
 }
 
 .box3 {
-    padding: 5px 0;
-    background: -webkit-gradient(linear, 0% 20%, 0% 92%, from(#fff), to(#f3f3f3), color-stop(.1,#fff));
-    background: -webkit-linear-gradient(0 0 270deg, #f3f3f3, #f3f3f3 10%, #fff);
-    background: -moz-linear-gradient(0 0 270deg, #f3f3f3, #f3f3f3 10%, #fff);
-    background: -o-linear-gradient(0 0 270deg, #f3f3f3, #f3f3f3 10%, #fff);
-    -webkit-border-radius: 60px / 5px;
-    -moz-border-radius: 60px / 5px;
-    border-radius: 60px / 5px;
-    -webkit-box-shadow: 0px 0px 35px rgba(0, 0, 0, 0.1) inset;
-    -moz-box-shadow: 0px 0px 35px rgba(0, 0, 0, 0.1) inset;
-    box-shadow: 0px 0px 35px rgba(0, 0, 0, 0.1) inset;
+    
+    background: #fff;
+   
 }
 
-    .box3:before {
-        content: '';
-        width: 50px;
-        height: 50px;
-        top: 0;
-        right: 0;
-        position: absolute;
-        display: inline-block;
-        z-index: -1;
-        -webkit-box-shadow: 10px -10px 8px rgba(0, 0, 0, 0.2);
-        -moz-box-shadow: 10px -10px 8px rgba(0, 0, 0, 0.2);
-        box-shadow: 10px -10px 8px rgba(0, 0, 0, 0.2);
-        -webkit-transform: rotate(2deg) translate(-14px,20px) skew(-20deg);
-        -moz-transform: rotate(2deg) translate(-14px,20px) skew(-20deg);
-        -o-transform: rotate(2deg) translate(-14px,20px) skew(-20deg);
-        transform: rotate(2deg) translate(-14px,20px) skew(-20deg);
-    }
-
-    .box3:after {
-        width: 100px;
-        height: 100px;
-        top: 0;
-        left: 0;
-        position: absolute;
-        z-index: -1;
-        display: inline-block;
-        -webkit-box-shadow: -10px -10px 10px rgba(0, 0, 0, 0.2);
-        -moz-box-shadow: -10px -10px 10px rgba(0, 0, 0, 0.2);
-        box-shadow: -10px -10px 10px rgba(0, 0, 0, 0.2);
-        -webkit-transform: rotate(2deg) translate(20px,25px) skew(20deg);
-        -moz-transform: rotate(2deg) translate(20px,25px) skew(20deg);
-        -o-transform: rotate(2deg) translate(20px,25px) skew(20deg);
-        transform: rotate(2deg) translate(20px,25px) skew(20deg);
-    }
+   
 
 .video-div {
     margin: auto;
@@ -1055,7 +1036,9 @@
 .paper-list-dtl {
     padding: 50px;
 }
-
+.menu-bar-fixd {
+height:57px;
+}
     .paper-list-dtl li {
         height: 40px;
         line-height: 40px;
@@ -1124,7 +1107,6 @@
 
 .date-font {
     font-size: 13px;
-    color: #51b7ec;
     margin-right: 10px;
 }
 
@@ -1137,8 +1119,9 @@
 }
 
 a .extend {
-    font-size: 16px;
+    font-size: 19px;
     font-weight: bold;
+    letter-spacing: 1px;
 }
 
 .menu-bar-fixd > li:first-child {
@@ -1151,15 +1134,14 @@ a .extend {
 }
 
     .menu-bar-fixd li a {
-        border-left: 3px solid rgba(0, 0, 0, 0);
-        color: #51b7ec;
+        color: #333;
         display: block;
         font-family: 'Lucida Console';
         font-size: 18px;
         line-height: 54px;
         padding: 0 25px;
         text-decoration: none;
-        text-transform: uppercase;
+        /*text-transform: uppercase;*/
         text-align: center;
         font-family: helvetica, arial, sans-serif;
         font-weight: bold;
@@ -1167,13 +1149,11 @@ a .extend {
     }
 
         .menu-bar-fixd li a:hover {
-            text-shadow: -1px -1px white, 1px 1px #333;
-            background-color: #f9f9f9;
+            border-bottom: 3px solid #ea562e;
         }
 
         .menu-bar-fixd li a.active {
-            background: #eee;
-            text-shadow: -1px -1px white, 1px 1px #333;
+            border-bottom: 3px solid #ea562e;
         }
 
 .menu-bg {
@@ -1184,6 +1164,7 @@ a .extend {
 
     .menu-bg .container {
         padding: 0;
+        width: 100%;
     }
 
 .menufixed {
@@ -1192,6 +1173,10 @@ a .extend {
     width: 100%;
     z-index: 500;
 }
+
+    .menufixed .container {
+        width: 100%;
+    }
 
 .pagination {
     display: inline-block;
@@ -1602,17 +1587,18 @@ button {
     width: 300px;
     height: 68px;
     position: relative;
-        margin: auto;
+    margin: auto;
     margin-top: 45px;
 }
+
     .download-div a {
-    cursor: pointer;
-    display: block;
-    height: 68px;
-    
+        cursor: pointer;
+        display: block;
+        height: 68px;
     }
+
 .download-num {
-        position: absolute;
+    position: absolute;
     width: 210px;
     height: 22px;
     bottom: 8px;
@@ -1621,8 +1607,8 @@ button {
     text-align: center;
     overflow: hidden;
     line-height: 22px;
-
 }
+
 .download-info {
     position: absolute;
     width: 66px;
@@ -1633,5 +1619,28 @@ button {
     text-align: center;
     overflow: hidden;
     line-height: 22px;
-
 }
+.tem-ul {
+        height: 35px;
+    width: 100%;
+    vertical-align: middle;
+    display: inline-block;
+    font-size: 16px;
+    padding: 10px;
+}
+    .tem-ul li {
+    display: inline-block;
+    padding: 10px 5px;
+    font-size: 15px;
+   
+    }
+        .tem-ul li a {
+         color: #333;
+         font-weight:bold;
+        }
+         .tem-ul li a:hover{
+        border-bottom:2px solid #ea562e
+        }
+           .tem-ul li a.active{
+        border-bottom:2px solid #ea562e
+        }

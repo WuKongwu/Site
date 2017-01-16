@@ -109,17 +109,17 @@
             var size = $("#Cfile")[0].files[0].size;
             if (CheckFileType($("#Cfile"), "img")) {
                 if (size > 5242880) {
-                    alert("图片大小不能超过5M！");
+                    $.messager.alert("图片大小不能超过5M！");
                 } else {
                     var oldFileName = $("#t_Cfile").html();
                     var img = ajaxFileUpload("Cfile",oldFileName);
                 }
             } else {
-                alert("图片格式支持jpeg、jpg、png、bmp、gif");
+                $.messager.alert("图片格式支持jpeg、jpg、png、bmp、gif");
             }
         }
         else {
-            alert("请选择图片");
+            $.messager.alert("请选择图片");
         }
     });
     function CheckFileType(file, type) {
@@ -187,7 +187,7 @@ function ajaxFileUpload(val, oldFileName) {
             },
             error: function (data, status, e)//服务器响应失败处理函数
             {
-                alert(e);
+                $.messager.alert(e);
             }
         }
     )
