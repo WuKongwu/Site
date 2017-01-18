@@ -31,9 +31,9 @@ function scrollFixed() {
 
 function InitMenu() {
     var type = $("body").data("type");
-   
+
     if (type != null && type != "undefined") {
-        
+
         $(".menu-bar-fixd li a").removeClass("active");
         $(".menu-bar-fixd li").each(function (index, element) {
             var atagType = $(element).find("a").attr("data-active");
@@ -46,13 +46,13 @@ function InitMenu() {
 
 function InitTemMenu() {
     var type = $("body").data("tmptype");
-   
+
     if (type != null && type != "undefined") {
 
         $(".tem-ul li a").removeClass("active");
         $(".tem-ul li").each(function (index, element) {
             var atagType = $(element).find("a").attr("data-TemType");
-          
+
             if (type == atagType) {
                 $(element).find("a").addClass("active");
             }
@@ -118,6 +118,8 @@ function InitTopMenu() {
     var url = window.location.pathname;
     $item = $(".header .nav-list li");
     $item.removeClass("active");
+    var item = url.split("paper");
+
     if (url.indexOf("PayGuide") >= 0) {
         $item.eq(1).addClass("active");
     } else if (url.indexOf("CreditGuarantee") >= 0) {
@@ -130,7 +132,9 @@ function InitTopMenu() {
         $item.eq(4).addClass("active");
     } else if (url.indexOf("About") >= 0) {
         $item.eq(5).addClass("active");
-    } else {
+    } else if (url.indexOf("paper/index") >= 0) {
+        $item.eq(0).addClass("active");
+    } else if (item[1] == "") {
         $item.eq(0).addClass("active");
     }
 }
@@ -149,15 +153,14 @@ function loginState() {
 }
 
 
-
-
 $(function () {
     InitTopMenu();
     scrollFixed();
     loginState();
     InitMenu();
     InitTemMenu();
-    $(".flexslider").flexslider();
+  
+
     var nav = $(".menu-bar"); //得到导航对象
     var win = $(window); //得到窗口对象
     var sc = $(document);//得到document文档对象。
@@ -328,7 +331,7 @@ $(function () {
                 });
             }
         } else {
-           
+
             $(".top-user .btn-open-login").click();
         }
 

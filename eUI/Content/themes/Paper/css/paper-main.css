@@ -37,12 +37,14 @@
         }
 
         .header > .nav > .nav-list > ul > li:hover, .header .nav > .nav-list > ul > li.active {
+            color: #ea562e;
             background: #fff;
         }
 
-            .header > .nav > .nav-list > ul > li:hover, .header .nav > .nav-list > ul > li.active  {
-                border-bottom:3px solid #ea562e;
-            }
+        .header > .nav > .nav-list > ul > li:hover, .header .nav > .nav-list > ul > li.active {
+            color: #ea562e;
+            border-bottom: 3px solid #ea562e;
+        }
 
         .header > .nav > .nav-list > ul > li > ul {
             background: #f5f5f5;
@@ -51,6 +53,14 @@
             .header > .nav > .nav-list > ul > li > ul > li > a {
                 color: #34495e;
             }
+
+        .header > .nav > .nav-list > ul > li.active > a {
+            color: #ea562e;
+        }
+
+        .header > .nav > .nav-list > ul > li > a:hover {
+            color: #ea562e;
+        }
 
 .header > .nav > .top-user > ul > li > ul > li:hover {
     background: #e5e5e5;
@@ -155,8 +165,8 @@
 (27,24): run-time error CSS1062: Expected semicolon or closing curly-brace, found ':'
  */
 .topad > .flexslider {
-    float: left;
-    position: relative;
+    width: 1180px;
+    margin: auto;
 }
 
     .topad > .flexslider > .slides > li {
@@ -189,22 +199,34 @@
     }
 
     .topad > .flexslider > .flex-direction-nav > li > .flex-next {
-        background-position: -45px 0;
+        background-position: -43px -80px;
+        opacity: 1;
+        right: 10px;
     }
 
         .topad > .flexslider > .flex-direction-nav > li > .flex-next:hover {
-            background-position: -45px -80px;
+            background-position: -43px -80px;
+            opacity: 1;
+            right: 10px;
         }
 
-    .topad > .flexslider > .flex-direction-nav > li > .flex-prev:hover {
-        background-position: 0 -80px;
+    .topad > .flexslider > .flex-direction-nav > li > .flex-prev {
+        background-position: 0px -80px;
+        opacity: 1;
+        left: 10px;
     }
 
+        .topad > .flexslider > .flex-direction-nav > li > .flex-prev:hover {
+            background-position: 0px -80px;
+            left: 10px;
+        }
+
     .topad > .flexslider > .flex-control-nav {
-        width: 100%;
+        width: 1180px;
         position: absolute;
-        bottom: -40px;
+        bottom: 20px;
         text-align: center;
+        z-index: 500;
     }
 
         .topad > .flexslider > .flex-control-nav > li {
@@ -213,7 +235,6 @@
             border-radius: 5px;
             height: 10px;
             display: inline-block;
-            background: #333;
             opacity: 0.75;
         }
 
@@ -633,6 +654,10 @@
     border-bottom: 1px dashed #eee;
 }
 
+    .extend ul.paper-type li a:hover {
+     color: #ea562e;
+            text-decoration: underline;
+    }
 
 .main-box > ul > li > .cover > a {
     display: block;
@@ -1020,12 +1045,10 @@
 }
 
 .box3 {
-    
     background: #fff;
-   
 }
 
-   
+
 
 .video-div {
     margin: auto;
@@ -1036,31 +1059,33 @@
 .paper-list-dtl {
     padding: 50px;
 }
+
 .menu-bar-fixd {
-height:57px;
+    height: 57px;
 }
-    .paper-list-dtl li {
+
+.paper-list-dtl li {
+    height: 40px;
+    line-height: 40px;
+    width: 670px;
+    margin: 0;
+    border: 1px solid #eee;
+    padding-left: 25px;
+    background-color: #FFF;
+    border-radius: 5px;
+    position: relative;
+}
+
+    .paper-list-dtl li a {
+        display: block;
         height: 40px;
         line-height: 40px;
         width: 670px;
-        margin: 0;
-        border: 1px solid #eee;
-        padding-left: 25px;
-        background-color: #FFF;
-        border-radius: 5px;
-        position: relative;
     }
 
-        .paper-list-dtl li a {
-            display: block;
-            height: 40px;
-            line-height: 40px;
-            width: 670px;
-        }
-
-        .paper-list-dtl li:nth-child(2n) {
-            margin-left: 25px;
-        }
+    .paper-list-dtl li:nth-child(2n) {
+        margin-left: 25px;
+    }
 
 .list-title-span {
     display: block;
@@ -1150,10 +1175,12 @@ a .extend {
 
         .menu-bar-fixd li a:hover {
             border-bottom: 3px solid #ea562e;
+            color: #ea562e;
         }
 
         .menu-bar-fixd li a.active {
             border-bottom: 3px solid #ea562e;
+            color: #ea562e;
         }
 
 .menu-bg {
@@ -1620,27 +1647,41 @@ button {
     overflow: hidden;
     line-height: 22px;
 }
+
 .tem-ul {
-        height: 35px;
+    height: 35px;
     width: 100%;
     vertical-align: middle;
     display: inline-block;
     font-size: 16px;
     padding: 10px;
 }
+
     .tem-ul li {
-    display: inline-block;
-    padding: 10px 5px;
-    font-size: 15px;
-   
+        display: inline-block;
+        padding: 10px 5px;
+        font-size: 15px;
     }
+
         .tem-ul li a {
-         color: #333;
-         font-weight:bold;
+            color: #333;
+            font-weight: bold;
         }
-         .tem-ul li a:hover{
-        border-bottom:2px solid #ea562e
-        }
-           .tem-ul li a.active{
-        border-bottom:2px solid #ea562e
-        }
+
+            .tem-ul li a:hover {
+                border-bottom: 2px solid #ea562e;
+                color: #ea562e;
+            }
+
+            .tem-ul li a.active {
+                border-bottom: 2px solid #ea562e;
+                color: #ea562e;
+            }
+
+.topad {
+    width: 100%;
+    position: relative;
+   
+    margin-top: 10px;
+    padding: 10px 0;
+}

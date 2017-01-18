@@ -25,14 +25,15 @@
     <link href="~/Content/themes/Paper/css/paper01.css" rel="stylesheet" />
     <link href="~/Content/themes/Paper/css/paper.css" rel="stylesheet" />
     <link href="~/Content/themes/Paper/css/paper-main.css" rel="stylesheet" />
-    <link href="~/Content/themes/Paper/css/flexslider.css" rel="stylesheet" />
+    @*<link href="~/Content/themes/Paper/css/flexslider.css" rel="stylesheet" />*@
     <link href="~/Content/themes/Paper/css/qqfixd.css" rel="stylesheet" />
-
+    <link href="~/Content/themes/Paper/css/swiper.css" rel="stylesheet" />
 
     <script src="~/Content/themes/Paper/js/jquery.min.js"></script>
-    <script src="~/Content/themes/Paper/js/jquery.flexslider-min.js"></script>
+    @*<script src="~/Content/themes/Paper/js/jquery.flexslider-min.js"></script>*@
     <script src="~/Content/themes/Paper/js/jquery.flip.min.js"></script>
     <script src="~/Content/themes/Paper/js/jquery.core.js"></script>
+    <script src="~/Content/themes/Paper/js/swiper-2.1.0.js"></script>
     <style>
         .socialwrapper .modal-content {
             padding: 10px 20px 20px 20px;
@@ -91,12 +92,6 @@
                                 break;
                         }
                     }
-                    @*<li><a href="/paper" target="_self" title="首页">首页</a></li>
-                        <li><a href="/paper/PayGuide" target="_self" title="购买指南">购买指南</a></li>
-                        <li><a href="/paper/CreditGuarantee" target="_self" title="信誉保证">信誉保证</a></li>
-                        <li><a href="/paper/ToolDownload" target="_self" title="开发工具下载">开发工具下载</a></li>
-                        <li><a href="/paper/TemplateDownload" target="_self" title="毕设模板下载">毕设模板下载</a></li>
-                        <li><a href="/paper/About" target="_self" title="关于我们">关于我们</a></li>*@
                 </ul>
 
             </div>
@@ -125,27 +120,71 @@
         </div>
 
     </div>
+    @*<div class="bg">
+        <div class="container topad clearfix">
+        轮播图代码开始
+        <div class="flexslider">
+        <ul class="slides">
+        @foreach (var item in ViewBag.ImageModel)
+        {
+        if (item.ImagePosition == "0")
+        {
+        <li>
+        <img class="thumbs" src="@Url.Content("~/ImageManage/" + item.ImageURL)" style="width:1180px;height:400px" alt="@item.ImageName" />
+        </li>
+        }
+        }
+        </ul>
+        </div>
+        </div>
+        </div>*@
+    <!--轮播图代码结束-->
     <div class="bg">
         <div class="container topad clearfix">
-            <!--轮播图代码开始-->
-            <div class="flexslider">
-                <ul class="slides">
+            <!-- 如果需要导航按钮 -->
+            
+           
+            <div class="swiper-button-prev"><a class="arrow-left s-arrow" href="javascript:void(0)"></a></div>
+
+            <div class="swiper-button-next"><a class="arrow-right s-arrow" href="javascript:void(0)"></a></div>
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
                     @foreach (var item in ViewBag.ImageModel)
                     {
                         if (item.ImagePosition == "0")
                         {
-                            <li>
-                                <a href="#" target="_blank">
-                                    <img class="thumbs" src="@Url.Content("~/ImageManage/" + item.ImageURL)" style="width:1180px;height:400px" alt="@item.ImageName" />
-                                </a>
-                            </li>
+                            <div class="swiper-slide">
+                                <img class="thumbs" src="@Url.Content("~/ImageManage/" + item.ImageURL)" style="width:1180px;height:400px" alt="@item.ImageName" />
+                            </div>
                         }
                     }
-                </ul>
+                </div>
+                <div class="pagination"></div>
             </div>
         </div>
     </div>
-    <!--轮播图代码结束-->
+    <script type="text/javascript">
+        var mySwiper = new Swiper('.swiper-container', {
+            loop: true,
+            autoplay: 5000,
+            speed: 500,
+            pagination: '.pagination',
+            paginationClickable: true,
+            nextButton: '.swiper-button-next',
+
+            prevButton: '.swiper-button-prev',
+        });
+        $('.arrow-left').on('click', function (e) {
+            e.preventDefault();
+            mySwiper.swipePrev();
+        });
+        $('.arrow-right').on('click', function (e) {
+            e.preventDefault();
+            mySwiper.swipeNext();
+        });
+    </script>
+
+
     <div class="bg  bg-gray">
         <div class="container">
             <div class="cont-box">
@@ -161,62 +200,6 @@
                         </li>
                     }
 
-                    @*<li>
-                            <a href="/paper/List?type=1">
-                                <img class="thumbs" src="~/Content/themes/Paper/css/images/asp-log.png" width="60" height="60" />
-                                <h2>asp作品</h2>
-                                <p>&nbsp;</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/paper/List?type=2">
-                                <img class="thumbs" src="~/Content/themes/Paper/css/images/jsp-log.png" width="60" height="60" />
-                                <h2>jsp/java作品</h2>
-                                <p>&nbsp;</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/paper/List?type=3">
-                                <img class="thumbs" src="~/Content/themes/Paper/css/images/asp.net-log.png" width="60" height="60" />
-                                <h2>asp.net/c#作品</h2>
-                                <p>&nbsp;</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/paper/List?type=4">
-                                <img class="thumbs" src="~/Content/themes/Paper/css/images/php-log.png" width="60" height="60" />
-                                <h2>php作品</h2>
-                                <p>&nbsp;</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/paper/List?type=5">
-                                <img class="thumbs" src="~/Content/themes/Paper/css/images/vc-log.png" width="60" height="60" />
-                                <h2>vc++作品</h2>
-                                <p>&nbsp;</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/paper/List?type=6">
-                                <img class="thumbs" src="~/Content/themes/Paper/css/images/Android-log.png" width="60" height="60" />
-                                <h2>安卓作品</h2>
-                                <p>&nbsp;</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/paper/List?type=7">
-                                <img class="thumbs" src="~/Content/themes/Paper/css/images/ios-log.png" width="60" height="60" />
-                                <h2>ios作品</h2>
-                                <p>&nbsp;</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/paper/List?type=8">
-                                <img class="thumbs" src="~/Content/themes/Paper/css/images/game-log.png" width="60" height="60" />
-                                <h2>游戏作品</h2>
-                                <p>&nbsp;</p>
-                            </a>
-                        </li>*@
                 </ul>
             </div>
         </div>
@@ -276,7 +259,7 @@
                                 </div>
                             </li>
                         }
-                      
+
                     </ul>
                 </div>
                 <div class="job-task fr">
