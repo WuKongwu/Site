@@ -2,13 +2,6 @@
 @{
 
     int countOne = 0;
-    int countTwo = 0;
-    int countThree = 0;
-    int countFour = 0;
-    int countFive = 0;
-    int countSix = 0;
-    int countSeven = 0;
-    int countEight = 0;
     string log = ViewData["login"].ToString();
 }
 <!DOCTYPE html>
@@ -120,30 +113,9 @@
         </div>
 
     </div>
-    @*<div class="bg">
-        <div class="container topad clearfix">
-        轮播图代码开始
-        <div class="flexslider">
-        <ul class="slides">
-        @foreach (var item in ViewBag.ImageModel)
-        {
-        if (item.ImagePosition == "0")
-        {
-        <li>
-        <img class="thumbs" src="@Url.Content("~/ImageManage/" + item.ImageURL)" style="width:1180px;height:400px" alt="@item.ImageName" />
-        </li>
-        }
-        }
-        </ul>
-        </div>
-        </div>
-        </div>*@
-    <!--轮播图代码结束-->
     <div class="bg">
         <div class="container topad clearfix">
             <!-- 如果需要导航按钮 -->
-            
-           
             <div class="swiper-button-prev"><a class="arrow-left s-arrow" href="javascript:void(0)"></a></div>
 
             <div class="swiper-button-next"><a class="arrow-right s-arrow" href="javascript:void(0)"></a></div>
@@ -240,6 +212,8 @@
                                 </div>
                                 <div class="extend">
                                     <ul class="paper-type">
+                                        @{     countOne = 0;
+                                        }
                                         @foreach (var item in Model.allTypeList)
                                         {
                                             if (item.Type == items.Id)
