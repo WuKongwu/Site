@@ -74,12 +74,12 @@
     });
 
     //查询
-    $("#btnSearchType").click(function () {
-
+    $("#btnSearch").click(function () {
         //刷新grid
         $('#Templategrid').datagrid('load',
             {
-                TemplateType: $("#txtSearchType").val(),
+                Title: $("#txtSearchTitle").val(),
+                TypeId: $("#selTmpType").val(),
             });
     });
 

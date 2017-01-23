@@ -18,17 +18,17 @@ namespace eUI.DAL
             sbSI.AppendFormat("select paper.* ,menu.MenuName from  paper  LEFT JOIN menu ON paper.Type=menu.Id  Where 1=1 ");
             if (!string.IsNullOrEmpty(paperList.Number))
             {
-                sbSI.AppendFormat("AND CODE LIKE '%{0}%'", paperList.Number);
+                sbSI.AppendFormat("AND VERSION LIKE '%{0}%'", paperList.Number);
             }
-            else if (!string.IsNullOrEmpty(paperList.Title))
+             if (!string.IsNullOrEmpty(paperList.Title))
             {
                 sbSI.AppendFormat("AND TITLE LIKE '%{0}%'", paperList.Title);
             }
-            else if (paperList.Type != 0)
+             if (paperList.Type != 0)
             {
-                sbSI.AppendFormat("AND TYPE = '{0}'", paperList.Type);
+                sbSI.AppendFormat("AND paper.TYPE = '{0}'", paperList.Type);
             }
-            else if (paperList.StTime > DateTime.MinValue && paperList.EdTime > DateTime.MinValue)
+             if (paperList.StTime > DateTime.MinValue && paperList.EdTime > DateTime.MinValue)
             {
                 sbSI.AppendFormat("AND CreateDate BETWEEN '{0}' AND '{1}'", paperList.StTime, paperList.EdTime);
             }
@@ -44,17 +44,17 @@ namespace eUI.DAL
             sbSI.AppendFormat("select paper.* ,menu.MenuName from  paper  LEFT JOIN menu ON paper.Type=menu.Id  Where 1=1 ");
             if (!string.IsNullOrEmpty(paperList.Number))
             {
-                sbSI.AppendFormat("AND CODE LIKE '%{0}%'", paperList.Number);
+                sbSI.AppendFormat("AND VERSION LIKE '%{0}%'", paperList.Number);
             }
-            else if (!string.IsNullOrEmpty(paperList.Title))
+             if (!string.IsNullOrEmpty(paperList.Title))
             {
                 sbSI.AppendFormat("AND TITLE LIKE '%{0}%'", paperList.Title);
             }
-            else if (paperList.Type != 0)
+             if (paperList.Type != 0)
             {
-                sbSI.AppendFormat("AND TYPE = '{0}'", paperList.Type);
+                sbSI.AppendFormat("AND paper.TYPE = '{0}'", paperList.Type);
             }
-            else if (paperList.StTime > DateTime.MinValue && paperList.EdTime > DateTime.MinValue)
+             if (paperList.StTime > DateTime.MinValue && paperList.EdTime > DateTime.MinValue)
             {
                 sbSI.AppendFormat("AND CreateDate BETWEEN '{0}' AND '{1}'", paperList.StTime, paperList.EdTime);
             }

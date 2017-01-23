@@ -21,7 +21,7 @@ namespace eUI.DAL
             {
                 sbSI.AppendFormat(" AND Name LIKE '%{0}%'", userRecord.Name);
             }
-            else if (!string.IsNullOrEmpty(userRecord.Email))
+            if (!string.IsNullOrEmpty(userRecord.Email))
             {
                 sbSI.AppendFormat(" AND Email LIKE '%{0}%'", userRecord.Email);
             }
@@ -38,7 +38,7 @@ namespace eUI.DAL
             {
                 sbSI.AppendFormat(" AND Name LIKE '%{0}%'", userRecord.Name);
             }
-            else if (!string.IsNullOrEmpty(userRecord.Email))
+             if (!string.IsNullOrEmpty(userRecord.Email))
             {
                 sbSI.AppendFormat(" AND Email LIKE '%{0}%'", userRecord.Email);
             }

@@ -19,7 +19,7 @@ namespace eUI.DAL
             {
                 sbSI.AppendFormat("AND Email like '%{0}%' ",userRecord.Email);
             }
-            else if (!string.IsNullOrEmpty(userRecord.Name))
+             if (!string.IsNullOrEmpty(userRecord.Name))
             {
                 sbSI.AppendFormat("AND NAME like '%{0}%' ", userRecord.Name);
             }
@@ -35,7 +35,7 @@ namespace eUI.DAL
             sbSI.Append("select * from userrecord where AdminState='0' ");
             if (!string.IsNullOrEmpty(userRecord.Email))
             {
-                sbSI.AppendFormat("  where Email like '%{0}%'", userRecord.Email);
+                sbSI.AppendFormat("  AND Email like '%{0}%'", userRecord.Email);
             }
 
             DataTable dtBusiness = DBHelper.SearchSql(sbSI.ToString());

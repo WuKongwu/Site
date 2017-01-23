@@ -19,20 +19,20 @@ namespace eUI.DAL
             {
                 sbSI.AppendFormat("AND NAME LIKE '%{0}%'", business.Name);
             }
-            else if (!string.IsNullOrEmpty(business.OrderNumber))
+             if (!string.IsNullOrEmpty(business.OrderNumber))
             {
                 sbSI.AppendFormat("AND OrderNumber LIKE '%{0}%'", business.OrderNumber);
             }
-            else if (!string.IsNullOrEmpty(business.Title))
+             if (!string.IsNullOrEmpty(business.Title))
             {
                 sbSI.AppendFormat("AND Title LIKE '%{0}%'", business.Title);
             }
-            else if (!string.IsNullOrEmpty(business.Version))
+             if (!string.IsNullOrEmpty(business.Version))
             {
                 sbSI.AppendFormat("AND Version LIKE '%{0}%'", business.Version);
             }
 
-            else if (business.PayDateStart > DateTime.MinValue && business.PayDateEnd > DateTime.MinValue)
+             if (business.PayDateStart > DateTime.MinValue && business.PayDateEnd > DateTime.MinValue)
             {
                 sbSI.AppendFormat("AND PayDate BETWEEN '{0}' AND '{1}'", business.PayDateStart, business.PayDateEnd);
             }
@@ -43,19 +43,19 @@ namespace eUI.DAL
             {
                 sbSII.AppendFormat("AND NAME LIKE '%{0}%'", business.Name);
             }
-            else if (!string.IsNullOrEmpty(business.OrderNumber))
+             if (!string.IsNullOrEmpty(business.OrderNumber))
             {
                 sbSII.AppendFormat("AND OrderNumber LIKE '%{0}%'", business.OrderNumber);
             }
-            else if (!string.IsNullOrEmpty(business.Title))
+             if (!string.IsNullOrEmpty(business.Title))
             {
                 sbSII.AppendFormat("AND Title LIKE '%{0}%'", business.Title);
             }
-            else if (!string.IsNullOrEmpty(business.Version))
+             if (!string.IsNullOrEmpty(business.Version))
             {
                 sbSII.AppendFormat("AND Version LIKE '%{0}%'", business.Version);
             }
-            else if (business.PayDateStart > DateTime.MinValue && business.PayDateEnd > DateTime.MinValue)
+             if (business.PayDateStart > DateTime.MinValue && business.PayDateEnd > DateTime.MinValue)
             {
                 sbSII.AppendFormat("AND PayDate BETWEEN '{0}' AND '{1}'", business.PayDateStart, business.PayDateEnd);
             }
@@ -74,15 +74,15 @@ namespace eUI.DAL
             {
                 sbSI.AppendFormat("AND NAME LIKE '%{0}%'", business.Name);
             }
-            else if (!string.IsNullOrEmpty(business.OrderNumber))
+             if (!string.IsNullOrEmpty(business.OrderNumber))
             {
                 sbSI.AppendFormat("AND OrderNumber LIKE '%{0}%'", business.OrderNumber);
             }
-            else if (!string.IsNullOrEmpty(business.Title))
+             if (!string.IsNullOrEmpty(business.Title))
             {
                 sbSI.AppendFormat("AND Title LIKE '%{0}%'", business.Title);
             }
-            else if (business.PayDateStart > DateTime.MinValue && business.PayDateEnd > DateTime.MinValue)
+             if (business.PayDateStart > DateTime.MinValue && business.PayDateEnd > DateTime.MinValue)
             {
                 sbSI.AppendFormat("AND PayDate BETWEEN '{0}' AND '{1}'", business.PayDateStart, business.PayDateEnd);
             }

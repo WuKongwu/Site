@@ -18,10 +18,11 @@ namespace eUI.DAL
             sbSI.AppendFormat("select A.*,B.TemplateType as Type from  templatedownload as A LEFT JOIN templatetype as B ON A.TypeId=B.Id  Where 1=1 ");
             if (!string.IsNullOrEmpty(templateDownloadInfo.Title))
             {
-                sbSI.AppendFormat("AND TITLE LIKE '%{0}%'", templateDownloadInfo.Title);
+                sbSI.AppendFormat("AND  A.TITLE LIKE '%{0}%'", templateDownloadInfo.Title);
             }
-            else if (!string.IsNullOrEmpty(templateDownloadInfo.Type)) {
-                sbSI.AppendFormat("AND TYPE='{0}'", templateDownloadInfo.Type);
+            if (templateDownloadInfo.TypeId != 0)
+            {
+                sbSI.AppendFormat("AND  A.TypeId='{0}'", templateDownloadInfo.TypeId);
             }
             sbSI.Append(" ORDER BY CreateDate DESC");
             sbSI.AppendFormat(" limit {0},{1};", (templateDownloadInfo.page - 1) * templateDownloadInfo.rows, templateDownloadInfo.rows);
@@ -63,11 +64,11 @@ namespace eUI.DAL
             sbSI.AppendFormat("select A.*,B.TemplateType as Type from  templatedownload as A LEFT JOIN templatetype as B ON A.TypeId=B.Id  Where 1=1 ");
             if (!string.IsNullOrEmpty(templateDownloadInfo.Title))
             {
-                sbSI.AppendFormat("AND TITLE LIKE '%{0}%'", templateDownloadInfo.Title);
+                sbSI.AppendFormat("AND  A.TITLE LIKE '%{0}%'", templateDownloadInfo.Title);
             }
-            else if (!string.IsNullOrEmpty(templateDownloadInfo.Type))
+            if (templateDownloadInfo.TypeId != 0)
             {
-                sbSI.AppendFormat("AND TYPE='{0}'", templateDownloadInfo.Type);
+                sbSI.AppendFormat("AND  A.TypeId='{0}'", templateDownloadInfo.TypeId);
             }
 
             DataTable dtBusiness = DBHelper.SearchSql(sbSI.ToString());

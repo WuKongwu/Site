@@ -33,10 +33,10 @@ namespace eUI.DAL
             if (!string.IsNullOrEmpty(paperSubPage.payguide)) {
                 sbAddUser = sbAddUser.Append("payguide='" + paperSubPage.payguide + "'");
             }
-            else if (!string.IsNullOrEmpty(paperSubPage.creditguarantee)) {
+             if (!string.IsNullOrEmpty(paperSubPage.creditguarantee)) {
                 sbAddUser = sbAddUser.Append("creditguarantee='" + paperSubPage.creditguarantee + "'");
             }
-            else if (!string.IsNullOrEmpty(paperSubPage.aboutus))
+             if (!string.IsNullOrEmpty(paperSubPage.aboutus))
             {
                 sbAddUser = sbAddUser.Append("aboutus='" + paperSubPage.aboutus + "'");
             }

@@ -159,7 +159,9 @@ $(function () {
     loginState();
     InitMenu();
     InitTemMenu();
-  
+    if ($(".flexslider").length > 0) {
+        $(".flexslider").flexslider();
+    }
 
     var nav = $(".menu-bar"); //得到导航对象
     var win = $(window); //得到窗口对象
